@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "O": {
+      "item": "minecraft:oak_slab"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "  O",
+    "SOS",
+    "S S"
+  ],
+  "result": {
+    "count": 2,
+    "item": "furnitureplan:oak_chairs"
+  },
+  "show_notification": true
+}

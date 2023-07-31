@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/tables",
+  "textures": {
+    "particle": "minecraft:block/cobblestone"
+  }
+}
