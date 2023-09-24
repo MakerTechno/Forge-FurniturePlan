@@ -33,10 +33,11 @@ import org.jetbrains.annotations.NotNull;
 import java.util.function.Supplier;
 
 @SuppressWarnings("deprecation")
-public class ChairBlock extends HorizontalDirectionalBlock implements EntityBlock {
+public class ChairBlock extends HorizontalDirectionalBlock implements EntityBlock, IWeatheringCopper {
     public final RegistryObject<BlockEntityType<ChairBlockEntity>> TYPE;
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
-    private final Block base;
+    private final IWeatheringCopper.WeatherState weatherState;
+    public final Block base;
     private final BlockState baseState;
     private final Supplier<BlockState> stateSupplier;
     private static VoxelShape SHAPE_N = Shapes.empty();
@@ -88,6 +89,11 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
         this.base = state.getBlock();
         this.baseState = state;
         this.stateSupplier = () -> state;
+        if (this.base instanceof WeatheringCopperFullBlock){
+            this.weatherState = ((WeatheringCopperFullBlock) this.base).getAge();
+        } else {
+            this.weatherState = WeatherState.OXIDIZED;
+        }
     }
 
     @Override
@@ -142,6 +148,8 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
         }
     }
 
+
+
     @Override
     public void onRemove(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state1, boolean b) {
         if (!state.is(state1.getBlock())) {
@@ -194,7 +202,8 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 
     @Override
     public boolean isRandomlyTicking(@NotNull BlockState state) {
-        return this.base.isRandomlyTicking(state);
+        if (!(base instanceof WeatheringCopperFullBlock)) return this.base.isRandomlyTicking(state);
+        else return IWeatheringCopper.getNext(state.getBlock()).isPresent();
     }
 
     @Override
@@ -204,7 +213,8 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
 
     @Override
     public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource source) {
-        this.base.randomTick(state, level, pos, source);
+        if (!(base instanceof WeatheringCopperFullBlock)) this.base.randomTick(state, level, pos, source);
+        else this.onRandomTick(state, level, pos, source);
     }
 
     @Override
@@ -228,6 +238,11 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
     @SuppressWarnings("all")
     private @NotNull Block getModelBlock() {
         return this.getModelState().getBlock();
+    }
+
+    @Override
+    public WeatherState getAge() {
+        return this.weatherState;
     }
 
 }

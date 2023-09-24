@@ -15,6 +15,8 @@ import net.minecraftforge.registries.RegistryObject;
 import nowebsite.maker.furnitureplan.entities.RideableArmor;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.function.Supplier;
+
 public class ChairBlockEntity extends BlockEntity {
     public RideableArmor sit = null;
     private int count = 0;
@@ -35,7 +37,7 @@ public class ChairBlockEntity extends BlockEntity {
     public InteractionResult useAct(Level level, BlockPos pos, Player player, Direction direction) {
         if (this.sit == null) {
             this.count = 0;
-            this.sit = new RideableArmor(EntityType.ARMOR_STAND, level);
+            this.sit = new RideableArmor(EntityType.ARMOR_STAND, level, () -> this);
             this.sit.setPos((double)pos.getX() + 0.5, (double)pos.getY() - 1.26, (double)pos.getZ() + 0.5);
             int rotate = switch (direction) {
                 case EAST -> 90;
