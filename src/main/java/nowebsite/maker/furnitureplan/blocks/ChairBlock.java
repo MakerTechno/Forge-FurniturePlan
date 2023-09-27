@@ -187,11 +187,10 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
             resultA = InteractionResult.PASS;
         }
 
-        InteractionResult resultB = this.baseState.use(level, player, hand, hitResult);
-        if (resultA.equals(resultB)) {
-            return resultA;
+        if (resultA.equals(InteractionResult.FAIL)) {
+            return this.baseState.use(level, player, hand, hitResult);
         } else {
-            return resultB == InteractionResult.SUCCESS ? resultA : resultB;
+            return resultA;
         }
     }
 
@@ -241,7 +240,7 @@ public class ChairBlock extends HorizontalDirectionalBlock implements EntityBloc
     }
 
     @Override
-    public WeatherState getAge() {
+    public @NotNull WeatherState getAge() {
         return this.weatherState;
     }
 
