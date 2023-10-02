@@ -30,6 +30,15 @@ public class ModLootTableProvider extends LootTableProvider {
         for (RegistryObject<? extends Block> ro : FoldingRegistration.getTableBlockLists()) {
             resourceLocations.add(ro.getId());
         }
+        for (RegistryObject<? extends Block> ro : FoldingRegistration.getColumnBlockLists()) {
+            resourceLocations.add(ro.getId());
+        }
+        for (RegistryObject<? extends Block> ro : FoldingRegistration.getCarvedColumnBlockLists()) {
+            resourceLocations.add(ro.getId());
+        }
+        for (RegistryObject<? extends Block> ro : FoldingRegistration.getLightedColumnBlockLists()) {
+            resourceLocations.add(ro.getId());
+        }
     }
 
     public ModLootTableProvider(PackOutput output) {
@@ -49,6 +58,9 @@ class ModCustomBlockLootProvider extends BlockLootSubProvider {
     protected void generate() {
         this.addKindsProp(FoldingRegistration.getChairBlockLists());
         this.addKindsProp(FoldingRegistration.getTableBlockLists());
+        this.addKindsProp(FoldingRegistration.getColumnBlockLists());
+        this.addKindsProp(FoldingRegistration.getCarvedColumnBlockLists());
+        this.addKindsProp(FoldingRegistration.getLightedColumnBlockLists());
     }
 
     protected @NotNull Iterable<Block> getKnownBlocks() {

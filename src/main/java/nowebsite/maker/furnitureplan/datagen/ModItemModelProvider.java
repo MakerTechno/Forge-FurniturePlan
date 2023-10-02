@@ -24,8 +24,29 @@ public class ModItemModelProvider extends ItemModelProvider {
                 "layer0",
                 modLoc("item/test_item")
         );
+        singleTexture(
+                ItemRegistration.GRAVER.get().toString(),
+                mcLoc("item/generated"),
+                "layer0",
+                modLoc("item/graver")
+        );
+        singleTexture(
+                ItemRegistration.SAWDUST.get().toString(),
+                mcLoc("item/generated"),
+                "layer0",
+                modLoc("item/sawdust")
+        );
+        singleTexture(
+                ItemRegistration.DETRITUS.get().toString(),
+                mcLoc("item/generated"),
+                "layer0",
+                modLoc("item/detritus")
+        );
         add(FoldingRegistration.getChairItemLists());
         add(FoldingRegistration.getTableItemLists());
+        add(FoldingRegistration.getColumnItemLists());
+        add(FoldingRegistration.getCarvedColumnItemLists());
+        add(FoldingRegistration.getLightedColumnItemLists());
     }
 
     public void add(@NotNull List<RegistryObject<? extends Item>> list) {

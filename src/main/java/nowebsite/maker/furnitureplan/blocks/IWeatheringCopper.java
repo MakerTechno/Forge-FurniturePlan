@@ -6,8 +6,7 @@ import com.google.common.collect.ImmutableBiMap;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockState;
-import nowebsite.maker.furnitureplan.registry.kindsblock.ChairBlockRegistration;
-import nowebsite.maker.furnitureplan.registry.kindsblock.TableBlockRegistration;
+import nowebsite.maker.furnitureplan.registry.kindsblock.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
@@ -23,6 +22,18 @@ public interface IWeatheringCopper extends WeatheringCopper {
             .put(TableBlockRegistration.CUT_COPPER_TABLES.get(), TableBlockRegistration.EXPOSED_CUT_COPPER_TABLES.get())
             .put(TableBlockRegistration.EXPOSED_CUT_COPPER_TABLES.get(), TableBlockRegistration.WEATHERED_CUT_COPPER_TABLES.get())
             .put(TableBlockRegistration.WEATHERED_CUT_COPPER_TABLES.get(), TableBlockRegistration.OXIDIZED_CUT_COPPER_TABLES.get())
+
+            .put(ColumnBlockRegistration.CUT_COPPER_COLUMNS.get(), ColumnBlockRegistration.EXPOSED_CUT_COPPER_COLUMNS.get())
+            .put(ColumnBlockRegistration.EXPOSED_CUT_COPPER_COLUMNS.get(), ColumnBlockRegistration.WEATHERED_CUT_COPPER_COLUMNS.get())
+            .put(ColumnBlockRegistration.WEATHERED_CUT_COPPER_COLUMNS.get(), ColumnBlockRegistration.OXIDIZED_CUT_COPPER_COLUMNS.get())
+
+            .put(CarvedColumnBlockRegistration.CUT_COPPER_CARVED_COLUMNS.get(), CarvedColumnBlockRegistration.EXPOSED_CUT_COPPER_CARVED_COLUMNS.get())
+            .put(CarvedColumnBlockRegistration.EXPOSED_CUT_COPPER_CARVED_COLUMNS.get(), CarvedColumnBlockRegistration.WEATHERED_CUT_COPPER_CARVED_COLUMNS.get())
+            .put(CarvedColumnBlockRegistration.WEATHERED_CUT_COPPER_CARVED_COLUMNS.get(), CarvedColumnBlockRegistration.OXIDIZED_CUT_COPPER_CARVED_COLUMNS.get())
+
+            .put(LightedColumnBlockRegistration.CUT_COPPER_LIGHTED_COLUMNS.get(), LightedColumnBlockRegistration.EXPOSED_CUT_COPPER_LIGHTED_COLUMNS.get())
+            .put(LightedColumnBlockRegistration.EXPOSED_CUT_COPPER_LIGHTED_COLUMNS.get(), LightedColumnBlockRegistration.WEATHERED_CUT_COPPER_LIGHTED_COLUMNS.get())
+            .put(LightedColumnBlockRegistration.WEATHERED_CUT_COPPER_LIGHTED_COLUMNS.get(), LightedColumnBlockRegistration.OXIDIZED_CUT_COPPER_LIGHTED_COLUMNS.get())
             .build());
 
     Supplier<BiMap<Block, Block>> PREVIOUS_BY_BLOCK = Suppliers.memoize(() -> NEXT_BY_BLOCK.get().inverse());

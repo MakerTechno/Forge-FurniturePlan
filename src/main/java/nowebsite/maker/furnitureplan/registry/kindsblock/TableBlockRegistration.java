@@ -4,17 +4,18 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraftforge.registries.RegistryObject;
 import nowebsite.maker.furnitureplan.blocks.TableBlock;
+import nowebsite.maker.furnitureplan.blocks.WeatheredCopperTable;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.registry.ItemRegistration;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 public class TableBlockRegistration {
-    public static void init() {
-    }
+    public static void init() {}
 
     public static final RegistryObject<TableBlock> OAK_TABLES = BlockRegistration.BLOCKS.register("oak_tables", () -> usageTableBlock(Blocks.OAK_PLANKS));
     public static final RegistryObject<TableBlock> COBBLESTONE_TABLES = BlockRegistration.BLOCKS.register("cobblestone_tables", () -> usageTableBlock(Blocks.COBBLESTONE));
@@ -57,10 +58,10 @@ public class TableBlockRegistration {
     public static final RegistryObject<TableBlock> BLACKSTONE_TABLES = BlockRegistration.BLOCKS.register("blackstone_tables", () -> usageTableBlock(Blocks.BLACKSTONE));
     public static final RegistryObject<TableBlock> POLISHED_BLACKSTONE_BRICK_TABLES = BlockRegistration.BLOCKS.register("polished_blackstone_brick_tables", () -> usageTableBlock(Blocks.POLISHED_BLACKSTONE_BRICKS));
     public static final RegistryObject<TableBlock> POLISHED_BLACKSTONE_TABLES = BlockRegistration.BLOCKS.register("polished_blackstone_tables", () -> usageTableBlock(Blocks.POLISHED_BLACKSTONE));
-    public static final RegistryObject<TableBlock> OXIDIZED_CUT_COPPER_TABLES = BlockRegistration.BLOCKS.register("oxidized_cut_copper_tables", () -> usageTableBlock(Blocks.OXIDIZED_CUT_COPPER));
-    public static final RegistryObject<TableBlock> WEATHERED_CUT_COPPER_TABLES = BlockRegistration.BLOCKS.register("weathered_cut_copper_tables", () -> usageTableBlock(Blocks.WEATHERED_CUT_COPPER));
-    public static final RegistryObject<TableBlock> EXPOSED_CUT_COPPER_TABLES = BlockRegistration.BLOCKS.register("exposed_cut_copper_tables", () -> usageTableBlock(Blocks.EXPOSED_CUT_COPPER));
-    public static final RegistryObject<TableBlock> CUT_COPPER_TABLES = BlockRegistration.BLOCKS.register("cut_copper_tables", () -> usageTableBlock(Blocks.CUT_COPPER));
+    public static final RegistryObject<WeatheredCopperTable> OXIDIZED_CUT_COPPER_TABLES = BlockRegistration.BLOCKS.register("oxidized_cut_copper_tables", () -> usageWeatheredTable(Blocks.OXIDIZED_CUT_COPPER, WeatheringCopper.WeatherState.OXIDIZED));
+    public static final RegistryObject<WeatheredCopperTable> WEATHERED_CUT_COPPER_TABLES = BlockRegistration.BLOCKS.register("weathered_cut_copper_tables", () -> usageWeatheredTable(Blocks.WEATHERED_CUT_COPPER, WeatheringCopper.WeatherState.WEATHERED));
+    public static final RegistryObject<WeatheredCopperTable> EXPOSED_CUT_COPPER_TABLES = BlockRegistration.BLOCKS.register("exposed_cut_copper_tables", () -> usageWeatheredTable(Blocks.EXPOSED_CUT_COPPER, WeatheringCopper.WeatherState.EXPOSED));
+    public static final RegistryObject<WeatheredCopperTable> CUT_COPPER_TABLES = BlockRegistration.BLOCKS.register("cut_copper_tables", () -> usageWeatheredTable(Blocks.CUT_COPPER, WeatheringCopper.WeatherState.UNAFFECTED));
     public static final RegistryObject<TableBlock> WAXED_OXIDIZED_CUT_COPPER_TABLES = BlockRegistration.BLOCKS.register("waxed_oxidized_cut_copper_tables", () -> usageTableBlock(Blocks.WAXED_OXIDIZED_CUT_COPPER));
     public static final RegistryObject<TableBlock> WAXED_WEATHERED_CUT_COPPER_TABLES = BlockRegistration.BLOCKS.register("waxed_weathered_cut_copper_tables", () -> usageTableBlock(Blocks.WAXED_WEATHERED_CUT_COPPER));
     public static final RegistryObject<TableBlock> WAXED_EXPOSED_CUT_COPPER_TABLES = BlockRegistration.BLOCKS.register("waxed_exposed_cut_copper_tables", () -> usageTableBlock(Blocks.WAXED_EXPOSED_CUT_COPPER));
@@ -125,6 +126,11 @@ public class TableBlockRegistration {
 
     @Contract("_ -> new")
     public static @NotNull TableBlock usageTableBlock(Block propertyBlock) {
-        return new TableBlock(Properties.copy(propertyBlock));
+        return new TableBlock(propertyBlock.defaultBlockState(), Properties.copy(propertyBlock));
+    }
+
+    @Contract("_, _ -> new")
+    public static @NotNull WeatheredCopperTable usageWeatheredTable(Block propertyBlock, WeatheringCopper.WeatherState weatherState) {
+        return new WeatheredCopperTable(propertyBlock.defaultBlockState(), Properties.copy(propertyBlock), weatherState);
     }
 }

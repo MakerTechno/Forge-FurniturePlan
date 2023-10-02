@@ -22,8 +22,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     protected void registerStatesAndModels() {
-        addKindsAsBlock(FoldingRegistration.getChairBlockLists(), "chairs");
-        addKindsAsBlock(FoldingRegistration.getTableBlockLists(), "tables");
+        addKindsAsBlock(FoldingRegistration.getChairBlockLists(), "chair_block");
+        addKindsAsBlock(FoldingRegistration.getTableBlockLists(), "table_block");
+        addKindsAsBlock(FoldingRegistration.getColumnBlockLists(), "column_block");
+        addKindsAsBlock(FoldingRegistration.getCarvedColumnBlockLists(), "carved_column_block");
+        addKindsAsBlock(FoldingRegistration.getLightedColumnBlockLists(), "lighted_column_block");
     }
 
     public void addKindsAsBlock(@NotNull List<RegistryObject<? extends Block>> list, String modelCap) {

@@ -7,6 +7,7 @@ import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.registries.RegistryObject;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.registry.FoldingRegistration;
+import nowebsite.maker.furnitureplan.registry.ItemRegistration;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -21,8 +22,16 @@ public class ModEnglishLanguageProvider extends LanguageProvider {
     protected void addTranslations() {
         add("itemGroup.furniture", "Furniture Plan");
         add("msg.furnitureplan.sit", "Something wrong happened, it's the reason why you can't sit on this block.");
+        add("tip.furnitureplan.shiftdown", "Press SHIFT for more info.");
+        add("tip.furnitureplan.graver", "This graver can grave some of the blocks to mod's block.\n Actually, the kinds of block it can grave is just the kind of blocks which could be used to make stairs.");
+        add(ItemRegistration.DETRITUS.get(), "Detritus");
+        add(ItemRegistration.SAWDUST.get(), "Sawdust");
+        add(ItemRegistration.GRAVER.get(), "Furniture plan-graver");
         transformKinds(FoldingRegistration.getChairBlockLists());
         transformKinds(FoldingRegistration.getTableBlockLists());
+        transformKinds(FoldingRegistration.getColumnBlockLists());
+        transformKinds(FoldingRegistration.getCarvedColumnBlockLists());
+        transformKinds(FoldingRegistration.getLightedColumnBlockLists());
     }
 
     public void transformKinds(@NotNull List<RegistryObject<? extends Block>> list) {

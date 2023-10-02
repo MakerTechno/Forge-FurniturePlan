@@ -1,6 +1,0 @@
-{
-  "parent": "furnitureplan:block/tables",
-  "textures": {
-    "particle": "minecraft:block/purpur_block"
-  }
-}

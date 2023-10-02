@@ -6,12 +6,13 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.registries.RegistryObject;
-import nowebsite.maker.furnitureplan.registry.kindsblock.ChairBlockRegistration;
-import nowebsite.maker.furnitureplan.registry.kindsblock.TableBlockRegistration;
+import nowebsite.maker.furnitureplan.registry.kindsblock.*;
 
 public class FoldingRegistration {
-    private static final List<RegistryObject<? extends Block>> CHAIR_BLOCK_SETS = new ArrayList<>(List.of(ChairBlockRegistration.OAK_CHAIRS));
+    private static final List<RegistryObject<? extends Block>> CHAIR_BLOCK_SETS =
+            new ArrayList<>(List.of(ChairBlockRegistration.OAK_CHAIRS));
     static {
         CHAIR_BLOCK_SETS.add(ChairBlockRegistration.COBBLESTONE_CHAIRS);
         CHAIR_BLOCK_SETS.add(ChairBlockRegistration.BRICK_CHAIRS);
@@ -67,7 +68,8 @@ public class FoldingRegistration {
         CHAIR_BLOCK_SETS.add(ChairBlockRegistration.DEEPSLATE_BRICK_CHAIRS);
     }
 
-    private static final List<RegistryObject<? extends Item>> CHAIR_ITEM_SETS = new ArrayList<>(List.of(ChairBlockRegistration.OAK_CHAIRS_ITEM));
+    private static final List<RegistryObject<? extends Item>> CHAIR_ITEM_SETS =
+            new ArrayList<>(List.of(ChairBlockRegistration.OAK_CHAIRS_ITEM));
     static {
         CHAIR_ITEM_SETS.add(ChairBlockRegistration.COBBLESTONE_CHAIRS_ITEM);
         CHAIR_ITEM_SETS.add(ChairBlockRegistration.BRICK_CHAIRS_ITEM);
@@ -123,7 +125,8 @@ public class FoldingRegistration {
         CHAIR_ITEM_SETS.add(ChairBlockRegistration.DEEPSLATE_BRICK_CHAIRS_ITEM);
     }
 
-    private static final List<RegistryObject<? extends Block>> TABLE_BLOCK_SETS = new ArrayList<>(List.of(TableBlockRegistration.OAK_TABLES));
+    private static final List<RegistryObject<? extends Block>> TABLE_BLOCK_SETS =
+            new ArrayList<>(List.of(TableBlockRegistration.OAK_TABLES));
     static {
         TABLE_BLOCK_SETS.add(TableBlockRegistration.COBBLESTONE_TABLES);
         TABLE_BLOCK_SETS.add(TableBlockRegistration.BRICK_TABLES);
@@ -179,7 +182,8 @@ public class FoldingRegistration {
         TABLE_BLOCK_SETS.add(TableBlockRegistration.DEEPSLATE_BRICK_TABLES);
     }
 
-    private static final List<RegistryObject<? extends Item>> TABLE_ITEM_SETS = new ArrayList<>(List.of(TableBlockRegistration.OAK_TABLES_ITEM));
+    private static final List<RegistryObject<? extends Item>> TABLE_ITEM_SETS =
+            new ArrayList<>(List.of(TableBlockRegistration.OAK_TABLES_ITEM));
     static {
         TABLE_ITEM_SETS.add(TableBlockRegistration.COBBLESTONE_TABLES_ITEM);
         TABLE_ITEM_SETS.add(TableBlockRegistration.BRICK_TABLES_ITEM);
@@ -235,6 +239,347 @@ public class FoldingRegistration {
         TABLE_ITEM_SETS.add(TableBlockRegistration.DEEPSLATE_BRICK_TABLES_ITEM);
     }
 
+    private static final List<RegistryObject<? extends Block>> COLUMN_BLOCK_SETS =
+            new ArrayList<>(List.of(ColumnBlockRegistration.OAK_COLUMNS));
+    static {
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.COBBLESTONE_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.BRICK_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.STONE_BRICK_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.MUD_BRICK_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.NETHER_BRICK_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.SANDSTONE_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.SPRUCE_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.BIRCH_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.JUNGLE_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.QUARTZ_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.ACACIA_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.CHERRY_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.DARK_OAK_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.MANGROVE_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.BAMBOO_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.BAMBOO_MOSAIC_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.PRISMARINE_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.PRISMARINE_BRICK_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.DARK_PRISMARINE_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.RED_SANDSTONE_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.PURPUR_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.POLISHED_GRANITE_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.SMOOTH_RED_SANDSTONE_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.MOSSY_STONE_BRICK_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.POLISHED_DIORITE_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.MOSSY_COBBLESTONE_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.END_STONE_BRICK_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.STONE_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.SMOOTH_SANDSTONE_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.SMOOTH_QUARTZ_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.GRANITE_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.ANDESITE_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.RED_NETHER_BRICK_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.POLISHED_ANDESITE_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.DIORITE_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.CRIMSON_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.WARPED_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.BLACKSTONE_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.POLISHED_BLACKSTONE_BRICK_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.POLISHED_BLACKSTONE_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.OXIDIZED_CUT_COPPER_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.WEATHERED_CUT_COPPER_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.EXPOSED_CUT_COPPER_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.CUT_COPPER_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.WAXED_OXIDIZED_CUT_COPPER_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.WAXED_WEATHERED_CUT_COPPER_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.WAXED_EXPOSED_CUT_COPPER_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.WAXED_CUT_COPPER_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.COBBLED_DEEPSLATE_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.POLISHED_DEEPSLATE_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.DEEPSLATE_TILE_COLUMNS);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.DEEPSLATE_BRICK_COLUMNS);
+    }
+
+    private static final List<RegistryObject<? extends Item>> COLUMN_ITEM_SETS =
+            new ArrayList<>(List.of(ColumnBlockRegistration.OAK_COLUMNS_ITEM));
+    static {
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.COBBLESTONE_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.BRICK_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.STONE_BRICK_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.MUD_BRICK_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.NETHER_BRICK_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.SANDSTONE_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.SPRUCE_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.BIRCH_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.JUNGLE_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.QUARTZ_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.ACACIA_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.CHERRY_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.DARK_OAK_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.MANGROVE_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.BAMBOO_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.BAMBOO_MOSAIC_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.PRISMARINE_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.PRISMARINE_BRICK_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.DARK_PRISMARINE_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.RED_SANDSTONE_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.PURPUR_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.POLISHED_GRANITE_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.SMOOTH_RED_SANDSTONE_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.MOSSY_STONE_BRICK_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.POLISHED_DIORITE_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.MOSSY_COBBLESTONE_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.END_STONE_BRICK_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.STONE_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.SMOOTH_SANDSTONE_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.SMOOTH_QUARTZ_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.GRANITE_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.ANDESITE_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.RED_NETHER_BRICK_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.POLISHED_ANDESITE_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.DIORITE_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.CRIMSON_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.WARPED_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.BLACKSTONE_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.POLISHED_BLACKSTONE_BRICK_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.POLISHED_BLACKSTONE_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.OXIDIZED_CUT_COPPER_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.WEATHERED_CUT_COPPER_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.EXPOSED_CUT_COPPER_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.CUT_COPPER_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.WAXED_OXIDIZED_CUT_COPPER_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.WAXED_WEATHERED_CUT_COPPER_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.WAXED_EXPOSED_CUT_COPPER_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.WAXED_CUT_COPPER_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.COBBLED_DEEPSLATE_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.POLISHED_DEEPSLATE_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.DEEPSLATE_TILE_COLUMNS_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.DEEPSLATE_BRICK_COLUMNS_ITEM);
+    }
+
+    private static final List<RegistryObject<? extends Block>> CARVED_COLUMN_BLOCK_SETS =
+            new ArrayList<>(List.of(CarvedColumnBlockRegistration.OAK_CARVED_COLUMNS));
+    static {
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.COBBLESTONE_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.BRICK_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.STONE_BRICK_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.MUD_BRICK_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.NETHER_BRICK_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.SANDSTONE_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.SPRUCE_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.BIRCH_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.JUNGLE_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.QUARTZ_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.ACACIA_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.CHERRY_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.DARK_OAK_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.MANGROVE_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.BAMBOO_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.BAMBOO_MOSAIC_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.PRISMARINE_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.PRISMARINE_BRICK_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.DARK_PRISMARINE_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.RED_SANDSTONE_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.PURPUR_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.POLISHED_GRANITE_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.SMOOTH_RED_SANDSTONE_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.MOSSY_STONE_BRICK_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.POLISHED_DIORITE_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.MOSSY_COBBLESTONE_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.END_STONE_BRICK_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.STONE_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.SMOOTH_SANDSTONE_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.SMOOTH_QUARTZ_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.GRANITE_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.ANDESITE_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.RED_NETHER_BRICK_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.POLISHED_ANDESITE_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.DIORITE_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.CRIMSON_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.WARPED_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.BLACKSTONE_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.POLISHED_BLACKSTONE_BRICK_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.POLISHED_BLACKSTONE_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.OXIDIZED_CUT_COPPER_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.WEATHERED_CUT_COPPER_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.EXPOSED_CUT_COPPER_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.CUT_COPPER_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.WAXED_OXIDIZED_CUT_COPPER_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.WAXED_WEATHERED_CUT_COPPER_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.WAXED_EXPOSED_CUT_COPPER_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.WAXED_CUT_COPPER_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.COBBLED_DEEPSLATE_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.POLISHED_DEEPSLATE_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.DEEPSLATE_TILE_CARVED_COLUMNS);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.DEEPSLATE_BRICK_CARVED_COLUMNS);
+    }
+
+    private static final List<RegistryObject<? extends Item>> CARVED_COLUMN_ITEM_SETS =
+            new ArrayList<>(List.of(CarvedColumnBlockRegistration.OAK_CARVED_COLUMNS_ITEM));
+    static {
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.COBBLESTONE_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.BRICK_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.STONE_BRICK_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.MUD_BRICK_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.NETHER_BRICK_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.SANDSTONE_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.SPRUCE_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.BIRCH_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.JUNGLE_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.QUARTZ_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.ACACIA_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.CHERRY_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.DARK_OAK_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.MANGROVE_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.BAMBOO_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.BAMBOO_MOSAIC_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.PRISMARINE_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.PRISMARINE_BRICK_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.DARK_PRISMARINE_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.RED_SANDSTONE_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.PURPUR_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.POLISHED_GRANITE_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.SMOOTH_RED_SANDSTONE_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.MOSSY_STONE_BRICK_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.POLISHED_DIORITE_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.MOSSY_COBBLESTONE_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.END_STONE_BRICK_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.STONE_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.SMOOTH_SANDSTONE_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.SMOOTH_QUARTZ_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.GRANITE_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.ANDESITE_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.RED_NETHER_BRICK_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.POLISHED_ANDESITE_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.DIORITE_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.CRIMSON_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.WARPED_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.BLACKSTONE_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.POLISHED_BLACKSTONE_BRICK_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.POLISHED_BLACKSTONE_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.OXIDIZED_CUT_COPPER_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.WEATHERED_CUT_COPPER_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.EXPOSED_CUT_COPPER_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.CUT_COPPER_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.WAXED_OXIDIZED_CUT_COPPER_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.WAXED_WEATHERED_CUT_COPPER_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.WAXED_EXPOSED_CUT_COPPER_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.WAXED_CUT_COPPER_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.COBBLED_DEEPSLATE_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.POLISHED_DEEPSLATE_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.DEEPSLATE_TILE_CARVED_COLUMNS_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.DEEPSLATE_BRICK_CARVED_COLUMNS_ITEM);
+    }
+
+    private static final List<RegistryObject<? extends Block>> LIGHTED_COLUMN_BLOCK_SETS =
+            new ArrayList<>(List.of(LightedColumnBlockRegistration.OAK_LIGHTED_COLUMNS));
+    static {
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.COBBLESTONE_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.BRICK_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.STONE_BRICK_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.MUD_BRICK_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.NETHER_BRICK_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.SANDSTONE_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.SPRUCE_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.BIRCH_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.JUNGLE_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.QUARTZ_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.ACACIA_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.CHERRY_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.DARK_OAK_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.MANGROVE_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.BAMBOO_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.BAMBOO_MOSAIC_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.PRISMARINE_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.PRISMARINE_BRICK_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.DARK_PRISMARINE_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.RED_SANDSTONE_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.PURPUR_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.POLISHED_GRANITE_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.SMOOTH_RED_SANDSTONE_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.MOSSY_STONE_BRICK_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.POLISHED_DIORITE_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.MOSSY_COBBLESTONE_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.END_STONE_BRICK_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.STONE_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.SMOOTH_SANDSTONE_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.SMOOTH_QUARTZ_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.GRANITE_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.ANDESITE_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.RED_NETHER_BRICK_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.POLISHED_ANDESITE_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.DIORITE_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.CRIMSON_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.WARPED_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.BLACKSTONE_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.POLISHED_BLACKSTONE_BRICK_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.POLISHED_BLACKSTONE_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.OXIDIZED_CUT_COPPER_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.WEATHERED_CUT_COPPER_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.EXPOSED_CUT_COPPER_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.CUT_COPPER_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.WAXED_OXIDIZED_CUT_COPPER_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.WAXED_WEATHERED_CUT_COPPER_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.WAXED_EXPOSED_CUT_COPPER_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.WAXED_CUT_COPPER_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.COBBLED_DEEPSLATE_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.POLISHED_DEEPSLATE_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.DEEPSLATE_TILE_LIGHTED_COLUMNS);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.DEEPSLATE_BRICK_LIGHTED_COLUMNS);
+    }
+
+    private static final List<RegistryObject<? extends Item>> LIGHTED_COLUMN_ITEM_SETS =
+            new ArrayList<>(List.of(LightedColumnBlockRegistration.OAK_LIGHTED_COLUMNS_ITEM));
+    static {
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.COBBLESTONE_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.BRICK_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.STONE_BRICK_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.MUD_BRICK_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.NETHER_BRICK_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.SANDSTONE_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.SPRUCE_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.BIRCH_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.JUNGLE_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.QUARTZ_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.ACACIA_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.CHERRY_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.DARK_OAK_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.MANGROVE_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.BAMBOO_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.BAMBOO_MOSAIC_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.PRISMARINE_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.PRISMARINE_BRICK_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.DARK_PRISMARINE_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.RED_SANDSTONE_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.PURPUR_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.POLISHED_GRANITE_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.SMOOTH_RED_SANDSTONE_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.MOSSY_STONE_BRICK_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.POLISHED_DIORITE_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.MOSSY_COBBLESTONE_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.END_STONE_BRICK_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.STONE_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.SMOOTH_SANDSTONE_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.SMOOTH_QUARTZ_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.GRANITE_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.ANDESITE_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.RED_NETHER_BRICK_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.POLISHED_ANDESITE_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.DIORITE_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.CRIMSON_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.WARPED_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.BLACKSTONE_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.POLISHED_BLACKSTONE_BRICK_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.POLISHED_BLACKSTONE_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.OXIDIZED_CUT_COPPER_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.WEATHERED_CUT_COPPER_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.EXPOSED_CUT_COPPER_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.CUT_COPPER_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.WAXED_OXIDIZED_CUT_COPPER_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.WAXED_WEATHERED_CUT_COPPER_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.WAXED_EXPOSED_CUT_COPPER_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.WAXED_CUT_COPPER_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.COBBLED_DEEPSLATE_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.POLISHED_DEEPSLATE_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.DEEPSLATE_TILE_LIGHTED_COLUMNS_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.DEEPSLATE_BRICK_LIGHTED_COLUMNS_ITEM);
+    }
 
     public static List<RegistryObject<? extends Block>> getChairBlockLists() {
         return CHAIR_BLOCK_SETS;
@@ -252,6 +597,87 @@ public class FoldingRegistration {
         return TABLE_ITEM_SETS;
     }
 
+    public static List<RegistryObject<? extends Block>> getColumnBlockLists() {
+        return COLUMN_BLOCK_SETS;
+    }
+
+    public static List<RegistryObject<? extends Item>> getColumnItemLists() {
+        return COLUMN_ITEM_SETS;
+    }
+
+    public static List<RegistryObject<? extends Block>> getCarvedColumnBlockLists() {
+        return CARVED_COLUMN_BLOCK_SETS;
+    }
+
+    public static List<RegistryObject<? extends Item>> getCarvedColumnItemLists() {
+        return CARVED_COLUMN_ITEM_SETS;
+    }
+
+    public static List<RegistryObject<? extends Block>> getLightedColumnBlockLists() {return LIGHTED_COLUMN_BLOCK_SETS;}
+
+    public static List<RegistryObject<? extends Item>> getLightedColumnItemLists() {
+        return LIGHTED_COLUMN_ITEM_SETS;
+    }
+
+    private static final List<Block> PROPERTY_BLOCKS = new ArrayList<>();
+    static {
+        PROPERTY_BLOCKS.add(Blocks.OAK_PLANKS);
+        PROPERTY_BLOCKS.add(Blocks.COBBLESTONE);
+        PROPERTY_BLOCKS.add(Blocks.BRICKS);
+        PROPERTY_BLOCKS.add(Blocks.STONE_BRICKS);
+        PROPERTY_BLOCKS.add(Blocks.MUD_BRICKS);
+        PROPERTY_BLOCKS.add(Blocks.NETHER_BRICKS);
+        PROPERTY_BLOCKS.add(Blocks.SANDSTONE);
+        PROPERTY_BLOCKS.add(Blocks.SPRUCE_PLANKS);
+        PROPERTY_BLOCKS.add(Blocks.BIRCH_PLANKS);
+        PROPERTY_BLOCKS.add(Blocks.JUNGLE_PLANKS);
+        PROPERTY_BLOCKS.add(Blocks.QUARTZ_BLOCK);
+        PROPERTY_BLOCKS.add(Blocks.ACACIA_PLANKS);
+        PROPERTY_BLOCKS.add(Blocks.CHERRY_PLANKS);
+        PROPERTY_BLOCKS.add(Blocks.DARK_OAK_PLANKS);
+        PROPERTY_BLOCKS.add(Blocks.MANGROVE_PLANKS);
+        PROPERTY_BLOCKS.add(Blocks.BAMBOO_PLANKS);
+        PROPERTY_BLOCKS.add(Blocks.BAMBOO_MOSAIC);
+        PROPERTY_BLOCKS.add(Blocks.PRISMARINE);
+        PROPERTY_BLOCKS.add(Blocks.PRISMARINE_BRICKS);
+        PROPERTY_BLOCKS.add(Blocks.DARK_PRISMARINE);
+        PROPERTY_BLOCKS.add(Blocks.RED_SANDSTONE);
+        PROPERTY_BLOCKS.add(Blocks.PURPUR_BLOCK);
+        PROPERTY_BLOCKS.add(Blocks.POLISHED_GRANITE);
+        PROPERTY_BLOCKS.add(Blocks.SMOOTH_RED_SANDSTONE);
+        PROPERTY_BLOCKS.add(Blocks.MOSSY_STONE_BRICKS);
+        PROPERTY_BLOCKS.add(Blocks.POLISHED_DIORITE);
+        PROPERTY_BLOCKS.add(Blocks.MOSSY_COBBLESTONE);
+        PROPERTY_BLOCKS.add(Blocks.END_STONE_BRICKS);
+        PROPERTY_BLOCKS.add(Blocks.STONE);
+        PROPERTY_BLOCKS.add(Blocks.SMOOTH_SANDSTONE);
+        PROPERTY_BLOCKS.add(Blocks.SMOOTH_QUARTZ);
+        PROPERTY_BLOCKS.add(Blocks.GRANITE);
+        PROPERTY_BLOCKS.add(Blocks.ANDESITE);
+        PROPERTY_BLOCKS.add(Blocks.RED_NETHER_BRICKS);
+        PROPERTY_BLOCKS.add(Blocks.POLISHED_ANDESITE);
+        PROPERTY_BLOCKS.add(Blocks.DIORITE);
+        PROPERTY_BLOCKS.add(Blocks.CRIMSON_PLANKS);
+        PROPERTY_BLOCKS.add(Blocks.WARPED_PLANKS);
+        PROPERTY_BLOCKS.add(Blocks.BLACKSTONE);
+        PROPERTY_BLOCKS.add(Blocks.POLISHED_BLACKSTONE_BRICKS);
+        PROPERTY_BLOCKS.add(Blocks.POLISHED_BLACKSTONE);
+        PROPERTY_BLOCKS.add(Blocks.OXIDIZED_CUT_COPPER);
+        PROPERTY_BLOCKS.add(Blocks.WEATHERED_CUT_COPPER);
+        PROPERTY_BLOCKS.add(Blocks.EXPOSED_CUT_COPPER);
+        PROPERTY_BLOCKS.add(Blocks.CUT_COPPER);
+        PROPERTY_BLOCKS.add(Blocks.WAXED_OXIDIZED_CUT_COPPER);
+        PROPERTY_BLOCKS.add(Blocks.WAXED_WEATHERED_CUT_COPPER);
+        PROPERTY_BLOCKS.add(Blocks.WAXED_EXPOSED_CUT_COPPER);
+        PROPERTY_BLOCKS.add(Blocks.WAXED_CUT_COPPER);
+        PROPERTY_BLOCKS.add(Blocks.COBBLED_DEEPSLATE);
+        PROPERTY_BLOCKS.add(Blocks.POLISHED_DEEPSLATE);
+        PROPERTY_BLOCKS.add(Blocks.DEEPSLATE_TILES);
+        PROPERTY_BLOCKS.add(Blocks.DEEPSLATE_BRICKS);
+    }
+    public static List<Block> getPropertyBlocks() {
+        return PROPERTY_BLOCKS;
+    }
 
     public static final List<TagKey<Block>> PROPERTY_TAGS = new ArrayList<>();
     static {
@@ -309,7 +735,6 @@ public class FoldingRegistration {
         PROPERTY_TAGS.add(BlockTags.MINEABLE_WITH_PICKAXE);
         PROPERTY_TAGS.add(BlockTags.MINEABLE_WITH_PICKAXE);
     }
-
 
     public static final String[] PROPERTY_KINDS = new String[]{
             "oak_planks",

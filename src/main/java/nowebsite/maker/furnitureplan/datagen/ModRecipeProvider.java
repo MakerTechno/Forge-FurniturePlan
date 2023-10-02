@@ -17,13 +17,13 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     protected void buildRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ChairBlockRegistration.OAK_CHAIRS.get(), 2)
+        /*ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ChairBlockRegistration.OAK_CHAIRS.get(), 2)
                 .define('O', Items.OAK_SLAB)
                 .define('S', Items.STICK)
                 .pattern("  O")
                 .pattern("SOS")
                 .pattern("S S")
                 .unlockedBy("has_slab", has(Items.OAK_SLAB))
-                .save(consumer);
+                .save(consumer);*/
     }
 }

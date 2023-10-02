@@ -30,6 +30,12 @@ public class SetupWithEvents {
                 (builder) -> builder.displayItems((parameters, output) -> {
                     initKindsItem(output, FoldingRegistration.getChairItemLists());
                     initKindsItem(output, FoldingRegistration.getTableItemLists());
+                    initKindsItem(output, FoldingRegistration.getColumnItemLists());
+                    initKindsItem(output, FoldingRegistration.getCarvedColumnItemLists());
+                    initKindsItem(output, FoldingRegistration.getLightedColumnItemLists());
+                    output.accept(ItemRegistration.DETRITUS.get());
+                    output.accept(ItemRegistration.SAWDUST.get());
+                    output.accept(ItemRegistration.GRAVER.get());
                 })
                 .title(Component.translatable("itemGroup.furniture"))
                 .icon(() -> new ItemStack(ItemRegistration.TEST_ITEM.get()))

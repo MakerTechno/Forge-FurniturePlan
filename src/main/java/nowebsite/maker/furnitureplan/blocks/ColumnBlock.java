@@ -23,47 +23,58 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;
 
 @SuppressWarnings("deprecation")
-public class TableBlock extends HorizontalDirectionalBlock{
+public class ColumnBlock extends HorizontalDirectionalBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public final Block base;
     private final BlockState baseState;
     private final Supplier<BlockState> stateSupplier;
     private static VoxelShape SHAPE = Shapes.empty();
+
     static {
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0.0, 0.125, 0.25, 0.875, 0.25), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.75, 0.0, 0.125, 0.875, 0.875, 0.25), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0.0, 0.75, 0.25, 0.875, 0.875), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.75, 0.0, 0.75, 0.875, 0.875, 0.875), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.0, 0.875, 0.0, 1.0, 1.0, 1.0), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.0625, 0, 0.125, 0.9375, 0.0625, 0.875), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0, 0.0625, 0.875, 0.0625, 0.125), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0, 0.875, 0.875, 0.0625, 0.9375), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0.0625, 0.1875, 0.875, 0.125, 0.8125), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.0625, 0.125, 0.8125, 0.125, 0.1875), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.25, 0.125, 0.75, 0.75, 0.875, 0.8125), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.125, 0.25, 0.8125, 0.875, 0.75), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.0625, 0.8125, 0.8125, 0.125, 0.875), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.25, 0.125, 0.1875, 0.75, 0.875, 0.25), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.0625, 0.9375, 0.125, 0.9375, 1, 0.875), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0.9375, 0.0625, 0.875, 1, 0.125), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0.9375, 0.875, 0.875, 1, 0.9375), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0.875, 0.1875, 0.875, 0.9375, 0.8125), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.875, 0.125, 0.8125, 0.9375, 0.1875), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.875, 0.8125, 0.8125, 0.9375, 0.875), BooleanOp.OR);
     }
 
-    public TableBlock(@NotNull BlockState state, Properties properties) {
+    public ColumnBlock(@NotNull BlockState state, Properties properties) {
         super(properties);
         this.base = state.getBlock();
         this.baseState = state;
         this.stateSupplier = () -> state;
+
     }
 
     @Override
     public @NotNull VoxelShape getOcclusionShape(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos) {
         return SHAPE;
     }
-
     @Override
     public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return this.getOcclusionShape(state, getter, pos);
     }
 
     @Override
-    public @Nullable BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {
+    public BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {
         return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
     }
 
+    @Override
     public @NotNull BlockState rotate(@NotNull BlockState state, @NotNull Rotation rotation) {
         return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
     }
@@ -152,4 +163,3 @@ public class TableBlock extends HorizontalDirectionalBlock{
         return this.getModelState().getBlock();
     }
 }
-

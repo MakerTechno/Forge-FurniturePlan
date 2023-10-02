@@ -39,16 +39,16 @@ public class LightningBoltMixin {
 
             for(int j = 0; j < i; ++j) {
                 int k = level.random.nextInt(8) + 1;
-                forge1_19_4FurniturePlan$randomWalkCleaningCopper(level, blockpos, blockpos$mutableblockpos, k);
+                forge1_19_4FurniturePlan$iRandomWalkCleaningCopper(level, blockpos, blockpos$mutableblockpos, k);
             }
         }
     }
     @Unique
-    private static void forge1_19_4FurniturePlan$randomWalkCleaningCopper(Level level, BlockPos pos, BlockPos.@NotNull MutableBlockPos mutableBlockPos, int cont) {
+    private static void forge1_19_4FurniturePlan$iRandomWalkCleaningCopper(Level level, BlockPos pos, BlockPos.@NotNull MutableBlockPos mutableBlockPos, int cont) {
         mutableBlockPos.set(pos);
 
         for(int i = 0; i < cont; ++i) {
-            Optional<BlockPos> optional = forge1_19_4FurniturePlan$randomStepCleaningCopper(level, mutableBlockPos);
+            Optional<BlockPos> optional = forge1_19_4FurniturePlan$iRandomStepCleaningCopper(level, mutableBlockPos);
             if (optional.isEmpty()) {
                 break;
             }
@@ -59,7 +59,7 @@ public class LightningBoltMixin {
     }
 
     @Unique
-    private static Optional<BlockPos> forge1_19_4FurniturePlan$randomStepCleaningCopper(@NotNull Level level, BlockPos pos) {
+    private static Optional<BlockPos> forge1_19_4FurniturePlan$iRandomStepCleaningCopper(@NotNull Level level, BlockPos pos) {
         for(BlockPos blockpos : BlockPos.randomInCube(level.random, 10, pos, 1)) {
             BlockState blockstate = level.getBlockState(blockpos);
             if (blockstate.getBlock() instanceof IWeatheringCopper) {

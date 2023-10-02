@@ -1,3 +1,9 @@
-// 1.19.4	2023-07-30T15:53:26.7787222	Tags for minecraft:block mod id furnitureplan
-aa6befad369c8f8b5736f993243df63c1b379dd8 data/minecraft/tags/blocks/mineable/axe.json
-af1a962e6f26dd7c9020a6089d0637b57f12cb1b data/minecraft/tags/blocks/mineable/pickaxe.json
+// 1.19.4	2023-09-29T23:35:59.7815686	Tags for minecraft:block mod id furnitureplan
+e0e107a0d725d9cad2ba73d12b4cfaea2565cd5b data/furnitureplan/tags/blocks/carved_column.json
+51a5af5cca9afa17f8e88c2a8b24b31f2fc9612c data/furnitureplan/tags/blocks/chair.json
+90c9d71fbd3f75bcf813f58d2b35a425690619d6 data/furnitureplan/tags/blocks/column.json
+89f8b6c387a434b19ed96f2ce3775264436b3956 data/furnitureplan/tags/blocks/lighted_column.json
+ec64bcf3a54d55a308871fafb76ec45c3b376f1d data/furnitureplan/tags/blocks/table.json
+96ef496c3c454ec5b70d58595b68b23c7ff12f7d data/minecraft/tags/blocks/mineable/axe.json
+0d1fcb0a8940c8da61360908fbf18ca34eb6ed84 data/minecraft/tags/blocks/mineable/pickaxe.json
+616c51ca239055f8472ad1c4545366f96b60c243 data/minecraft/tags/blocks/needs_stone_tool.json

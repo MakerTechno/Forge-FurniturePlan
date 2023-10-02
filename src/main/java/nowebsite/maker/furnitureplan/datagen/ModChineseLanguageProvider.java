@@ -6,6 +6,7 @@ import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.registries.RegistryObject;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.registry.FoldingRegistration;
+import nowebsite.maker.furnitureplan.registry.ItemRegistration;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -18,15 +19,27 @@ public class ModChineseLanguageProvider extends LanguageProvider {
     protected void addTranslations() {
         add("itemGroup.furniture", "家具计划");
         add("msg.furnitureplan.sit", "出现某些错误导致乘坐方块失败。");
-        transformKinds(FoldingRegistration.getChairBlockLists(), "椅");
-        transformKinds(FoldingRegistration.getTableBlockLists(), "桌");
+        transformKinds(FoldingRegistration.getChairBlockLists(), null, "椅");
+        transformKinds(FoldingRegistration.getTableBlockLists(), null, "桌");
+        transformKinds(FoldingRegistration.getColumnBlockLists(), null, "柱");
+        transformKinds(FoldingRegistration.getCarvedColumnBlockLists(), "雕刻", "柱");
+        transformKinds(FoldingRegistration.getLightedColumnBlockLists(), "嵌灯", "柱");
+        add(ItemRegistration.DETRITUS.get(), "碎石屑");
+        add(ItemRegistration.SAWDUST.get(), "木屑");
+        add(ItemRegistration.GRAVER.get(), "家具计划-雕刻刀");
+        add("tip.furnitureplan.shiftdown", "按下SHIFT查看详细信息");
+        add("tip.furnitureplan.graver", "这个雕刻刀可以将一些方块雕刻成模组物品\n 实际上，可雕刻的方块种类和制作各种楼梯的方块种类一样多");
     }
 
-    public void transformKinds(@NotNull List<RegistryObject<? extends Block>> list, String transformKey) {
+    public void transformKinds(@NotNull List<RegistryObject<? extends Block>> list,String transformHead, String transformEnd) {
         assert list.size() <= FoldingRegistration.PROPERTY_KINDS_CHINESE_KEY.length;
         int count = 0;
         for(RegistryObject<? extends Block> ro : list) {
-            add(ro.get(), FoldingRegistration.PROPERTY_KINDS_CHINESE_KEY[count] + transformKey);
+            add(
+                    ro.get(), (transformHead == null? "" : transformHead) +
+                    FoldingRegistration.PROPERTY_KINDS_CHINESE_KEY[count] +
+                    (transformEnd == null? "" : transformEnd)
+            );
             count++;
         }
     }

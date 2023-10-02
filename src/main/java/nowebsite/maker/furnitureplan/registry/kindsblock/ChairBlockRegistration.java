@@ -5,11 +5,13 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.BlockEntityType.Builder;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraftforge.registries.RegistryObject;
 import nowebsite.maker.furnitureplan.blocks.ChairBlock;
+import nowebsite.maker.furnitureplan.blocks.WeatheredCopperChair;
 import nowebsite.maker.furnitureplan.blocks.blockentities.ChairBlockEntity;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.registry.ItemRegistration;
@@ -17,8 +19,7 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 public class ChairBlockRegistration {
-    public static void init() {
-    }
+    public static void init() {}
 
     public static final RegistryObject<ChairBlock> OAK_CHAIRS = BlockRegistration.BLOCKS.register("oak_chairs", () -> usageChairBlock(ChairBlockRegistration.OAK_CHAIRS_ENTITY, Blocks.OAK_PLANKS));
     public static final RegistryObject<ChairBlock> COBBLESTONE_CHAIRS = BlockRegistration.BLOCKS.register("cobblestone_chairs", () -> usageChairBlock(ChairBlockRegistration.COBBLESTONE_CHAIRS_ENTITY, Blocks.COBBLESTONE));
@@ -61,10 +62,10 @@ public class ChairBlockRegistration {
     public static final RegistryObject<ChairBlock> BLACKSTONE_CHAIRS = BlockRegistration.BLOCKS.register("blackstone_chairs", () -> usageChairBlock(ChairBlockRegistration.BLACKSTONE_CHAIRS_ENTITY, Blocks.BLACKSTONE));
     public static final RegistryObject<ChairBlock> POLISHED_BLACKSTONE_BRICK_CHAIRS = BlockRegistration.BLOCKS.register("polished_blackstone_brick_chairs", () -> usageChairBlock(ChairBlockRegistration.POLISHED_BLACKSTONE_BRICK_CHAIRS_ENTITY, Blocks.POLISHED_BLACKSTONE_BRICKS));
     public static final RegistryObject<ChairBlock> POLISHED_BLACKSTONE_CHAIRS = BlockRegistration.BLOCKS.register("polished_blackstone_chairs", () -> usageChairBlock(ChairBlockRegistration.POLISHED_BLACKSTONE_CHAIRS_ENTITY, Blocks.POLISHED_BLACKSTONE));
-    public static final RegistryObject<ChairBlock> OXIDIZED_CUT_COPPER_CHAIRS = BlockRegistration.BLOCKS.register("oxidized_cut_copper_chairs", () -> usageChairBlock(ChairBlockRegistration.OXIDIZED_CUT_COPPER_CHAIRS_ENTITY, Blocks.OXIDIZED_CUT_COPPER));
-    public static final RegistryObject<ChairBlock> WEATHERED_CUT_COPPER_CHAIRS = BlockRegistration.BLOCKS.register("weathered_cut_copper_chairs", () -> usageChairBlock(ChairBlockRegistration.WEATHERED_CUT_COPPER_CHAIRS_ENTITY, Blocks.WEATHERED_CUT_COPPER));
-    public static final RegistryObject<ChairBlock> EXPOSED_CUT_COPPER_CHAIRS = BlockRegistration.BLOCKS.register("exposed_cut_copper_chairs", () -> usageChairBlock(ChairBlockRegistration.EXPOSED_CUT_COPPER_CHAIRS_ENTITY, Blocks.EXPOSED_CUT_COPPER));
-    public static final RegistryObject<ChairBlock> CUT_COPPER_CHAIRS = BlockRegistration.BLOCKS.register("cut_copper_chairs", () -> usageChairBlock(ChairBlockRegistration.CUT_COPPER_CHAIRS_ENTITY, Blocks.CUT_COPPER));
+    public static final RegistryObject<WeatheredCopperChair> OXIDIZED_CUT_COPPER_CHAIRS = BlockRegistration.BLOCKS.register("oxidized_cut_copper_chairs", () -> usageWeatheredChair(ChairBlockRegistration.OXIDIZED_CUT_COPPER_CHAIRS_ENTITY, Blocks.OXIDIZED_CUT_COPPER, WeatheringCopper.WeatherState.OXIDIZED));
+    public static final RegistryObject<WeatheredCopperChair> WEATHERED_CUT_COPPER_CHAIRS = BlockRegistration.BLOCKS.register("weathered_cut_copper_chairs", () -> usageWeatheredChair(ChairBlockRegistration.WEATHERED_CUT_COPPER_CHAIRS_ENTITY, Blocks.WEATHERED_CUT_COPPER, WeatheringCopper.WeatherState.WEATHERED));
+    public static final RegistryObject<WeatheredCopperChair> EXPOSED_CUT_COPPER_CHAIRS = BlockRegistration.BLOCKS.register("exposed_cut_copper_chairs", () -> usageWeatheredChair(ChairBlockRegistration.EXPOSED_CUT_COPPER_CHAIRS_ENTITY, Blocks.EXPOSED_CUT_COPPER, WeatheringCopper.WeatherState.EXPOSED));
+    public static final RegistryObject<WeatheredCopperChair> CUT_COPPER_CHAIRS = BlockRegistration.BLOCKS.register("cut_copper_chairs", () -> usageWeatheredChair(ChairBlockRegistration.CUT_COPPER_CHAIRS_ENTITY, Blocks.CUT_COPPER, WeatheringCopper.WeatherState.UNAFFECTED));
     public static final RegistryObject<ChairBlock> WAXED_OXIDIZED_CUT_COPPER_CHAIRS = BlockRegistration.BLOCKS.register("waxed_oxidized_cut_copper_chairs", () -> usageChairBlock(ChairBlockRegistration.WAXED_OXIDIZED_CUT_COPPER_CHAIRS_ENTITY, Blocks.WAXED_OXIDIZED_CUT_COPPER));
     public static final RegistryObject<ChairBlock> WAXED_WEATHERED_CUT_COPPER_CHAIRS = BlockRegistration.BLOCKS.register("waxed_weathered_cut_copper_chairs", () -> usageChairBlock(ChairBlockRegistration.WAXED_WEATHERED_CUT_COPPER_CHAIRS_ENTITY, Blocks.WAXED_WEATHERED_CUT_COPPER));
     public static final RegistryObject<ChairBlock> WAXED_EXPOSED_CUT_COPPER_CHAIRS = BlockRegistration.BLOCKS.register("waxed_exposed_cut_copper_chairs", () -> usageChairBlock(ChairBlockRegistration.WAXED_EXPOSED_CUT_COPPER_CHAIRS_ENTITY, Blocks.WAXED_EXPOSED_CUT_COPPER));
@@ -183,6 +184,11 @@ public class ChairBlockRegistration {
     @Contract("_, _ -> new")
     public static @NotNull ChairBlock usageChairBlock(RegistryObject<BlockEntityType<ChairBlockEntity>> type, @NotNull Block propertyBlock) {
         return new ChairBlock(type, propertyBlock.defaultBlockState(), Properties.copy(propertyBlock));
+    }
+
+    @Contract("_, _, _ -> new")
+    public static @NotNull WeatheredCopperChair usageWeatheredChair(RegistryObject<BlockEntityType<ChairBlockEntity>> type, @NotNull Block propertyBlock, WeatheringCopper.WeatherState weatherState) {
+        return new WeatheredCopperChair(type, propertyBlock.defaultBlockState(), Properties.copy(propertyBlock), weatherState);
     }
 
 }

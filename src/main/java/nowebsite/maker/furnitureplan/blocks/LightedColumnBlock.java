@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.BooleanOp;
@@ -23,27 +24,50 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;
 
 @SuppressWarnings("deprecation")
-public class TableBlock extends HorizontalDirectionalBlock{
+public class LightedColumnBlock extends HorizontalDirectionalBlock {
+    public static final BooleanProperty LIT = RedstoneTorchBlock.LIT;
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public final Block base;
     private final BlockState baseState;
     private final Supplier<BlockState> stateSupplier;
     private static VoxelShape SHAPE = Shapes.empty();
     static {
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0.0, 0.125, 0.25, 0.875, 0.25), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.75, 0.0, 0.125, 0.875, 0.875, 0.25), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0.0, 0.75, 0.25, 0.875, 0.875), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.75, 0.0, 0.75, 0.875, 0.875, 0.875), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.0, 0.875, 0.0, 1.0, 1.0, 1.0), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.0625, 0, 0.125, 0.9375, 0.0625, 0.875), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0, 0.0625, 0.875, 0.0625, 0.125), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0, 0.875, 0.875, 0.0625, 0.9375), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0.0625, 0.1875, 0.875, 0.125, 0.8125), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.0625, 0.125, 0.8125, 0.125, 0.1875), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.25, 0.125, 0.75, 0.75, 0.375, 0.8125), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.125, 0.25, 0.8125, 0.375, 0.75), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.0625, 0.8125, 0.8125, 0.125, 0.875), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.25, 0.125, 0.1875, 0.75, 0.375, 0.25), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.0625, 0.9375, 0.125, 0.9375, 1, 0.875), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0.9375, 0.0625, 0.875, 1, 0.125), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0.9375, 0.875, 0.875, 1, 0.9375), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0.875, 0.1875, 0.875, 0.9375, 0.8125), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.875, 0.125, 0.8125, 0.9375, 0.1875), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.875, 0.8125, 0.8125, 0.9375, 0.875), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.25, 0.625, 0.75, 0.75, 0.875, 0.8125), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.625, 0.25, 0.8125, 0.875, 0.75), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.25, 0.625, 0.1875, 0.75, 0.875, 0.25), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.25, 0.375, 0.25, 0.375, 0.625, 0.375), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.625, 0.375, 0.625, 0.75, 0.625, 0.75), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.625, 0.375, 0.25, 0.75, 0.625, 0.375), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.375, 0.375, 0.375, 0.625, 0.625, 0.625), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.375, 0.375, 0.25, 0.625, 0.625, 0.375), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.375, 0.375, 0.625, 0.625, 0.625, 0.75), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.25, 0.375, 0.625, 0.375, 0.625, 0.75), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.625, 0.375, 0.375, 0.75, 0.625, 0.625), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.25, 0.375, 0.375, 0.375, 0.625, 0.625), BooleanOp.OR);
     }
 
-    public TableBlock(@NotNull BlockState state, Properties properties) {
+    public LightedColumnBlock(@NotNull BlockState state, Properties properties) {
         super(properties);
+        this.registerDefaultState(this.defaultBlockState().setValue(LIT, Boolean.TRUE));
         this.base = state.getBlock();
         this.baseState = state;
         this.stateSupplier = () -> state;
@@ -53,17 +77,17 @@ public class TableBlock extends HorizontalDirectionalBlock{
     public @NotNull VoxelShape getOcclusionShape(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos) {
         return SHAPE;
     }
-
     @Override
     public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return this.getOcclusionShape(state, getter, pos);
     }
 
     @Override
-    public @Nullable BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {
+    public BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {
         return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
     }
 
+    @Override
     public @NotNull BlockState rotate(@NotNull BlockState state, @NotNull Rotation rotation) {
         return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
     }
@@ -76,6 +100,7 @@ public class TableBlock extends HorizontalDirectionalBlock{
     @Override
     protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> builder) {
         builder.add(FACING);
+        builder.add(LIT);
     }
 
     @Override
@@ -136,6 +161,9 @@ public class TableBlock extends HorizontalDirectionalBlock{
     @Override
     public void tick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource source) {
         this.base.tick(state, level, pos, source);
+        if (state.getValue(LIT)) {
+            level.setBlock(pos, state.cycle(LIT), 2);
+        }
     }
 
     @Override
@@ -151,5 +179,9 @@ public class TableBlock extends HorizontalDirectionalBlock{
     private @NotNull Block getModelBlock() {
         return this.getModelState().getBlock();
     }
-}
 
+    @Override
+    public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
+        return 15;
+    }
+}
