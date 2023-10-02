@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,lit=false": {
+      "model": "furnitureplan:block/mud_brick_lighted_columns",
+      "y": 90
+    },
+    "facing=east,lit=true": {
+      "model": "furnitureplan:block/mud_brick_lighted_columns",
+      "y": 90
+    },
+    "facing=north,lit=false": {
+      "model": "furnitureplan:block/mud_brick_lighted_columns"
+    },
+    "facing=north,lit=true": {
+      "model": "furnitureplan:block/mud_brick_lighted_columns"
+    },
+    "facing=south,lit=false": {
+      "model": "furnitureplan:block/mud_brick_lighted_columns",
+      "y": 180
+    },
+    "facing=south,lit=true": {
+      "model": "furnitureplan:block/mud_brick_lighted_columns",
+      "y": 180
+    },
+    "facing=west,lit=false": {
+      "model": "furnitureplan:block/mud_brick_lighted_columns",
+      "y": 270
+    },
+    "facing=west,lit=true": {
+      "model": "furnitureplan:block/mud_brick_lighted_columns",
+      "y": 270
+    }
+  }
+}

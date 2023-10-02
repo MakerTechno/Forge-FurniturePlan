@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "furnitureplan:block/crimson_tables",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "furnitureplan:block/crimson_tables"
+    },
+    "facing=south": {
+      "model": "furnitureplan:block/crimson_tables",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "furnitureplan:block/crimson_tables",
+      "y": 270
+    }
+  }
+}

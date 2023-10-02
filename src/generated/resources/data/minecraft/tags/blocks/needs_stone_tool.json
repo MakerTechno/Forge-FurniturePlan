@@ -1,0 +1,24 @@
+{
+  "values": [
+    "furnitureplan:oxidized_cut_copper_chairs",
+    "furnitureplan:weathered_cut_copper_chairs",
+    "furnitureplan:exposed_cut_copper_chairs",
+    "furnitureplan:cut_copper_chairs",
+    "furnitureplan:oxidized_cut_copper_tables",
+    "furnitureplan:weathered_cut_copper_tables",
+    "furnitureplan:exposed_cut_copper_tables",
+    "furnitureplan:cut_copper_tables",
+    "furnitureplan:oxidized_cut_copper_columns",
+    "furnitureplan:weathered_cut_copper_columns",
+    "furnitureplan:exposed_cut_copper_columns",
+    "furnitureplan:cut_copper_columns",
+    "furnitureplan:oxidized_cut_copper_carved_columns",
+    "furnitureplan:weathered_cut_copper_carved_columns",
+    "furnitureplan:exposed_cut_copper_carved_columns",
+    "furnitureplan:cut_copper_carved_columns",
+    "furnitureplan:oxidized_cut_copper_lighted_columns",
+    "furnitureplan:weathered_cut_copper_lighted_columns",
+    "furnitureplan:exposed_cut_copper_lighted_columns",
+    "furnitureplan:cut_copper_lighted_columns"
+  ]
+}

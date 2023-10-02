@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "furnitureplan:block/blackstone_columns",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "furnitureplan:block/blackstone_columns"
+    },
+    "facing=south": {
+      "model": "furnitureplan:block/blackstone_columns",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "furnitureplan:block/blackstone_columns",
+      "y": 270
+    }
+  }
+}

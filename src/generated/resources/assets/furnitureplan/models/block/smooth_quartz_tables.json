@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/table_block",
+  "textures": {
+    "particle": "minecraft:block/quartz_block_bottom"
+  }
+}
