@@ -94,6 +94,7 @@
   "block.furnitureplan.exposed_cut_copper_columns": "斑驳的切制铜柱",
   "block.furnitureplan.exposed_cut_copper_lighted_columns": "嵌灯斑驳的切制铜柱",
   "block.furnitureplan.exposed_cut_copper_tables": "斑驳的切制铜桌",
+  "block.furnitureplan.food_plate_block": "盘子",
   "block.furnitureplan.granite_carved_columns": "雕刻花岗岩柱",
   "block.furnitureplan.granite_chairs": "花岗岩椅",
   "block.furnitureplan.granite_columns": "花岗岩柱",
@@ -269,6 +270,6 @@
   "item.furnitureplan.sawdust": "木屑",
   "itemGroup.furniture": "家具计划",
   "msg.furnitureplan.sit": "出现某些错误导致乘坐方块失败。",
-  "tip.furnitureplan.graver": "这个雕刻刀可以将一些方块雕刻成模组物品\n 实际上，可雕刻的方块种类和制作各种楼梯的方块种类一样多",
+  "tip.furnitureplan.graver": "这个雕刻刀可以将一些方块雕刻成模组物品\n实际上，可雕刻的方块种类和制作各种楼梯的方块种类一样多",
   "tip.furnitureplan.shiftdown": "按下SHIFT查看详细信息"
 }

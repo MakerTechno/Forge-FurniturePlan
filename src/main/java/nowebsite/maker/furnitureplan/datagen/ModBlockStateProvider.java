@@ -7,6 +7,7 @@ import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 import nowebsite.maker.furnitureplan.FurniturePlan;
+import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.registry.FoldingRegistration;
 import org.jetbrains.annotations.NotNull;
 
@@ -22,14 +23,20 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     protected void registerStatesAndModels() {
-        addKindsAsBlock(FoldingRegistration.getChairBlockLists(), "chair_block");
-        addKindsAsBlock(FoldingRegistration.getTableBlockLists(), "table_block");
-        addKindsAsBlock(FoldingRegistration.getColumnBlockLists(), "column_block");
-        addKindsAsBlock(FoldingRegistration.getCarvedColumnBlockLists(), "carved_column_block");
-        addKindsAsBlock(FoldingRegistration.getLightedColumnBlockLists(), "lighted_column_block");
+        addKindsAsHorizontalBlock(FoldingRegistration.getChairBlockLists(), "chair_block");
+        addKindsAsSimpleBlock(FoldingRegistration.getTableBlockLists(), "table_block");
+        addKindsAsSimpleBlock(FoldingRegistration.getColumnBlockLists(), "column_block");
+        addKindsAsSimpleBlock(FoldingRegistration.getCarvedColumnBlockLists(), "carved_column_block");
+        addKindsAsSimpleBlock(FoldingRegistration.getLightedColumnBlockLists(), "lighted_column_block");
+
+        horizontalBlock(BlockRegistration.FOOD_PLATE_BLOCK.get(), models().singleTexture(
+                BuiltInRegistries.BLOCK.getKey(BlockRegistration.FOOD_PLATE_BLOCK.get()).toString(),
+                modLoc("block/plate"), "particle",
+                mcLoc("block/quartz_block_top")
+        ));
     }
 
-    public void addKindsAsBlock(@NotNull List<RegistryObject<? extends Block>> list, String modelCap) {
+    public void addKindsAsHorizontalBlock(@NotNull List<RegistryObject<? extends Block>> list, String modelCap) {
         assert list.size() <= FoldingRegistration.PROPERTY_KINDS.length;
         int count = 0;
         for(RegistryObject<? extends Block> ro : list) {
@@ -38,6 +45,18 @@ public class ModBlockStateProvider extends BlockStateProvider {
                     modLoc("block/" + modelCap), "particle",
                     mcLoc("block/" + FoldingRegistration.PROPERTY_KINDS[count])
                     ));
+            count++;
+        }
+    }
+    public void addKindsAsSimpleBlock(@NotNull List<RegistryObject<? extends Block>> list, String modelCap) {
+        assert list.size() <= FoldingRegistration.PROPERTY_KINDS.length;
+        int count = 0;
+        for(RegistryObject<? extends Block> ro : list) {
+            simpleBlock(ro.get(), models().singleTexture(
+                    BuiltInRegistries.BLOCK.getKey(ro.get()).toString(),
+                    modLoc("block/" + modelCap), "particle",
+                    mcLoc("block/" + FoldingRegistration.PROPERTY_KINDS[count])
+            ));
             count++;
         }
     }

@@ -24,11 +24,11 @@ public class RideableArmor extends ArmorStand {
     @Override
     public void tick() {
         super.tick();
-        if (supplier.get() == null){
-            this.remove(RemovalReason.DISCARDED);
+        if (supplier.get() == null || supplier.get().getBlockState() != supplier.get().containerBlock || canAddPassenger(this)){
             supplier.get().setRemoved();
         }
     }
+
 
     int count;
     @Override

@@ -1,4 +1,4 @@
-// 1.19.4	2023-09-29T23:49:45.7259484	Item Models: furnitureplan
+// 1.19.4	2023-12-09T15:17:53.7303078	Item Models: furnitureplan
 3dd0d24920bd43171d10b975585a787af71c8a94 assets/furnitureplan/models/item/acacia_carved_columns.json
 6f1db01cf485ceeaa1b65585490ac5999e8e171c assets/furnitureplan/models/item/acacia_chairs.json
 9998f3a3ac73f40a55135061cb6f30850b630b39 assets/furnitureplan/models/item/acacia_columns.json
@@ -95,6 +95,7 @@ ad45cc460611c0369eafd96745846d421986b1db assets/furnitureplan/models/item/expose
 db4b665778e64fed1eae9c1dead7fc4acd7f1c38 assets/furnitureplan/models/item/exposed_cut_copper_columns.json
 c970be18ea436372a4c38e6baa4503b5b897a1a4 assets/furnitureplan/models/item/exposed_cut_copper_lighted_columns.json
 a032a67e097b8e1f2370e30cd2901fa517d53892 assets/furnitureplan/models/item/exposed_cut_copper_tables.json
+af40993334b908815190c4324870d8b4c3caf934 assets/furnitureplan/models/item/food_plate_block.json
 f2fb1a62d1ac1890835bdfc1222c299959477bf8 assets/furnitureplan/models/item/granite_carved_columns.json
 50d0cb91b576c8bafcb5f2f5ff720b7feedd5610 assets/furnitureplan/models/item/granite_chairs.json
 d96fe484689e762eeaeaea67afe6dd8f469c7266 assets/furnitureplan/models/item/granite_columns.json

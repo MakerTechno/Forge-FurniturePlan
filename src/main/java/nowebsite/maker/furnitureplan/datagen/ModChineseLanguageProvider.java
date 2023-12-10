@@ -5,6 +5,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.registries.RegistryObject;
 import nowebsite.maker.furnitureplan.FurniturePlan;
+import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.registry.FoldingRegistration;
 import nowebsite.maker.furnitureplan.registry.ItemRegistration;
 import org.jetbrains.annotations.NotNull;
@@ -28,7 +29,8 @@ public class ModChineseLanguageProvider extends LanguageProvider {
         add(ItemRegistration.SAWDUST.get(), "木屑");
         add(ItemRegistration.GRAVER.get(), "家具计划-雕刻刀");
         add("tip.furnitureplan.shiftdown", "按下SHIFT查看详细信息");
-        add("tip.furnitureplan.graver", "这个雕刻刀可以将一些方块雕刻成模组物品\n 实际上，可雕刻的方块种类和制作各种楼梯的方块种类一样多");
+        add("tip.furnitureplan.graver", "这个雕刻刀可以将一些方块雕刻成模组物品\n实际上，可雕刻的方块种类和制作各种楼梯的方块种类一样多");
+        add(BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get(), "盘子");
     }
 
     public void transformKinds(@NotNull List<RegistryObject<? extends Block>> list,String transformHead, String transformEnd) {

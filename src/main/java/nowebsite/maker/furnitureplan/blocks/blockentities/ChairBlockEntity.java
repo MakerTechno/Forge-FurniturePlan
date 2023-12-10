@@ -4,25 +4,26 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity.RemovalReason;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.RegistryObject;
+import nowebsite.maker.furnitureplan.blocks.ChairBlock;
 import nowebsite.maker.furnitureplan.entities.RideableArmor;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.function.Supplier;
-
 public class ChairBlockEntity extends BlockEntity {
     public RideableArmor sit = null;
+    public final BlockState containerBlock;
     private int count = 0;
 
     public ChairBlockEntity(@NotNull RegistryObject<BlockEntityType<ChairBlockEntity>> type, BlockPos pos, BlockState state) {
         super(type.get(), pos, state);
+        containerBlock = state;
     }
 
     public void tickAtServer() {
@@ -62,11 +63,14 @@ public class ChairBlockEntity extends BlockEntity {
     }
 
     public void setRemoved() {
-        super.setRemoved();
+        if (containerBlock.getBlock() instanceof ChairBlock chairBlock){
+            chairBlock.newBlockEntity(this.getBlockPos(), containerBlock);
+        }
         if (this.sit != null) {
             this.sit.remove(RemovalReason.DISCARDED);
             this.sit = null;
         }
+        super.setRemoved();
     }
 
 }

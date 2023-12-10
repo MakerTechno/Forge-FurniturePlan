@@ -14,7 +14,6 @@ public class ItemRegistration {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         ITEMS.register(bus);
     }
-
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, FurniturePlan.MOD_ID);
     public static final RegistryObject<Item> TEST_ITEM = ITEMS.register("test_item", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> GRAVER = ITEMS.register("graver", () -> new Graver(new Item.Properties().stacksTo(1).setNoRepair().durability(300)));

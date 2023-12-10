@@ -39,6 +39,7 @@ public class ModLootTableProvider extends LootTableProvider {
         for (RegistryObject<? extends Block> ro : FoldingRegistration.getLightedColumnBlockLists()) {
             resourceLocations.add(ro.getId());
         }
+        resourceLocations.add(BlockRegistration.FOOD_PLATE_BLOCK.getId());
     }
 
     public ModLootTableProvider(PackOutput output) {
@@ -61,6 +62,8 @@ class ModCustomBlockLootProvider extends BlockLootSubProvider {
         this.addKindsProp(FoldingRegistration.getColumnBlockLists());
         this.addKindsProp(FoldingRegistration.getCarvedColumnBlockLists());
         this.addKindsProp(FoldingRegistration.getLightedColumnBlockLists());
+
+        dropSelf(BlockRegistration.FOOD_PLATE_BLOCK.get());
     }
 
     protected @NotNull Iterable<Block> getKnownBlocks() {

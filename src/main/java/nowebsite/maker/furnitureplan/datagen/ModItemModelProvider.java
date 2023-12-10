@@ -6,6 +6,7 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 import nowebsite.maker.furnitureplan.FurniturePlan;
+import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.registry.FoldingRegistration;
 import nowebsite.maker.furnitureplan.registry.ItemRegistration;
 import org.jetbrains.annotations.NotNull;
@@ -47,6 +48,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         add(FoldingRegistration.getColumnItemLists());
         add(FoldingRegistration.getCarvedColumnItemLists());
         add(FoldingRegistration.getLightedColumnItemLists());
+
+        withExistingParent(BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get().toString(), modLoc("block/food_plate_block"));
     }
 
     public void add(@NotNull List<RegistryObject<? extends Item>> list) {

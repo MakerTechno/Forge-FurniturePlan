@@ -1,19 +1,7 @@
 {
   "variants": {
-    "facing=east": {
-      "model": "furnitureplan:block/red_sandstone_carved_columns",
-      "y": 90
-    },
-    "facing=north": {
+    "": {
       "model": "furnitureplan:block/red_sandstone_carved_columns"
-    },
-    "facing=south": {
-      "model": "furnitureplan:block/red_sandstone_carved_columns",
-      "y": 180
-    },
-    "facing=west": {
-      "model": "furnitureplan:block/red_sandstone_carved_columns",
-      "y": 270
     }
   }
 }

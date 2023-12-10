@@ -14,7 +14,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
-import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -74,7 +73,8 @@ public class Graver extends Item {
     @Override
     public void appendHoverText(@NotNull ItemStack itemStack, @Nullable Level level, @NotNull List<Component> components, @NotNull TooltipFlag tooltipFlag) {
         if (Screen.hasShiftDown()){
-            components.add(Component.translatable("tip.furnitureplan.graver").append(" Kind:" + kind.name()).withStyle(ChatFormatting.YELLOW));
+            components.add(Component.translatable("tip.furnitureplan.graver").withStyle(ChatFormatting.YELLOW));
+            components.add(Component.literal("Kind:" + kind.name()).withStyle(ChatFormatting.GREEN));
         } else {
             components.add(Component.translatable("tip.furnitureplan.shiftdown").withStyle(ChatFormatting.AQUA));
         }
