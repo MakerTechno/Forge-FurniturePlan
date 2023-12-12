@@ -10,8 +10,6 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityTicker;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -26,7 +24,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("deprecation")
-public class FoodPlateBlock extends HorizontalDirectionalBlock implements EntityBlock {
+public class FoodPlateBlock extends HorizontalDirectionalBlock implements EntityBlock, SimpleWaterloggedBlock{
 
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public FoodPlateBlock(Properties properties) {
@@ -39,15 +37,15 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
         return new FoodPlateBlockEntity(pos, state);
     }
 
-    @Nullable
+    /*@Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@NotNull Level level, @NotNull BlockState state, @NotNull BlockEntityType<T> entityType) {
         return level.isClientSide() ? null : (level1, pos, blockState, t) -> {
-            /*if (t instanceof FoodPlateBlockEntity cast) {
+            if (t instanceof FoodPlateBlockEntity cast) {
                 cast.tickAtServer(level, state);
-            }*/
+            }
         };
-    }
+    }*/
 
     private static VoxelShape SHAPE = Shapes.empty();
     static {
@@ -86,6 +84,8 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
         super.onRemove(state, level, pos, newState, movedByPiston);
     }
 
+
+
     @Override
     public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
         if (!level.isClientSide){
@@ -106,6 +106,7 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
         }
         return InteractionResult.SUCCESS;
     }
+
 
     @Override
     public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos, @NotNull CollisionContext context) {

@@ -3,6 +3,9 @@ package nowebsite.maker.furnitureplan.blocks.blockentities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Containers;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.Entity;
@@ -50,7 +53,7 @@ public class FoodPlateBlockEntity extends BlockEntity {
     public ItemStack getRendererStack() {
         return itemStackHandler.getStackInSlot(0);
     }
-    public void setHandler(ItemStackHandler handler) {
+    public void setHandler(@NotNull ItemStackHandler handler) {
         itemStackHandler.setStackInSlot(0, handler.getStackInSlot(0));
     }
     public boolean placeFood(Entity entity, ItemStack stack) {
@@ -87,6 +90,7 @@ public class FoodPlateBlockEntity extends BlockEntity {
         lazyItemHandler.invalidate();
     }
 
+
     @Override
     protected void saveAdditional(@NotNull CompoundTag tag) {
         tag.put(INVENTORY, itemStackHandler.serializeNBT());
@@ -97,7 +101,6 @@ public class FoodPlateBlockEntity extends BlockEntity {
     public void load(@NotNull CompoundTag tag) {
         super.load(tag);
         itemStackHandler.deserializeNBT(tag.getCompound(INVENTORY));
-        markUpdated();
     }
 
     public void drops(){
@@ -112,8 +115,20 @@ public class FoodPlateBlockEntity extends BlockEntity {
         markUpdated();
     }
 
-    /*public void tickAtServer(Level level, BlockState state) {
+    @Nullable
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
 
+    @Override
+    public @NotNull CompoundTag getUpdateTag() {
+        return saveWithoutMetadata();
+    }
+
+    /*public void tickAtServer(Level level, BlockState state) {
     }*/
+
+
 
 }

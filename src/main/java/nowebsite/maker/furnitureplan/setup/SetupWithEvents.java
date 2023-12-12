@@ -1,19 +1,25 @@
 package nowebsite.maker.furnitureplan.setup;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.registries.RegistryObject;
 import nowebsite.maker.furnitureplan.FurniturePlan;
+import nowebsite.maker.furnitureplan.blocks.blockentities.FoodPlateBlockEntity;
 import nowebsite.maker.furnitureplan.blocks.blockentities.renderers.FoodPlateBlockEntityRenderer;
+import nowebsite.maker.furnitureplan.networks.ModMessages;
+import nowebsite.maker.furnitureplan.networks.packets.ItemStackSyncS2CPacket;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.registry.FoldingRegistration;
 import nowebsite.maker.furnitureplan.registry.ItemRegistration;
@@ -62,6 +68,12 @@ public class SetupWithEvents {
         }
     }
 
+    public static void playerLoggedInEvent(PlayerEvent.PlayerLoggedInEvent event){
+        Level level = event.getEntity().level;
+        if (level.isClientSide){
+            event.getEntity().refreshDimensions();
+        }
+    }
 }
 
 

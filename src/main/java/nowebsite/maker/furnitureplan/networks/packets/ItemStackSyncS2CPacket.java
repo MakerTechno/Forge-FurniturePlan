@@ -43,13 +43,12 @@ public class ItemStackSyncS2CPacket {
         buf.writeBlockPos(pos);
     }
 
-    public boolean handle(@NotNull Supplier<NetworkEvent.Context> supplier) {
+    public void handle(@NotNull Supplier<NetworkEvent.Context> supplier) {
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
             if (Minecraft.getInstance().level != null && Minecraft.getInstance().level.getBlockEntity(pos) instanceof FoodPlateBlockEntity blockEntity) {
                 blockEntity.setHandler(this.itemStackHandler);
             }
         });
-        return true;
     }
 }
