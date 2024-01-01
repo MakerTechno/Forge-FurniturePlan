@@ -1,4 +1,4 @@
-package nowebsite.maker.furnitureplan.blocks;
+package nowebsite.maker.furnitureplan.blocks.columns.func;
 
 import com.google.common.base.Suppliers;
 import com.google.common.collect.BiMap;

@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/glass",
+  "textures": {
+    "particle": "furnitureplan:block/glass"
+  }
+}

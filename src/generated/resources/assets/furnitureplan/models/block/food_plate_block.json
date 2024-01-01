@@ -1,6 +1,6 @@
 {
   "parent": "furnitureplan:block/plate",
   "textures": {
-    "particle": "minecraft:block/quartz_block_top"
+    "particle": "furnitureplan:block/plate"
   }
 }

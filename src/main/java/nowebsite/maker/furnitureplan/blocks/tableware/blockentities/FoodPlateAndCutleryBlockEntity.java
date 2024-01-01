@@ -1,4 +1,4 @@
-package nowebsite.maker.furnitureplan.blocks.blockentities;
+package nowebsite.maker.furnitureplan.blocks.tableware.blockentities;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -26,47 +26,48 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
-public class FoodPlateBlockEntity extends BlockEntity {
+public class FoodPlateAndCutleryBlockEntity extends BlockEntity implements HasPlateEntity{
     private final ItemStackHandler itemStackHandler = new ItemStackHandler(1){
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
-            if (level != null) {
-                if (!level.isClientSide){
-                    ModMessages.sendToClients(new ItemStackSyncS2CPacket(this, worldPosition));
-                }
+            if (level != null && !level.isClientSide) {
+                ModMessages.sendToClients(new ItemStackSyncS2CPacket(getItemStackHandler(), worldPosition));
             }
         }
-
         @Override
         public void setSize(int size) {
             super.setSize(1);
         }
     };
     public static final String INVENTORY = "inventory";
-    public FoodPlateBlockEntity(BlockPos pos, BlockState state) {
-        super(BlockRegistration.FOOD_PLATE_BLOCK_ENTITY.get(), pos, state);
+    public FoodPlateAndCutleryBlockEntity(BlockPos pos, BlockState state) {
+        super(BlockRegistration.FOOD_PLATE_AND_CUTLERY_BLOCK_ENTITY.get(), pos, state);
+        if (level != null && level.getBlockEntity(pos) instanceof HasPlateEntity cast && cast != this) {
+            ItemStackHandler handler = cast.getItemStackHandler();
+            changeFood(handler.getStackInSlot(0));
+            cast.setRemoved();
+        }
     }
-
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
-
-    public ItemStack getRendererStack() {
-        return itemStackHandler.getStackInSlot(0);
+    /**You can't change this*/
+    public ItemStack getFoodStack() {
+        return itemStackHandler.getStackInSlot(0).copy();
     }
-    public void setHandler(@NotNull ItemStackHandler handler) {
-        itemStackHandler.setStackInSlot(0, handler.getStackInSlot(0));
+    public ItemStackHandler getItemStackHandler(){
+        return itemStackHandler;
+    }
+    public void changeFood(@NotNull ItemStack stack) {
+        itemStackHandler.setStackInSlot(0, stack);
+        this.markUpdated();
     }
     public boolean placeFood(Entity entity, ItemStack stack) {
-        ItemStack itemstack = this.itemStackHandler.getStackInSlot(0);
-        if (itemstack.isEmpty()) {
-            this.itemStackHandler.setStackInSlot(0, stack.split(1));
-            if (this.level != null) {
-                this.level.gameEvent(GameEvent.BLOCK_CHANGE, this.getBlockPos(), GameEvent.Context.of(entity, this.getBlockState()));
-            }
-            this.markUpdated();
-            return true;
+        if (!getFoodStack().isEmpty()) return false;
+        changeFood(stack.split(1));
+        if (this.level != null) {
+            this.level.gameEvent(GameEvent.BLOCK_CHANGE, this.getBlockPos(), GameEvent.Context.of(entity, this.getBlockState()));
         }
-        return false;
+        return true;
     }
     private void markUpdated() {
         this.setChanged();
@@ -77,58 +78,40 @@ public class FoodPlateBlockEntity extends BlockEntity {
         if (cap == ForgeCapabilities.ITEM_HANDLER) return lazyItemHandler.cast();
         return super.getCapability(cap, side);
     }
-
     @Override
     public void onLoad() {
         super.onLoad();
         lazyItemHandler = LazyOptional.of(() -> itemStackHandler);
     }
-
     @Override
     public void invalidateCaps() {
         super.invalidateCaps();
         lazyItemHandler.invalidate();
     }
-
-
     @Override
     protected void saveAdditional(@NotNull CompoundTag tag) {
         tag.put(INVENTORY, itemStackHandler.serializeNBT());
         super.saveAdditional(tag);
     }
-
     @Override
     public void load(@NotNull CompoundTag tag) {
         super.load(tag);
         itemStackHandler.deserializeNBT(tag.getCompound(INVENTORY));
     }
-
     public void drops(){
-        SimpleContainer inventory = new SimpleContainer(itemStackHandler.getSlots());
-        for (int i = 0; i < itemStackHandler.getSlots(); i++){
-            inventory.setItem(i, itemStackHandler.getStackInSlot(i));
-        }
-
+        SimpleContainer inventory = new SimpleContainer(1);
+        inventory.setItem(0, getFoodStack());
         Containers.dropContents(Objects.requireNonNull(this.getLevel()), this.worldPosition, inventory);
-
-        itemStackHandler.setStackInSlot(0, ItemStack.EMPTY);
+        changeFood(ItemStack.EMPTY);
         markUpdated();
     }
-
     @Nullable
     @Override
     public Packet<ClientGamePacketListener> getUpdatePacket() {
         return ClientboundBlockEntityDataPacket.create(this);
     }
-
     @Override
     public @NotNull CompoundTag getUpdateTag() {
         return saveWithoutMetadata();
     }
-
-    /*public void tickAtServer(Level level, BlockState state) {
-    }*/
-
-
-
 }

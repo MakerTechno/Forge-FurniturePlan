@@ -6,6 +6,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity.RemovalReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.Cat;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -13,11 +14,13 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.RegistryObject;
 import nowebsite.maker.furnitureplan.blocks.ChairBlock;
-import nowebsite.maker.furnitureplan.entities.RideableArmor;
+import nowebsite.maker.furnitureplan.entities.RideableEntityNull;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
+
 public class ChairBlockEntity extends BlockEntity {
-    public RideableArmor sit = null;
+    public RideableEntityNull sit = null;
     public final BlockState containerBlock;
     private int count = 0;
 
@@ -36,9 +39,10 @@ public class ChairBlockEntity extends BlockEntity {
     }
 
     public InteractionResult useAct(Level level, BlockPos pos, Player player, Direction direction) {
+        //Trying to add cat sit ability
         if (this.sit == null) {
             this.count = 0;
-            this.sit = new RideableArmor(EntityType.ARMOR_STAND, level, () -> this);
+            this.sit = new RideableEntityNull(EntityType.ARMOR_STAND, level, () -> this);
             this.sit.setPos((double)pos.getX() + 0.5, (double)pos.getY() - 1.26, (double)pos.getZ() + 0.5);
             int rotate = switch (direction) {
                 case EAST -> 90;
@@ -62,7 +66,9 @@ public class ChairBlockEntity extends BlockEntity {
         }
     }
 
+    @Override
     public void setRemoved() {
+        Objects.requireNonNull(getLevel()).removeBlockEntity(getBlockPos());
         if (containerBlock.getBlock() instanceof ChairBlock chairBlock){
             chairBlock.newBlockEntity(this.getBlockPos(), containerBlock);
         }
@@ -70,7 +76,6 @@ public class ChairBlockEntity extends BlockEntity {
             this.sit.remove(RemovalReason.DISCARDED);
             this.sit = null;
         }
-        super.setRemoved();
     }
 
 }

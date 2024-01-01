@@ -8,7 +8,7 @@ import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraftforge.registries.RegistryObject;
 import nowebsite.maker.furnitureplan.blocks.TableBlock;
-import nowebsite.maker.furnitureplan.blocks.WeatheredCopperTable;
+import nowebsite.maker.furnitureplan.blocks.columns.WeatheredCopperTable;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.registry.ItemRegistration;
 import org.jetbrains.annotations.Contract;

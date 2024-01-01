@@ -1,15 +1,18 @@
 package nowebsite.maker.furnitureplan.entities;
 
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.level.Level;
 import nowebsite.maker.furnitureplan.blocks.blockentities.ChairBlockEntity;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
-public class RideableArmor extends ArmorStand {
+public class RideableEntityNull extends Entity {
     public Supplier<ChairBlockEntity> supplier;
-    public RideableArmor(EntityType<? extends ArmorStand> entityType, Level level, Supplier<ChairBlockEntity> supplier) {
+    public RideableEntityNull(EntityType<? extends ArmorStand> entityType, Level level, Supplier<ChairBlockEntity> supplier) {
         super(entityType, level);
         this.supplier = supplier;
         setNoGravity(true);
@@ -20,6 +23,9 @@ public class RideableArmor extends ArmorStand {
         verticalCollisionBelow = false;
     }
 
+
+    @Override
+    protected void defineSynchedData() {}
 
     @Override
     public void tick() {
@@ -43,5 +49,11 @@ public class RideableArmor extends ArmorStand {
             count++;
         }
     }
+
+    @Override
+    protected void readAdditionalSaveData(@NotNull CompoundTag pCompound) {}
+
+    @Override
+    protected void addAdditionalSaveData(@NotNull CompoundTag pCompound) {}
 
 }

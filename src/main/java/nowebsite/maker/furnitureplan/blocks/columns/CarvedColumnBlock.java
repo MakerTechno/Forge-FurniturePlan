@@ -1,4 +1,4 @@
-package nowebsite.maker.furnitureplan.blocks;
+package nowebsite.maker.furnitureplan.blocks.columns;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -13,11 +13,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.RedstoneTorchBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -28,45 +25,53 @@ import org.jetbrains.annotations.NotNull;
 import java.util.function.Supplier;
 
 @SuppressWarnings("deprecation")
-public class LightedColumnBlock extends Block implements SimpleWaterloggedBlock {
-    public static final BooleanProperty LIT = RedstoneTorchBlock.LIT;
+public class CarvedColumnBlock extends Block implements SimpleWaterloggedBlock {
     public final Block base;
     private final BlockState baseState;
     private final Supplier<BlockState> stateSupplier;
     private static VoxelShape SHAPE = Shapes.empty();
     static {
         SHAPE = Shapes.join(SHAPE, Shapes.box(0.0625, 0, 0.125, 0.9375, 0.0625, 0.875), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0, 0.0625, 0.875, 0.0625, 0.125), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0, 0.875, 0.875, 0.0625, 0.9375), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0.0625, 0.1875, 0.875, 0.125, 0.8125), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.0625, 0.125, 0.8125, 0.125, 0.1875), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.25, 0.125, 0.75, 0.75, 0.375, 0.8125), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.125, 0.25, 0.8125, 0.375, 0.75), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.0625, 0.8125, 0.8125, 0.125, 0.875), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.25, 0.125, 0.1875, 0.75, 0.375, 0.25), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.0625, 0.9375, 0.125, 0.9375, 1, 0.875), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0.9375, 0.0625, 0.875, 1, 0.125), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0.9375, 0.875, 0.875, 1, 0.9375), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0.875, 0.1875, 0.875, 0.9375, 0.8125), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.875, 0.125, 0.8125, 0.9375, 0.1875), BooleanOp.OR);
         SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.875, 0.8125, 0.8125, 0.9375, 0.875), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.25, 0.625, 0.75, 0.75, 0.875, 0.8125), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.625, 0.25, 0.8125, 0.875, 0.75), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.25, 0.625, 0.1875, 0.75, 0.875, 0.25), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.25, 0.375, 0.25, 0.375, 0.625, 0.375), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.625, 0.375, 0.625, 0.75, 0.625, 0.75), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.625, 0.375, 0.25, 0.75, 0.625, 0.375), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.375, 0.375, 0.375, 0.625, 0.625, 0.625), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.375, 0.375, 0.25, 0.625, 0.625, 0.375), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.375, 0.375, 0.625, 0.625, 0.625, 0.75), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.25, 0.375, 0.625, 0.375, 0.625, 0.75), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.625, 0.375, 0.375, 0.75, 0.625, 0.625), BooleanOp.OR);
-        SHAPE = Shapes.join(SHAPE, Shapes.box(0.25, 0.375, 0.375, 0.375, 0.625, 0.625), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.875, 0.125, 0.8125, 0.9375, 0.1875), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0.875, 0.1875, 0.875, 0.9375, 0.8125), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0.9375, 0.875, 0.875, 1, 0.9375), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0.9375, 0.0625, 0.875, 1, 0.125), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.0625, 0.9375, 0.125, 0.9375, 1, 0.875), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0.0625, 0.1875, 0.875, 0.125, 0.8125), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.75, 0.125, 0.25, 0.8125, 0.1875, 0.75), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.75, 0.25, 0.25, 0.8125, 0.75), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.625, 0.25, 0.25, 0.6875, 0.75), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.5, 0.25, 0.25, 0.5625, 0.75), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.375, 0.25, 0.25, 0.4375, 0.75), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.25, 0.25, 0.25, 0.3125, 0.75), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.125, 0.25, 0.25, 0.1875, 0.75), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.75, 0.25, 0.25, 0.8125, 0.3125, 0.75), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.75, 0.375, 0.25, 0.8125, 0.4375, 0.75), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.75, 0.5, 0.25, 0.8125, 0.5625, 0.75), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.75, 0.625, 0.25, 0.8125, 0.6875, 0.75), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.75, 0.75, 0.25, 0.8125, 0.8125, 0.75), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0, 0.0625, 0.875, 0.0625, 0.125), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.0625, 0.125, 0.8125, 0.125, 0.1875), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.125, 0.1875, 0.8125, 0.1875, 0.25), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.75, 0.75, 0.8125, 0.8125, 0.8125), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.625, 0.75, 0.8125, 0.6875, 0.8125), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.5, 0.75, 0.8125, 0.5625, 0.8125), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.375, 0.75, 0.8125, 0.4375, 0.8125), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.25, 0.75, 0.8125, 0.3125, 0.8125), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.125, 0.75, 0.8125, 0.1875, 0.8125), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.25, 0.1875, 0.8125, 0.3125, 0.25), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.375, 0.1875, 0.8125, 0.4375, 0.25), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.5, 0.1875, 0.8125, 0.5625, 0.25), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.625, 0.1875, 0.8125, 0.6875, 0.25), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.75, 0.1875, 0.8125, 0.8125, 0.25), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.25, 0.125, 0.25, 0.75, 0.875, 0.75), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.1875, 0.0625, 0.8125, 0.8125, 0.125, 0.875), BooleanOp.OR);
+        SHAPE = Shapes.join(SHAPE, Shapes.box(0.125, 0, 0.875, 0.875, 0.0625, 0.9375), BooleanOp.OR);
     }
 
-    public LightedColumnBlock(@NotNull BlockState state, Properties properties) {
+    public CarvedColumnBlock(@NotNull BlockState state, Properties properties) {
         super(properties);
-        this.registerDefaultState(this.defaultBlockState().setValue(LIT, Boolean.TRUE));
         this.base = state.getBlock();
         this.baseState = state;
         this.stateSupplier = () -> state;
@@ -79,11 +84,6 @@ public class LightedColumnBlock extends Block implements SimpleWaterloggedBlock 
     @Override
     public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return this.getOcclusionShape(state, getter, pos);
-    }
-
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> builder) {
-        builder.add(LIT);
     }
 
     @Override
@@ -144,9 +144,6 @@ public class LightedColumnBlock extends Block implements SimpleWaterloggedBlock 
     @Override
     public void tick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource source) {
         this.base.tick(state, level, pos, source);
-        if (state.getValue(LIT)) {
-            level.setBlock(pos, state.cycle(LIT), 2);
-        }
     }
 
     @Override
@@ -161,10 +158,5 @@ public class LightedColumnBlock extends Block implements SimpleWaterloggedBlock 
     @SuppressWarnings("all")
     private @NotNull Block getModelBlock() {
         return this.getModelState().getBlock();
-    }
-
-    @Override
-    public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
-        return 15;
     }
 }

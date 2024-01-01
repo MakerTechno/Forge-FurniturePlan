@@ -6,7 +6,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LightningRodBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import nowebsite.maker.furnitureplan.blocks.IWeatheringCopper;
+import nowebsite.maker.furnitureplan.blocks.columns.func.IWeatheringCopper;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -33,7 +33,10 @@ public class LightningBoltMixin {
         }
 
         if (blockstate1.getBlock() instanceof IWeatheringCopper) {
-            level.setBlockAndUpdate(blockpos, IWeatheringCopper.getFirst(level.getBlockState(blockpos)));
+            BlockState state = IWeatheringCopper.getFirst(level.getBlockState(blockpos));
+            level.removeBlockEntity(blockpos);
+            level.setBlockAndUpdate(blockpos, state);
+
             BlockPos.MutableBlockPos blockpos$mutableblockpos = pos.mutable();
             int i = level.random.nextInt(3) + 3;
 

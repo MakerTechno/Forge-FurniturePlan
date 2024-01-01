@@ -35,6 +35,8 @@ public class ModEnglishLanguageProvider extends LanguageProvider {
         transformKinds(FoldingRegistration.getLightedColumnBlockLists());
 
         add(BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get(), "Food plate");
+        add(BlockRegistration.GLASS_B_BLOCK_ITEM.get(), "Glass bottle");
+        add(BlockRegistration.CUTLERY_ITEM.get(), "Cutlery");
     }
 
     public void transformKinds(@NotNull List<RegistryObject<? extends Block>> list) {

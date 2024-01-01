@@ -1,20 +1,17 @@
-package nowebsite.maker.furnitureplan.blocks;
+package nowebsite.maker.furnitureplan.blocks.columns;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
-import net.minecraft.world.level.block.WeatheringCopper;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.registries.RegistryObject;
-import nowebsite.maker.furnitureplan.blocks.blockentities.ChairBlockEntity;
+import nowebsite.maker.furnitureplan.blocks.columns.func.IWeatheringCopper;
 import org.jetbrains.annotations.NotNull;
 
-public class WeatheredCopperChair extends ChairBlock implements IWeatheringCopper, SimpleWaterloggedBlock {
-    private final IWeatheringCopper.WeatherState weatherState;
-    public WeatheredCopperChair(RegistryObject<BlockEntityType<ChairBlockEntity>> type, @NotNull BlockState state, Properties properties, WeatheringCopper.WeatherState weatherState) {
-        super(type, state, properties);
+public class WeatheredCopperCarvedColumnBlock extends CarvedColumnBlock implements IWeatheringCopper, SimpleWaterloggedBlock {
+    private final WeatherState weatherState;
+    public WeatheredCopperCarvedColumnBlock(@NotNull BlockState state, Properties properties, WeatherState weatherState) {
+        super(state, properties);
         this.weatherState = weatherState;
     }
 

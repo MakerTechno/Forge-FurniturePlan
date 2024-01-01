@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType.Builder;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraftforge.registries.RegistryObject;
 import nowebsite.maker.furnitureplan.blocks.ChairBlock;
-import nowebsite.maker.furnitureplan.blocks.WeatheredCopperChair;
+import nowebsite.maker.furnitureplan.blocks.columns.WeatheredCopperChair;
 import nowebsite.maker.furnitureplan.blocks.blockentities.ChairBlockEntity;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.registry.ItemRegistration;

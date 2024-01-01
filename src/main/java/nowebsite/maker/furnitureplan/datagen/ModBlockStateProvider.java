@@ -32,7 +32,32 @@ public class ModBlockStateProvider extends BlockStateProvider {
         horizontalBlock(BlockRegistration.FOOD_PLATE_BLOCK.get(), models().singleTexture(
                 BuiltInRegistries.BLOCK.getKey(BlockRegistration.FOOD_PLATE_BLOCK.get()).toString(),
                 modLoc("block/plate"), "particle",
-                mcLoc("block/quartz_block_top")
+                modLoc("block/plate")
+        ));
+        horizontalBlock(BlockRegistration.CUTLERY_BLOCK.get(), models().singleTexture(
+                BuiltInRegistries.BLOCK.getKey(BlockRegistration.CUTLERY_BLOCK.get()).toString(),
+                modLoc("block/cutlery"), "particle",
+                mcLoc("block/stone")
+        ));
+        horizontalBlock(BlockRegistration.FOOD_PLATE_AND_CUTLERY_BLOCK.get(), models().singleTexture(
+                BuiltInRegistries.BLOCK.getKey(BlockRegistration.FOOD_PLATE_AND_CUTLERY_BLOCK.get()).toString(),
+                modLoc("block/plate_and_cutlery"), "particle",
+                mcLoc("block/stone")
+        ));
+        horizontalBlock(BlockRegistration.FOOD_PLATE_AND_GLASS_BLOCK.get(), models().singleTexture(
+                BuiltInRegistries.BLOCK.getKey(BlockRegistration.FOOD_PLATE_AND_GLASS_BLOCK.get()).toString(),
+                modLoc("block/plate_and_glass"), "particle",
+                modLoc("block/glass")
+        ));
+        horizontalBlock(BlockRegistration.FOOD_PLATE_AND_GLASS_AND_CUTLERY_BLOCK.get(), models().singleTexture(
+                BuiltInRegistries.BLOCK.getKey(BlockRegistration.FOOD_PLATE_AND_GLASS_AND_CUTLERY_BLOCK.get()).toString(),
+                modLoc("block/plate_and_glass_and_cutlery"), "particle",
+                mcLoc("block/stone")
+        ));
+        simpleBlock(BlockRegistration.GLASS_B_BLOCK.get(), models().singleTexture(
+                BuiltInRegistries.BLOCK.getKey(BlockRegistration.GLASS_B_BLOCK.get()).toString(),
+                modLoc("block/glass"), "particle",
+                modLoc("block/glass")
         ));
     }
 

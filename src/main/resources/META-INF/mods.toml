@@ -28,21 +28,21 @@ displayTest="MATCH_VERSION" # MATCH_VERSION is the default if nothing is specifi
 # The description text for the mod (multi line!) (#mandatory)
 description='''
 -What is Furniture Plan Alpha?
-Furniture Plan Alpha is a mod written by Maker(ERROR),
+Furniture Plan Alpha is a mod written by MakerTechno(also called Maker or Maker[ERROR]),
 including kinds of furniture and some interesting changes.
-These changes make minecraft funnier and not so awful
-when you need many pickaxe to mine but not much iron you have.
-(Using cooper and change it to brass!)
+These changes make minecraft funnier and not so boring.
+When you need many pickaxe to mine but not much iron you have.
+(Using cooper and change it to *brass!)
 Furniture include chairs, tables and so on.
-Most of the model were made by [NotCurrentGameID]jing_qi,
-code and most textures by Maker.
+Most of the model were made by [NotCurrentGameID]jing_qi and me.
+code and most textures by me, MakerTechno.
 
 -How this mod came out?
 Hmm.... Just one day, we logged in the server, play for a while,
 then jing_qi found that the game needs more furniture for his beautiful house.
-Also, he needs more quartz but he use over his iron ingots. He don't want to find more.
-He found many cooper in his chest...
-Then it comes, The brass refiner.
+Also, he needs more quartz but he used over his iron ingots for the pickaxes, he didn't want to find more.
+He found many cooper but no more iron...maybe we can change it to a new material and make a pickaxe?(Well, pure copper is not very hard)
+Then it comes, The brass refiner(Actually, it was not made yet).
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.furnitureplan]] #optional

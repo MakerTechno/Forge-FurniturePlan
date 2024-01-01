@@ -31,6 +31,8 @@ public class ModChineseLanguageProvider extends LanguageProvider {
         add("tip.furnitureplan.shiftdown", "按下SHIFT查看详细信息");
         add("tip.furnitureplan.graver", "这个雕刻刀可以将一些方块雕刻成模组物品\n实际上，可雕刻的方块种类和制作各种楼梯的方块种类一样多");
         add(BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get(), "盘子");
+        add(BlockRegistration.GLASS_B_BLOCK_ITEM.get(), "玻璃杯");
+        add(BlockRegistration.CUTLERY_ITEM.get(), "餐具");
     }
 
     public void transformKinds(@NotNull List<RegistryObject<? extends Block>> list,String transformHead, String transformEnd) {
