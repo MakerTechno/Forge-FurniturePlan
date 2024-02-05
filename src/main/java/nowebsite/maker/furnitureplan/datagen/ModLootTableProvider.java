@@ -42,9 +42,8 @@ public class ModLootTableProvider extends LootTableProvider {
         resourceLocations.add(BlockRegistration.FOOD_PLATE_BLOCK.getId());
         resourceLocations.add(BlockRegistration.GLASS_B_BLOCK.getId());
         resourceLocations.add(BlockRegistration.CUTLERY_BLOCK.getId());
-        resourceLocations.add(BlockRegistration.FOOD_PLATE_AND_GLASS_AND_CUTLERY_BLOCK.getId());
-        resourceLocations.add(BlockRegistration.FOOD_PLATE_AND_GLASS_BLOCK.getId());
-        resourceLocations.add(BlockRegistration.FOOD_PLATE_AND_CUTLERY_BLOCK.getId());
+        resourceLocations.add(BlockRegistration.LANTERN_BLOCK.getId());
+        resourceLocations.add(BlockRegistration.IRON_POT_BLOCK.getId());
     }
 
     public ModLootTableProvider(PackOutput output) {
@@ -68,12 +67,11 @@ class ModCustomBlockLootProvider extends BlockLootSubProvider {
         this.addKindsProp(FoldingRegistration.getCarvedColumnBlockLists());
         this.addKindsProp(FoldingRegistration.getLightedColumnBlockLists());
 
-        dropSelf(BlockRegistration.FOOD_PLATE_BLOCK.get());
-        dropSelf(BlockRegistration.GLASS_B_BLOCK.get());
+        add(BlockRegistration.FOOD_PLATE_BLOCK.get(), noDrop());
+        add(BlockRegistration.GLASS_B_BLOCK.get(), noDrop());
         dropSelf(BlockRegistration.CUTLERY_BLOCK.get());
-        dropOther(BlockRegistration.FOOD_PLATE_AND_GLASS_AND_CUTLERY_BLOCK.get(), BlockRegistration.CUTLERY_ITEM.get());
-        dropOther(BlockRegistration.FOOD_PLATE_AND_GLASS_BLOCK.get(), BlockRegistration.GLASS_B_BLOCK_ITEM.get());
-        dropOther(BlockRegistration.FOOD_PLATE_AND_CUTLERY_BLOCK.get(), BlockRegistration.CUTLERY_ITEM.get());
+        dropSelf(BlockRegistration.LANTERN_BLOCK.get());
+        dropSelf(BlockRegistration.IRON_POT_BLOCK.get());
     }
 
     protected @NotNull Iterable<Block> getKnownBlocks() {

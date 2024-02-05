@@ -49,7 +49,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         add(FoldingRegistration.getCarvedColumnItemLists());
         add(FoldingRegistration.getLightedColumnItemLists());
 
-        withExistingParent(BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get().toString(), modLoc("block/food_plate_block"));
+        withExistingParent(BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get().toString(), modLoc("block/food_plate_block_plt"));
         withExistingParent(BlockRegistration.GLASS_B_BLOCK_ITEM.get().toString(), modLoc("block/glass_b_block"));
         singleTexture(
                 BlockRegistration.CUTLERY_ITEM.get().toString(),
@@ -57,6 +57,8 @@ public class ModItemModelProvider extends ItemModelProvider {
                 "particle",
                 modLoc("block/plate")
         );
+        withExistingParent(BlockRegistration.LANTERN_ITEM.get().toString(), modLoc("block/lantern_block"));
+        withExistingParent(BlockRegistration.IRON_POT_BLOCK_ITEM.get().toString(), modLoc("block/iron_pot_block"));
     }
 
     public void add(@NotNull List<RegistryObject<? extends Item>> list) {

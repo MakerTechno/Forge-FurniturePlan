@@ -1,16 +1,18 @@
 package nowebsite.maker.furnitureplan.blocks.tableware;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.AbstractGlassBlock;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
@@ -22,7 +24,9 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.items.ItemStackHandler;
+import nowebsite.maker.furnitureplan.blocks.func.BaseSmallHallBasedBlock;
 import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.GlassBBlockEntity;
+import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -42,6 +46,28 @@ public class GlassBBlock extends AbstractGlassBlock implements SimpleWaterlogged
     public GlassBBlock(Properties properties) {
         super(properties);
     }
+
+    @Override
+    public void setPlacedBy(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @Nullable LivingEntity pPlacer, @NotNull ItemStack stack) {
+        super.setPlacedBy(level, pos, state, pPlacer, stack);
+        CompoundTag tag = stack.getTag();
+        if (stack.is(BlockRegistration.GLASS_B_BLOCK_ITEM.get()) && tag != null && tag.contains("BlockEntityTag")){
+            BlockEntity blockEntity = level.getBlockEntity(pos);
+            if (blockEntity != null) {
+                blockEntity.load(tag.getCompound("BlockEntityTag"));
+            }
+        }
+    }
+
+    @Override
+    public void onRemove(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState newState, boolean pMovedByPiston) {
+        BlockEntity blockEntity = level.getBlockEntity(pos);
+        if (blockEntity instanceof GlassBBlockEntity cast){
+            cast.dropBottle();
+        }
+        super.onRemove(state, level, pos, newState, pMovedByPiston);
+    }
+
     @Override
     public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
         if (!level.isClientSide) {
@@ -71,18 +97,28 @@ public class GlassBBlock extends AbstractGlassBlock implements SimpleWaterlogged
         return new GlassBBlockEntity(pos, state);
     }
     @Override
-    public void destroy(@NotNull LevelAccessor level, @NotNull BlockPos pos, @NotNull BlockState state) {
-        super.destroy(level, pos, state);
-
+    public boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader level, @NotNull BlockPos pos) {
+        return BaseSmallHallBasedBlock.canSurvive(state,level,pos);
     }
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable BlockGetter level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
-        super.appendHoverText(stack, level, tooltip, flag);
         CompoundTag compoundtag = BlockItem.getBlockEntityData(stack);
-        if (compoundtag == null) return;
+        if (compoundtag == null) {
+            super.appendHoverText(stack, level, tooltip, flag);
+            return;
+        }
 
-        ItemStackHandler handler = new ItemStackHandler(1);
-        handler.deserializeNBT(compoundtag.copy().getCompound(GlassBBlockEntity.INVENTORY));
-        tooltip.add(Component.literal(PotionUtils.getPotion(handler.getStackInSlot(0)).getName("Potion:")));
+        ItemStackHandler handler = new ItemStackHandler(2);
+        handler.deserializeNBT(compoundtag.getCompound(GlassBBlockEntity.INVENTORY));
+        ItemStack stack1 = handler.getStackInSlot(1);
+        if (!stack1.isEmpty()) {
+            tooltip.add(
+                    Component.translatable("item.minecraft.potion")
+                            .append(":  ")
+                            .append(Component.translatable(PotionUtils.getPotion(stack1).getName("item.minecraft.potion.effect.")))
+                            .withStyle(ChatFormatting.GRAY)
+            );
+        }
+        super.appendHoverText(stack, level, tooltip, flag);
     }
 }

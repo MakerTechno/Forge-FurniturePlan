@@ -5,7 +5,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.level.Level;
-import nowebsite.maker.furnitureplan.blocks.blockentities.ChairBlockEntity;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.ChairBlockEntity;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;

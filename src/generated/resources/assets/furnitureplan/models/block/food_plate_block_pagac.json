@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/plate_and_glass_and_cutlery",
+  "textures": {
+    "particle": "furnitureplan:block/plate"
+  }
+}

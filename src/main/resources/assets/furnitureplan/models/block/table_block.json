@@ -80,7 +80,7 @@
 			"scale": [0.54, 0.54, 0.44]
 		},
 		"ground": {
-			"translation": [0, -0.25, 0],
+			"translation": [0, 0, 0],
 			"scale": [0.4, 0.4, 0.4]
 		},
 		"gui": {

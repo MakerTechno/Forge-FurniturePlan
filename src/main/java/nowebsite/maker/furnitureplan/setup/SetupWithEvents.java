@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.registries.RegistryObject;
 import nowebsite.maker.furnitureplan.FurniturePlan;
+import nowebsite.maker.furnitureplan.blocks.cookingUtensils.blockentities.renderers.IronPotBlockEntityRenderer;
 import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.renderers.*;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.registry.FoldingRegistration;
@@ -32,6 +33,8 @@ public class SetupWithEvents {
                             output.accept(BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get());
                             output.accept(BlockRegistration.GLASS_B_BLOCK_ITEM.get());
                             output.accept(BlockRegistration.CUTLERY_ITEM.get());
+                            output.accept(BlockRegistration.LANTERN_ITEM.get());
+                            output.accept(BlockRegistration.IRON_POT_BLOCK.get());
                             initKindsItem(output, FoldingRegistration.getChairItemLists());
                             initKindsItem(output, FoldingRegistration.getTableItemLists());
                             initKindsItem(output, FoldingRegistration.getColumnItemLists());
@@ -61,9 +64,7 @@ public class SetupWithEvents {
             public static void registerEntityRenderers(EntityRenderersEvent.@NotNull RegisterRenderers event){
                 event.registerBlockEntityRenderer(BlockRegistration.FOOD_PLATE_BLOCK_ENTITY.get(), pContext -> new FoodPlateBlockEntityRenderer());
                 event.registerBlockEntityRenderer(BlockRegistration.GLASS_B_BLOCK_ENTITY.get(), pContext -> new GlassBBlockEntityRenderer());
-                event.registerBlockEntityRenderer(BlockRegistration.FOOD_PLATE_AND_GLASS_BLOCK_ENTITY.get(), pContext -> new FoodPlateAndGlassBlockEntityRenderer());
-                event.registerBlockEntityRenderer(BlockRegistration.FOOD_PLATE_AND_CUTLERY_BLOCK_ENTITY.get(), pContext -> new FoodPlateAndCutleryBlockEntityRenderer());
-                event.registerBlockEntityRenderer(BlockRegistration.FOOD_PLATE_AND_GLASS_AND_CUTLERY_BLOCK_ENTITY.get(), pContext -> new FoodPlateAndGlassAndCutleryBlockEntityRenderer());
+                event.registerBlockEntityRenderer(BlockRegistration.IRON_POT_BLOCK_ENTITY.get(), pContext -> new IronPotBlockEntityRenderer());
             }
         }
     }

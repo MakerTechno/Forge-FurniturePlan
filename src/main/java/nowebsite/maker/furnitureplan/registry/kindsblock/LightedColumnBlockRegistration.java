@@ -6,15 +6,20 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.registries.RegistryObject;
 import nowebsite.maker.furnitureplan.blocks.columns.LightedColumnBlock;
 import nowebsite.maker.furnitureplan.blocks.columns.WeatheredCopperLightedColumn;
+import nowebsite.maker.furnitureplan.registry.BRUtils;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.registry.ItemRegistration;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
-public class LightedColumnBlockRegistration {
+import java.util.function.ToIntFunction;
+
+public class LightedColumnBlockRegistration extends BRUtils {
     public static void init(){}
     
     public static final RegistryObject<LightedColumnBlock> OAK_LIGHTED_COLUMNS = BlockRegistration.BLOCKS.register("oak_lighted_columns", () -> usageLightedColumnBlock(Blocks.OAK_PLANKS));
@@ -126,11 +131,12 @@ public class LightedColumnBlockRegistration {
 
     @Contract("_ -> new")
     public static @NotNull LightedColumnBlock usageLightedColumnBlock(@NotNull Block propertyBlock) {
-        return new LightedColumnBlock(propertyBlock.defaultBlockState(), BlockBehaviour.Properties.copy(propertyBlock));
+        return new LightedColumnBlock(propertyBlock.defaultBlockState(), BlockBehaviour.Properties.copy(propertyBlock).lightLevel(litBlockEmission(15)));
     }
 
     @Contract("_, _ -> new")
     public static @NotNull WeatheredCopperLightedColumn usageWeatheredLightedColumn(@NotNull Block propertyBlock, WeatheringCopper.WeatherState weatherState) {
         return new WeatheredCopperLightedColumn(propertyBlock.defaultBlockState(), BlockBehaviour.Properties.copy(propertyBlock), weatherState);
     }
+
 }

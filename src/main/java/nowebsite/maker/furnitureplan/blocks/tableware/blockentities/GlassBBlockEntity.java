@@ -6,6 +6,8 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.world.Containers;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -45,6 +47,10 @@ public class GlassBBlockEntity extends BlockEntity implements HasGlassEntity {
     public static final String INVENTORY = "inventory";
     public GlassBBlockEntity(BlockPos pos, BlockState state) {
         super(BlockRegistration.GLASS_B_BLOCK_ENTITY.get(), pos, state);
+    }
+    public GlassBBlockEntity(ItemStack potion) {
+        this(null, BlockRegistration.GLASS_B_BLOCK.get().defaultBlockState());
+        fillPotion(null, potion);
     }
     /**You can't change this*/
     public ItemStack getPotionStack(){
@@ -89,6 +95,17 @@ public class GlassBBlockEntity extends BlockEntity implements HasGlassEntity {
     public void changePotion(ItemStack stack){
         potionItemStackHandler.setStackInSlot(1, stack);
     }
+    public void dropBottle(){
+        SimpleContainer inventory = new SimpleContainer(1);
+        ItemStack stack = new ItemStack(BlockRegistration.GLASS_B_BLOCK_ITEM.get(),1);
+        if (getPotionStack() != null && !getPotionStack().isEmpty()) {
+            this.saveToItem(stack);
+        }
+        inventory.setItem(0, stack);
+        Containers.dropContents(Objects.requireNonNull(this.getLevel()), this.worldPosition, inventory);
+        changePotion(ItemStack.EMPTY);
+        markUpdated();
+    }
     @Override
     public void onLoad() {
         super.onLoad();
@@ -101,13 +118,13 @@ public class GlassBBlockEntity extends BlockEntity implements HasGlassEntity {
     }
     @Override
     protected void saveAdditional(@NotNull CompoundTag tag) {
-        tag.put(INVENTORY, getPotionStack().serializeNBT());
+        tag.put(INVENTORY, potionItemStackHandler.serializeNBT());
         super.saveAdditional(tag);
     }
     @Override
     public void load(@NotNull CompoundTag tag) {
         super.load(tag);
-        getPotionStack().deserializeNBT(tag.getCompound(INVENTORY));
+        potionItemStackHandler.deserializeNBT(tag.getCompound(INVENTORY));
     }
     @Nullable
     @Override

@@ -46,9 +46,9 @@ public class GlassBBlockEntityRenderer implements BlockEntityRenderer<GlassBBloc
         float alpha = 0.6f;
         for(Couple<Vec3, Vec3, Quaternionf> p : rots) {
             poseStack.pushPose();
-            poseStack.translate(p.getFirst().x, p.getFirst().y, p.getFirst().z);
-            poseStack.mulPose(p.getThird());//rotate
-            poseStack.scale((float) p.getSecond().x, (float) p.getSecond().y, (float) p.getSecond().z);
+            poseStack.translate(p.first().x, p.first().y, p.first().z);
+            poseStack.mulPose(p.third());//rotate
+            poseStack.scale((float) p.second().x, (float) p.second().y, (float) p.second().z);
 
             GUIUtil.drawTexturedColoredRect(
                     builder, poseStack, 0, 0, 3/8f, 3/8f,

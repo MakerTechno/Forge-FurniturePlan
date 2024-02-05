@@ -6,7 +6,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LightningRodBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import nowebsite.maker.furnitureplan.blocks.columns.func.IWeatheringCopper;
+import nowebsite.maker.furnitureplan.blocks.func.IWeatheringCopper;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -21,28 +21,28 @@ public class LightningBoltMixin {
 
     @Inject(method = {"clearCopperOnLightningStrike"}, at = {@At(value = "HEAD")} )
     private static void clearCopperOnLightningStrike(@NotNull Level level, BlockPos pos, CallbackInfo ci) {
-        BlockState blockstate = level.getBlockState(pos);
-        BlockPos blockpos;
-        BlockState blockstate1;
-        if (blockstate.is(Blocks.LIGHTNING_ROD)) {
-            blockpos = pos.relative(blockstate.getValue(LightningRodBlock.FACING).getOpposite());
-            blockstate1 = level.getBlockState(blockpos);
+        BlockState blockState = level.getBlockState(pos);
+        BlockPos blockPos;
+        BlockState blockState1;
+        if (blockState.is(Blocks.LIGHTNING_ROD)) {
+            blockPos = pos.relative(blockState.getValue(LightningRodBlock.FACING).getOpposite());
+            blockState1 = level.getBlockState(blockPos);
         } else {
-            blockpos = pos;
-            blockstate1 = blockstate;
+            blockPos = pos;
+            blockState1 = blockState;
         }
 
-        if (blockstate1.getBlock() instanceof IWeatheringCopper) {
-            BlockState state = IWeatheringCopper.getFirst(level.getBlockState(blockpos));
-            level.removeBlockEntity(blockpos);
-            level.setBlockAndUpdate(blockpos, state);
+        if (blockState1.getBlock() instanceof IWeatheringCopper) {
+            BlockState state = IWeatheringCopper.getFirst(level.getBlockState(blockPos));
+            level.removeBlockEntity(blockPos);
+            level.setBlockAndUpdate(blockPos, state);
 
             BlockPos.MutableBlockPos blockpos$mutableblockpos = pos.mutable();
             int i = level.random.nextInt(3) + 3;
 
             for(int j = 0; j < i; ++j) {
                 int k = level.random.nextInt(8) + 1;
-                forge1_19_4FurniturePlan$iRandomWalkCleaningCopper(level, blockpos, blockpos$mutableblockpos, k);
+                forge1_19_4FurniturePlan$iRandomWalkCleaningCopper(level, blockPos, blockpos$mutableblockpos, k);
             }
         }
     }

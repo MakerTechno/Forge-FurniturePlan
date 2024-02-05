@@ -6,8 +6,8 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.network.NetworkEvent;
-import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.HasGlassEntity;
-import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.HasPlateEntity;
+import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.FoodPlateBlockEntity;
+import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.GlassBBlockEntity;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -47,11 +47,13 @@ public class ItemStackSyncS2CPacket {
     public void handle(@NotNull Supplier<NetworkEvent.Context> supplier) {
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
-            if (Minecraft.getInstance().level != null && Minecraft.getInstance().level.getBlockEntity(pos) instanceof HasPlateEntity blockEntity) {
-                blockEntity.changeFood(this.itemStackHandler.getStackInSlot(0));
-            }
-            if (Minecraft.getInstance().level != null && Minecraft.getInstance().level.getBlockEntity(pos) instanceof HasGlassEntity blockEntity) {
-                blockEntity.changePotion(this.itemStackHandler.getStackInSlot(1));
+            if (Minecraft.getInstance().level != null) {
+                if (Minecraft.getInstance().level.getBlockEntity(pos) instanceof FoodPlateBlockEntity blockEntity) {
+                    blockEntity.changeFood(this.itemStackHandler.getStackInSlot(0));
+                    blockEntity.changePotion(this.itemStackHandler.getStackInSlot(1));
+                } else if (Minecraft.getInstance().level.getBlockEntity(pos) instanceof GlassBBlockEntity blockEntity){
+                    blockEntity.changePotion(this.itemStackHandler.getStackInSlot(1));
+                }
             }
         });
     }
