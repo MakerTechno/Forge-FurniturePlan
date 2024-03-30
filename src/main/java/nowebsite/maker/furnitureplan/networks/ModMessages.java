@@ -9,6 +9,7 @@ import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.networks.packets.ItemStackSyncS2CPacket;
+import nowebsite.maker.furnitureplan.networks.packets.PlayerListSyncS2CPacket;
 
 public class ModMessages {
     private static SimpleChannel INSTANCE;
@@ -32,6 +33,11 @@ public class ModMessages {
                 .decoder(ItemStackSyncS2CPacket::new)
                 .encoder(ItemStackSyncS2CPacket::toBytes)
                 .consumerMainThread(ItemStackSyncS2CPacket::handle)
+                .add();
+        net.messageBuilder(PlayerListSyncS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(PlayerListSyncS2CPacket::new)
+                .encoder(PlayerListSyncS2CPacket::toBytes)
+                .consumerMainThread(PlayerListSyncS2CPacket::handle)
                 .add();
     }
 

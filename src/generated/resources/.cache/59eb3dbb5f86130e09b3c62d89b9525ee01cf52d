@@ -1,4 +1,4 @@
-// 1.19.4	2024-01-21T18:24:31.3147769	Loot Tables
+// 1.19.4	2024-03-23T00:51:56.6239729	Loot Tables
 0a4ecfa3c1d50e4f92a6dfa34bf7d33be980a598 data/furnitureplan/loot_tables/blocks/acacia_carved_columns.json
 4e89494cf901ce4412926113554a6c4c89d18f47 data/furnitureplan/loot_tables/blocks/acacia_chairs.json
 f08d2e5c46aed0753d5c5ad3a92303105b34a7e0 data/furnitureplan/loot_tables/blocks/acacia_columns.json
@@ -54,6 +54,7 @@ c89d8f0fca63c7cfa37ee30893b1ff34b5dc65f8 data/furnitureplan/loot_tables/blocks/c
 68d0655cb92e8ad041e1eba83f01560ad44281c5 data/furnitureplan/loot_tables/blocks/crimson_columns.json
 b88c698620da725b62051472ab99c883509d1c49 data/furnitureplan/loot_tables/blocks/crimson_lighted_columns.json
 4a59af956e7d5df9fa71001f7b22c18aa1bc2905 data/furnitureplan/loot_tables/blocks/crimson_tables.json
+1be5ec593fdd694ecbe5877edd5dcb2966cf2f4d data/furnitureplan/loot_tables/blocks/cupboard_block.json
 69703a3adc9b7d6ad7ce6a170d8d2f23993279bf data/furnitureplan/loot_tables/blocks/cutlery_block.json
 bb9fcd64049abee1af496fb24483f938a9bea871 data/furnitureplan/loot_tables/blocks/cut_copper_carved_columns.json
 e7702e1b128a24d0a2fb5c8f656600bc49e2792c data/furnitureplan/loot_tables/blocks/cut_copper_chairs.json
@@ -239,6 +240,7 @@ ecca8cb6377b0d30a638918481496aa123d6861c data/furnitureplan/loot_tables/blocks/s
 69bdc11eec37672cca4d4c3e98f5f90cc669d3d2 data/furnitureplan/loot_tables/blocks/stone_columns.json
 c698705b833b58ebea2df1dd4d8244c61aa9cf74 data/furnitureplan/loot_tables/blocks/stone_lighted_columns.json
 22094ccce86d6fe8fd96cc566d8313d1b997c4fd data/furnitureplan/loot_tables/blocks/stone_tables.json
+1d4929d7d6176f60e5ea991a577527ed251ef375 data/furnitureplan/loot_tables/blocks/stove_block.json
 ef303a4b59c2d496f8ea0612c4484f07314d5497 data/furnitureplan/loot_tables/blocks/warped_carved_columns.json
 646c5dd219303eb5db4eae08043ec696c8bc36d4 data/furnitureplan/loot_tables/blocks/warped_chairs.json
 f76ada2eb46482a3eea83000bb2c86e883f97285 data/furnitureplan/loot_tables/blocks/warped_columns.json

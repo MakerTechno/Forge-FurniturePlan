@@ -5,7 +5,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import nowebsite.maker.furnitureplan.blocks.tableware.FoodPlateBlock;
-import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.utils.ModelSR;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -161,9 +160,9 @@ public enum PlateShape implements ModelSR {
             PAGAC_E = Shapes.or(PLATE_BASE,GLASS_E,CUTLERY_E),
             PAGAC_S = Shapes.or(PLATE_BASE,GLASS_S,CUTLERY_S),
             PAGAC_W = Shapes.or(PLATE_BASE,GLASS_W,CUTLERY_W);
-    public static @Nullable VoxelShape getOccModel(@NotNull BlockState state) {
-        if (!state.is(BlockRegistration.FOOD_PLATE_BLOCK.get())) return null;
-        return switch (state.getValue(FoodPlateBlock.SHAPE_DEF)){
+    @Override
+    public @Nullable VoxelShape getOccModel(@NotNull BlockState state) {
+        return switch (this){
             case PLATE_SHAPE -> PLATE_BASE;
             case PLATE_AND_GLASS_SHAPE ->
                     switch (state.getValue(FoodPlateBlock.FACING))

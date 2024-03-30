@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/stove_off",
+  "textures": {
+    "particle": "furnitureplan:block/stove"
+  }
+}

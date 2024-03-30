@@ -11,21 +11,27 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import nowebsite.maker.furnitureplan.FurniturePlan;
-import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.LanternBlock;
 import nowebsite.maker.furnitureplan.blocks.cookingUtensils.IronPotBlock;
+import nowebsite.maker.furnitureplan.blocks.cookingUtensils.StoveBlock;
 import nowebsite.maker.furnitureplan.blocks.cookingUtensils.blockentities.IronPotBlockEntity;
+import nowebsite.maker.furnitureplan.blocks.cookingUtensils.definition.StoveShape;
+import nowebsite.maker.furnitureplan.blocks.single.CupboardBlock;
+import nowebsite.maker.furnitureplan.blocks.single.blockentities.CupboardBlockEntity;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.LanternBlock;
 import nowebsite.maker.furnitureplan.blocks.tableware.Cutlery;
 import nowebsite.maker.furnitureplan.blocks.tableware.FoodPlateBlock;
 import nowebsite.maker.furnitureplan.blocks.tableware.GlassBBlock;
 import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.FoodPlateBlockEntity;
 import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.GlassBBlockEntity;
 import nowebsite.maker.furnitureplan.blocks.tableware.definition.PlateShape;
+import nowebsite.maker.furnitureplan.items.CupboardItem;
 import nowebsite.maker.furnitureplan.items.GlassBBlockItem;
 import nowebsite.maker.furnitureplan.items.IronPotItem;
 import nowebsite.maker.furnitureplan.registry.kindsblock.*;
@@ -44,6 +50,7 @@ public class BlockRegistration extends BRUtils{
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, FurniturePlan.MOD_ID);
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, FurniturePlan.MOD_ID);
+
 
     public static final TagKey<Block> CHAIR_BLOCK = BlockTags.create(new ResourceLocation("furnitureplan", "chair"));
 
@@ -85,11 +92,21 @@ public class BlockRegistration extends BRUtils{
     );
     public static final RegistryObject<Item> IRON_POT_BLOCK_ITEM = ItemRegistration.ITEMS.register("iron_pot_block", () -> new IronPotItem(IRON_POT_BLOCK.get(), new Item.Properties().stacksTo(1)));
 
+    public static final RegistryObject<Block> STOVE_BLOCK = BLOCKS.register("stove_block", () -> new StoveBlock(BlockBehaviour.Properties.of(Material.STONE)));
+    public static final RegistryObject<Item> STOVE_BLOCK_ITEM = ItemRegistration.ITEMS.register("stove_block", () -> new BlockItem(STOVE_BLOCK.get(), new Item.Properties()));
 
+
+    public static final RegistryObject<Block> CUPBOARD_BLOCK = BLOCKS.register("cupboard_block", () -> new CupboardBlock(BlockBehaviour.Properties.copy(Blocks.CHEST).noOcclusion(), BlockRegistration.CUPBOARD_BLOCK_ENTITY::get));
+    public static final RegistryObject<BlockEntityType<CupboardBlockEntity>> CUPBOARD_BLOCK_ENTITY = BLOCK_ENTITY.register(
+            "cupboard_block_entity",
+            () -> BlockEntityType.Builder.of(CupboardBlockEntity::new, CUPBOARD_BLOCK.get()).build(null)
+    );
+    public static final RegistryObject<Item> CUPBOARD_BLOCK_ITEM = ItemRegistration.ITEMS.register("cupboard_block", () -> new CupboardItem(CUPBOARD_BLOCK.get(), new Item.Properties()));
 
     public static class BlockStateRegistration{
         public static void init(){}
 
         public static final EnumProperty<PlateShape> PLATE_SHAPE = EnumProperty.create("shape", PlateShape.class);
+        public static final EnumProperty<StoveShape> STOVE_SHAPE = EnumProperty.create("shape", StoveShape.class);
     }
 }

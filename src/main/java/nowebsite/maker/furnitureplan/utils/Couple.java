@@ -1,15 +1,20 @@
 package nowebsite.maker.furnitureplan.utils;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Objects;
 import java.util.function.Function;
 
 public record Couple<F, S, T>(F first, S second, T third) {
-    public Couple<T, S, F> reverse() {
+    @Contract(" -> new")
+    public @NotNull Couple<T, S, F> reverse() {
         return of(third, second, first);
     }
 
+    @Contract(pure = true)
     @Override
-    public String toString() {
+    public @NotNull String toString() {
         return "(" + first + ", " + second + ", " + third + ")";
     }
 
@@ -26,19 +31,23 @@ public record Couple<F, S, T>(F first, S second, T third) {
         return com.google.common.base.Objects.hashCode(first, second);
     }
 
-    public <F2> Couple<F2, S, T> mapFirst(final Function<? super F, ? extends F2> function) {
+    @Contract("_ -> new")
+    public <F2> @NotNull Couple<F2, S, T> mapFirst(final @NotNull Function<? super F, ? extends F2> function) {
         return of(function.apply(first), second, third);
     }
 
-    public <S2> Couple<F, S2, T> mapSecond(final Function<? super S, ? extends S2> function) {
+    @Contract("_ -> new")
+    public <S2> @NotNull Couple<F, S2, T> mapSecond(final @NotNull Function<? super S, ? extends S2> function) {
         return of(first, function.apply(second), third);
     }
 
-    public <T2> Couple<F, S, T2> mapThird(final Function<? super T, ? extends T2> function) {
+    @Contract("_ -> new")
+    public <T2> @NotNull Couple<F, S, T2> mapThird(final @NotNull Function<? super T, ? extends T2> function) {
         return of(first, second, function.apply(third));
     }
 
-    public static <F, S, T> Couple<F, S, T> of(final F first, final S second, final T third) {
+    @Contract("_, _, _ -> new")
+    public static <F, S, T> @NotNull Couple<F, S, T> of(final F first, final S second, final T third) {
         return new Couple<>(first, second, third);
     }
 }

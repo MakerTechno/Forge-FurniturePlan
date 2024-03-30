@@ -14,6 +14,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.registries.RegistryObject;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.blocks.cookingUtensils.blockentities.renderers.IronPotBlockEntityRenderer;
+import nowebsite.maker.furnitureplan.blocks.single.blockentities.renderer.CupboardEntityRenderer;
 import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.renderers.*;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.registry.FoldingRegistration;
@@ -42,6 +43,7 @@ public class SetupWithEvents {
                             initKindsItem(output, FoldingRegistration.getLightedColumnItemLists());
                             output.accept(ItemRegistration.DETRITUS.get());
                             output.accept(ItemRegistration.SAWDUST.get());
+                            output.accept(BlockRegistration.CUPBOARD_BLOCK_ITEM.get());
                         })
                         .title(Component.translatable("itemGroup.furniture"))
                         .icon(() -> new ItemStack(ItemRegistration.TEST_ITEM.get()))
@@ -65,6 +67,7 @@ public class SetupWithEvents {
                 event.registerBlockEntityRenderer(BlockRegistration.FOOD_PLATE_BLOCK_ENTITY.get(), pContext -> new FoodPlateBlockEntityRenderer());
                 event.registerBlockEntityRenderer(BlockRegistration.GLASS_B_BLOCK_ENTITY.get(), pContext -> new GlassBBlockEntityRenderer());
                 event.registerBlockEntityRenderer(BlockRegistration.IRON_POT_BLOCK_ENTITY.get(), pContext -> new IronPotBlockEntityRenderer());
+                event.registerBlockEntityRenderer(BlockRegistration.CUPBOARD_BLOCK_ENTITY.get(), CupboardEntityRenderer::new);
             }
         }
     }

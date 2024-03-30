@@ -1,13 +1,15 @@
 package nowebsite.maker.furnitureplan;
 
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import nowebsite.maker.furnitureplan.datagen.ModDataGenerators;
-import nowebsite.maker.furnitureplan.networks.ModMessages;
-import nowebsite.maker.furnitureplan.registry.BlockRegistration;
-import nowebsite.maker.furnitureplan.registry.EntityRegistration;
-import nowebsite.maker.furnitureplan.registry.ItemRegistration;
-import nowebsite.maker.furnitureplan.registry.PaintRegistration;
+import nowebsite.maker.furnitureplan.registry.*;
+import nowebsite.maker.furnitureplan.setup.ClientSetup;
+import nowebsite.maker.furnitureplan.setup.ModSetup;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,6 +17,7 @@ import org.apache.logging.log4j.Logger;
 public class FurniturePlan {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "furnitureplan";
+    public static BlockEntityWithoutLevelRenderer renderer;
 
     public FurniturePlan() {
         LOGGER.info("Furniture plan alpha is on loading!");
@@ -22,8 +25,12 @@ public class FurniturePlan {
         BlockRegistration.init();
         ItemRegistration.init();
         PaintRegistration.init();
+        GUIRegistration.init();
         FMLJavaModLoadingContext.get().getModEventBus().addListener(ModDataGenerators::gatherData);
 
-        ModMessages.register();
+        IEventBus modbus = FMLJavaModLoadingContext.get().getModEventBus();
+        modbus.addListener(ModSetup::init);
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modbus.addListener(ClientSetup::init));
     }
+
 }

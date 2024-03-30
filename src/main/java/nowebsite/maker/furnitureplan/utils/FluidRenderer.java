@@ -23,7 +23,7 @@ public class FluidRenderer {
 
     /**
      * Takes the larger light value between combinedLight and the passed block light
-     * @param combinedLight  Sky light/block light lightmap value
+     * @param combinedLight  Sky_light/block light lightmap value
      * @param blockLight     New 0-15 block light value
      * @return  Updated packed light including the new light value
      */
@@ -53,7 +53,7 @@ public class FluidRenderer {
 
     /**
      * Adds a quad to the renderer
-     * @param renderer    Renderer instnace
+     * @param renderer    Renderer instance
      * @param matrix      Render matrix
      * @param sprite      Sprite to render
      * @param from        Quad start
@@ -63,7 +63,7 @@ public class FluidRenderer {
      * @param brightness  Face brightness
      * @param flowing     If true, half texture coordinates
      */
-    public static void putTexturedQuad(VertexConsumer renderer, Matrix4f matrix, TextureAtlasSprite sprite, Vector3f from, Vector3f to, Direction face, int color, int brightness, int rotation, boolean flowing) {
+    public static void putTexturedQuad(VertexConsumer renderer, Matrix4f matrix, TextureAtlasSprite sprite, @NotNull Vector3f from, @NotNull Vector3f to, @NotNull Direction face, int color, int brightness, int rotation, boolean flowing) {
         // start with texture coordinates
         float x1 = from.x(), y1 = from.y(), z1 = from.z();
         float x2 = to.x(), y2 = to.y(), z2 = to.z();
@@ -132,7 +132,7 @@ public class FluidRenderer {
             minV = sprite.getV(v1 * size);
             maxV = sprite.getV(v2 * size);
         }
-        // based on rotation, put coords into place
+        // based on rotation, put coordinate into place
         float u3, u4, v3, v4;
         switch(rotation) {
             default -> { // 0

@@ -2,10 +2,12 @@ package nowebsite.maker.furnitureplan.utils;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3f;
 
 public class GUIUtil {
-    private static void buildVertex(VertexConsumer consumer, PoseStack poseStack, float r, float g, float b, float a, float p1, float p2, float u0, float u1, int light, int overlay) {
+    private static void buildVertex(@NotNull VertexConsumer consumer, @NotNull PoseStack poseStack, float r, float g, float b, float a, float p1, float p2, float u0, float u1, int light, int overlay) {
         consumer.vertex(poseStack.last().pose(), p1, p2, 0)
                 .color(r, g, b, a).uv(u0, u1)
                 .overlayCoords(overlay)
@@ -23,7 +25,8 @@ public class GUIUtil {
         buildVertex(builder, transform, r, g, b, alpha, x, y, u0, v0, light, overlay);
     }
 
-    public static Vector3f colorCast(int col) {
+    @Contract(value = "_ -> new", pure = true)
+    public static @NotNull Vector3f colorCast(int col) {
         return new Vector3f((col >> 16 & 255) / 255.0f, (col >> 8 & 255) / 255.0f, (col & 255) / 255.0f);
     }
 }

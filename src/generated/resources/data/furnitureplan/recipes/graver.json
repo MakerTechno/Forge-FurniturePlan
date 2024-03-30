@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "minecraft:iron_nugget"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "I I",
+    "ISI",
+    " S "
+  ],
+  "result": {
+    "count": 2,
+    "item": "furnitureplan:graver"
+  },
+  "show_notification": true
+}

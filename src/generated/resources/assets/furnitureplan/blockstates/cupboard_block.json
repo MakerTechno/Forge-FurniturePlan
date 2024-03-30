@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "dummy:dummy",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "dummy:dummy"
+    },
+    "facing=south": {
+      "model": "dummy:dummy",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "dummy:dummy",
+      "y": 270
+    }
+  }
+}

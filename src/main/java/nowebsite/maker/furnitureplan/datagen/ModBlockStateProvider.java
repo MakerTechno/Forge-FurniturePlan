@@ -6,18 +6,16 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.DirectionalBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.client.model.generators.VariantBlockStateBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 import nowebsite.maker.furnitureplan.FurniturePlan;
+import nowebsite.maker.furnitureplan.blocks.cookingUtensils.StoveBlock;
 import nowebsite.maker.furnitureplan.blocks.tableware.FoodPlateBlock;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.registry.FoldingRegistration;
@@ -66,7 +64,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 modLoc("block/iron_pot"), "particle",
                 modLoc("block/iron_pot")
         ));
-
+        registerEnumWithHorizontalBlock(BlockRegistration.STOVE_BLOCK.get(),
+                "particle",
+                StoveBlock.SHAPE
+        );
+        horizontalBlock(BlockRegistration.CUPBOARD_BLOCK.get(), models().nested().texture("particle", modLoc("block/cupboard")));
     }
 
     public void addKindsAsHorizontalBlock(@NotNull List<RegistryObject<? extends Block>> list, String modelCap) {

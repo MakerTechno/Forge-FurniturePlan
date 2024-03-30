@@ -24,7 +24,7 @@ import org.joml.Vector3f;
 
 public class GlassBBlockEntityRenderer implements BlockEntityRenderer<GlassBBlockEntity> {
     @SuppressWarnings("all")
-    public static final Couple<Vec3, Vec3, Quaternionf>[] rots=new Couple[] {
+    public static final Couple<Vec3, Vec3, Quaternionf>[] rots = new Couple[] {
             Couple.of(Vec3.ZERO.add(0.40625,0,0.40625), new Vec3(0.5f, 1.0666f, 0.5f), new Quaternionf()),//side
             Couple.of(Vec3.ZERO.add(0.40625,0,0.59375), new Vec3(0.5f, 1.0666f, 0.5f), new Quaternionf(new AxisAngle4f((float) (Math.PI/2),0,1,0))),//side
             Couple.of(Vec3.ZERO.add(0.59375,0,0.59375), new Vec3(0.5f, 1.0666f, 0.5f), new Quaternionf(new AxisAngle4f((float) (Math.PI),0,1,0))),//side

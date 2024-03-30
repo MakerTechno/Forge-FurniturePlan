@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/stove_with_pot",
+  "textures": {
+    "particle": "furnitureplan:block/stove"
+  }
+}
