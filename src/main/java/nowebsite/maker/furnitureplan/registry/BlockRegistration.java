@@ -31,7 +31,7 @@ import nowebsite.maker.furnitureplan.blocks.tableware.GlassBBlock;
 import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.FoodPlateBlockEntity;
 import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.GlassBBlockEntity;
 import nowebsite.maker.furnitureplan.blocks.tableware.definition.PlateShape;
-import nowebsite.maker.furnitureplan.items.CupboardItem;
+import nowebsite.maker.furnitureplan.items.BaseBERBlockItem;
 import nowebsite.maker.furnitureplan.items.GlassBBlockItem;
 import nowebsite.maker.furnitureplan.items.IronPotItem;
 import nowebsite.maker.furnitureplan.registry.kindsblock.*;
@@ -101,7 +101,7 @@ public class BlockRegistration extends BRUtils{
             "cupboard_block_entity",
             () -> BlockEntityType.Builder.of(CupboardBlockEntity::new, CUPBOARD_BLOCK.get()).build(null)
     );
-    public static final RegistryObject<Item> CUPBOARD_BLOCK_ITEM = ItemRegistration.ITEMS.register("cupboard_block", () -> new CupboardItem(CUPBOARD_BLOCK.get(), new Item.Properties()));
+    public static final RegistryObject<Item> CUPBOARD_BLOCK_ITEM = ItemRegistration.ITEMS.register("cupboard_block", () -> new BaseBERBlockItem(CUPBOARD_BLOCK.get(), new Item.Properties()));
 
     public static class BlockStateRegistration{
         public static void init(){}

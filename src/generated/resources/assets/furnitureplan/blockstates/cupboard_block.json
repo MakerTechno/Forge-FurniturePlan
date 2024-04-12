@@ -1,18 +1,18 @@
 {
   "variants": {
     "facing=east": {
-      "model": "dummy:dummy",
+      "model": "furnitureplan:block/iron_pot_block",
       "y": 90
     },
     "facing=north": {
-      "model": "dummy:dummy"
+      "model": "furnitureplan:block/iron_pot_block"
     },
     "facing=south": {
-      "model": "dummy:dummy",
+      "model": "furnitureplan:block/iron_pot_block",
       "y": 180
     },
     "facing=west": {
-      "model": "dummy:dummy",
+      "model": "furnitureplan:block/iron_pot_block",
       "y": 270
     }
   }

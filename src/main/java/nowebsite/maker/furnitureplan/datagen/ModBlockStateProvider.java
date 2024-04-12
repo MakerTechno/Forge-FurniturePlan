@@ -68,7 +68,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 "particle",
                 StoveBlock.SHAPE
         );
-        horizontalBlock(BlockRegistration.CUPBOARD_BLOCK.get(), models().nested().texture("particle", modLoc("block/cupboard")));
+        horizontalBlock(BlockRegistration.CUPBOARD_BLOCK.get(), models().singleTexture(
+                keyName(BlockRegistration.IRON_POT_BLOCK.get()),
+                modLoc("block/cupboard"), "particle",
+                modLoc("block/cupboard")
+        ));
     }
 
     public void addKindsAsHorizontalBlock(@NotNull List<RegistryObject<? extends Block>> list, String modelCap) {

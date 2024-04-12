@@ -12,6 +12,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.client.model.data.ModelData;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.wrapper.CombinedInvWrapper;
@@ -205,5 +206,10 @@ public class CupboardBlockEntity extends BlockEntity implements MenuProvider, Na
         int j = usingDrawer2.isEmpty()? 0:1;
         int k = usingDrawer3.isEmpty()? 0:1;
         ModMessages.sendToClients(new PlayerListSyncS2CPacket(i * 100 + j * 10 + k, worldPosition));
+    }
+
+    @Override
+    public @NotNull ModelData getModelData() {
+        return super.getModelData();
     }
 }

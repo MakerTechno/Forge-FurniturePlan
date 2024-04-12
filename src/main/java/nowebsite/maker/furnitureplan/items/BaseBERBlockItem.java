@@ -4,29 +4,26 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
+import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.items.renderer.MyBEWLR;
+import nowebsite.maker.furnitureplan.setup.ClientSetup;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 
-public abstract class BaseBERBlockItem<T extends BlockEntity> extends BlockItem {
+public class BaseBERBlockItem extends BlockItem {
     public BaseBERBlockItem(Block pBlock, Properties pProperties) {
         super(pBlock, pProperties);
     }
-
-
     @Override
     public void initializeClient(@NotNull Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {
-
             @Override
             public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-                return new MyBEWLR<>(Minecraft.getInstance().getBlockEntityRenderDispatcher(), Minecraft.getInstance().getEntityModels(), getBE());
+                return new MyBEWLR<>(Minecraft.getInstance().getBlockEntityRenderDispatcher(), Minecraft.getInstance().getEntityModels());
             }
         });
     }
-    public abstract Supplier<T> getBE();
+
 }
