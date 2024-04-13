@@ -1,4 +1,4 @@
-package nowebsite.maker.furnitureplan.blocks.single.gui;
+package nowebsite.maker.furnitureplan.blocks.singleblockfurniture.gui;
 
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;

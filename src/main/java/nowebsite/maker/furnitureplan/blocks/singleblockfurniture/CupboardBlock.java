@@ -1,4 +1,4 @@
-package nowebsite.maker.furnitureplan.blocks.single;
+package nowebsite.maker.furnitureplan.blocks.singleblockfurniture;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -26,7 +26,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import nowebsite.maker.furnitureplan.blocks.single.blockentities.CupboardBlockEntity;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.CupboardBlockEntity;
 import nowebsite.maker.furnitureplan.utils.Vec3Utils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

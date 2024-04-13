@@ -1,4 +1,4 @@
-package nowebsite.maker.furnitureplan.blocks.single.blockentities;
+package nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -17,9 +17,9 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.wrapper.CombinedInvWrapper;
 import net.minecraftforge.items.wrapper.InvWrapper;
-import nowebsite.maker.furnitureplan.blocks.single.blockentities.container.DrawerContainer;
-import nowebsite.maker.furnitureplan.blocks.single.blockentities.container.DrawerOpensCounter;
-import nowebsite.maker.furnitureplan.blocks.single.gui.DrawerMenu;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.container.DrawerContainer;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.container.DrawerOpensCounter;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.gui.DrawerMenu;
 import nowebsite.maker.furnitureplan.networks.ModMessages;
 import nowebsite.maker.furnitureplan.networks.packets.PlayerListSyncS2CPacket;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;

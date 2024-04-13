@@ -1,4 +1,4 @@
-package nowebsite.maker.furnitureplan.blocks.single;
+package nowebsite.maker.furnitureplan.blocks.singleblockfurniture;
 
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;

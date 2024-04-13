@@ -8,7 +8,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import nowebsite.maker.furnitureplan.FurniturePlan;
-import nowebsite.maker.furnitureplan.blocks.single.gui.DrawerMenu;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.gui.DrawerMenu;
 
 public class GUIRegistration {
     public static void init(){

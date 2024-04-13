@@ -1,4 +1,4 @@
-package nowebsite.maker.furnitureplan.blocks.single.gui;
+package nowebsite.maker.furnitureplan.blocks.singleblockfurniture.gui;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;

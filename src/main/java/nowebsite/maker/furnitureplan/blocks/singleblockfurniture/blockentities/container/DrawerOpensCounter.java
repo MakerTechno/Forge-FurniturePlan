@@ -1,4 +1,4 @@
-package nowebsite.maker.furnitureplan.blocks.single.blockentities.container;
+package nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.container;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;

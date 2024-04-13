@@ -4,7 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.network.NetworkEvent;
-import nowebsite.maker.furnitureplan.blocks.single.blockentities.CupboardBlockEntity;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.CupboardBlockEntity;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;

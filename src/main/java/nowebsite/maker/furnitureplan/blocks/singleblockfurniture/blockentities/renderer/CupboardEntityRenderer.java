@@ -1,4 +1,4 @@
-package nowebsite.maker.furnitureplan.blocks.single.blockentities.renderer;
+package nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -18,8 +18,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import nowebsite.maker.furnitureplan.blocks.single.CupboardBlock;
-import nowebsite.maker.furnitureplan.blocks.single.blockentities.CupboardBlockEntity;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.CupboardBlock;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.CupboardBlockEntity;
 import nowebsite.maker.furnitureplan.registry.SheetReference;
 import nowebsite.maker.furnitureplan.setup.ClientSetup;
 import org.jetbrains.annotations.NotNull;

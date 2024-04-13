@@ -1,4 +1,4 @@
-package nowebsite.maker.furnitureplan.blocks.single.blockentities.container;
+package nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.container;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -11,8 +11,8 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
-import nowebsite.maker.furnitureplan.blocks.single.blockentities.CupboardBlockEntity;
-import nowebsite.maker.furnitureplan.blocks.single.gui.DrawerMenu;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.CupboardBlockEntity;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.gui.DrawerMenu;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

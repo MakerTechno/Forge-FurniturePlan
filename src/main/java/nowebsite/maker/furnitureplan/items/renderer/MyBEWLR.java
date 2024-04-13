@@ -13,12 +13,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import nowebsite.maker.furnitureplan.blocks.single.CupboardBlock;
-import nowebsite.maker.furnitureplan.blocks.single.blockentities.CupboardBlockEntity;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.CupboardBlockEntity;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.function.Supplier;
 
 public class MyBEWLR <T extends BlockEntity> extends BlockEntityWithoutLevelRenderer {
     private final CupboardBlockEntity cupboard = new CupboardBlockEntity(BlockPos.ZERO, BlockRegistration.CUPBOARD_BLOCK.get().defaultBlockState());
