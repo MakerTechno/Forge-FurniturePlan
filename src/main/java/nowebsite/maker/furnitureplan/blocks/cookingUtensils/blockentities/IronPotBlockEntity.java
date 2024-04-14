@@ -34,7 +34,7 @@ public class IronPotBlockEntity extends BlockEntity implements HasPlateEntity {
         protected void onContentsChanged(int slot) {
             setChanged();
             if (level != null && !level.isClientSide) {
-                ModMessages.sendToClients(new ItemStackSyncS2CPacket(getItemStackHandler(), worldPosition));
+                ModMessages.sendToClients(new ItemStackSyncS2CPacket(this, worldPosition));
             }
         }
         @Override
@@ -49,9 +49,7 @@ public class IronPotBlockEntity extends BlockEntity implements HasPlateEntity {
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
     /**You can't change this*/
     public ItemStack getFoodStack() {return itemStackHandler.getStackInSlot(0).copy();}
-    public ItemStackHandler getItemStackHandler(){
-        return itemStackHandler;
-    }
+
     public void changeFood(@NotNull ItemStack stack) {
         itemStackHandler.setStackInSlot(0, stack);
     }

@@ -37,6 +37,7 @@ public class ModChineseLanguageProvider extends LanguageProvider {
         add(BlockRegistration.IRON_POT_BLOCK_ITEM.get(), "铁锅");
         add(BlockRegistration.STOVE_BLOCK_ITEM.get(), "灶台");
         add(BlockRegistration.CUPBOARD_BLOCK_ITEM.get(), "橱柜");
+        add(BlockRegistration.VASE_B_BLOCK_ITEM.get(), "花瓶");
     }
 
     public void transformKinds(@NotNull List<RegistryObject<? extends Block>> list,String transformHead, String transformEnd) {

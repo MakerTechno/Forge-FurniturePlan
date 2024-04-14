@@ -1,4 +1,4 @@
-// 1.19.4	2024-04-13T00:27:12.0510383	Item Models: furnitureplan
+// 1.19.4	2024-04-14T00:32:03.7941291	Item Models: furnitureplan
 3dd0d24920bd43171d10b975585a787af71c8a94 assets/furnitureplan/models/item/acacia_carved_columns.json
 6f1db01cf485ceeaa1b65585490ac5999e8e171c assets/furnitureplan/models/item/acacia_chairs.json
 9998f3a3ac73f40a55135061cb6f30850b630b39 assets/furnitureplan/models/item/acacia_columns.json
@@ -245,6 +245,7 @@ a0acc2eb96d57af9dbd10a07dafae94cabc6163c assets/furnitureplan/models/item/stone_
 1aac830330b8f959d603f22549e3fc99abe95bf5 assets/furnitureplan/models/item/stone_tables.json
 5dcdaf14ce1ee3860f8473b180f0cda30bb4950c assets/furnitureplan/models/item/stove_block.json
 59bed0fce95be4b85223ba0cf07d66e197f52a24 assets/furnitureplan/models/item/test_item.json
+e73e06f5ab7b8c304eccf7f239ad601dcce525b6 assets/furnitureplan/models/item/vase_b_block.json
 eac30a66b95ec8342302a5e6469aabaaf8ae3453 assets/furnitureplan/models/item/warped_carved_columns.json
 857b4a7331dd8b35851e5c9b9706e2866eb6187e assets/furnitureplan/models/item/warped_chairs.json
 72d86c6dc3c663f68eb6162ee9583bf306cb9b15 assets/furnitureplan/models/item/warped_columns.json

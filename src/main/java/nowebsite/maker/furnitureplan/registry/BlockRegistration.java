@@ -23,8 +23,10 @@ import nowebsite.maker.furnitureplan.blocks.cookingUtensils.StoveBlock;
 import nowebsite.maker.furnitureplan.blocks.cookingUtensils.blockentities.IronPotBlockEntity;
 import nowebsite.maker.furnitureplan.blocks.cookingUtensils.definition.StoveShape;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.CupboardBlock;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.VaseBBlock;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.CupboardBlockEntity;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.LanternBlock;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.VaseBBlockEntity;
 import nowebsite.maker.furnitureplan.blocks.tableware.Cutlery;
 import nowebsite.maker.furnitureplan.blocks.tableware.FoodPlateBlock;
 import nowebsite.maker.furnitureplan.blocks.tableware.GlassBBlock;
@@ -102,6 +104,13 @@ public class BlockRegistration extends BRUtils{
             () -> BlockEntityType.Builder.of(CupboardBlockEntity::new, CUPBOARD_BLOCK.get()).build(null)
     );
     public static final RegistryObject<Item> CUPBOARD_BLOCK_ITEM = ItemRegistration.ITEMS.register("cupboard_block", () -> new BaseBERBlockItem(CUPBOARD_BLOCK.get(), new Item.Properties()));
+
+    public static final RegistryObject<Block> VASE_B_BLOCK = BLOCKS.register("vase_b_block", () -> new VaseBBlock(BlockBehaviour.Properties.copy(Blocks.FLOWER_POT).noOcclusion()));
+    public static final RegistryObject<BlockEntityType<VaseBBlockEntity>> VASE_B_BLOCK_ENTITY = BLOCK_ENTITY.register(
+            "vase_b_block_entity",
+            () -> BlockEntityType.Builder.of(VaseBBlockEntity::new, VASE_B_BLOCK.get()).build(null)
+    );
+    public static final RegistryObject<Item> VASE_B_BLOCK_ITEM = ItemRegistration.ITEMS.register("vase_b_block", () -> new BlockItem(VASE_B_BLOCK.get(), new Item.Properties().stacksTo(16)));
 
     public static class BlockStateRegistration{
         public static void init(){}

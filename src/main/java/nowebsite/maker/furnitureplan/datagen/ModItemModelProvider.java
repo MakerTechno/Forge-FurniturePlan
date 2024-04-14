@@ -62,6 +62,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent(BlockRegistration.STOVE_BLOCK_ITEM.get().toString(), modLoc("block/stove_block_u"));
 
         withExistingParent(BlockRegistration.CUPBOARD_BLOCK_ITEM.get().toString(), modLoc("item/cupboard"));
+        withExistingParent(BlockRegistration.VASE_B_BLOCK_ITEM.get().toString(), modLoc("block/vase"));
     }
 
     public void add(@NotNull List<RegistryObject<? extends Item>> list) {

@@ -5,9 +5,7 @@ import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.items.renderer.MyBEWLR;
-import nowebsite.maker.furnitureplan.setup.ClientSetup;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Consumer;
@@ -21,7 +19,7 @@ public class BaseBERBlockItem extends BlockItem {
         consumer.accept(new IClientItemExtensions() {
             @Override
             public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-                return new MyBEWLR<>(Minecraft.getInstance().getBlockEntityRenderDispatcher(), Minecraft.getInstance().getEntityModels());
+                return new MyBEWLR(Minecraft.getInstance().getBlockEntityRenderDispatcher(), Minecraft.getInstance().getEntityModels());
             }
         });
     }

@@ -1,4 +1,4 @@
-// 1.19.4	2024-04-13T00:32:24.4461806	Block States: furnitureplan
+// 1.19.4	2024-04-14T00:32:03.7951256	Block States: furnitureplan
 7819a21972ba0bcdf98d026ffc7eb950a1a10e53 assets/furnitureplan/blockstates/acacia_carved_columns.json
 5edec47c7eaffbfa31445243c918f29f3c47b4f1 assets/furnitureplan/blockstates/acacia_chairs.json
 d2a8ebff330b3e3a3fed8d776b3f24b65e484c05 assets/furnitureplan/blockstates/acacia_columns.json
@@ -241,6 +241,7 @@ c1c14cc743793776daa56aaf5f39d06e5652137a assets/furnitureplan/blockstates/stone_
 4529a783a9166896fc57f7feec465fe0a8537577 assets/furnitureplan/blockstates/stone_lighted_columns.json
 57ace166857374fc00c3e7ffee645b4f59ed16e9 assets/furnitureplan/blockstates/stone_tables.json
 7f721d7c5962fce55c9dc71b4d466c297583e8be assets/furnitureplan/blockstates/stove_block.json
+d752a61bc16cab1965b9c4cce07c6910e4d70dd8 assets/furnitureplan/blockstates/vase_b_block.json
 a6ac928a1eafd8602251ee296a978c3e385cf194 assets/furnitureplan/blockstates/warped_carved_columns.json
 675d82f54536d5ca402534fb26c69ab1b9a84fd4 assets/furnitureplan/blockstates/warped_chairs.json
 98ada411c49cf7fe010f675e4be03e6aa680c2f2 assets/furnitureplan/blockstates/warped_columns.json
@@ -518,6 +519,7 @@ af5fc5eb716aa2318f9b2ad39fbf144922d551d4 assets/furnitureplan/models/block/stove
 afc94729b09218e2e9e4f48a86249633478a366b assets/furnitureplan/models/block/stove_block_pl.json
 81460feab79821f2bd59988a8ecc574e67aa56e1 assets/furnitureplan/models/block/stove_block_pu.json
 9754651fa84ab529be63b5e9c426189584f276fe assets/furnitureplan/models/block/stove_block_u.json
+5f5eb61896b0817ea216b726d1b0c3eceaeedac2 assets/furnitureplan/models/block/vase_b_block.json
 e3dc9c86f1abcf91912dc4e5c247069a8c651808 assets/furnitureplan/models/block/warped_carved_columns.json
 5dbccbe65ce6d373da2c2b06667b97150dd271ee assets/furnitureplan/models/block/warped_chairs.json
 5013de7ddb4ae318b1fbcf24c7fbc76fbd78af41 assets/furnitureplan/models/block/warped_columns.json

@@ -73,6 +73,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 modLoc("block/cupboard"), "particle",
                 modLoc("block/cupboard")
         ));
+        simpleBlock(BlockRegistration.VASE_B_BLOCK.get(), models().singleTexture(
+                keyName(BlockRegistration.VASE_B_BLOCK.get()),
+                modLoc("block/vase"), "particle",
+                modLoc("block/vase")
+        ));
     }
 
     public void addKindsAsHorizontalBlock(@NotNull List<RegistryObject<? extends Block>> list, String modelCap) {
@@ -100,11 +105,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
         }
     }
 
+    @SuppressWarnings("unused")
     public  <T extends Enum<T> & ModelSR, R extends EnumProperty<T>,
             B extends Enum<B> & StringRepresentable, E extends Property<B>> void registerEnumWithMultiStateBlock(
             Block block,
             String key, ResourceLocation texture,
-            R baseKind,
+            @NotNull R baseKind,
             E overKind
     ){
         VariantBlockStateBuilder builder = getVariantBuilder(block);

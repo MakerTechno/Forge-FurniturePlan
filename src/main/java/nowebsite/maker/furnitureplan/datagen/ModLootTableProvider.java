@@ -46,6 +46,7 @@ public class ModLootTableProvider extends LootTableProvider {
         resourceLocations.add(BlockRegistration.IRON_POT_BLOCK.getId());
         resourceLocations.add(BlockRegistration.STOVE_BLOCK.getId());
         resourceLocations.add(BlockRegistration.CUPBOARD_BLOCK.getId());
+        resourceLocations.add(BlockRegistration.VASE_B_BLOCK.getId());
     }
 
     public ModLootTableProvider(PackOutput output) {
@@ -76,6 +77,7 @@ class ModCustomBlockLootProvider extends BlockLootSubProvider {
         dropSelf(BlockRegistration.IRON_POT_BLOCK.get());
         add(BlockRegistration.STOVE_BLOCK.get(), noDrop());
         dropSelf(BlockRegistration.CUPBOARD_BLOCK.get());
+        dropSelf(BlockRegistration.VASE_B_BLOCK.get());
     }
 
     protected @NotNull Iterable<Block> getKnownBlocks() {

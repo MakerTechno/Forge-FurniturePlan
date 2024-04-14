@@ -7,7 +7,5 @@ import net.minecraftforge.common.extensions.IForgeBlockEntity;
 import net.minecraftforge.items.ItemStackHandler;
 
 public interface HasPlateEntity {
-    ItemStackHandler getItemStackHandler();
     void changeFood(ItemStack stack);
-    void setRemoved();
 }

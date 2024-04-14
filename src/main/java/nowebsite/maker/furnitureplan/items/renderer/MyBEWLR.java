@@ -17,7 +17,7 @@ import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.C
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import org.jetbrains.annotations.NotNull;
 
-public class MyBEWLR <T extends BlockEntity> extends BlockEntityWithoutLevelRenderer {
+public class MyBEWLR extends BlockEntityWithoutLevelRenderer {
     private final CupboardBlockEntity cupboard = new CupboardBlockEntity(BlockPos.ZERO, BlockRegistration.CUPBOARD_BLOCK.get().defaultBlockState());
     private final BlockEntityRenderDispatcher blockEntityRenderDispatcher;
 
