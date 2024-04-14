@@ -6,6 +6,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 import java.util.function.Function;
 
+@SuppressWarnings("unused")
 public record Couple<F, S, T>(F first, S second, T third) {
     @Contract(" -> new")
     public @NotNull Couple<T, S, F> reverse() {

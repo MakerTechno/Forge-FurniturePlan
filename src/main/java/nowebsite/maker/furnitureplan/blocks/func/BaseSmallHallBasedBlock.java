@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
 public class BaseSmallHallBasedBlock {
-    public static boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader level, @NotNull BlockPos pos) {
+    public static boolean canSurvive(@NotNull LevelReader level, @NotNull BlockPos pos) {
         return canAttach(level, pos, Direction.UP.getOpposite());
     }
 

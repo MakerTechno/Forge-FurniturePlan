@@ -8,6 +8,7 @@ import net.minecraftforge.client.model.pipeline.QuadBakingVertexConsumer;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
+@SuppressWarnings("unused")
 public class ClientTools {
 
     private static void putVertex(QuadBakingVertexConsumer builder, Vector3f normal, Vector4f vector,

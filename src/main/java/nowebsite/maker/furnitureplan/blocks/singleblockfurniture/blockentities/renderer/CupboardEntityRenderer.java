@@ -120,16 +120,16 @@ public class CupboardEntityRenderer implements BlockEntityRenderer<CupboardBlock
                     case 2 -> this.drawer3;
                     default -> null;
                 };
-                this.render(poseStack, vertexConsumer,cupboard.getBlockState().getValue(CupboardBlock.FACING), part, openness, packedLight, packedOverlay);
+                this.render(poseStack, vertexConsumer, part, openness, packedLight, packedOverlay);
             }
-            this.render(poseStack, vertexConsumer, cupboard.getBlockState().getValue(CupboardBlock.FACING), shell, 0, packedLight, packedOverlay);
+            this.render(poseStack, vertexConsumer, shell, 0, packedLight, packedOverlay);
 
             poseStack.popPose();
 
         }
     }
 
-    private void render(PoseStack poseStack, VertexConsumer vertexConsumer, @NotNull Direction direction, ModelPart part, float openness, int brightness, int combinedOverlayIn) {
+    private void render(PoseStack poseStack, VertexConsumer vertexConsumer, ModelPart part, float openness, int brightness, int combinedOverlayIn) {
         int mix = 8;
         part.z = -openness*mix;
         part.render(poseStack, vertexConsumer, brightness, combinedOverlayIn);

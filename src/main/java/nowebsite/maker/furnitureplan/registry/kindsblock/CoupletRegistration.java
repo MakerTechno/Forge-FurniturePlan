@@ -7,6 +7,7 @@ import nowebsite.maker.furnitureplan.registry.BRUtils;
 
 import static nowebsite.maker.furnitureplan.registry.BlockRegistration.BLOCKS;
 
+@SuppressWarnings("unused")
 public class CoupletRegistration extends BRUtils {
     public static void init(){}
 

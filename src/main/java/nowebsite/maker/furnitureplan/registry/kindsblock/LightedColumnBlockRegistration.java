@@ -6,8 +6,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.registries.RegistryObject;
 import nowebsite.maker.furnitureplan.blocks.columns.LightedColumnBlock;
 import nowebsite.maker.furnitureplan.blocks.columns.WeatheredCopperLightedColumn;
@@ -16,8 +14,6 @@ import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.registry.ItemRegistration;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.function.ToIntFunction;
 
 public class LightedColumnBlockRegistration extends BRUtils {
     public static void init(){}

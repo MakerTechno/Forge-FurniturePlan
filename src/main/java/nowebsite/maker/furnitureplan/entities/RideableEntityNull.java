@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.function.Supplier;
 
 public class RideableEntityNull extends Entity {
-    public Supplier<ChairBlockEntity> supplier;
+    public final Supplier<ChairBlockEntity> supplier;
     public RideableEntityNull(EntityType<? extends ArmorStand> entityType, Level level, Supplier<ChairBlockEntity> supplier) {
         super(entityType, level);
         this.supplier = supplier;

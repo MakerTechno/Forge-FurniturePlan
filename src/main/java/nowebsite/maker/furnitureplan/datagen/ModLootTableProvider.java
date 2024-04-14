@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class ModLootTableProvider extends LootTableProvider {
-    static Set<ResourceLocation> resourceLocations = new HashSet<>();
+    static final Set<ResourceLocation> resourceLocations = new HashSet<>();
     static {
         for (RegistryObject<? extends Block> ro : FoldingRegistration.getChairBlockLists()) {
             resourceLocations.add(ro.getId());

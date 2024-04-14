@@ -29,7 +29,7 @@ public class FluidRenderer {
      */
     public static int withBlockLight(int combinedLight, int blockLight) {
         // skylight from the combined plus larger block light between combined and parameter
-        // not using methods from LightTexture to reduce number of operations
+        // not using methods from LightTexture to reduce the number of operations
         return (combinedLight & 0xFFFF0000) | Math.max(blockLight << 4, combinedLight & 0xFFFF);
     }
 
@@ -38,7 +38,7 @@ public class FluidRenderer {
     /**
      * Forces the UV to be between 0 and 1
      * @param value  Original value
-     * @param upper  If true, this is the larger UV. Needed to enforce integer values end up at 1
+     * @param upper  If true, this is the larger UV. Needed to enforce integer values to end up at 1
      * @return  UV mapped between 0 and 1
      */
     private static float boundUV(float value, boolean upper) {
@@ -61,14 +61,14 @@ public class FluidRenderer {
      * @param face        Face to render
      * @param color       Color to use in rendering
      * @param brightness  Face brightness
-     * @param flowing     If true, half texture coordinates
+     * @param flowing     If true, half-texture coordinates
      */
     public static void putTexturedQuad(VertexConsumer renderer, Matrix4f matrix, TextureAtlasSprite sprite, @NotNull Vector3f from, @NotNull Vector3f to, @NotNull Direction face, int color, int brightness, int rotation, boolean flowing) {
         // start with texture coordinates
         float x1 = from.x(), y1 = from.y(), z1 = from.z();
         float x2 = to.x(), y2 = to.y(), z2 = to.z();
         // choose UV based on the directions, some need to negate UV due to the direction
-        // note that we use -UV instead of 1-UV as its slightly simpler and the later logic deals with negatives
+        // note that we use-UV instead of 1-UV as its slightly simpler and the later logic deals with negatives
         float u1, u2, v1, v2;
         switch (face) {
             default -> { // DOWN

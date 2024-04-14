@@ -8,6 +8,7 @@ import nowebsite.maker.furnitureplan.networks.ModMessages;
 
 @EventBusSubscriber(modid = FurniturePlan.MOD_ID, bus = Bus.MOD)
 public class ModSetup {
+    @SuppressWarnings("unused")
     public static void init(FMLCommonSetupEvent event) {
         ModMessages.register();
     }

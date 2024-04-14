@@ -12,14 +12,15 @@ import net.minecraftforge.common.util.ITeleporter;
 
 import java.util.function.Function;
 
+@SuppressWarnings("unused")
 public class Tools {
 
     public static void spawnInWorld(Level level, BlockPos pos, ItemStack remaining) {
         if (!remaining.isEmpty()) {
-            ItemEntity entityitem = new ItemEntity(level, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, remaining);
-            entityitem.setPickUpDelay(40);
-            entityitem.setDeltaMovement(entityitem.getDeltaMovement().multiply(0, 1, 0));
-            level.addFreshEntity(entityitem);
+            ItemEntity entityItem = new ItemEntity(level, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, remaining);
+            entityItem.setPickUpDelay(40);
+            entityItem.setDeltaMovement(entityItem.getDeltaMovement().multiply(0, 1, 0));
+            level.addFreshEntity(entityItem);
         }
     }
 

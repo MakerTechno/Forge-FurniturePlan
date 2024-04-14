@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
+@SuppressWarnings("unused")
 public interface ModBlockEntityRendererProvider<T extends BlockEntity> extends BlockEntityRendererProvider<T> {
     class ModContext extends BlockEntityRendererProvider.Context{
         public ModContext(BlockEntityRenderDispatcher pBlockEntityRenderDispatcher, BlockRenderDispatcher pBlockRenderDispatcher, ItemRenderer pItemRenderer, EntityRenderDispatcher pEntityRenderer, EntityModelSet pModelSet, Font pFont) {

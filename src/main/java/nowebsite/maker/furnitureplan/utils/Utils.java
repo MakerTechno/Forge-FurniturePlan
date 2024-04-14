@@ -9,6 +9,7 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 
+@SuppressWarnings("unused")
 public class Utils {
     public static final String FLUID_TAG_KEY="furnitureplan:fluid";
     public static FluidStack extractFluid(@NotNull ItemStack item) {
@@ -20,8 +21,8 @@ public class Utils {
                 if (f != null && f != Fluids.EMPTY) {
                     FluidStack res = new FluidStack(f, 250);
                     if (tag.contains("data")) {
-                        CompoundTag ntag = tag.getCompound("data");
-                        res.setTag(ntag);
+                        CompoundTag newTag = tag.getCompound("data");
+                        res.setTag(newTag);
                     }
                     return res;
                 }

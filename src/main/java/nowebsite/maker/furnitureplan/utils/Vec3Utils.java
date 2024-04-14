@@ -5,6 +5,7 @@ import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
+@SuppressWarnings("unused")
 public class Vec3Utils {
     @Contract(pure = true)
     public static double getYFromHit(@NotNull Direction facing, Vec3 hit) {

@@ -11,6 +11,7 @@ import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.networks.packets.ItemStackSyncS2CPacket;
 import nowebsite.maker.furnitureplan.networks.packets.PlayerListSyncS2CPacket;
 
+@SuppressWarnings("unused")
 public class ModMessages {
     private static SimpleChannel INSTANCE;
 

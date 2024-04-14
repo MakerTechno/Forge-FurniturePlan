@@ -8,10 +8,11 @@ import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
 /*
- * WrappedHandler by noeppi_noeppi
+ * WrappedHandler by "noeppi_noeppi"
  * under https://github.com/ModdingX/LibX/blob/1.19/LICENSE
  *
  */
+@SuppressWarnings("unused")
 public class WrappedHandler implements IItemHandlerModifiable {
     private final IItemHandlerModifiable handler;
     private final Predicate<Integer> extract;

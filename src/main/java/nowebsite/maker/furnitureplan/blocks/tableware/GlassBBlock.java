@@ -98,7 +98,7 @@ public class GlassBBlock extends AbstractGlassBlock implements SimpleWaterlogged
     }
     @Override
     public boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader level, @NotNull BlockPos pos) {
-        return BaseSmallHallBasedBlock.canSurvive(state,level,pos);
+        return BaseSmallHallBasedBlock.canSurvive(level,pos);
     }
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable BlockGetter level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {

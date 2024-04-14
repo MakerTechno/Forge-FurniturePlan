@@ -48,10 +48,7 @@ public class GlassBBlockEntity extends BlockEntity implements HasGlassEntity {
     public GlassBBlockEntity(BlockPos pos, BlockState state) {
         super(BlockRegistration.GLASS_B_BLOCK_ENTITY.get(), pos, state);
     }
-    public GlassBBlockEntity(ItemStack potion) {
-        this(null, BlockRegistration.GLASS_B_BLOCK.get().defaultBlockState());
-        fillPotion(null, potion);
-    }
+
     /**You can't change this*/
     public ItemStack getPotionStack(){
         return this.potionItemStackHandler.getStackInSlot(1).copy();

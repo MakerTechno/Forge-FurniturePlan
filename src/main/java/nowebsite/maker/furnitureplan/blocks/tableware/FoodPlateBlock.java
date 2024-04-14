@@ -149,7 +149,7 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
     /**From {@link FaceAttachedHorizontalDirectionalBlock}*/
     @Override
     public boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader level, @NotNull BlockPos pos) {
-        return BaseSmallHallBasedBlock.canSurvive(state, level, pos);
+        return BaseSmallHallBasedBlock.canSurvive(level, pos);
     }
     public @NotNull BlockState updateShape(@NotNull BlockState state, @NotNull Direction facing, @NotNull BlockState facingState, @NotNull LevelAccessor level, @NotNull BlockPos currentPos, @NotNull BlockPos facingPos) {
         return Direction.UP.getOpposite() == facing && !state.canSurvive(level, currentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, facing, facingState, level, currentPos, facingPos);
