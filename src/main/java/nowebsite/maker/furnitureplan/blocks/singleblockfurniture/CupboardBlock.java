@@ -4,7 +4,10 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.*;
+import net.minecraft.world.Containers;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -24,9 +27,9 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.CupboardBlockEntity;
+import nowebsite.maker.furnitureplan.blocks.voxel.VoxelShapeReference;
 import nowebsite.maker.furnitureplan.utils.Vec3Utils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -153,23 +156,7 @@ public class CupboardBlock extends AbstractCupboardBlock<CupboardBlockEntity> im
 
     @Override
     public @NotNull VoxelShape getOcclusionShape(@NotNull BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos) {
-        return Shapes.or(
-                Shapes.box(0, 0.125, 0, 1, 0.1875, 1),
-                Shapes.box(0, 0, 0, 0.0625, 0.125, 0.0625),
-                Shapes.box(0, 0.0625, 0.0625, 0.0625, 0.125, 0.125),
-                Shapes.box(0.0625, 0.0625, 0, 0.125, 0.125, 0.0625),
-                Shapes.box(0, 0, 0.9375, 0.0625, 0.125, 1),
-                Shapes.box(0.0625, 0.0625, 0.9375, 0.125, 0.125, 1),
-                Shapes.box(0, 0.0625, 0.875, 0.0625, 0.125, 0.9375),
-                Shapes.box(0.9375, 0, 0.9375, 1, 0.125, 1),
-                Shapes.box(0.9375, 0.0625, 0.875, 1, 0.125, 0.9375),
-                Shapes.box(0.875, 0.0625, 0.9375, 0.9375, 0.125, 1),
-                Shapes.box(0.9375, 0, 0, 1, 0.125, 0.0625),
-                Shapes.box(0.875, 0.0625, 0, 0.9375, 0.125, 0.0625),
-                Shapes.box(0.9375, 0.0625, 0.0625, 1, 0.125, 0.125),
-                Shapes.box(0.03125, 0.1875, 0.03125, 0.96875, 0.9375, 0.96875),
-                Shapes.box(0, 0.9375, 0, 1, 1, 1)
-        );
+        return VoxelShapeReference.CUPBOARD_VOXEL;
     }
 
 

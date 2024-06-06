@@ -52,10 +52,21 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
     }
     @Override
     public void onRemove(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState newState, boolean movedByPiston) {
-        if (state.getBlock() != newState.getBlock() && state.getValue(SHAPE_DEF).equals(PlateShape.PLATE_SHAPE)){
+        if (state.getBlock() != newState.getBlock()){
             BlockEntity blockEntity = level.getBlockEntity(pos);
             if (blockEntity instanceof FoodPlateBlockEntity cast) {
-                cast.drops();
+                SimpleContainer inventory = new SimpleContainer(1);
+                ItemStack stack = ItemStack.EMPTY;
+                switch (state.getValue(SHAPE_DEF)) {
+                    case PLATE_AND_GLASS_SHAPE -> cast.dropBottle();
+                    case PLATE_AND_CUTLERY_SHAPE, PLATE_AND_GLASS_AND_CUTLERY_SHAPE -> stack = new ItemStack(BlockRegistration.CUTLERY_ITEM.get(), 1);
+                    case PLATE_SHAPE -> {
+                        stack = new ItemStack(BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get(), 1);
+                        cast.drops();
+                    }
+                }
+                inventory.setItem(0, stack);
+                Containers.dropContents(level, pos, inventory);
             }
             super.onRemove(state, level, pos, newState, movedByPiston);
         }
@@ -111,29 +122,9 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
     public void playerWillDestroy(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull Player player) {
         this.spawnDestroyParticles(level, player, pos, state);
         if (!level.isClientSide) {
-            BlockState newState = Blocks.AIR.defaultBlockState();
-            SimpleContainer inventory = new SimpleContainer(1);
-            ItemStack stack = ItemStack.EMPTY;
-            switch (state.getValue(SHAPE_DEF)) {
-                case PLATE_AND_GLASS_SHAPE -> {
-                    newState = BlockRegistration.FOOD_PLATE_BLOCK.get().defaultBlockState().setValue(FACING, state.getValue(FACING)).setValue(SHAPE_DEF, PlateShape.PLATE_SHAPE);
-                    if (level.getBlockEntity(pos) instanceof FoodPlateBlockEntity cast){
-                        cast.dropBottle();
-                    }
-                }
-                case PLATE_AND_CUTLERY_SHAPE -> {
-                    newState = BlockRegistration.FOOD_PLATE_BLOCK.get().defaultBlockState().setValue(FACING, state.getValue(FACING)).setValue(SHAPE_DEF, PlateShape.PLATE_SHAPE);
-                    stack = new ItemStack(BlockRegistration.CUTLERY_ITEM.get(), 1);
-                }
-                case PLATE_AND_GLASS_AND_CUTLERY_SHAPE -> {
-                    newState = BlockRegistration.FOOD_PLATE_BLOCK.get().defaultBlockState().setValue(FACING, state.getValue(FACING)).setValue(SHAPE_DEF, PlateShape.PLATE_AND_GLASS_SHAPE);
-                    stack = new ItemStack(BlockRegistration.CUTLERY_ITEM.get(), 1);
-                }
-                case PLATE_SHAPE -> stack = new ItemStack(BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get(), 1);
-            }
-            inventory.setItem(0, stack);
-            Containers.dropContents(level, pos, inventory);
-            level.setBlockAndUpdate(pos, newState);
+            PlateShape shape =  state.getValue(SHAPE_DEF).getNext();
+            if (shape == null) level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
+            else level.setBlockAndUpdate(pos, BlockRegistration.FOOD_PLATE_BLOCK.get().defaultBlockState().setValue(FACING, state.getValue(FACING)).setValue(SHAPE_DEF,shape));
         }
     }
     @Override

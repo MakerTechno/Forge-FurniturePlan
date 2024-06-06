@@ -21,6 +21,7 @@ import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("deprecation")
 public class VaseBBlock extends Block implements EntityBlock {
+    public static final VoxelShape MY_SHAPE;
     public VaseBBlock(Properties pProperties) {
         super(pProperties);
     }
@@ -54,14 +55,14 @@ public class VaseBBlock extends Block implements EntityBlock {
             boolean flag = false;
             if (stack.getItem() instanceof BlockItem blockItem){
                 Block block = blockItem.getBlock();
-                flag = block instanceof FlowerBlock || block instanceof DeadBushBlock || block instanceof AzaleaBlock;
+                flag = block instanceof FlowerBlock || block instanceof DeadBushBlock || block instanceof AzaleaBlock || block instanceof BambooStalkBlock;
             }
             if (flag && cast.getFlowerStack().isEmpty()) {
                 cast.placeFlower(player, player.getAbilities().instabuild ? stack.copy() : stack);
             }
             else return InteractionResult.FAIL;
         }
-        return InteractionResult.SUCCESS;
+        return InteractionResult.CONSUME;
     }
 
     @Override
@@ -71,7 +72,10 @@ public class VaseBBlock extends Block implements EntityBlock {
 
     @Override
     public @NotNull VoxelShape getOcclusionShape(@NotNull BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos) {
-        return Shapes.or(
+        return MY_SHAPE;
+    }
+    static {
+        MY_SHAPE = Shapes.or(
                 Shapes.box(0.4375, 0, 0.4375, 0.5625, 0.03125, 0.5625),
                 Shapes.box(0.40625, 0.59375, 0.40625, 0.4375, 0.71875, 0.59375),
                 Shapes.box(0.5625, 0, 0.4375, 0.59375, 0.125, 0.5625),

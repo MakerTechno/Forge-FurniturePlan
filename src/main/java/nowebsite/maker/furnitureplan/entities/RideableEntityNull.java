@@ -23,18 +23,19 @@ public class RideableEntityNull extends Entity {
         verticalCollisionBelow = false;
     }
 
-
     @Override
     protected void defineSynchedData() {}
 
     @Override
     public void tick() {
         super.tick();
-        if (supplier.get() == null || supplier.get().getBlockState() != supplier.get().containerBlock || canAddPassenger(this)){
+        if (supplier.get() == null){
+            this.remove(RemovalReason.DISCARDED);
+        }
+        else if (supplier.get().getBlockState() != supplier.get().containerBlock || canAddPassenger(this)){
             supplier.get().setRemoved();
         }
     }
-
 
     int count;
     @Override

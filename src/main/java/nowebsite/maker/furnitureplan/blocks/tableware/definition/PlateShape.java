@@ -47,6 +47,14 @@ public enum PlateShape implements ModelSR {
         else if (this == PLATE_AND_CUTLERY_SHAPE) return PLATE_AND_GLASS_AND_CUTLERY_SHAPE;
         return this;
     }
+    public PlateShape getNext(){
+        return switch (this){
+            case PLATE_SHAPE -> null;
+            case PLATE_AND_GLASS_SHAPE, PLATE_AND_CUTLERY_SHAPE -> PLATE_SHAPE;
+            case PLATE_AND_GLASS_AND_CUTLERY_SHAPE -> PLATE_AND_GLASS_SHAPE;
+
+        };
+    }
     @Override
     public @NotNull String getSerializedName() {
         return this.name;
