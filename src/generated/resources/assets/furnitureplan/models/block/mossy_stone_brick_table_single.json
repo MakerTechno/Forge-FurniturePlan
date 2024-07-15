@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/table_single",
+  "textures": {
+    "particle": "minecraft:block/mossy_stone_bricks"
+  }
+}

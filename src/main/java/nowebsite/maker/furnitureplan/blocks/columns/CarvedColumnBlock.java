@@ -2,13 +2,12 @@ package nowebsite.maker.furnitureplan.blocks.columns;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-public class CarvedColumnBlock extends ColumnBlock implements SimpleWaterloggedBlock {
+public class CarvedColumnBlock extends ColumnBlock {
     private static final VoxelShape SHAPE;
     static {
         /*This is optimized for higher performance, and as a result, fewer details.*/

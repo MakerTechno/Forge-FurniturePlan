@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/table_pane",
+  "textures": {
+    "particle": "minecraft:block/dark_oak_planks"
+  }
+}

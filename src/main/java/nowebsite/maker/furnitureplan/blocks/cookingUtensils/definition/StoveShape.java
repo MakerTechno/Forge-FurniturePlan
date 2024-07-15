@@ -1,6 +1,8 @@
 package nowebsite.maker.furnitureplan.blocks.cookingUtensils.definition;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -96,7 +98,7 @@ public enum StoveShape implements ModelSR {
     }
 
     @Override
-    public VoxelShape getOccModel(@NotNull BlockState state) {
+    public VoxelShape getOccModel(@NotNull BlockState state, BlockGetter getter, BlockPos pos) {
         return switch (this){
             case STOVE_LIT, STOVE_UNLIT -> STOVE;
             case STOVE_AND_POT_LIT, STOVE_AND_POT_UNLIT -> switch (state.getValue(StoveBlock.FACING)){

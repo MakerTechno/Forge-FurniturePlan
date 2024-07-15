@@ -44,7 +44,7 @@ public class ModItemModelProvider extends ItemModelProvider {
                 modLoc("item/detritus")
         );
         add(FoldingRegistration.getChairItemLists());
-        add(FoldingRegistration.getTableItemLists());
+        add(FoldingRegistration.getTableItemLists(), "full");
         add(FoldingRegistration.getColumnItemLists());
         add(FoldingRegistration.getCarvedColumnItemLists());
         add(FoldingRegistration.getLightedColumnItemLists());
@@ -66,9 +66,15 @@ public class ModItemModelProvider extends ItemModelProvider {
     }
 
     public void add(@NotNull List<RegistryObject<? extends Item>> list) {
-        assert list.size() <= FoldingRegistration.PROPERTY_KINDS.length;
+        assert list.size() <= FoldingRegistration.PROPERTY_KINDS.size();
         for(RegistryObject<? extends Item> ro : list) {
             withExistingParent(ro.get().toString(), modLoc("block/" + ro.get()));
+        }
+    }
+    public void add(@NotNull List<RegistryObject<? extends Item>> list, String specificName) {
+        assert list.size() <= FoldingRegistration.PROPERTY_KINDS.size();
+        for(RegistryObject<? extends Item> ro : list) {
+            withExistingParent(ro.get().toString(), modLoc("block/" + ro.get() + "_" + specificName));
         }
     }
 }

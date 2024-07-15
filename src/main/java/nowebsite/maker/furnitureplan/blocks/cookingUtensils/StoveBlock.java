@@ -93,7 +93,7 @@ public class StoveBlock extends HorizontalDirectionalBlock implements SimpleWate
 
     @Override
     public @NotNull VoxelShape getOcclusionShape(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos) {
-        return state.getValue(SHAPE).getOccModel(state);
+        return state.getValue(SHAPE).getOccModel(state, getter, pos);
     }
     @Override
     public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos, @NotNull CollisionContext context) {

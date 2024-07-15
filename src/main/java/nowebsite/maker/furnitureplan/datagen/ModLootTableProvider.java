@@ -85,7 +85,7 @@ class ModCustomBlockLootProvider extends BlockLootSubProvider {
     }
 
     public void addKindsProp(@NotNull List<RegistryObject<? extends Block>> list) {
-        assert list.size() <= FoldingRegistration.PROPERTY_KINDS.length;
+        assert list.size() <= FoldingRegistration.PROPERTY_KINDS.size();
         for(RegistryObject<? extends Block> ro : list) {
             dropSelf(ro.get());
         }

@@ -27,6 +27,7 @@ import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.VaseBBlock;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.CupboardBlockEntity;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.LanternBlock;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.VaseBBlockEntity;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.definitions.TableShape;
 import nowebsite.maker.furnitureplan.blocks.tableware.Cutlery;
 import nowebsite.maker.furnitureplan.blocks.tableware.FoodPlateBlock;
 import nowebsite.maker.furnitureplan.blocks.tableware.GlassBBlock;
@@ -117,5 +118,6 @@ public class BlockRegistration extends BRUtils{
 
         public static final EnumProperty<PlateShape> PLATE_SHAPE = EnumProperty.create("shape", PlateShape.class);
         public static final EnumProperty<StoveShape> STOVE_SHAPE = EnumProperty.create("shape", StoveShape.class);
+        public static final EnumProperty<TableShape> TABLE_SHAPE = EnumProperty.create("shape", TableShape.class);
     }
 }

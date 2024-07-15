@@ -44,6 +44,10 @@ public class CupboardBlock extends AbstractCupboardBlock<CupboardBlockEntity> im
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
+    @Override
+    public boolean useShapeForLightOcclusion(@NotNull BlockState pState) {
+        return true;
+    }
     @Nullable
     @Override
     public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {

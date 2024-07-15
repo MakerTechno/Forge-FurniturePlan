@@ -57,13 +57,19 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
             if (blockEntity instanceof FoodPlateBlockEntity cast) {
                 SimpleContainer inventory = new SimpleContainer(1);
                 ItemStack stack = ItemStack.EMPTY;
-                switch (state.getValue(SHAPE_DEF)) {
-                    case PLATE_AND_GLASS_SHAPE -> cast.dropBottle();
-                    case PLATE_AND_CUTLERY_SHAPE, PLATE_AND_GLASS_AND_CUTLERY_SHAPE -> stack = new ItemStack(BlockRegistration.CUTLERY_ITEM.get(), 1);
-                    case PLATE_SHAPE -> {
-                        stack = new ItemStack(BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get(), 1);
-                        cast.drops();
+                if (canSurvive(state, level, pos)) {
+                    switch (state.getValue(SHAPE_DEF)) {
+                        case PLATE_AND_GLASS_SHAPE -> cast.dropBottle();
+                        case PLATE_AND_CUTLERY_SHAPE, PLATE_AND_GLASS_AND_CUTLERY_SHAPE -> stack = new ItemStack(BlockRegistration.CUTLERY_ITEM.get(), 1);
+                        case PLATE_SHAPE -> {
+                            stack = new ItemStack(BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get(), 1);
+                            cast.drops();
+                        }
                     }
+                } else {
+                    if (state.getValue(SHAPE_DEF).hasCutlery()) stack = new ItemStack(BlockRegistration.CUTLERY_ITEM.get(), 1);
+                    cast.drops();
+                    cast.dropBottle();
                 }
                 inventory.setItem(0, stack);
                 Containers.dropContents(level, pos, inventory);
@@ -159,7 +165,7 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
     }
     @Override
     public @NotNull VoxelShape getOcclusionShape(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos) {
-        return Objects.requireNonNull(state.getValue(SHAPE_DEF).getOccModel(state));
+        return Objects.requireNonNull(state.getValue(SHAPE_DEF).getOccModel(state, getter, pos));
     }
 
     @Override

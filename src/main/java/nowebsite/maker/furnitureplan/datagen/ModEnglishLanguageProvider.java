@@ -45,7 +45,7 @@ public class ModEnglishLanguageProvider extends LanguageProvider {
     }
 
     public void transformKinds(@NotNull List<RegistryObject<? extends Block>> list) {
-        assert list.size() <= FoldingRegistration.PROPERTY_KINDS.length;
+        assert list.size() <= FoldingRegistration.PROPERTY_KINDS.size();
         for(RegistryObject<? extends Block> ro : list) {
             String s = BuiltInRegistries.BLOCK.getKey(ro.get()).getPath().replace('_', ' ');
             add(ro.get(), s.substring(0, 1).toUpperCase(Locale.ROOT) + s.substring(1));

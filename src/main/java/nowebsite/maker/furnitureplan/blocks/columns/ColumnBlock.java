@@ -38,4 +38,9 @@ public class ColumnBlock extends BasePropertyBlock implements SimpleWaterloggedB
     public @NotNull VoxelShape getOcclusionShape(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos) {
         return SHAPE;
     }
+
+    @Override
+    public String getSpecificName() {
+        return "column";
+    }
 }

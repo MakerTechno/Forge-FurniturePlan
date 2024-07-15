@@ -32,7 +32,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
     }
 
     public void addKindsByDefault(@NotNull List<RegistryObject<? extends Block>> list, TagKey<Block> additionalTag) {
-        assert list.size() <= FoldingRegistration.PROPERTY_KINDS.length;
+        assert list.size() <= FoldingRegistration.PROPERTY_KINDS.size();
         int count = 0;
         for(RegistryObject<? extends Block> ro : list) {
             tag(FoldingRegistration.PROPERTY_TAGS.get(count)).add(ro.get());
