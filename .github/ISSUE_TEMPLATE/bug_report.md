@@ -26,6 +26,8 @@ If applicable, add screenshots to help explain your problem.
 **Desktop (please complete the following information):**
  - OS: [e.g. Windows10]
  - Minecraft Version [e.g. 1.19.4]
+ - Forge version [e.g. 45.2.0]
+ - If this problem relative to specific hardware/software environment, please list out.
 
 **Additional context**
 Add any other context about the problem here.
