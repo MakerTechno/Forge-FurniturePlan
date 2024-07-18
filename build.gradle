@@ -6,7 +6,7 @@ plugins {
     id 'org.spongepowered.mixin' version '0.7.+'
 }
 
-version = '0.8'
+version = '0.9'
 group = 'nowebsite.maker.furnitureplan' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'furnitureplan'
 

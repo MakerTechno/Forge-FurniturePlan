@@ -1,5 +1,5 @@
 package nowebsite.maker.furnitureplan.blocks.func;
 
-public interface IVarietyBlock {
+public interface IVarietyBlock extends ILocalDefine{
     String getSpecificName();
 }

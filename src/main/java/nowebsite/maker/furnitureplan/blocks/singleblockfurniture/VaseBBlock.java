@@ -15,12 +15,13 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import nowebsite.maker.furnitureplan.blocks.func.ISimpleBlock;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.VaseBBlockEntity;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("deprecation")
-public class VaseBBlock extends Block implements EntityBlock {
+public class VaseBBlock extends Block implements EntityBlock, ISimpleBlock {
     public static final VoxelShape MY_SHAPE;
     public VaseBBlock(Properties pProperties) {
         super(pProperties);
@@ -111,5 +112,20 @@ public class VaseBBlock extends Block implements EntityBlock {
                 Shapes.box(0.5625, 0.71875, 0.375, 0.625, 0.75, 0.625),
                 Shapes.box(0.375, 0.71875, 0.375, 0.4375, 0.75, 0.625)
         );
+    }
+
+    @Override
+    public String parentName() {
+        return "vase";
+    }
+
+    @Override
+    public String textureKey() {
+        return "particle";
+    }
+
+    @Override
+    public String textureName() {
+        return parentName();
     }
 }

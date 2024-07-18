@@ -28,9 +28,10 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.items.ItemStackHandler;
 import nowebsite.maker.furnitureplan.blocks.func.BaseSmallHallBasedBlock;
+import nowebsite.maker.furnitureplan.blocks.func.IHorizontalBlock;
 import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.FoodPlateBlockEntity;
 import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.GlassBBlockEntity;
-import nowebsite.maker.furnitureplan.blocks.tableware.definition.PlateShape;
+import nowebsite.maker.furnitureplan.blocks.func.definition.PlateShape;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -38,7 +39,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Objects;
 
 @SuppressWarnings("deprecation")
-public class FoodPlateBlock extends HorizontalDirectionalBlock implements EntityBlock, SimpleWaterloggedBlock {
+public class FoodPlateBlock extends HorizontalDirectionalBlock implements EntityBlock, SimpleWaterloggedBlock, IHorizontalBlock {
     public static final EnumProperty<PlateShape> SHAPE_DEF = BlockRegistration.BlockStateRegistration.PLATE_SHAPE;
     public FoodPlateBlock(Properties properties) {super(properties);}
     @Nullable
@@ -171,5 +172,20 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
     @Override
     public boolean isPathfindable(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull PathComputationType type) {
         return false;
+    }
+
+    @Override
+    public String parentName() {
+        return null;
+    }
+
+    @Override
+    public String textureKey() {
+        return "particle";
+    }
+
+    @Override
+    public String textureName() {
+        return null;
     }
 }

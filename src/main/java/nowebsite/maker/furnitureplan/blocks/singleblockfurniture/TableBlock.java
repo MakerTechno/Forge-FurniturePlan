@@ -11,18 +11,20 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import nowebsite.maker.furnitureplan.blocks.func.IUVLockedBlock;
 import nowebsite.maker.furnitureplan.blocks.func.BasePropertyHorizontalDirectionBlock;
-import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.definitions.TableShape;
+import nowebsite.maker.furnitureplan.blocks.func.IVarietyBlock;
+import nowebsite.maker.furnitureplan.blocks.func.definition.TableShape;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("deprecation")
-public class TableBlock extends BasePropertyHorizontalDirectionBlock {
+public class TableBlock extends BasePropertyHorizontalDirectionBlock implements IVarietyBlock, IUVLockedBlock {
     private static final EnumProperty<TableShape> SHAPE = BlockRegistration.BlockStateRegistration.TABLE_SHAPE;
 
     public TableBlock(@NotNull BlockState state, Properties properties) {
         super(state, properties);
-        //this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, Boolean.FALSE));
+        this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, Boolean.FALSE));
     }
     @Override
     public void neighborChanged(@NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Block pNeighborBlock, @NotNull BlockPos pNeighborPos, boolean pMovedByPiston) {
@@ -78,6 +80,11 @@ public class TableBlock extends BasePropertyHorizontalDirectionBlock {
     @Override
     public String getSpecificName() {
         return "table";
+    }
+
+    @Override
+    public String parentName() {
+        return null;
     }
 }
 

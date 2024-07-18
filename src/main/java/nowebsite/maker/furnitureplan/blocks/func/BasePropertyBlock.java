@@ -116,4 +116,13 @@ public abstract class BasePropertyBlock extends Block implements SimpleWaterlogg
     private @NotNull Block getModelBlock() {
         return this.getModelState().getBlock();
     }
+
+    @Override
+    public String textureName() {
+        return null;
+    }
+    @Override
+    public String textureKey() {
+        return "particle";
+    }
 }

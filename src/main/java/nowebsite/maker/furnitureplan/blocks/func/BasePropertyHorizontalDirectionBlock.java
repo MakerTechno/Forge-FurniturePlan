@@ -121,4 +121,13 @@ public abstract class BasePropertyHorizontalDirectionBlock extends HorizontalDir
     protected InteractionResult stateUse(Level level, Player player, InteractionHand hand, BlockHitResult result){
         return baseState.use(level, player, hand, result);
     }
+
+    @Override
+    public String textureName() {
+        return null;
+    }
+    @Override
+    public String textureKey() {
+        return "particle";
+    }
 }

@@ -20,10 +20,11 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import nowebsite.maker.furnitureplan.blocks.func.ISimpleBlock;
 import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("deprecation")
-public class LanternBlock extends Block implements SimpleWaterloggedBlock {
+public class LanternBlock extends Block implements SimpleWaterloggedBlock, ISimpleBlock {
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
     private static final VoxelShape SHAPE = Shapes.box(0.25, 0.34375, 0.25, 0.75, 0.8125, 0.75);
     public LanternBlock(Properties properties) {
@@ -54,5 +55,20 @@ public class LanternBlock extends Block implements SimpleWaterloggedBlock {
     @Override
     public void tick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource source) {
         super.tick(state, level, pos, source);
+    }
+
+    @Override
+    public String parentName() {
+        return "lantern";
+    }
+
+    @Override
+    public String textureKey() {
+        return "particle";
+    }
+
+    @Override
+    public String textureName() {
+        return parentName();
     }
 }

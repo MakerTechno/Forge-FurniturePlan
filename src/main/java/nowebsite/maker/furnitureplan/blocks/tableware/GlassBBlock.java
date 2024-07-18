@@ -25,6 +25,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.items.ItemStackHandler;
 import nowebsite.maker.furnitureplan.blocks.func.BaseSmallHallBasedBlock;
+import nowebsite.maker.furnitureplan.blocks.func.ISimpleBlock;
 import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.GlassBBlockEntity;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import org.jetbrains.annotations.NotNull;
@@ -33,7 +34,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 @SuppressWarnings("deprecation")
-public class GlassBBlock extends AbstractGlassBlock implements SimpleWaterloggedBlock, EntityBlock {
+public class GlassBBlock extends AbstractGlassBlock implements SimpleWaterloggedBlock, EntityBlock, ISimpleBlock {
     public static final VoxelShape INSIDE = Shapes.box(0.40625, 0.00005, 0.40625, 0.59375, 0.48, 0.59375);
     public static VoxelShape SHAPE = Shapes.empty();
     static {
@@ -120,5 +121,20 @@ public class GlassBBlock extends AbstractGlassBlock implements SimpleWaterlogged
             );
         }
         super.appendHoverText(stack, level, tooltip, flag);
+    }
+
+    @Override
+    public String parentName() {
+        return "glass";
+    }
+
+    @Override
+    public String textureKey() {
+        return "particle";
+    }
+
+    @Override
+    public String textureName() {
+        return parentName();
     }
 }

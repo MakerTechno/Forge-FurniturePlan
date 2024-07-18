@@ -18,14 +18,15 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import nowebsite.maker.furnitureplan.blocks.tableware.definition.PlateShape;
+import nowebsite.maker.furnitureplan.blocks.func.IHorizontalBlock;
+import nowebsite.maker.furnitureplan.blocks.func.definition.PlateShape;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import org.jetbrains.annotations.NotNull;
 
-import static nowebsite.maker.furnitureplan.blocks.tableware.definition.PlateShape.*;
+import static nowebsite.maker.furnitureplan.blocks.func.definition.PlateShape.*;
 
 @SuppressWarnings("deprecation")
-public class Cutlery extends HorizontalDirectionalBlock {
+public class Cutlery extends HorizontalDirectionalBlock implements IHorizontalBlock {
     public Cutlery(Properties properties) {
         super(properties);
     }
@@ -77,5 +78,20 @@ public class Cutlery extends HorizontalDirectionalBlock {
             case WEST -> CUTLERY_W;
             default -> CUTLERY_N;
         };
+    }
+
+    @Override
+    public String parentName() {
+        return "cutlery";
+    }
+
+    @Override
+    public String textureKey() {
+        return "particle";
+    }
+
+    @Override
+    public String textureName() {
+        return "plate";
     }
 }

@@ -21,19 +21,20 @@ import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.blocks.cookingUtensils.IronPotBlock;
 import nowebsite.maker.furnitureplan.blocks.cookingUtensils.StoveBlock;
 import nowebsite.maker.furnitureplan.blocks.cookingUtensils.blockentities.IronPotBlockEntity;
-import nowebsite.maker.furnitureplan.blocks.cookingUtensils.definition.StoveShape;
+import nowebsite.maker.furnitureplan.blocks.func.definition.ColumnShape;
+import nowebsite.maker.furnitureplan.blocks.func.definition.StoveShape;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.CupboardBlock;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.VaseBBlock;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.CupboardBlockEntity;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.LanternBlock;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.VaseBBlockEntity;
-import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.definitions.TableShape;
+import nowebsite.maker.furnitureplan.blocks.func.definition.TableShape;
 import nowebsite.maker.furnitureplan.blocks.tableware.Cutlery;
 import nowebsite.maker.furnitureplan.blocks.tableware.FoodPlateBlock;
 import nowebsite.maker.furnitureplan.blocks.tableware.GlassBBlock;
 import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.FoodPlateBlockEntity;
 import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.GlassBBlockEntity;
-import nowebsite.maker.furnitureplan.blocks.tableware.definition.PlateShape;
+import nowebsite.maker.furnitureplan.blocks.func.definition.PlateShape;
 import nowebsite.maker.furnitureplan.items.BaseBERBlockItem;
 import nowebsite.maker.furnitureplan.items.GlassBBlockItem;
 import nowebsite.maker.furnitureplan.items.IronPotItem;
@@ -119,5 +120,6 @@ public class BlockRegistration extends BRUtils{
         public static final EnumProperty<PlateShape> PLATE_SHAPE = EnumProperty.create("shape", PlateShape.class);
         public static final EnumProperty<StoveShape> STOVE_SHAPE = EnumProperty.create("shape", StoveShape.class);
         public static final EnumProperty<TableShape> TABLE_SHAPE = EnumProperty.create("shape", TableShape.class);
+        public static final EnumProperty<ColumnShape> COLUMN_SHAPE = EnumProperty.create("shape", ColumnShape.class);
     }
 }

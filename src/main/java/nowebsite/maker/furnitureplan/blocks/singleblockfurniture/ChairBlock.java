@@ -20,18 +20,20 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.registries.RegistryObject;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.blocks.func.BasePropertyHorizontalDirectionBlock;
+import nowebsite.maker.furnitureplan.blocks.func.IVarietyBlock;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.ChairBlockEntity;
 import org.jetbrains.annotations.NotNull;
 
 import static nowebsite.maker.furnitureplan.blocks.voxel.VoxelShapeReference.*;
 
 @SuppressWarnings("deprecation")
-public class ChairBlock extends BasePropertyHorizontalDirectionBlock implements EntityBlock {
+public class ChairBlock extends BasePropertyHorizontalDirectionBlock implements EntityBlock, IVarietyBlock {
     public final RegistryObject<BlockEntityType<ChairBlockEntity>> TYPE;
 
     public ChairBlock(RegistryObject<BlockEntityType<ChairBlockEntity>> type, @NotNull BlockState state, Properties properties) {
         super(state, properties);
         this.TYPE = type;
+        this.registerDefaultState(this.getStateDefinition().any().setValue(WATERLOGGED, Boolean.FALSE));
     }
 
     @Override
@@ -59,7 +61,7 @@ public class ChairBlock extends BasePropertyHorizontalDirectionBlock implements 
     }
     @Override
     protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> builder) {
-        builder.add(FACING);
+        builder.add(FACING, WATERLOGGED);
     }
 
     @Override
@@ -100,4 +102,10 @@ public class ChairBlock extends BasePropertyHorizontalDirectionBlock implements 
     public String getSpecificName() {
         return "chair";
     }
+
+    @Override
+    public String parentName() {
+        return "chair";
+    }
+
 }

@@ -4,7 +4,7 @@ license="All rights reserved"
 [[mods]] #mandatory
 # The modid of the mod
 modId="furnitureplan" #mandatory
-version="0.8" #mandatory
+version="0.9" #mandatory
  # A display name for the mod
 displayName="Furniture Plan Alpha" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification https://docs.minecraftforge.net/en/latest/misc/updatechecker/

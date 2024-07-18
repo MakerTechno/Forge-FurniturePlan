@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/column_connect",
+  "textures": {
+    "particle": "minecraft:block/prismarine_bricks"
+  }
+}

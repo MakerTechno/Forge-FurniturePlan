@@ -1,6 +1,0 @@
-{
-  "parent": "furnitureplan:block/carved_column",
-  "textures": {
-    "particle": "minecraft:block/bricks"
-  }
-}

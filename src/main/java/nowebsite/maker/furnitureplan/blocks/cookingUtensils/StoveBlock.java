@@ -26,13 +26,14 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import nowebsite.maker.furnitureplan.blocks.cookingUtensils.definition.StoveShape;
+import nowebsite.maker.furnitureplan.blocks.func.definition.StoveShape;
+import nowebsite.maker.furnitureplan.blocks.func.IHorizontalBlock;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("deprecation")
-public class StoveBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
+public class StoveBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock, IHorizontalBlock {
     public static final EnumProperty<StoveShape> SHAPE = BlockRegistration.BlockStateRegistration.STOVE_SHAPE;
     public StoveBlock(Properties properties) {
         super(properties);
@@ -113,5 +114,20 @@ public class StoveBlock extends HorizontalDirectionalBlock implements SimpleWate
         if (state.getValue(SHAPE).isLit()) {
             return 15;
         } else return 0;
+    }
+
+    @Override
+    public String parentName() {
+        return null;
+    }
+
+    @Override
+    public String textureKey() {
+        return "particle";
+    }
+
+    @Override
+    public String textureName() {
+        return "stove";
     }
 }

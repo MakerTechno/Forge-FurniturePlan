@@ -17,11 +17,12 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import nowebsite.maker.furnitureplan.blocks.cookingUtensils.blockentities.IronPotBlockEntity;
+import nowebsite.maker.furnitureplan.blocks.func.IHorizontalBlock;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("deprecation")
-public class IronPotBlock extends HorizontalDirectionalBlock implements EntityBlock, SimpleWaterloggedBlock {
+public class IronPotBlock extends HorizontalDirectionalBlock implements EntityBlock, SimpleWaterloggedBlock, IHorizontalBlock {
     public IronPotBlock(Properties properties) {super(properties);}
     @Nullable
     @Override
@@ -162,5 +163,20 @@ public class IronPotBlock extends HorizontalDirectionalBlock implements EntityBl
             case WEST -> SHAPE_W;
             default -> SHAPE_N;
         };
+    }
+
+    @Override
+    public String parentName() {
+        return "iron_pot";
+    }
+
+    @Override
+    public String textureKey() {
+        return "particle";
+    }
+
+    @Override
+    public String textureName() {
+        return parentName();
     }
 }

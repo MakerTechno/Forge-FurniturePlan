@@ -1,17 +1,32 @@
 {
   "variants": {
-    "facing=east": {
+    "facing=east,waterlogged=false": {
       "model": "furnitureplan:block/polished_granite_chair",
       "y": 90
     },
-    "facing=north": {
+    "facing=east,waterlogged=true": {
+      "model": "furnitureplan:block/polished_granite_chair",
+      "y": 90
+    },
+    "facing=north,waterlogged=false": {
       "model": "furnitureplan:block/polished_granite_chair"
     },
-    "facing=south": {
+    "facing=north,waterlogged=true": {
+      "model": "furnitureplan:block/polished_granite_chair"
+    },
+    "facing=south,waterlogged=false": {
       "model": "furnitureplan:block/polished_granite_chair",
       "y": 180
     },
-    "facing=west": {
+    "facing=south,waterlogged=true": {
+      "model": "furnitureplan:block/polished_granite_chair",
+      "y": 180
+    },
+    "facing=west,waterlogged=false": {
+      "model": "furnitureplan:block/polished_granite_chair",
+      "y": 270
+    },
+    "facing=west,waterlogged=true": {
       "model": "furnitureplan:block/polished_granite_chair",
       "y": 270
     }

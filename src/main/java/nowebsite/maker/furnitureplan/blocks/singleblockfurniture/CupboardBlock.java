@@ -28,6 +28,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import nowebsite.maker.furnitureplan.blocks.func.IHorizontalBlock;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.CupboardBlockEntity;
 import nowebsite.maker.furnitureplan.blocks.voxel.VoxelShapeReference;
 import nowebsite.maker.furnitureplan.utils.Vec3Utils;
@@ -37,11 +38,11 @@ import org.jetbrains.annotations.Nullable;
 import java.util.function.Supplier;
 
 @SuppressWarnings("deprecation")
-public class CupboardBlock extends AbstractCupboardBlock<CupboardBlockEntity> implements EntityBlock {
+public class CupboardBlock extends AbstractCupboardBlock<CupboardBlockEntity> implements EntityBlock, IHorizontalBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public CupboardBlock(Properties properties, Supplier<BlockEntityType<? extends CupboardBlockEntity>> blockEntityType) {
         super(properties, blockEntityType);
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
+        this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH));
     }
 
     @Override
@@ -164,4 +165,18 @@ public class CupboardBlock extends AbstractCupboardBlock<CupboardBlockEntity> im
     }
 
 
+    @Override
+    public String parentName() {
+        return "cupboard";
+    }
+
+    @Override
+    public String textureKey() {
+        return "texture";
+    }
+
+    @Override
+    public String textureName() {
+        return parentName();
+    }
 }

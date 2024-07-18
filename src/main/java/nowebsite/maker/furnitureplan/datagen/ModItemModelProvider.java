@@ -45,9 +45,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         );
         add(FoldingRegistration.getChairItemLists());
         add(FoldingRegistration.getTableItemLists(), "full");
-        add(FoldingRegistration.getColumnItemLists());
-        add(FoldingRegistration.getCarvedColumnItemLists());
-        add(FoldingRegistration.getLightedColumnItemLists());
+        add(FoldingRegistration.getColumnItemLists(), "full");
+        add(FoldingRegistration.getCarvedColumnItemLists(), "full");
+        add(FoldingRegistration.getLightedColumnItemLists(), "full");
 
         withExistingParent(BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get().toString(), modLoc("block/food_plate_block_plt"));
         withExistingParent(BlockRegistration.GLASS_B_BLOCK_ITEM.get().toString(), modLoc("block/glass_b_block"));
