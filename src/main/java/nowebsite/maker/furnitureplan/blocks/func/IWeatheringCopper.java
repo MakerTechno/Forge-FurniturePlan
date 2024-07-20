@@ -51,7 +51,7 @@ public interface IWeatheringCopper extends WeatheringCopper {
 
         return block;
     }
-    static Optional<BlockState> getPrevious(BlockState p_154900_) {
+    static Optional<BlockState> getPrevious(@NotNull BlockState p_154900_) {
         return getPrevious(p_154900_.getBlock()).map((p_154903_) -> p_154903_.withPropertiesOf(p_154900_));
     }
 
@@ -59,14 +59,15 @@ public interface IWeatheringCopper extends WeatheringCopper {
         return Optional.ofNullable(NEXT_BY_BLOCK.get().get(p_154905_));
     }
 
-    static BlockState getFirst(BlockState p_154907_) {
+    static @NotNull BlockState getFirst(@NotNull BlockState p_154907_) {
         return getFirst(p_154907_.getBlock()).withPropertiesOf(p_154907_);
     }
 
-    default @NotNull Optional<BlockState> getNext(BlockState p_154893_) {
+    default @NotNull Optional<BlockState> getNext(@NotNull BlockState p_154893_) {
         return getNext(p_154893_.getBlock()).map((p_154896_) -> p_154896_.withPropertiesOf(p_154893_));
     }
 
+    @Override
     default float getChanceModifier() {
         return WeatheringCopper.super.getChanceModifier();
     }

@@ -1,5 +1,6 @@
 package nowebsite.maker.furnitureplan;
 
+import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -10,12 +11,11 @@ import nowebsite.maker.furnitureplan.datagen.ModDataGenerators;
 import nowebsite.maker.furnitureplan.registry.*;
 import nowebsite.maker.furnitureplan.setup.ClientSetup;
 import nowebsite.maker.furnitureplan.setup.ModSetup;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
 
 @Mod(FurniturePlan.MOD_ID)
 public class FurniturePlan {
-    public static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
     public static final String MOD_ID = "furnitureplan";
     public static BlockEntityWithoutLevelRenderer renderer;
 

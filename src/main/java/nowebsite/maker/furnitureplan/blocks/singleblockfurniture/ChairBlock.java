@@ -24,6 +24,8 @@ import nowebsite.maker.furnitureplan.blocks.func.IVarietyBlock;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.ChairBlockEntity;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
+
 import static nowebsite.maker.furnitureplan.blocks.voxel.VoxelShapeReference.*;
 
 @SuppressWarnings("deprecation")
@@ -56,6 +58,14 @@ public class ChairBlock extends BasePropertyHorizontalDirectionBlock implements 
     }
 
     @Override
+    public void playerWillDestroy(@NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull BlockState pState, @NotNull Player pPlayer) {
+        super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
+        try {
+            Objects.requireNonNull(pLevel.getBlockEntity(pPos)).setRemoved();
+        } catch (Exception ignore) {}
+    }
+
+    @Override
     public BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {
         return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
     }
@@ -72,7 +82,7 @@ public class ChairBlock extends BasePropertyHorizontalDirectionBlock implements 
             if (blockEntity instanceof ChairBlockEntity) {
                 resultA = ((ChairBlockEntity)blockEntity).useAct(level, pos, player, state.getValue(FACING));
             } else {
-                FurniturePlan.LOGGER.error(new Exception("? Where's my chair block entity???"));
+                FurniturePlan.LOGGER.error("? Where's my chair block entity???");
                 resultA = InteractionResult.FAIL;
             }
         } else {

@@ -64,7 +64,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 }
 
             } catch (InvalidPropertiesFormatException e) {
-                FurniturePlan.LOGGER.error(e);
+                FurniturePlan.LOGGER.error(e.getLocalizedMessage());
             }
 
         });

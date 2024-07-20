@@ -30,7 +30,7 @@ public class RideableEntityNull extends Entity {
     public void tick() {
         super.tick();
         if (supplier.get() == null){
-            this.remove(RemovalReason.DISCARDED);
+            this.kill();
         }
         else if (supplier.get().getBlockState() != supplier.get().containerBlock || canAddPassenger(this)){
             supplier.get().setRemoved();
@@ -43,18 +43,15 @@ public class RideableEntityNull extends Entity {
         super.baseTick();
         if (count ==50) {
             if (supplier.get() == null){
-                this.remove(RemovalReason.DISCARDED);
+                this.kill();
                 supplier.get().setRemoved();
             }
         } else {
             count++;
         }
     }
-
     @Override
     protected void readAdditionalSaveData(@NotNull CompoundTag pCompound) {}
-
     @Override
     protected void addAdditionalSaveData(@NotNull CompoundTag pCompound) {}
-
 }

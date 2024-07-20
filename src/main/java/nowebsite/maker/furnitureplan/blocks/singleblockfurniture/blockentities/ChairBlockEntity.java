@@ -4,7 +4,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.Entity.RemovalReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -30,7 +29,7 @@ public class ChairBlockEntity extends BlockEntity {
 
     public void tickAtServer() {
         if (this.sit != null && this.sit.getFirstPassenger() == null && this.count >= 10) {
-            this.sit.remove(RemovalReason.DISCARDED);
+            this.sit.kill();
             this.sit = null;
         } else if (this.count <= 10) {
             ++this.count;
@@ -54,7 +53,7 @@ public class ChairBlockEntity extends BlockEntity {
             level.addFreshEntity(this.sit);
             if (!player.startRiding(this.sit, true)) {
                 player.displayClientMessage(Component.translatable("msg.furnitureplan.sit"), true);
-                this.sit.remove(RemovalReason.DISCARDED);
+                this.sit.kill();
                 this.sit = null;
                 return InteractionResult.PASS;
             } else {
@@ -72,7 +71,7 @@ public class ChairBlockEntity extends BlockEntity {
             chairBlock.newBlockEntity(this.getBlockPos(), containerBlock);
         }
         if (this.sit != null) {
-            this.sit.remove(RemovalReason.DISCARDED);
+            this.sit.kill();
             this.sit = null;
         }
     }
