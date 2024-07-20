@@ -1,24 +1,25 @@
-Ti works: Furniture plan mod credits/Thanks for IDEA and Forge
+# Ti works: Furniture plan mod credits/Thanks for IDEA and Forge
 
-Ti works is a minecraft fan group in China.
+Ti works is a minecraft fan group.
+
 We and not only us, all want Minecraft to be a better world.
 
-Thanks to Forge create a way to add our imagine and share with others, we can't be
-who we are now.
+Thanks to Forge create a way to add our imagine and share with others, we can't be who we are now.
 
 Thanks to IntelliJ IDEA with its powerful coding platform.
+
 --MakerTechno
 
-=========================================================================
+
 
 our website: https://makertechno.github.io/
 
 My bilibili space: https://space.bilibili.com/549306753
 
+### Belows are copy from forge credits.
 
-=========================================================================
 
-Minecraft Forge: Credits/Thank You
+## Minecraft Forge: Credits/Thank You
 
 Forge is a set of tools and modifications to the Minecraft base game code to assist 
 mod developers in creating new and exciting content. It has been in development for 
