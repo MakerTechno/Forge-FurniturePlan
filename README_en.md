@@ -1,25 +1,25 @@
-# 家具计划 | [Furniture Plan](./README_en.md)
+# [家具计划](./README.md) | Furniture Plan
 [![GitHub downloads](https://img.shields.io/github/downloads/MakerTechno/Forge-FurniturePlan/total?label=Github%20downloads&logo=github)](https://github.com/MakerTechno/Forge-FurniturePlan/releases)
 
-# 写在开头
-我是MakerTechno，一位高中生。
+# Hi
+I'm MakerTechno, a student from senior high school.
 
-我在15岁那年创立了这个模组库，比这更早的是TerrariaMod，现在已被资源化。
+This repository created when I was 15 at junior.
 
-我已经学了4年的模组，断断续续的，所以即使现在技术也不怎么好。
+I have studied here for over 4 years.
 
-总之，希望你能在这里体验美好生活 :D
+Well, have great fun here :D
 
-## 使用方法
-下载对应版本的`FurniturePlanMod`并将其放置于版本文件夹下`mods`文件夹，然后启动游戏。
+## Usage
+Download the corresponding version of FurniturePlanMod and place it in the `mods` folder to start the game.
 
-现在只支持`Minecraft 1.19.4`使用`Forge`加载器和`Minecraft 1.21`使用`NeoForge`加载器。
+Only support `Minecraft 1.19.4` with `Forge` and `Minecraft 1.21` with `NeoForge` now.
 
-## 本仓库代码贡献者
+## Maintainer
 
 [@MakerTechno](https://github.com/MakerTechno)
 
-## 贡献者名单:
+## List of contributors:
 
 <!--suppress ALL -->
 <table>
