@@ -13,7 +13,7 @@ Well, have great fun here :D
 ## Usage
 Download the corresponding version of FurniturePlanMod and place it in the `mods` folder to start the game.
 
-Only support `Minecraft 1.19.4` with `Forge` now.
+Only support `Minecraft 1.19.4` with `Forge` and `Minecraft 1.21` with `NeoForge` now.
 
 ## Maintainer
 
