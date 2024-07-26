@@ -13,7 +13,7 @@
 ## 使用方法
 下载对应版本的`FurniturePlanMod`并将其放置于版本文件夹下`mods`文件夹，然后启动游戏。
 
-现在只支持`Minecraft 1.19.4`使用`Forge`加载器。
+现在只支持`Minecraft 1.19.4`使用`Forge`加载器和`Minecraft 1.21`使用`NeoForge`加载器。
 
 ## 本仓库代码贡献者
 
