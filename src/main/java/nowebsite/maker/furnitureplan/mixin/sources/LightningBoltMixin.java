@@ -19,7 +19,7 @@ import java.util.Optional;
 @Mixin(LightningBolt.class)
 public class LightningBoltMixin {
 
-    @Inject(at = {@At(value = "HEAD")}, method = {"clearCopperOnLightningStrike"})
+    @Inject(at = {@At(value = "HEAD")}, method = "clearCopperOnLightningStrike")
     private static void clearCopperOnLightningStrike(@NotNull Level level, BlockPos pos, CallbackInfo ci) {
         BlockState blockState = level.getBlockState(pos);
         BlockPos blockPos;

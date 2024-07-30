@@ -1,12 +1,13 @@
 package nowebsite.maker.furnitureplan.blocks.cookingUtensils;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -32,28 +33,32 @@ import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-@SuppressWarnings("deprecation")
 public class StoveBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock, IHorizontalBlock {
     public static final EnumProperty<StoveShape> SHAPE = BlockRegistration.BlockStateRegistration.STOVE_SHAPE;
     public StoveBlock(Properties properties) {
         super(properties);
     }
+
     @Override
-    public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
+    protected @NotNull MapCodec<? extends HorizontalDirectionalBlock> codec() {
+        return simpleCodec(StoveBlock::new);
+    }
+
+    @Override
+    protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
         if (!level.isClientSide){
-            ItemStack stack = player.getItemInHand(hand);
             if (stack.is(Items.FLINT_AND_STEEL) && !state.getValue(SHAPE).isLit()){
                 level.setBlockAndUpdate(pos, state.setValue(SHAPE, state.getValue(SHAPE).litIt()));
-                return InteractionResult.SUCCESS;
+                return ItemInteractionResult.SUCCESS;
             } else if (stack.is(BlockRegistration.IRON_POT_BLOCK_ITEM.get()) && !state.getValue(SHAPE).hasPot()) {
                 level.setBlockAndUpdate(pos, state.setValue(SHAPE, state.getValue(SHAPE).addPot()));
-                return InteractionResult.SUCCESS;
+                return ItemInteractionResult.SUCCESS;
             }
         }
-        return InteractionResult.FAIL;
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
     @Override
-    public BlockState playerWillDestroy(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull Player player) {
+    public @NotNull BlockState playerWillDestroy(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull Player player) {
         this.spawnDestroyParticles(level, player, pos, state);
         if (!level.isClientSide) {
             BlockState newState = Blocks.AIR.defaultBlockState();
@@ -82,7 +87,7 @@ public class StoveBlock extends HorizontalDirectionalBlock implements SimpleWate
         player.causeFoodExhaustion(0.005F);
     }
     @Override
-    public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {
+    public boolean onDestroyedByPlayer(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, boolean willHarvest, @NotNull FluidState fluid) {
         this.playerWillDestroy(level,pos,state,player);
         return false;
     }
@@ -111,7 +116,7 @@ public class StoveBlock extends HorizontalDirectionalBlock implements SimpleWate
         super.tick(state, level, pos, source);
     }
     @Override
-    public int getLightEmission(@NotNull BlockState state, BlockGetter level, BlockPos pos) {
+    public int getLightEmission(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
         if (state.getValue(SHAPE).isLit()) {
             return 15;
         } else return 0;

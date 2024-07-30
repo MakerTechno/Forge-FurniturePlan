@@ -34,7 +34,6 @@ public class MyBEWLR extends BlockEntityWithoutLevelRenderer {
             BlockState blockstate = block.defaultBlockState();
             BlockEntity blockEntity = null;
             if (blockstate.is(BlockRegistration.CUPBOARD_BLOCK.get())) blockEntity = this.cupboard;
-
             if (blockEntity != null)
                 this.blockEntityRenderDispatcher.renderItem(blockEntity, pPoseStack, pBuffer, pPackedLight, pPackedOverlay);
         }

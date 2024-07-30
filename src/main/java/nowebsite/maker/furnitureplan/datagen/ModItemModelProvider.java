@@ -68,13 +68,13 @@ public class ModItemModelProvider extends ItemModelProvider {
     public void add(@NotNull List<DeferredHolder<Item, ? extends Item>> list) {
         assert list.size() <= FoldingRegistration.PROPERTY_KINDS.size();
         for(DeferredHolder<Item, ? extends Item> ro : list) {
-            withExistingParent(ro.get().toString(), modLoc("block/" + ro.get()));
+            withExistingParent(ro.get().toString(), modLoc("block/" + ro.getId().getPath()));
         }
     }
     public void add(@NotNull List<DeferredHolder<Item, ? extends Item>> list, String specificName) {
         assert list.size() <= FoldingRegistration.PROPERTY_KINDS.size();
         for(DeferredHolder<Item, ? extends Item> ro : list) {
-            withExistingParent(ro.get().toString(), modLoc("block/" + ro.get() + "_" + specificName));
+            withExistingParent(ro.get().toString(), modLoc("block/" + ro.getId().getPath() + "_" + specificName));
         }
     }
 }

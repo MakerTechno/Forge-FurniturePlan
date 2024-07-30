@@ -1,8 +1,8 @@
 package nowebsite.maker.furnitureplan.blocks.tableware.blockentities;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.Packet;
@@ -10,12 +10,12 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Containers;
 import net.minecraft.world.SimpleContainer;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -24,11 +24,8 @@ import net.neoforged.neoforge.common.util.Lazy;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import nowebsite.maker.furnitureplan.blocks.tableware.FoodPlateBlock;
-import nowebsite.maker.furnitureplan.networks.ModMessages;
-import nowebsite.maker.furnitureplan.networks.packets.ItemStackSyncS2CPacket;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
@@ -51,7 +48,6 @@ public class FoodPlateBlockEntity extends BlockEntity implements HasPlateEntity,
     public FoodPlateBlockEntity(BlockPos pos, BlockState state) {
         super(BlockRegistration.FOOD_PLATE_BLOCK_ENTITY.get(), pos, state);
     }
-
     /**You can't change this*/
     public ItemStack getFoodStack() {
         return itemStackHandler.getStackInSlot(0).copy();
@@ -95,9 +91,14 @@ public class FoodPlateBlockEntity extends BlockEntity implements HasPlateEntity,
     }
     public boolean usePotion(Player player){
         if (getPotionStack().isEmpty() || !this.getBlockState().getValue(FoodPlateBlock.SHAPE_DEF).hasGlass()) return false;
-        for (MobEffectInstance instance : PotionUtils.getMobEffects(getPotionStack())){
-            player.addEffect(instance);
-        }
+        PotionContents potioncontents = getPotionStack().getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);
+        potioncontents.forEachEffect(effect -> {
+            if (effect.getEffect().value().isInstantenous()) {
+                effect.getEffect().value().applyInstantenousEffect(null, null, player, effect.getAmplifier(), 1.0);
+            } else {
+                player.addEffect(effect);
+            }
+        });
         changePotion(ItemStack.EMPTY);
         return true;
     }

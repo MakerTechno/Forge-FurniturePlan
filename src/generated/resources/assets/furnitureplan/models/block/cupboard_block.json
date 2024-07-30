@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/cupboard",
+  "textures": {
+    "texture": "furnitureplan:block/cupboard"
+  }
+}

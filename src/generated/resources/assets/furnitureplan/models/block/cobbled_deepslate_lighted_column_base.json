@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/lighted_column_base",
+  "textures": {
+    "particle": "minecraft:block/cobbled_deepslate"
+  }
+}

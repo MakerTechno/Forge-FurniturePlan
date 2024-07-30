@@ -13,11 +13,8 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.MapColor;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.blocks.cookingUtensils.IronPotBlock;
 import nowebsite.maker.furnitureplan.blocks.cookingUtensils.StoveBlock;
@@ -48,9 +45,6 @@ public class BlockRegistration extends BRUtils{
         ColumnBlockRegistration.init();
         CarvedColumnBlockRegistration.init();
         LightedColumnBlockRegistration.init();
-        IEventBus bus = NeoForge.EVENT_BUS;
-        BLOCKS.register(bus);
-        BLOCK_ENTITY.register(bus);
     }
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.createBlocks(FurniturePlan.MOD_ID);

@@ -1,8 +1,9 @@
 package nowebsite.maker.furnitureplan.blocks.cookingUtensils.blockentities;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
@@ -11,20 +12,16 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.ItemStackHandler;
+import net.neoforged.neoforge.common.util.Lazy;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.ItemStackHandler;
 import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.HasPlateEntity;
-import nowebsite.maker.furnitureplan.networks.ModMessages;
-import nowebsite.maker.furnitureplan.networks.packets.ItemStackSyncS2CPacket;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
@@ -33,8 +30,8 @@ public class IronPotBlockEntity extends BlockEntity implements HasPlateEntity {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
-            if (level != null && !level.isClientSide) {
-                ModMessages.sendToClients(new ItemStackSyncS2CPacket(this, worldPosition));
+            if (level != null) {
+                level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
             }
         }
         @Override
@@ -46,7 +43,7 @@ public class IronPotBlockEntity extends BlockEntity implements HasPlateEntity {
     public IronPotBlockEntity(BlockPos pos, BlockState state) {
         super(BlockRegistration.IRON_POT_BLOCK_ENTITY.get(), pos, state);
     }
-    private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
+    private Lazy<IItemHandler> lazyItemHandler = Lazy.of(() -> itemStackHandler);
     /**You can't change this*/
     public ItemStack getFoodStack() {return itemStackHandler.getStackInSlot(0).copy();}
 
@@ -66,30 +63,39 @@ public class IronPotBlockEntity extends BlockEntity implements HasPlateEntity {
         this.setChanged();
         Objects.requireNonNull(this.getLevel()).sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
     }
-    @Override
-    public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-        if (cap == ForgeCapabilities.ITEM_HANDLER) return lazyItemHandler.cast();
-        return super.getCapability(cap, side);
+    public Lazy<IItemHandler> getLazyItemHandler() {
+        return lazyItemHandler;
     }
     @Override
     public void onLoad() {
         super.onLoad();
-        lazyItemHandler = LazyOptional.of(() -> itemStackHandler);
+        lazyItemHandler = Lazy.of(() -> itemStackHandler);
     }
     @Override
-    public void invalidateCaps() {
-        super.invalidateCaps();
-        lazyItemHandler.invalidate();
+    protected void saveAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
+        tag.put(INVENTORY, itemStackHandler.serializeNBT(registries));
+        super.saveAdditional(tag, registries);
     }
     @Override
-    protected void saveAdditional(@NotNull CompoundTag tag) {
-        tag.put(INVENTORY, itemStackHandler.serializeNBT());
-        super.saveAdditional(tag);
+    protected void loadAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
+        itemStackHandler.deserializeNBT(registries, tag.getCompound(INVENTORY));
+        super.loadAdditional(tag, registries);
     }
     @Override
-    public void load(@NotNull CompoundTag tag) {
-        super.load(tag);
-        itemStackHandler.deserializeNBT(tag.getCompound(INVENTORY));
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+    @Override
+    public void onDataPacket(@NotNull Connection net, @NotNull ClientboundBlockEntityDataPacket pkt, HolderLookup.@NotNull Provider lookupProvider) {
+        handleUpdateTag(pkt.getTag(), lookupProvider);
+    }
+    @Override
+    public @NotNull CompoundTag getUpdateTag(HolderLookup.@NotNull Provider registries) {
+        return saveWithoutMetadata(registries);
+    }
+    @Override
+    public void handleUpdateTag(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider lookupProvider) {
+        super.handleUpdateTag(tag, lookupProvider);
     }
     public void drops(){
         SimpleContainer inventory = new SimpleContainer(1);
@@ -97,14 +103,5 @@ public class IronPotBlockEntity extends BlockEntity implements HasPlateEntity {
         Containers.dropContents(Objects.requireNonNull(this.getLevel()), this.worldPosition, inventory);
         changeFood(ItemStack.EMPTY);
         markUpdated();
-    }
-    @Nullable
-    @Override
-    public Packet<ClientGamePacketListener> getUpdatePacket() {
-        return ClientboundBlockEntityDataPacket.create(this);
-    }
-    @Override
-    public @NotNull CompoundTag getUpdateTag() {
-        return saveWithoutMetadata();
     }
 }

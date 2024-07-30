@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "shape=base,waterlogged=false": {
+      "model": "furnitureplan:block/polished_granite_column_base"
+    },
+    "shape=base,waterlogged=true": {
+      "model": "furnitureplan:block/polished_granite_column_base"
+    },
+    "shape=connect,waterlogged=false": {
+      "model": "furnitureplan:block/polished_granite_column_connect"
+    },
+    "shape=connect,waterlogged=true": {
+      "model": "furnitureplan:block/polished_granite_column_connect"
+    },
+    "shape=full,waterlogged=false": {
+      "model": "furnitureplan:block/polished_granite_column_full"
+    },
+    "shape=full,waterlogged=true": {
+      "model": "furnitureplan:block/polished_granite_column_full"
+    },
+    "shape=top,waterlogged=false": {
+      "model": "furnitureplan:block/polished_granite_column_top"
+    },
+    "shape=top,waterlogged=true": {
+      "model": "furnitureplan:block/polished_granite_column_top"
+    }
+  }
+}

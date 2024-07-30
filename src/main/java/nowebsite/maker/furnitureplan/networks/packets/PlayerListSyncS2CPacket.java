@@ -1,3 +1,4 @@
+/*
 package nowebsite.maker.furnitureplan.networks.packets;
 
 import net.minecraft.client.Minecraft;
@@ -27,7 +28,6 @@ public class PlayerListSyncS2CPacket {
         buf.writeInt(state);
         buf.writeBlockPos(pos);
     }
-
     public void handle(@NotNull Supplier<NetworkEvent.Context> supplier) {
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
@@ -41,4 +41,6 @@ public class PlayerListSyncS2CPacket {
         });
     }
 
+
 }
+*/

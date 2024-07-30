@@ -1,8 +1,10 @@
 package nowebsite.maker.furnitureplan.blocks.cookingUtensils;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -24,6 +26,12 @@ import org.jetbrains.annotations.Nullable;
 @SuppressWarnings("deprecation")
 public class IronPotBlock extends HorizontalDirectionalBlock implements EntityBlock, SimpleWaterloggedBlock, IHorizontalBlock {
     public IronPotBlock(Properties properties) {super(properties);}
+
+    @Override
+    protected @NotNull MapCodec<? extends HorizontalDirectionalBlock> codec() {
+        return simpleCodec(IronPotBlock::new);
+    }
+
     @Nullable
     @Override
     public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
@@ -130,16 +138,26 @@ public class IronPotBlock extends HorizontalDirectionalBlock implements EntityBl
         }
         super.onRemove(state, level, pos, newState, movedByPiston);
     }
+
     @Override
-    public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
+    protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
         if (!level.isClientSide) {
             if (!(level.getBlockEntity(pos) instanceof IronPotBlockEntity cast)) {
                 throw new IllegalStateException("Iron pot block entity at x: " + pos.getX() + ", y: " + pos.getY() + ", z: " + pos.getZ() + " could not be found.");
             }
-            ItemStack stack = player.getItemInHand(hand);
             if (stack.getFoodProperties(player) != null && cast.getFoodStack().isEmpty()) {
-                if (!cast.placeFood(player, player.getAbilities().instabuild ? stack.copy() : stack)) return InteractionResult.PASS;
-            } else if (!cast.getFoodStack().isEmpty()) cast.drops();
+                if (cast.placeFood(player, player.getAbilities().instabuild ? stack.copy() : stack)) return ItemInteractionResult.SUCCESS;
+            }
+        }
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+    }
+    @Override
+    protected @NotNull InteractionResult useWithoutItem(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull BlockHitResult hitResult) {
+        if (!level.isClientSide) {
+            if (!(level.getBlockEntity(pos) instanceof IronPotBlockEntity cast)) {
+                throw new IllegalStateException("Iron pot block entity at x: " + pos.getX() + ", y: " + pos.getY() + ", z: " + pos.getZ() + " could not be found.");
+            }
+            if (!cast.getFoodStack().isEmpty()) cast.drops();
         }
         return InteractionResult.SUCCESS;
     }

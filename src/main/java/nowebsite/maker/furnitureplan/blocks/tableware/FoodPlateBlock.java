@@ -3,7 +3,6 @@ package nowebsite.maker.furnitureplan.blocks.tableware;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -29,7 +28,7 @@ import nowebsite.maker.furnitureplan.blocks.func.BaseSmallHallBasedBlock;
 import nowebsite.maker.furnitureplan.blocks.func.IHorizontalBlock;
 import nowebsite.maker.furnitureplan.blocks.func.definition.PlateShape;
 import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.FoodPlateBlockEntity;
-import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.GlassBBlockEntity;
+import nowebsite.maker.furnitureplan.items.GlassBBlockItem;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -43,7 +42,7 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
 
     @Override
     protected @NotNull MapCodec<? extends HorizontalDirectionalBlock> codec() {
-        return ;
+        return simpleCodec(FoodPlateBlock::new);
     }
 
     @Nullable
@@ -55,34 +54,6 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
     public @NotNull RenderShape getRenderShape(@NotNull BlockState state) {
         return RenderShape.MODEL;
     }
-    @Override
-    public void onRemove(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState newState, boolean movedByPiston) {
-        if (state.getBlock() != newState.getBlock()){
-            BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (blockEntity instanceof FoodPlateBlockEntity cast) {
-                SimpleContainer inventory = new SimpleContainer(1);
-                ItemStack stack = ItemStack.EMPTY;
-                if (canSurvive(state, level, pos)) {
-                    switch (state.getValue(SHAPE_DEF)) {
-                        case PLATE_AND_GLASS_SHAPE -> cast.dropBottle();
-                        case PLATE_AND_CUTLERY_SHAPE, PLATE_AND_GLASS_AND_CUTLERY_SHAPE -> stack = new ItemStack(BlockRegistration.CUTLERY_ITEM.get(), 1);
-                        case PLATE_SHAPE -> {
-                            stack = new ItemStack(BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get(), 1);
-                            cast.drops();
-                        }
-                    }
-                } else {
-                    if (state.getValue(SHAPE_DEF).hasCutlery()) stack = new ItemStack(BlockRegistration.CUTLERY_ITEM.get(), 1);
-                    cast.drops();
-                    cast.dropBottle();
-                }
-                inventory.setItem(0, stack);
-                Containers.dropContents(level, pos, inventory);
-            }
-            super.onRemove(state, level, pos, newState, movedByPiston);
-        }
-    }
-
     @Override
     protected @NotNull InteractionResult useWithoutItem(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull BlockHitResult hitResult) {
         if (!level.isClientSide) {
@@ -124,9 +95,8 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
                 if (!player.getAbilities().instabuild && !newState.getValue(SHAPE_DEF).equals(shape)) stack.shrink(1);
 
                 ItemStackHandler handler = new ItemStackHandler(2);
-                if (stack.getTag() != null && stack.getTag().contains("BlockEntityTag")) {
-                    handler.deserializeNBT(stack.getTag().getCompound("BlockEntityTag").getCompound(GlassBBlockEntity.INVENTORY));
-                }
+                GlassBBlockItem.loadFromEntityData(level.registryAccess(), stack, handler);
+
                 cast.changePotion(handler.getStackInSlot(1));
             } else if (stack.getFoodProperties(player) != null && cast.getFoodStack().isEmpty()) {
                 if (!cast.placeFood(player, player.getAbilities().instabuild ? stack.copy() : stack))
@@ -136,25 +106,39 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
                     return ItemInteractionResult.FAIL;
             } else if (flag2 && cast.restorePotion(player, player.getAbilities().instabuild ? stack.copy() : stack))
                 return ItemInteractionResult.SUCCESS;
+            else return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+            return ItemInteractionResult.SUCCESS;
         }
         return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
     @Override
-    public @NotNull BlockState playerWillDestroy(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull Player player) {
-        this.spawnDestroyParticles(level, player, pos, state);
-        PlateShape shape =  state.getValue(SHAPE_DEF).getNext();
-        if (shape == null) return Blocks.AIR.defaultBlockState();
-        else return BlockRegistration.FOOD_PLATE_BLOCK.get().defaultBlockState().setValue(FACING, state.getValue(FACING)).setValue(SHAPE_DEF,shape);
-    }
-    @Override
-    public void playerDestroy(@NotNull Level level, @NotNull Player player, @NotNull BlockPos pos, @NotNull BlockState state, @Nullable BlockEntity pBlockEntity, @NotNull ItemStack tool) {
-        player.awardStat(Stats.BLOCK_MINED.get(this));
-        player.causeFoodExhaustion(0.005F);
-    }
-    @Override
     public boolean onDestroyedByPlayer(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, boolean willHarvest, @NotNull FluidState fluid) {
-        this.playerWillDestroy(level,pos,state,player);
-        return false;
+        PlateShape shape =  state.isAir() ? null : state.getValue(SHAPE_DEF).getNext();
+        BlockState newState = shape == null ? Blocks.AIR.defaultBlockState() : BlockRegistration.FOOD_PLATE_BLOCK.get().defaultBlockState().setValue(FACING, state.getValue(FACING)).setValue(SHAPE_DEF,shape);
+        if (newState.isAir() || state.getValue(SHAPE_DEF).getNext() == newState.getValue(SHAPE_DEF)){
+            if (willHarvest && level.getBlockEntity(pos) instanceof FoodPlateBlockEntity cast) {
+                SimpleContainer inventory = new SimpleContainer(1);
+                ItemStack stack = ItemStack.EMPTY;
+                if (canSurvive(state, level, pos)) {
+                    switch (state.getValue(SHAPE_DEF)) {
+                        case PLATE_AND_GLASS_SHAPE -> cast.dropBottle();
+                        case PLATE_AND_CUTLERY_SHAPE, PLATE_AND_GLASS_AND_CUTLERY_SHAPE -> stack = new ItemStack(BlockRegistration.CUTLERY_ITEM.get(), 1);
+                        case PLATE_SHAPE -> {
+                            stack = new ItemStack(BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get(), 1);
+                            cast.drops();
+                        }
+                    }
+                } else {
+                    if (state.getValue(SHAPE_DEF).hasCutlery()) stack = new ItemStack(BlockRegistration.CUTLERY_ITEM.get(), 1);
+                    cast.drops();
+                    cast.dropBottle();
+                }
+                inventory.setItem(0, stack);
+                Containers.dropContents(level, pos, inventory);
+            }
+        }
+        level.setBlockAndUpdate(pos, newState);
+        return shape == null;
     }
     /**From {@link FaceAttachedHorizontalDirectionalBlock}*/
     @Override

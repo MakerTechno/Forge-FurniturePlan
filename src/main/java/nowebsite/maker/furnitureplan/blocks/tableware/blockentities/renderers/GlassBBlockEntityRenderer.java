@@ -7,11 +7,12 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
 import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.GlassBBlockEntity;
@@ -38,7 +39,7 @@ public class GlassBBlockEntityRenderer implements BlockEntityRenderer<GlassBBloc
         if(!stack.is(Items.POTION)) return;
 
         TextureAtlasSprite sprite = Minecraft.getInstance().getModelManager().getAtlas(InventoryMenu.BLOCK_ATLAS).getSprite(TextureMapping.getBlockTexture(Blocks.WHITE_CONCRETE));
-        Vector3f clr = GUIUtil.colorCast(PotionUtils.getColor(stack));
+        Vector3f clr = GUIUtil.colorCast(stack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).getColor());
 
         poseStack.pushPose();
         VertexConsumer builder = bufferSource.getBuffer(RenderType.translucent());

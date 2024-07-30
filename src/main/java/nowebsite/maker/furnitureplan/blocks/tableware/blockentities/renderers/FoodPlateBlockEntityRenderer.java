@@ -10,12 +10,13 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.Direction;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
 import nowebsite.maker.furnitureplan.blocks.tableware.FoodPlateBlock;
@@ -61,7 +62,7 @@ public class FoodPlateBlockEntityRenderer implements BlockEntityRenderer<FoodPla
         ItemStack potionStack = blockEntity.getPotionStack();
         if(!potionStack.is(Items.POTION)) return;
         TextureAtlasSprite sprite = Minecraft.getInstance().getModelManager().getAtlas(InventoryMenu.BLOCK_ATLAS).getSprite(TextureMapping.getBlockTexture(Blocks.WHITE_CONCRETE));
-        Vector3f clr = GUIUtil.colorCast(PotionUtils.getColor(potionStack));
+        Vector3f clr = GUIUtil.colorCast(potionStack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).getColor());
         poseStack.pushPose();
         VertexConsumer builder = bufferSource.getBuffer(RenderType.translucent());
         switch (facing){

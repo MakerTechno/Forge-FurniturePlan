@@ -3,7 +3,6 @@ package nowebsite.maker.furnitureplan.blocks.singleblockfurniture;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -18,21 +17,13 @@ import nowebsite.maker.furnitureplan.blocks.func.definition.TableShape;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import org.jetbrains.annotations.NotNull;
 
-@SuppressWarnings("deprecation")
-public class TableBlock extends BasePropertyHorizontalDirectionBlock implements IVarietyBlock, IUVLockedBlock {
+public class TableBlock extends BasePropertyHorizontalDirectionBlock<TableBlock> implements IVarietyBlock, IUVLockedBlock {
     private static final EnumProperty<TableShape> SHAPE = BlockRegistration.BlockStateRegistration.TABLE_SHAPE;
 
     public TableBlock(@NotNull BlockState state, Properties properties) {
         super(state, properties);
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, Boolean.FALSE));
     }
-    @Override
-    public void neighborChanged(@NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Block pNeighborBlock, @NotNull BlockPos pNeighborPos, boolean pMovedByPiston) {
-        super.neighborChanged(pState, pLevel, pPos, pNeighborBlock, pNeighborPos, pMovedByPiston);
-        Direction direction = Direction.fromNormal(pNeighborPos);
-        updateShape(pState, direction == null ? Direction.NORTH : direction, pLevel.getBlockState(pNeighborPos), pLevel, pPos, pNeighborPos);
-    }
-
     @Override
     public @NotNull BlockState updateShape(@NotNull BlockState pState, @NotNull Direction pDirection, @NotNull BlockState pNeighborState, @NotNull LevelAccessor pLevel, @NotNull BlockPos pPos, @NotNull BlockPos pNeighborPos) {
         super.updateShape(pState, pDirection, pNeighborState, pLevel, pPos, pNeighborPos);
@@ -53,6 +44,11 @@ public class TableBlock extends BasePropertyHorizontalDirectionBlock implements 
             case 12 -> pState.setValue(SHAPE, TableShape.SINGLE).setValue(FACING, Direction.NORTH);
             default -> pState.setValue(SHAPE, TableShape.PANE);
         };
+    }
+
+    @Override
+    protected BasePropertyHorizontalDirectionBlock<TableBlock> getSelfNew(BlockState baseState, Properties properties) {
+        return new TableBlock(baseState, properties);
     }
 
     @Override

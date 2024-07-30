@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.registries.DeferredHolder;
+import nowebsite.maker.furnitureplan.blocks.func.BasePropertyHorizontalDirectionBlock;
 import nowebsite.maker.furnitureplan.blocks.func.IWeatheringCopper;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.ChairBlock;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.ChairBlockEntity;
@@ -74,5 +75,10 @@ public class WeatheredCopperChair extends ChairBlock implements IWeatheringCoppe
     @Override
     public @NotNull WeatherState getAge() {
         return this.weatherState;
+    }
+
+    @Override
+    protected BasePropertyHorizontalDirectionBlock<ChairBlock> getSelfNew(BlockState baseState, Properties properties) {
+        return new WeatheredCopperChair(TYPE, baseState, properties, this.weatherState);
     }
 }

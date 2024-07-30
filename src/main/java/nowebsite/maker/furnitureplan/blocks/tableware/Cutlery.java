@@ -1,9 +1,10 @@
 package nowebsite.maker.furnitureplan.blocks.tableware;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -30,26 +31,28 @@ public class Cutlery extends HorizontalDirectionalBlock implements IHorizontalBl
     public Cutlery(Properties properties) {
         super(properties);
     }
-
     @Override
-    public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
+    protected @NotNull MapCodec<? extends HorizontalDirectionalBlock> codec() {
+        return simpleCodec(Cutlery::new);
+    }
+    @Override
+    protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
         if (!level.isClientSide){
-            ItemStack stack = player.getItemInHand(hand);
             if (stack.is(BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get())) {
                 BlockState newState = BlockRegistration.FOOD_PLATE_BLOCK.get().defaultBlockState()
                         .setValue(FACING, state.getValue(FACING))
                         .setValue(FoodPlateBlock.SHAPE_DEF, PlateShape.PLATE_AND_CUTLERY_SHAPE);
                 level.setBlock(pos, newState, 3);
                 if (!player.getAbilities().instabuild) stack.shrink(1);
+                return ItemInteractionResult.SUCCESS;
             }
         }
-        return InteractionResult.PASS;
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
     @Override
     public boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader level, @NotNull BlockPos pos) {
         return canAttach(level, pos, Direction.UP.getOpposite());
     }
-
     public static boolean canAttach(@NotNull LevelReader pReader, @NotNull BlockPos pPos, Direction pDirection) {
         BlockPos blockpos = pPos.relative(pDirection);
         return pReader.getBlockState(blockpos).isFaceSturdy(pReader, blockpos, pDirection.getOpposite());
@@ -79,17 +82,14 @@ public class Cutlery extends HorizontalDirectionalBlock implements IHorizontalBl
             default -> CUTLERY_N;
         };
     }
-
     @Override
     public String parentName() {
         return "cutlery";
     }
-
     @Override
     public String textureKey() {
         return "particle";
     }
-
     @Override
     public String textureName() {
         return "plate";

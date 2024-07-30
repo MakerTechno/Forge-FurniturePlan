@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import nowebsite.maker.furnitureplan.blocks.func.BasePropertyBlock;
 import nowebsite.maker.furnitureplan.blocks.func.definition.ColumnShape;
 import org.jetbrains.annotations.NotNull;
 
@@ -52,5 +53,10 @@ public class LightedColumnBlock extends ColumnBlock {
     @Override
     public String parentName() {
         return getSpecificName();
+    }
+
+    @Override
+    protected BasePropertyBlock<ColumnBlock> getSelfNew(BlockState baseState, Properties properties) {
+        return new LightedColumnBlock(baseState, properties);
     }
 }

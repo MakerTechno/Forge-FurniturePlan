@@ -71,5 +71,5 @@ public abstract class BasePropertyBlock<T extends BasePropertyBlock<T>> extends 
     protected @NotNull MapCodec<? extends Block> codec() {
         return codec;
     }
-    abstract BasePropertyBlock<T> getSelfNew(BlockState baseState, BlockBehaviour.Properties properties);
+    protected abstract BasePropertyBlock<T> getSelfNew(BlockState baseState, BlockBehaviour.Properties properties);
 }

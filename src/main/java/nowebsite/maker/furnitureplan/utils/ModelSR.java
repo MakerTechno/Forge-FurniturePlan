@@ -16,6 +16,6 @@ public interface ModelSR extends StringRepresentable {
     VoxelShape getOccModel(@NotNull BlockState state, BlockGetter getter, BlockPos pos);
 
     default ResourceLocation modLoc(String name){
-        return new ResourceLocation(FurniturePlan.MOD_ID, name);
+        return ResourceLocation.fromNamespaceAndPath(FurniturePlan.MOD_ID, name);
     }
 }

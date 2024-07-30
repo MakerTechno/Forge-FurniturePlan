@@ -19,7 +19,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
     @Override
     protected void buildRecipes(@NotNull RecipeOutput recipeOutput) {
-            ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistration.GRAVER.get(), 2)
+            ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistration.GRAVER.get())
                     .define('I', Items.IRON_NUGGET)
                     .define('S', Items.STICK)
                     .pattern("I I")

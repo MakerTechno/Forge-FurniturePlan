@@ -4,7 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -23,22 +23,22 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import nowebsite.maker.furnitureplan.blocks.func.ISimpleBlock;
 import org.jetbrains.annotations.NotNull;
 
-@SuppressWarnings("deprecation")
 public class LanternBlock extends Block implements SimpleWaterloggedBlock, ISimpleBlock {
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
     private static final VoxelShape SHAPE = Shapes.box(0.25, 0.34375, 0.25, 0.75, 0.8125, 0.75);
     public LanternBlock(Properties properties) {
         super(properties);
     }
+
     @Override
-    public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
+    protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
         if (!level.isClientSide){
-            ItemStack stack = player.getItemInHand(hand);
             if (stack.is(Items.FLINT_AND_STEEL)){
                 level.setBlock(pos, state.cycle(LIT), 2);
+                return ItemInteractionResult.SUCCESS;
             }
         }
-        return InteractionResult.FAIL;
+        return ItemInteractionResult.FAIL;
     }
     @Override
     public @NotNull VoxelShape getOcclusionShape(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos) {

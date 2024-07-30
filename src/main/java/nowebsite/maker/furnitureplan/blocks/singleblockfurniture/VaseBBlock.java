@@ -2,7 +2,7 @@ package nowebsite.maker.furnitureplan.blocks.singleblockfurniture;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
@@ -45,14 +45,13 @@ public class VaseBBlock extends Block implements EntityBlock, ISimpleBlock {
             super.onRemove(state, level, pos, newState, movedByPiston);
         }
     }
+
     @Override
-    public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
+    protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
         if (!level.isClientSide) {
             if (!(level.getBlockEntity(pos) instanceof VaseBBlockEntity cast)) {
                 throw new IllegalStateException("Vase b block entity at x: " + pos.getX() + ", y: " + pos.getY() + ", z: " + pos.getZ() + " could not be found.");
             }
-            ItemStack stack = player.getItemInHand(hand);
-
             boolean flag = false;
             if (stack.getItem() instanceof BlockItem blockItem){
                 Block block = blockItem.getBlock();
@@ -61,9 +60,9 @@ public class VaseBBlock extends Block implements EntityBlock, ISimpleBlock {
             if (flag && cast.getFlowerStack().isEmpty()) {
                 cast.placeFlower(player, player.getAbilities().instabuild ? stack.copy() : stack);
             }
-            else return InteractionResult.FAIL;
+            else return ItemInteractionResult.FAIL;
         }
-        return InteractionResult.CONSUME;
+        return ItemInteractionResult.CONSUME;
     }
 
     @Override

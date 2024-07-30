@@ -5,8 +5,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -18,9 +16,6 @@ import java.util.List;
 
 public class CreativeModeTabRegistration {
     public static void init(){
-        IEventBus bus = NeoForge.EVENT_BUS;
-        TABS.register(bus);
-        bus.addListener(CreativeModeTabRegistration::registerCreativeModeTabItems);
     }
 
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, FurniturePlan.MOD_ID);

@@ -1,7 +1,7 @@
 package nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.Container;
@@ -17,11 +17,15 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.ChestLidController;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.util.Lazy;
+import net.neoforged.neoforge.items.IItemHandlerModifiable;
+import net.neoforged.neoforge.items.wrapper.CombinedInvWrapper;
+import net.neoforged.neoforge.items.wrapper.InvWrapper;
+import net.neoforged.neoforge.network.PacketDistributor;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.container.DrawerContainer;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.container.DrawerOpensCounter;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.gui.DrawerMenu;
-import nowebsite.maker.furnitureplan.networks.ModMessages;
-import nowebsite.maker.furnitureplan.networks.packets.PlayerListSyncS2CPacket;
+//import nowebsite.maker.furnitureplan.networks.packets.PlayerListSyncS2CPacket;
+import nowebsite.maker.furnitureplan.networks.CupboardSyncData;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -33,7 +37,6 @@ import java.util.Set;
 public class CupboardBlockEntity extends BlockEntity implements MenuProvider, Nameable {
     @Nullable
     private Component name;
-    private Lazy<net.minecraftforge.items.IItemHandlerModifiable> handler;
     private final Set<Player>
             usingDrawer1 = new HashSet<>(),
             usingDrawer2 = new HashSet<>(),
@@ -53,7 +56,7 @@ public class CupboardBlockEntity extends BlockEntity implements MenuProvider, Na
             }
         }
     };
-
+    private Lazy<IItemHandlerModifiable> handlerLazy = Lazy.of(() -> new CombinedInvWrapper(new InvWrapper(drawer1), new InvWrapper(drawer2), new InvWrapper(drawer3)));
     /*--------Animate part--------*/
     private final ChestLidController  //We use Chest's controller, so I needn't create a new one.
             controller1 = new ChestLidController(),
@@ -119,60 +122,35 @@ public class CupboardBlockEntity extends BlockEntity implements MenuProvider, Na
     public CupboardBlockEntity(BlockPos pPos, BlockState pBlockState) {
         this(BlockRegistration.CUPBOARD_BLOCK_ENTITY.get(), pPos, pBlockState);
     }
-
     public Block getBlockRef(){
         return BlockRegistration.CUPBOARD_BLOCK.get();
     }
 
-    @SuppressWarnings("deprecation")
-    @Override
-    public void setBlockState(@NotNull BlockState pBlockState) {
-        super.setBlockState(pBlockState);
-        if (this.handler != null) {
-            net.minecraftforge.common.util.LazyOptional<?> oldHandler = this.handler;
-            this.handler = null;
-            oldHandler.invalidate();
-        }
+    public Lazy<IItemHandlerModifiable> createHandler() {
+        return handlerLazy;
     }
     @Override
-    public <T> net.minecraftforge.common.util.@NotNull LazyOptional<T> getCapability(@NotNull Capability<T> cap, Direction side) {
-        if (!this.remove && cap == net.minecraftforge.common.capabilities.ForgeCapabilities.ITEM_HANDLER) {
-            if (this.handler == null)
-                this.handler = net.minecraftforge.common.util.LazyOptional.of(this::createHandler);
-            return this.handler.cast();
-        }
-        return super.getCapability(cap, side);
-    }
-    private IItemHandlerModifiable createHandler() {
-        return new CombinedInvWrapper(new InvWrapper(drawer1), new InvWrapper(drawer2), new InvWrapper(drawer3));
+    public void onLoad() {
+        super.onLoad();
+        handlerLazy = Lazy.of(() -> new CombinedInvWrapper(new InvWrapper(drawer1), new InvWrapper(drawer2), new InvWrapper(drawer3)));
     }
     @Override
-    public void invalidateCaps() {
-        super.invalidateCaps();
-        if (handler != null) {
-            handler.invalidate();
-            handler = null;
-        }
+    protected void loadAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
+        super.loadAdditional(tag, registries);
+        drawer1.loadFromBlockEntity(tag, registries, 0);
+        drawer2.loadFromBlockEntity(tag, registries, 1);
+        drawer3.loadFromBlockEntity(tag, registries, 2);
     }
-    public void load(@NotNull CompoundTag pTag) {
-        super.load(pTag);
-        drawer1.loadFromBlockEntity(pTag, 0);
-        drawer2.loadFromBlockEntity(pTag, 1);
-        drawer3.loadFromBlockEntity(pTag, 2);
-        if (pTag.contains("CustomName", 8)) {
-            this.name = Component.Serializer.fromJson(pTag.getString("CustomName"));
-        }
-    }
-    protected void saveAdditional(@NotNull CompoundTag pTag) {
-        super.saveAdditional(pTag);
-        drawer1.saveAdditionalFromBlockEntity(pTag, 0);
-        drawer2.saveAdditionalFromBlockEntity(pTag, 1);
-        drawer3.saveAdditionalFromBlockEntity(pTag, 2);
+    @Override
+    protected void saveAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
+        super.saveAdditional(tag, registries);
+        drawer1.saveAdditionalFromBlockEntity(tag, registries, 0);
+        drawer2.saveAdditionalFromBlockEntity(tag, registries, 1);
+        drawer3.saveAdditionalFromBlockEntity(tag, registries, 2);
         if (this.name != null) {
-            pTag.putString("CustomName", Component.Serializer.toJson(this.name));
+            tag.putString("CustomName", Component.Serializer.toJson(this.name, registries));
         }
     }
-
     public void setCustomName(Component pName) {
         this.name = pName;
     }
@@ -194,22 +172,12 @@ public class CupboardBlockEntity extends BlockEntity implements MenuProvider, Na
         else if (usingDrawer3.contains(player)) return  DrawerMenu.twoRows(pContainerId, pPlayerInventory, this.drawer3);
         else return null;
     }
-
     public void recheckOpen() {
         if (!this.remove) {
             this.counter.recheckOpeners(Objects.requireNonNull(this.getLevel()), this.getBlockPos(), this.getBlockState());
         }
     }
     private void syncS2C(){
-        setChanged();
-        int i = usingDrawer1.isEmpty() ? 0:1;
-        int j = usingDrawer2.isEmpty()? 0:1;
-        int k = usingDrawer3.isEmpty()? 0:1;
-        ModMessages.sendToClients(new PlayerListSyncS2CPacket(i * 100 + j * 10 + k, worldPosition));
-    }
-
-    @Override
-    public @NotNull ModelData getModelData() {
-        return super.getModelData();
+        PacketDistributor.sendToAllPlayers(new CupboardSyncData(worldPosition.getCenter().toVector3f(), !usingDrawer1.isEmpty(), !usingDrawer2.isEmpty(), !usingDrawer3.isEmpty()));
     }
 }

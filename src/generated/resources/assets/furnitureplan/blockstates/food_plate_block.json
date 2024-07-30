@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=east,shape=pac": {
+      "model": "furnitureplan:block/food_plate_block_pac",
+      "y": 90
+    },
+    "facing=east,shape=pag": {
+      "model": "furnitureplan:block/food_plate_block_pag",
+      "y": 90
+    },
+    "facing=east,shape=pagac": {
+      "model": "furnitureplan:block/food_plate_block_pagac",
+      "y": 90
+    },
+    "facing=east,shape=plt": {
+      "model": "furnitureplan:block/food_plate_block_plt",
+      "y": 90
+    },
+    "facing=north,shape=pac": {
+      "model": "furnitureplan:block/food_plate_block_pac"
+    },
+    "facing=north,shape=pag": {
+      "model": "furnitureplan:block/food_plate_block_pag"
+    },
+    "facing=north,shape=pagac": {
+      "model": "furnitureplan:block/food_plate_block_pagac"
+    },
+    "facing=north,shape=plt": {
+      "model": "furnitureplan:block/food_plate_block_plt"
+    },
+    "facing=south,shape=pac": {
+      "model": "furnitureplan:block/food_plate_block_pac",
+      "y": 180
+    },
+    "facing=south,shape=pag": {
+      "model": "furnitureplan:block/food_plate_block_pag",
+      "y": 180
+    },
+    "facing=south,shape=pagac": {
+      "model": "furnitureplan:block/food_plate_block_pagac",
+      "y": 180
+    },
+    "facing=south,shape=plt": {
+      "model": "furnitureplan:block/food_plate_block_plt",
+      "y": 180
+    },
+    "facing=west,shape=pac": {
+      "model": "furnitureplan:block/food_plate_block_pac",
+      "y": 270
+    },
+    "facing=west,shape=pag": {
+      "model": "furnitureplan:block/food_plate_block_pag",
+      "y": 270
+    },
+    "facing=west,shape=pagac": {
+      "model": "furnitureplan:block/food_plate_block_pagac",
+      "y": 270
+    },
+    "facing=west,shape=plt": {
+      "model": "furnitureplan:block/food_plate_block_plt",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/carved_column_full",
+  "textures": {
+    "particle": "minecraft:block/birch_planks"
+  }
+}

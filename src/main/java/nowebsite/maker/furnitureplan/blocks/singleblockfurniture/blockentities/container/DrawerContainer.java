@@ -1,5 +1,6 @@
 package nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.container;
 
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
@@ -67,13 +68,13 @@ public class DrawerContainer extends SimpleContainer implements MenuProvider, Na
 
     }
 
-    public void loadFromBlockEntity(CompoundTag pTag, int id){
+    public void loadFromBlockEntity(CompoundTag pTag, HolderLookup.Provider provider, int id){
         this.lockKey = LockCode.fromTag(pTag);
-        this.fromTag((ListTag) Objects.requireNonNull(pTag.get(TAG_NAME + id)));
+        this.fromTag((ListTag) Objects.requireNonNull(pTag.get(TAG_NAME + id)), provider);
     }
 
-    public void saveAdditionalFromBlockEntity(CompoundTag pTag, int id){
+    public void saveAdditionalFromBlockEntity(CompoundTag pTag, HolderLookup.Provider provider, int id){
         this.lockKey.addToTag(pTag);
-        pTag.put(TAG_NAME + id, this.createTag());
+        pTag.put(TAG_NAME + id, this.createTag(provider));
     }
 }

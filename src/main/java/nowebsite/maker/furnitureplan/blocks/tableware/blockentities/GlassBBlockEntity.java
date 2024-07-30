@@ -1,31 +1,30 @@
 package nowebsite.maker.furnitureplan.blocks.tableware.blockentities;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Containers;
 import net.minecraft.world.SimpleContainer;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.PotionContents;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.ItemStackHandler;
-import nowebsite.maker.furnitureplan.networks.ModMessages;
-import nowebsite.maker.furnitureplan.networks.packets.ItemStackSyncS2CPacket;
+import net.neoforged.neoforge.common.util.Lazy;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.ItemStackHandler;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
@@ -34,8 +33,8 @@ public class GlassBBlockEntity extends BlockEntity implements HasGlassEntity {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
-            if (level != null && !level.isClientSide) {
-                ModMessages.sendToClients(new ItemStackSyncS2CPacket(this, worldPosition));
+            if (level != null) {
+                level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
             }
         }
         @Override
@@ -43,7 +42,7 @@ public class GlassBBlockEntity extends BlockEntity implements HasGlassEntity {
             super.setSize(2);
         }
     };
-    private LazyOptional<ItemStack> lazyFluidHandler = LazyOptional.empty();
+    private Lazy<IItemHandler> lazyItemHandler = Lazy.of(() -> potionItemStackHandler);
     public static final String INVENTORY = "inventory";
     public GlassBBlockEntity(BlockPos pos, BlockState state) {
         super(BlockRegistration.GLASS_B_BLOCK_ENTITY.get(), pos, state);
@@ -55,9 +54,14 @@ public class GlassBBlockEntity extends BlockEntity implements HasGlassEntity {
     }
     public boolean usePotion(Player player){
         if (getPotionStack().isEmpty()) return false;
-        for (MobEffectInstance instance : PotionUtils.getMobEffects(getPotionStack())){
-            player.addEffect(instance);
-        }
+        PotionContents potioncontents = getPotionStack().getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);
+        potioncontents.forEachEffect(effect -> {
+            if (effect.getEffect().value().isInstantenous()) {
+                effect.getEffect().value().applyInstantenousEffect(null, null, player, effect.getAmplifier(), 1.0);
+            } else {
+                player.addEffect(effect);
+            }
+        });
         changePotion(ItemStack.EMPTY);
         return true;
     }
@@ -84,52 +88,52 @@ public class GlassBBlockEntity extends BlockEntity implements HasGlassEntity {
         this.setChanged();
         Objects.requireNonNull(this.getLevel()).sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
     }
-    @Override
-    public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-        if (cap == ForgeCapabilities.FLUID_HANDLER) return lazyFluidHandler.cast();
-        return super.getCapability(cap, side);
-    }
     public void changePotion(ItemStack stack){
         potionItemStackHandler.setStackInSlot(1, stack);
     }
     public void dropBottle(){
         SimpleContainer inventory = new SimpleContainer(1);
         ItemStack stack = new ItemStack(BlockRegistration.GLASS_B_BLOCK_ITEM.get(),1);
-        if (getPotionStack() != null && !getPotionStack().isEmpty()) {
-            this.saveToItem(stack);
+        if (getPotionStack() != null && !getPotionStack().isEmpty() && this.getLevel() != null) {
+            BlockItem.setBlockEntityData(stack, BlockRegistration.GLASS_B_BLOCK_ENTITY.get(), this.saveWithoutMetadata(this.getLevel().registryAccess()));
         }
         inventory.setItem(0, stack);
         Containers.dropContents(Objects.requireNonNull(this.getLevel()), this.worldPosition, inventory);
         changePotion(ItemStack.EMPTY);
         markUpdated();
     }
+    public Lazy<IItemHandler> getLazyItemHandler() {
+        return lazyItemHandler;
+    }
     @Override
     public void onLoad() {
         super.onLoad();
-        lazyFluidHandler = LazyOptional.of(this::getPotionStack);
+        lazyItemHandler = Lazy.of(() -> potionItemStackHandler);
     }
     @Override
-    public void invalidateCaps() {
-        super.invalidateCaps();
-        lazyFluidHandler.invalidate();
+    protected void saveAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
+        tag.put(INVENTORY, potionItemStackHandler.serializeNBT(registries));
+        super.saveAdditional(tag, registries);
     }
     @Override
-    protected void saveAdditional(@NotNull CompoundTag tag) {
-        tag.put(INVENTORY, potionItemStackHandler.serializeNBT());
-        super.saveAdditional(tag);
+    protected void loadAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
+        potionItemStackHandler.deserializeNBT(registries, tag.getCompound(INVENTORY));
+        super.loadAdditional(tag, registries);
     }
-    @Override
-    public void load(@NotNull CompoundTag tag) {
-        super.load(tag);
-        potionItemStackHandler.deserializeNBT(tag.getCompound(INVENTORY));
-    }
-    @Nullable
     @Override
     public Packet<ClientGamePacketListener> getUpdatePacket() {
         return ClientboundBlockEntityDataPacket.create(this);
     }
     @Override
-    public @NotNull CompoundTag getUpdateTag() {
-        return saveWithoutMetadata();
+    public void onDataPacket(@NotNull Connection net, @NotNull ClientboundBlockEntityDataPacket pkt, HolderLookup.@NotNull Provider lookupProvider) {
+        handleUpdateTag(pkt.getTag(), lookupProvider);
+    }
+    @Override
+    public @NotNull CompoundTag getUpdateTag(HolderLookup.@NotNull Provider registries) {
+        return saveWithoutMetadata(registries);
+    }
+    @Override
+    public void handleUpdateTag(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider lookupProvider) {
+        super.handleUpdateTag(tag, lookupProvider);
     }
 }

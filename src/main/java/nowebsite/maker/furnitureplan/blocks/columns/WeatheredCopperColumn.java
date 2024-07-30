@@ -5,6 +5,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import nowebsite.maker.furnitureplan.blocks.func.BasePropertyBlock;
 import nowebsite.maker.furnitureplan.blocks.func.IWeatheringCopper;
 import org.jetbrains.annotations.NotNull;
 
@@ -20,10 +21,15 @@ public class WeatheredCopperColumn extends ColumnBlock implements IWeatheringCop
     }
     @Override
     public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource source) {
-        this.onRandomTick(state, level, pos, source);
+        this.changeOverTime(state, level, pos, source);
     }
     @Override
     public @NotNull WeatherState getAge() {
         return this.weatherState;
+    }
+
+    @Override
+    protected BasePropertyBlock<ColumnBlock> getSelfNew(BlockState baseState, Properties properties) {
+        return new WeatheredCopperColumn(baseState, properties, this.weatherState);
     }
 }

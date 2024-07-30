@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "furnitureplan:block/lantern_block"
+    },
+    "lit=true": {
+      "model": "furnitureplan:block/lantern_block"
+    }
+  }
+}

@@ -19,7 +19,7 @@ public class ModDataGenerators {
         generator.addProvider(true, new ModChineseLanguageProvider(packOutput, "zh_cn"));
         generator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, helper));
         generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, helper));
-        generator.addProvider(event.includeServer(), new ModLootTableProvider(packOutput));
+        generator.addProvider(event.includeServer(), new ModLootTableSubProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new ModBlockTagsProvider(packOutput, lookupProvider, helper));
     }
