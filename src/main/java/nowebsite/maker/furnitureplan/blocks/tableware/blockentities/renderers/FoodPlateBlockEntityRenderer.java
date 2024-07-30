@@ -72,7 +72,7 @@ public class FoodPlateBlockEntityRenderer implements BlockEntityRenderer<FoodPla
         }
         poseStack.scale(0.825f, 0.8f, 0.825f);
 
-        float alpha = 0.6f;
+        float alpha = 0.8f;
         for(Couple<Vec3, Vec3, Quaternionf> p : rots) {
             poseStack.pushPose();
             poseStack.translate(p.first().x, p.first().y, p.first().z);

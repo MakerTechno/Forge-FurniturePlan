@@ -201,7 +201,6 @@ public class CupboardBlockEntity extends BlockEntity implements MenuProvider, Na
         }
     }
     private void syncS2C(){
-        setChanged();
         int i = usingDrawer1.isEmpty() ? 0:1;
         int j = usingDrawer2.isEmpty()? 0:1;
         int k = usingDrawer3.isEmpty()? 0:1;

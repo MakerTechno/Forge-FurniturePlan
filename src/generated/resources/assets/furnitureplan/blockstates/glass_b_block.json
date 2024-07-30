@@ -1,6 +1,9 @@
 {
   "variants": {
-    "": {
+    "waterlogged=false": {
+      "model": "furnitureplan:block/glass_b_block"
+    },
+    "waterlogged=true": {
       "model": "furnitureplan:block/glass_b_block"
     }
   }

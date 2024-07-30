@@ -5,17 +5,16 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ChangeOverTimeBlock;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.RegistryObject;
+import nowebsite.maker.furnitureplan.blocks.func.IWeatheringCopper;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.ChairBlock;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.ChairBlockEntity;
-import nowebsite.maker.furnitureplan.blocks.func.IWeatheringCopper;
 import org.jetbrains.annotations.NotNull;
 
-public class WeatheredCopperChair extends ChairBlock implements IWeatheringCopper, SimpleWaterloggedBlock {
+public class WeatheredCopperChair extends ChairBlock implements IWeatheringCopper {
     private final IWeatheringCopper.WeatherState weatherState;
     public WeatheredCopperChair(RegistryObject<BlockEntityType<ChairBlockEntity>> type, @NotNull BlockState state, Properties properties, WeatheringCopper.WeatherState weatherState) {
         super(type, state, properties);

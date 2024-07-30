@@ -1,9 +1,10 @@
 package nowebsite.maker.furnitureplan.blocks.tableware;
 
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
@@ -12,12 +13,19 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.AbstractGlassBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -35,6 +43,7 @@ import java.util.List;
 
 @SuppressWarnings("deprecation")
 public class GlassBBlock extends AbstractGlassBlock implements SimpleWaterloggedBlock, EntityBlock, ISimpleBlock {
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final VoxelShape INSIDE = Shapes.box(0.40625, 0.00005, 0.40625, 0.59375, 0.48, 0.59375);
     public static VoxelShape SHAPE = Shapes.empty();
     static {
@@ -46,6 +55,7 @@ public class GlassBBlock extends AbstractGlassBlock implements SimpleWaterlogged
     }
     public GlassBBlock(Properties properties) {
         super(properties);
+        this.registerDefaultState(this.getStateDefinition().any().setValue(WATERLOGGED, Boolean.FALSE));
     }
 
     @Override
@@ -59,16 +69,6 @@ public class GlassBBlock extends AbstractGlassBlock implements SimpleWaterlogged
             }
         }
     }
-
-    @Override
-    public void onRemove(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState newState, boolean pMovedByPiston) {
-        BlockEntity blockEntity = level.getBlockEntity(pos);
-        if (blockEntity instanceof GlassBBlockEntity cast){
-            cast.dropBottle();
-        }
-        super.onRemove(state, level, pos, newState, pMovedByPiston);
-    }
-
     @Override
     public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
         if (!level.isClientSide) {
@@ -84,6 +84,16 @@ public class GlassBBlock extends AbstractGlassBlock implements SimpleWaterlogged
         }
         return InteractionResult.SUCCESS;
     }
+
+    @Override
+    public boolean onDestroyedByPlayer(BlockState state, @NotNull Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {
+        BlockEntity blockEntity = level.getBlockEntity(pos);
+        if (blockEntity instanceof GlassBBlockEntity cast){
+            cast.dropBottle();
+        }
+        return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
+    }
+
     @Override
     public @NotNull VoxelShape getInteractionShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
         return INSIDE;
@@ -91,6 +101,17 @@ public class GlassBBlock extends AbstractGlassBlock implements SimpleWaterlogged
     @Override
     public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return SHAPE;
+    }
+    @Override
+    public @NotNull BlockState updateShape(@NotNull BlockState pState, @NotNull Direction pDirection, @NotNull BlockState pNeighborState, @NotNull LevelAccessor pLevel, @NotNull BlockPos pPos, @NotNull BlockPos pNeighborPos) {
+        if (pState.getValue(WATERLOGGED)) {
+            pLevel.scheduleTick(pPos, Fluids.WATER, Fluids.WATER.getTickDelay(pLevel));
+        }
+        return super.updateShape(pState, pDirection, pNeighborState, pLevel, pPos, pNeighborPos);
+    }
+    @Override
+    public @NotNull FluidState getFluidState(@NotNull BlockState pState) {
+        return pState.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
     }
     @Nullable
     @Override
@@ -111,18 +132,21 @@ public class GlassBBlock extends AbstractGlassBlock implements SimpleWaterlogged
 
         ItemStackHandler handler = new ItemStackHandler(2);
         handler.deserializeNBT(compoundtag.getCompound(GlassBBlockEntity.INVENTORY));
-        ItemStack stack1 = handler.getStackInSlot(1);
-        if (!stack1.isEmpty()) {
+        ItemStack potionStack = handler.getStackInSlot(1);
+        if (!potionStack.isEmpty()) {
             tooltip.add(
                     Component.translatable("item.minecraft.potion")
                             .append(":  ")
-                            .append(Component.translatable(PotionUtils.getPotion(stack1).getName("item.minecraft.potion.effect.")))
-                            .withStyle(ChatFormatting.GRAY)
+                            .append(Component.translatable(PotionUtils.getPotion(potionStack).getName("item.minecraft.potion.effect.")))
+                            .withStyle(Style.EMPTY.withColor(PotionUtils.getColor(potionStack)))
             );
         }
         super.appendHoverText(stack, level, tooltip, flag);
     }
-
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> pBuilder) {
+        pBuilder.add(WATERLOGGED);
+    }
     @Override
     public String parentName() {
         return "glass";

@@ -2,7 +2,6 @@ package nowebsite.maker.furnitureplan.blocks.tableware;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.stats.Stats;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -20,8 +19,11 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -29,9 +31,9 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.items.ItemStackHandler;
 import nowebsite.maker.furnitureplan.blocks.func.BaseSmallHallBasedBlock;
 import nowebsite.maker.furnitureplan.blocks.func.IHorizontalBlock;
+import nowebsite.maker.furnitureplan.blocks.func.definition.PlateShape;
 import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.FoodPlateBlockEntity;
 import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.GlassBBlockEntity;
-import nowebsite.maker.furnitureplan.blocks.func.definition.PlateShape;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -40,8 +42,12 @@ import java.util.Objects;
 
 @SuppressWarnings("deprecation")
 public class FoodPlateBlock extends HorizontalDirectionalBlock implements EntityBlock, SimpleWaterloggedBlock, IHorizontalBlock {
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final EnumProperty<PlateShape> SHAPE_DEF = BlockRegistration.BlockStateRegistration.PLATE_SHAPE;
-    public FoodPlateBlock(Properties properties) {super(properties);}
+    public FoodPlateBlock(Properties properties) {
+        super(properties);
+        this.registerDefaultState(this.getStateDefinition().any().setValue(WATERLOGGED, Boolean.FALSE).setValue(SHAPE_DEF, PlateShape.PLATE_SHAPE));
+    }
     @Nullable
     @Override
     public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
@@ -50,33 +56,6 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
     @Override
     public @NotNull RenderShape getRenderShape(@NotNull BlockState state) {
         return RenderShape.MODEL;
-    }
-    @Override
-    public void onRemove(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState newState, boolean movedByPiston) {
-        if (state.getBlock() != newState.getBlock()){
-            BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (blockEntity instanceof FoodPlateBlockEntity cast) {
-                SimpleContainer inventory = new SimpleContainer(1);
-                ItemStack stack = ItemStack.EMPTY;
-                if (canSurvive(state, level, pos)) {
-                    switch (state.getValue(SHAPE_DEF)) {
-                        case PLATE_AND_GLASS_SHAPE -> cast.dropBottle();
-                        case PLATE_AND_CUTLERY_SHAPE, PLATE_AND_GLASS_AND_CUTLERY_SHAPE -> stack = new ItemStack(BlockRegistration.CUTLERY_ITEM.get(), 1);
-                        case PLATE_SHAPE -> {
-                            stack = new ItemStack(BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get(), 1);
-                            cast.drops();
-                        }
-                    }
-                } else {
-                    if (state.getValue(SHAPE_DEF).hasCutlery()) stack = new ItemStack(BlockRegistration.CUTLERY_ITEM.get(), 1);
-                    cast.drops();
-                    cast.dropBottle();
-                }
-                inventory.setItem(0, stack);
-                Containers.dropContents(level, pos, inventory);
-            }
-            super.onRemove(state, level, pos, newState, movedByPiston);
-        }
     }
     @Override
     public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
@@ -126,23 +105,33 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
         return InteractionResult.SUCCESS;
     }
     @Override
-    public void playerWillDestroy(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull Player player) {
-        this.spawnDestroyParticles(level, player, pos, state);
-        if (!level.isClientSide) {
-            PlateShape shape =  state.getValue(SHAPE_DEF).getNext();
-            if (shape == null) level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
-            else level.setBlockAndUpdate(pos, BlockRegistration.FOOD_PLATE_BLOCK.get().defaultBlockState().setValue(FACING, state.getValue(FACING)).setValue(SHAPE_DEF,shape));
+    public boolean onDestroyedByPlayer(@NotNull BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {
+        PlateShape shape =  state.isAir() ? null : state.getValue(SHAPE_DEF).getNext();
+        BlockState newState = shape == null ? Blocks.AIR.defaultBlockState() : BlockRegistration.FOOD_PLATE_BLOCK.get().defaultBlockState().setValue(FACING, state.getValue(FACING)).setValue(SHAPE_DEF,shape);
+        if (newState.isAir() || state.getValue(SHAPE_DEF).getNext() == newState.getValue(SHAPE_DEF)){
+            if (willHarvest && level.getBlockEntity(pos) instanceof FoodPlateBlockEntity cast) {
+                SimpleContainer inventory = new SimpleContainer(1);
+                ItemStack stack = ItemStack.EMPTY;
+                if (canSurvive(state, level, pos)) {
+                    switch (state.getValue(SHAPE_DEF)) {
+                        case PLATE_AND_GLASS_SHAPE -> cast.dropBottle();
+                        case PLATE_AND_CUTLERY_SHAPE, PLATE_AND_GLASS_AND_CUTLERY_SHAPE -> stack = new ItemStack(BlockRegistration.CUTLERY_ITEM.get(), 1);
+                        case PLATE_SHAPE -> {
+                            stack = new ItemStack(BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get(), 1);
+                            cast.drops();
+                        }
+                    }
+                } else {
+                    if (state.getValue(SHAPE_DEF).hasCutlery()) stack = new ItemStack(BlockRegistration.CUTLERY_ITEM.get(), 1);
+                    cast.drops();
+                    cast.dropBottle();
+                }
+                inventory.setItem(0, stack);
+                Containers.dropContents(level, pos, inventory);
+            }
         }
-    }
-    @Override
-    public void playerDestroy(@NotNull Level level, @NotNull Player player, @NotNull BlockPos pos, @NotNull BlockState state, @Nullable BlockEntity pBlockEntity, @NotNull ItemStack tool) {
-        player.awardStat(Stats.BLOCK_MINED.get(this));
-        player.causeFoodExhaustion(0.005F);
-    }
-    @Override
-    public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {
-        this.playerWillDestroy(level,pos,state,player);
-        return false;
+        level.setBlockAndUpdate(pos, newState);
+        return shape == null;
     }
     /**From {@link FaceAttachedHorizontalDirectionalBlock}*/
     @Override
@@ -150,7 +139,14 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
         return BaseSmallHallBasedBlock.canSurvive(level, pos);
     }
     public @NotNull BlockState updateShape(@NotNull BlockState state, @NotNull Direction facing, @NotNull BlockState facingState, @NotNull LevelAccessor level, @NotNull BlockPos currentPos, @NotNull BlockPos facingPos) {
+        if (state.getValue(WATERLOGGED)) {
+            level.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+        }
         return Direction.UP.getOpposite() == facing && !state.canSurvive(level, currentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, facing, facingState, level, currentPos, facingPos);
+    }
+    @Override
+    public @NotNull FluidState getFluidState(@NotNull BlockState pState) {
+        return pState.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
     }
     public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return this.getOcclusionShape(state, getter, pos);
@@ -161,8 +157,7 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
     }
     @Override
     protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> builder) {
-        builder.add(FACING);
-        builder.add(SHAPE_DEF);
+        builder.add(FACING, SHAPE_DEF, WATERLOGGED);
     }
     @Override
     public @NotNull VoxelShape getOcclusionShape(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos) {
