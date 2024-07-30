@@ -1,7 +1,7 @@
 {
   "required": true,
   "package": "nowebsite.maker.furnitureplan.mixin",
-  "compatibilityLevel": "JAVA_20",
+  "compatibilityLevel": "JAVA_21",
   "minVersion": "0.0.1",
   "refmap": "mixins.furnitureplan.refmap.json",
   "plugin": "nowebsite.maker.furnitureplan.mixin.MixinPlugin",

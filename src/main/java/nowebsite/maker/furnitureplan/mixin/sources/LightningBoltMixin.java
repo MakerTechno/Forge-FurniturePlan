@@ -16,10 +16,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Optional;
 
-@Mixin(LightningBolt.class)
+@Mixin(value = LightningBolt.class)
 public class LightningBoltMixin {
-
-    @Inject(at = {@At(value = "HEAD")}, method = "clearCopperOnLightningStrike")
+    @Inject(method = "clearCopperOnLightningStrike", at = {@At(value = "HEAD")})
     private static void clearCopperOnLightningStrike(@NotNull Level level, BlockPos pos, CallbackInfo ci) {
         BlockState blockState = level.getBlockState(pos);
         BlockPos blockPos;

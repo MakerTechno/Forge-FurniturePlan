@@ -272,6 +272,7 @@
   "block.furnitureplan.weathered_cut_copper_column": "Weathered cut copper column",
   "block.furnitureplan.weathered_cut_copper_lighted_column": "Weathered cut copper lighted column",
   "block.furnitureplan.weathered_cut_copper_table": "Weathered cut copper table",
+  "furnitureplan.networking.failed": "Failed to sync cupboard animate.",
   "item.furnitureplan.detritus": "Detritus",
   "item.furnitureplan.graver": "Furniture plan-graver",
   "item.furnitureplan.sawdust": "Sawdust",

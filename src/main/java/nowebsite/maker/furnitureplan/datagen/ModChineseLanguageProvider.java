@@ -38,6 +38,7 @@ public class ModChineseLanguageProvider extends LanguageProvider {
         add(BlockRegistration.STOVE_BLOCK_ITEM.get(), "灶台");
         add(BlockRegistration.CUPBOARD_BLOCK_ITEM.get(), "橱柜");
         add(BlockRegistration.VASE_B_BLOCK_ITEM.get(), "花瓶");
+        add("furnitureplan.networking.failed", "在同步橱柜动画时发生错误。");
     }
 
     public void transformKinds(@NotNull List<DeferredHolder<Block, ? extends Block>> list, String transformHead, String transformEnd) {

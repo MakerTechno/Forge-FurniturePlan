@@ -272,6 +272,7 @@
   "block.furnitureplan.weathered_cut_copper_column": "锈蚀的切制铜柱",
   "block.furnitureplan.weathered_cut_copper_lighted_column": "嵌灯锈蚀的切制铜柱",
   "block.furnitureplan.weathered_cut_copper_table": "锈蚀的切制铜桌",
+  "furnitureplan.networking.failed": "在同步橱柜动画时发生错误。",
   "item.furnitureplan.detritus": "碎石屑",
   "item.furnitureplan.graver": "家具计划-雕刻刀",
   "item.furnitureplan.sawdust": "木屑",

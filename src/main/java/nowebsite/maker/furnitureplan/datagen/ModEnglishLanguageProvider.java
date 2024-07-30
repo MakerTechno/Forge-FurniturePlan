@@ -41,6 +41,7 @@ public class ModEnglishLanguageProvider extends LanguageProvider {
         add(BlockRegistration.STOVE_BLOCK_ITEM.get(), "Stove");
         add(BlockRegistration.CUPBOARD_BLOCK_ITEM.get(), "Cupboard");
         add(BlockRegistration.VASE_B_BLOCK_ITEM.get(), "Vase");
+        add("furnitureplan.networking.failed", "Failed to sync cupboard animate.");
     }
 
     public void transformKinds(@NotNull List<DeferredHolder<Block, ? extends Block>> list) {

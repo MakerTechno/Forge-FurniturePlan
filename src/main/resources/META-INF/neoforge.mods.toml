@@ -7,11 +7,11 @@
 modLoader="javafml" #mandatory
 
 # A version range to match for said mod loader - for regular FML @Mod it will be the FML version. This is currently 2.
-loaderVersion="${loader_version_range}" #mandatory
+loaderVersion="[4,)" #mandatory
 
 # The license for you mod. This is mandatory metadata and allows for easier comprehension of your redistributive properties.
 # Review your options at https://choosealicense.com/. All rights reserved is the default copyright stance, and is thus the default here.
-license="${mod_license}"
+license="GPLv3"
 
 # A URL to refer people to when problems occur with this mod
 #issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/" #optional
@@ -20,13 +20,13 @@ license="${mod_license}"
 [[mods]] #mandatory
 
 # The modid of the mod
-modId="${mod_id}" #mandatory
+modId="furnitureplan" #mandatory
 
 # The version number of the mod
-version="${mod_version}" #mandatory
+version="0.0.1" #mandatory
 
 # A display name for the mod
-displayName="${mod_name}" #mandatory
+displayName="Furniture Plan Mod" #mandatory
 
 # A URL to query for updates for this mod. See the JSON update specification https://docs.neoforged.net/docs/misc/updatechecker/
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional
@@ -41,14 +41,28 @@ displayName="${mod_name}" #mandatory
 #credits="" #optional
 
 # A text field displayed in the mod UI
-authors="${mod_authors}" #optional
+authors="MakerAsYEEEEAH~, Jing_qiAsDownAndUp, Victor_CNAsConfusing" #optional
 
 # The description text for the mod (multi line!) (#mandatory)
-description='''${mod_description}'''
+description='''-What is Furniture Plan Alpha?
+Furniture Plan Alpha is a mod written by MakerTechno(also called Maker or Maker[ERROR]),
+including kinds of furniture and some interesting changes.
+These changes make minecraft funnier and not so boring.
+When you need many pickaxe to mine but not much iron you have.
+(Using cooper and change it to *brass!)
+Furniture include chairs, tables and so on.
+Most of the model were made by [NotCurrentGameID]jing_qi and me.
+code and most textures by me, MakerTechno.
+-How this mod came out?
+Hmm.... Just one day, we logged in the server, play for a while,
+then jing_qi found that the game needs more furniture for his beautiful house.
+Also, he needs more quartz but he used over his iron ingots for the pickaxes, he didn't want to find more.
+He found many cooper but no more iron...maybe we can change it to a new material and make a pickaxe?(Well, pure copper is not very hard)
+Then it comes, The brass refiner(Actually, it was not made yet).'''
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.
-#[[mixins]]
-config="${mod_id}.mixins.json"
+[[mixins]]
+config="furnitureplan.mixins.json"
 
 # The [[accessTransformers]] block allows you to declare where your AT file is.
 # If this block is omitted, a fallback attempt will be made to load an AT from META-INF/accesstransformer.cfg
@@ -58,7 +72,7 @@ config="${mod_id}.mixins.json"
 # The coremods config file path is not configurable and is always loaded from META-INF/coremods.json
 
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
-[[dependencies.${mod_id}]] #optional
+[[dependencies.furnitureplan]] #optional
     # the modid of the dependency
     modId="neoforge" #mandatory
     # The type of the dependency. Can be one of "required", "optional", "incompatible" or "discouraged" (case insensitive).
@@ -68,7 +82,7 @@ config="${mod_id}.mixins.json"
     # Optional field describing why the dependency is required or why it is incompatible
     # reason="..."
     # The version range of the dependency
-    versionRange="${neo_version_range}" #mandatory
+    versionRange="[21.0.0-beta,)" #mandatory
     # An ordering relationship for the dependency.
     # BEFORE - This mod is loaded BEFORE the dependency
     # AFTER - This mod is loaded AFTER the dependency
@@ -77,11 +91,11 @@ config="${mod_id}.mixins.json"
     side="BOTH"
 
 # Here's another dependency
-[[dependencies.${mod_id}]]
+[[dependencies.furnitureplan]]
     modId="minecraft"
     type="required"
     # This version range declares a minimum of the current minecraft version up to but not including the next major version
-    versionRange="${minecraft_version_range}"
+    versionRange="[1.21,1.21.1)"
     ordering="NONE"
     side="BOTH"
 
