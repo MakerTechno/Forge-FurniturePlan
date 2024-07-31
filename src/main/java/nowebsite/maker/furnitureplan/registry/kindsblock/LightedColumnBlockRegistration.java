@@ -132,7 +132,7 @@ public class LightedColumnBlockRegistration extends BRUtils {
 
     @Contract("_, _ -> new")
     public static @NotNull WeatheredCopperLightedColumn usageWeatheredLightedColumn(@NotNull Block propertyBlock, WeatheringCopper.WeatherState weatherState) {
-        return new WeatheredCopperLightedColumn(propertyBlock.defaultBlockState(), BlockBehaviour.Properties.copy(propertyBlock), weatherState);
+        return new WeatheredCopperLightedColumn(propertyBlock.defaultBlockState(), BlockBehaviour.Properties.copy(propertyBlock).lightLevel(litBlockEmission(15)), weatherState);
     }
 
 }

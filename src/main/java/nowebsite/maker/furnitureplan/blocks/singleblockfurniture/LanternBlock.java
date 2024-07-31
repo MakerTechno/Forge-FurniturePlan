@@ -43,6 +43,7 @@ public class LanternBlock extends Block implements SimpleWaterloggedBlock, ISimp
             ItemStack stack = player.getItemInHand(hand);
             if (stack.is(Items.FLINT_AND_STEEL)){
                 level.setBlock(pos, state.cycle(LIT), 2);
+                return InteractionResult.SUCCESS;
             }
         }
         return InteractionResult.FAIL;
