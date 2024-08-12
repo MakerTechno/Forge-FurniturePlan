@@ -1,5 +1,6 @@
 package nowebsite.maker.furnitureplan.setup;
 
+import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -13,6 +14,7 @@ import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.gui.CupboardScr
 import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.renderers.FoodPlateBlockEntityRenderer;
 import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.renderers.GlassBBlockEntityRenderer;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
+import nowebsite.maker.furnitureplan.registry.EntityRegistration;
 import nowebsite.maker.furnitureplan.registry.GUIRegistration;
 import org.jetbrains.annotations.NotNull;
 
@@ -36,5 +38,6 @@ public class SetupClientWithEvents {
         event.registerBlockEntityRenderer(BlockRegistration.IRON_POT_BLOCK_ENTITY.get(), pContext -> new IronPotBlockEntityRenderer());
         event.registerBlockEntityRenderer(BlockRegistration.CUPBOARD_BLOCK_ENTITY.get(), CupboardEntityRenderer::new);
         event.registerBlockEntityRenderer(BlockRegistration.VASE_B_BLOCK_ENTITY.get(), pContext -> new VaseBBlockEntityRenderer());
+        event.registerEntityRenderer(EntityRegistration.NULL_RIDE.get(), NoopRenderer::new);
     }
 }

@@ -4,7 +4,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.ChangeOverTimeBlock;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -16,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
-public class WeatheredCopperChair extends ChairBlock implements IWeatheringCopper, SimpleWaterloggedBlock {
+public class WeatheredCopperChair extends ChairBlock implements IWeatheringCopper {
     private final WeatherState weatherState;
     public WeatheredCopperChair(DeferredHolder<BlockEntityType<?>, BlockEntityType<ChairBlockEntity>> type, @NotNull BlockState state, Properties properties, WeatherState weatherState) {
         super(type, state, properties);

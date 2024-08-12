@@ -1,21 +1,26 @@
 package nowebsite.maker.furnitureplan.entities;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.decoration.ArmorStand;
+import net.minecraft.world.entity.vehicle.VehicleEntity;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.neoforged.neoforge.entity.IEntityWithComplexSpawn;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.ChairBlockEntity;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.function.Supplier;
-
-public class RideableEntityNull extends Entity {
-    public final Supplier<ChairBlockEntity> supplier;
-    public RideableEntityNull(EntityType<? extends ArmorStand> entityType, Level level, Supplier<ChairBlockEntity> supplier) {
+public class RideableEntityNull extends VehicleEntity implements IEntityWithComplexSpawn {
+    private BlockPos blockEntityPos;
+    public RideableEntityNull(EntityType<? extends VehicleEntity> entityType, Level level) {
+        this(entityType, level, BlockPos.ZERO);
+    }
+    public RideableEntityNull(EntityType<? extends VehicleEntity> entityType, Level level, BlockPos blockEntityPos) {
         super(entityType, level);
-        this.supplier = supplier;
+        this.blockEntityPos = blockEntityPos;
         setNoGravity(true);
         setInvisible(true);
         horizontalCollision = false;
@@ -23,36 +28,48 @@ public class RideableEntityNull extends Entity {
         verticalCollision = false;
         verticalCollisionBelow = false;
     }
-
     @Override
-    protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {}
-
+    protected @NotNull Item getDropItem() {
+        return Items.AIR;
+    }
     @Override
     public void tick() {
         super.tick();
-        if (supplier.get() == null){
-            this.kill();
+        BlockEntity blockEntity = level().getBlockEntity(blockEntityPos);
+        if (!(blockEntity instanceof ChairBlockEntity cast)){
+            this.remove(RemovalReason.DISCARDED);
         }
-        else if (supplier.get().getBlockState() != supplier.get().containerBlock || canAddPassenger(this)){
-            supplier.get().setRemoved();
+        else if (cast.getBlockState() != cast.containerBlock || canAddPassenger(this)){
+            cast.setRemoved();
         }
     }
-
-    int count;
+    private int count;
     @Override
     public void baseTick() {
         super.baseTick();
         if (count ==50) {
-            if (supplier.get() == null){
-                this.kill();
-                supplier.get().setRemoved();
+            BlockEntity blockEntity = level().getBlockEntity(blockEntityPos);
+            if (!(blockEntity instanceof ChairBlockEntity cast)){
+                this.remove(RemovalReason.DISCARDED);
+            }
+            else if (cast.getBlockState() != cast.containerBlock || canAddPassenger(this)){
+                cast.setRemoved();
             }
         } else {
             count++;
         }
     }
     @Override
-    protected void readAdditionalSaveData(@NotNull CompoundTag pCompound) {}
+    protected void readAdditionalSaveData(@NotNull CompoundTag pCompound) {this.remove(RemovalReason.DISCARDED);}
     @Override
-    protected void addAdditionalSaveData(@NotNull CompoundTag pCompound) {}
+    protected void addAdditionalSaveData(@NotNull CompoundTag pCompound) {this.remove(RemovalReason.DISCARDED);}
+
+    @Override
+    public void writeSpawnData(@NotNull RegistryFriendlyByteBuf buffer) {
+        buffer.writeBlockPos(this.blockEntityPos);
+    }
+    @Override
+    public void readSpawnData(@NotNull RegistryFriendlyByteBuf additionalData) {
+        blockEntityPos = additionalData.readBlockPos();
+    }
 }

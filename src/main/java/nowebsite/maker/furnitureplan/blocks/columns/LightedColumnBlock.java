@@ -1,10 +1,5 @@
 package nowebsite.maker.furnitureplan.blocks.columns;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -26,26 +21,6 @@ public class LightedColumnBlock extends ColumnBlock {
         super.createBlockStateDefinition(builder);
         builder.add(LIT);
     }
-    public void neighborChanged(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Block block, @NotNull BlockPos fromPos, boolean isMoving) {
-        if (!level.isClientSide) {
-            if (level.hasNeighborSignal(pos)) {
-                level.setBlock(pos, state.cycle(LIT), 2);
-            } else {
-                level.scheduleTick(pos, this, 4);
-            }
-        }
-    }
-    @Override
-    public BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(LIT, context.getLevel().hasNeighborSignal(context.getClickedPos()));
-    }
-    @Override
-    public void tick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource source) {
-        super.tick(state, level, pos, source);
-        if (state.getValue(LIT)) {
-            level.setBlock(pos, state.cycle(LIT), 2);
-        }
-    }
     @Override
     public String getSpecificName() {
         return "lighted_" + super.getSpecificName();
@@ -54,7 +29,6 @@ public class LightedColumnBlock extends ColumnBlock {
     public String parentName() {
         return getSpecificName();
     }
-
     @Override
     protected BasePropertyBlock<ColumnBlock> getSelfNew(BlockState baseState, Properties properties) {
         return new LightedColumnBlock(baseState, properties);

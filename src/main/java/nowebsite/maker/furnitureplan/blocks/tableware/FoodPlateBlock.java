@@ -17,8 +17,11 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -37,8 +40,12 @@ import java.util.Objects;
 
 @SuppressWarnings("deprecation")
 public class FoodPlateBlock extends HorizontalDirectionalBlock implements EntityBlock, SimpleWaterloggedBlock, IHorizontalBlock {
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final EnumProperty<PlateShape> SHAPE_DEF = BlockRegistration.BlockStateRegistration.PLATE_SHAPE;
-    public FoodPlateBlock(Properties properties) {super(properties);}
+    public FoodPlateBlock(Properties properties) {
+        super(properties);
+        this.registerDefaultState(this.getStateDefinition().any().setValue(WATERLOGGED, Boolean.FALSE).setValue(SHAPE_DEF, PlateShape.PLATE_SHAPE));
+    }
 
     @Override
     protected @NotNull MapCodec<? extends HorizontalDirectionalBlock> codec() {
@@ -145,20 +152,16 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
     public boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader level, @NotNull BlockPos pos) {
         return BaseSmallHallBasedBlock.canSurvive(level, pos);
     }
-    public @NotNull BlockState updateShape(@NotNull BlockState state, @NotNull Direction facing, @NotNull BlockState facingState, @NotNull LevelAccessor level, @NotNull BlockPos currentPos, @NotNull BlockPos facingPos) {
-        return Direction.UP.getOpposite() == facing && !state.canSurvive(level, currentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, facing, facingState, level, currentPos, facingPos);
-    }
     public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return this.getOcclusionShape(state, getter, pos);
     }
     @Override
-    public BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()).setValue(SHAPE_DEF, PlateShape.PLATE_SHAPE);
+    protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> builder) {
+        builder.add(FACING, SHAPE_DEF, WATERLOGGED);
     }
     @Override
-    protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> builder) {
-        builder.add(FACING);
-        builder.add(SHAPE_DEF);
+    protected @NotNull FluidState getFluidState(@NotNull BlockState state) {
+        return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
     @Override
     public @NotNull VoxelShape getOcclusionShape(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos) {
@@ -166,10 +169,25 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
     }
 
     @Override
+    public BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {
+        BlockState blockState = super.getStateForPlacement(context);
+        blockState =
+            blockState == null ?
+                defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()).setValue(SHAPE_DEF, PlateShape.PLATE_SHAPE)
+                :
+                blockState.setValue(FACING, context.getHorizontalDirection().getOpposite()).setValue(SHAPE_DEF, PlateShape.PLATE_SHAPE);
+        return blockState.setValue(WATERLOGGED, context.getLevel().getFluidState(context.getClickedPos()).getType() == Fluids.WATER);
+    }
+    @Override
+    protected @NotNull BlockState updateShape(@NotNull BlockState state, @NotNull Direction direction, @NotNull BlockState neighborState, @NotNull LevelAccessor level, @NotNull BlockPos pos, @NotNull BlockPos neighborPos) {
+        if (direction == Direction.DOWN && !this.canSurvive(state, level, pos)) return Blocks.AIR.defaultBlockState();
+        if (state.getValue(WATERLOGGED)) level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+        return super.updateShape(state, direction, neighborState, level, pos, neighborPos);
+    }
+    @Override
     protected boolean isPathfindable(@NotNull BlockState state, @NotNull PathComputationType pathComputationType) {
         return true;
     }
-
     @Override
     public String parentName() {
         return null;

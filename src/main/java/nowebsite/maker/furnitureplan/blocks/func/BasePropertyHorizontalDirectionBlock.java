@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
@@ -48,6 +49,17 @@ public abstract class BasePropertyHorizontalDirectionBlock<T extends BasePropert
     @Override
     public @NotNull FluidState getFluidState(@NotNull BlockState pState) {
         return pState.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
+    }
+
+    @Override
+    public BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {
+        BlockState blockState = super.getStateForPlacement(context);
+        blockState =
+            blockState == null ?
+                defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite())
+                :
+                blockState.setValue(FACING, context.getHorizontalDirection().getOpposite());
+        return blockState.setValue(WATERLOGGED, context.getLevel().getFluidState(context.getClickedPos()).getType() == Fluids.WATER);
     }
     @Override
     public float getExplosionResistance() {

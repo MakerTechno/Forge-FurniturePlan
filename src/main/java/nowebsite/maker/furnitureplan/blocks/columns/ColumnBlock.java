@@ -5,7 +5,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
@@ -15,7 +14,7 @@ import nowebsite.maker.furnitureplan.blocks.func.definition.ColumnShape;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import org.jetbrains.annotations.NotNull;
 
-public class ColumnBlock extends BasePropertyBlock<ColumnBlock> implements SimpleWaterloggedBlock {
+public class ColumnBlock extends BasePropertyBlock<ColumnBlock> {
     public static final EnumProperty<ColumnShape> SHAPE = BlockRegistration.BlockStateRegistration.COLUMN_SHAPE;
     public ColumnBlock(@NotNull BlockState state, Properties properties) {
         super(state, properties);

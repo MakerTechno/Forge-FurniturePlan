@@ -19,12 +19,14 @@ public class FurniturePlan {
         LOGGER.info("Furniture plan alpha is on loading!");
         BlockRegistration.init();
         ItemRegistration.init();
+        EntityRegistration.init();
         PaintRegistration.init();
         GUIRegistration.init();
         CreativeModeTabRegistration.init();
         BlockRegistration.BLOCKS.register(modEventBus);
         BlockRegistration.BLOCK_ENTITY.register(modEventBus);
         ItemRegistration.ITEMS.register(modEventBus);
+        EntityRegistration.ENTITIES.register(modEventBus);
         CreativeModeTabRegistration.TABS.register(modEventBus);
         PaintRegistration.PAINTINGS.register(modEventBus);
         GUIRegistration.MENUS.register(modEventBus);

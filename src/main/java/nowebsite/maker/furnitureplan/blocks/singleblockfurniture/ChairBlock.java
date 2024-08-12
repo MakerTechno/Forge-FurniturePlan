@@ -10,6 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
@@ -57,11 +58,11 @@ public class ChairBlock extends BasePropertyHorizontalDirectionBlock<ChairBlock>
         return this.getOcclusionShape(state, getter, pos);
     }
     @Override
-    public @NotNull BlockState playerWillDestroy(@NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull BlockState pState, @NotNull Player pPlayer) {
+    public void destroy(@NotNull LevelAccessor level, @NotNull BlockPos pos, @NotNull BlockState state) {
         try {
-            Objects.requireNonNull(pLevel.getBlockEntity(pPos)).setRemoved();
+            Objects.requireNonNull(level.getBlockEntity(pos)).setRemoved();
         } catch (Exception ignore) {}
-        return super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
+        super.destroy(level, pos, state);
     }
     @Override
     public BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {

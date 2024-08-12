@@ -3,14 +3,13 @@ package nowebsite.maker.furnitureplan.blocks.columns;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import nowebsite.maker.furnitureplan.blocks.func.BasePropertyHorizontalDirectionBlock;
 import nowebsite.maker.furnitureplan.blocks.func.IWeatheringCopper;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.TableBlock;
 import org.jetbrains.annotations.NotNull;
 
-public class WeatheredCopperTable extends TableBlock implements IWeatheringCopper, SimpleWaterloggedBlock {
+public class WeatheredCopperTable extends TableBlock implements IWeatheringCopper {
     private final WeatherState weatherState;
     public WeatheredCopperTable(@NotNull BlockState state, Properties properties, WeatherState weatherState) {
         super(state, properties);
