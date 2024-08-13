@@ -52,6 +52,9 @@
     "furnitureplan:cobbled_deepslate_chair",
     "furnitureplan:polished_deepslate_chair",
     "furnitureplan:deepslate_tile_chair",
-    "furnitureplan:deepslate_brick_chair"
+    "furnitureplan:deepslate_brick_chair",
+    "furnitureplan:tuff_chair",
+    "furnitureplan:polished_tuff_chair",
+    "furnitureplan:tuff_brick_chair"
   ]
 }

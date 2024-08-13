@@ -52,6 +52,9 @@
     "furnitureplan:cobbled_deepslate_lighted_column",
     "furnitureplan:polished_deepslate_lighted_column",
     "furnitureplan:deepslate_tile_lighted_column",
-    "furnitureplan:deepslate_brick_lighted_column"
+    "furnitureplan:deepslate_brick_lighted_column",
+    "furnitureplan:tuff_lighted_column",
+    "furnitureplan:polished_tuff_lighted_column",
+    "furnitureplan:tuff_brick_lighted_column"
   ]
 }

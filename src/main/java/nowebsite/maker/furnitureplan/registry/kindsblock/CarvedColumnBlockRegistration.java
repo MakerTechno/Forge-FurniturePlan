@@ -124,6 +124,13 @@ public class CarvedColumnBlockRegistration {
     public static final DeferredHolder<Item, BlockItem> DEEPSLATE_TILE_CARVED_COLUMN_ITEM = ItemRegistration.ITEMS.register("deepslate_tile_carved_column", () -> new BlockItem(DEEPSLATE_TILE_CARVED_COLUMN.get(), new Item.Properties()));
     public static final DeferredHolder<Item, BlockItem> DEEPSLATE_BRICK_CARVED_COLUMN_ITEM = ItemRegistration.ITEMS.register("deepslate_brick_carved_column", () -> new BlockItem(DEEPSLATE_BRICK_CARVED_COLUMN.get(), new Item.Properties()));
 
+    public static final DeferredHolder<Block, CarvedColumnBlock> TUFF_CARVED_COLUMN = BlockRegistration.BLOCKS.register("tuff_carved_column", () -> usageCarvedColumnBlock(Blocks.TUFF));
+    public static final DeferredHolder<Block, CarvedColumnBlock> POLISHED_TUFF_CARVED_COLUMN = BlockRegistration.BLOCKS.register("polished_tuff_carved_column", () -> usageCarvedColumnBlock(Blocks.POLISHED_TUFF));
+    public static final DeferredHolder<Block, CarvedColumnBlock> TUFF_BRICK_CARVED_COLUMN = BlockRegistration.BLOCKS.register("tuff_brick_carved_column", () -> usageCarvedColumnBlock(Blocks.TUFF_BRICKS));
+    public static final DeferredHolder<Item, BlockItem> TUFF_CARVED_COLUMN_ITEM = ItemRegistration.ITEMS.register("tuff_carved_column", () -> new BlockItem(TUFF_CARVED_COLUMN.get(), new Item.Properties()));
+    public static final DeferredHolder<Item, BlockItem> POLISHED_TUFF_CARVED_COLUMN_ITEM = ItemRegistration.ITEMS.register("polished_tuff_carved_column", () -> new BlockItem(POLISHED_TUFF_CARVED_COLUMN.get(), new Item.Properties()));
+    public static final DeferredHolder<Item, BlockItem> TUFF_BRICK_CARVED_COLUMN_ITEM = ItemRegistration.ITEMS.register("tuff_brick_carved_column", () -> new BlockItem(TUFF_BRICK_CARVED_COLUMN.get(), new Item.Properties()));
+
     @Contract("_ -> new")
     @SuppressWarnings("deprecation")
     public static @NotNull CarvedColumnBlock usageCarvedColumnBlock(@NotNull Block propertyBlock) {

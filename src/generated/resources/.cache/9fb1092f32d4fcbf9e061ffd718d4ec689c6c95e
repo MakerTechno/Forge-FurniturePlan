@@ -1,3 +1,5 @@
-// 1.21	2024-07-27T20:52:34.2014378	Recipes
+// 1.21	2024-08-13T13:03:13.497624	Recipes
+eca45c505385e5a9256d153541ca1a0de9f39afd data/furnitureplan/advancement/recipes/misc/cupboard_block.json
 1d716a31abf2a4ed154957ec098c4a31611153c3 data/furnitureplan/advancement/recipes/misc/graver.json
+671c76cfa641cd36fe2a7226fe1dbeac4d9c10eb data/furnitureplan/recipe/cupboard_block.json
 94b83d7e8d4ee0697c1624fb9b893cdf531a00ad data/furnitureplan/recipe/graver.json

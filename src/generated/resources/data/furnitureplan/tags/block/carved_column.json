@@ -52,6 +52,9 @@
     "furnitureplan:cobbled_deepslate_carved_column",
     "furnitureplan:polished_deepslate_carved_column",
     "furnitureplan:deepslate_tile_carved_column",
-    "furnitureplan:deepslate_brick_carved_column"
+    "furnitureplan:deepslate_brick_carved_column",
+    "furnitureplan:tuff_carved_column",
+    "furnitureplan:polished_tuff_carved_column",
+    "furnitureplan:tuff_brick_carved_column"
   ]
 }

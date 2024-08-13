@@ -69,6 +69,10 @@ public class FoldingRegistration {
         CHAIR_BLOCK_SETS.add(ChairBlockRegistration.POLISHED_DEEPSLATE_CHAIR);
         CHAIR_BLOCK_SETS.add(ChairBlockRegistration.DEEPSLATE_TILE_CHAIR);
         CHAIR_BLOCK_SETS.add(ChairBlockRegistration.DEEPSLATE_BRICK_CHAIR);
+
+        CHAIR_BLOCK_SETS.add(ChairBlockRegistration.TUFF_CHAIR);
+        CHAIR_BLOCK_SETS.add(ChairBlockRegistration.POLISHED_TUFF_CHAIR);
+        CHAIR_BLOCK_SETS.add(ChairBlockRegistration.TUFF_BRICK_CHAIR);
     }
 
     private static final List<DeferredHolder<Item, ? extends Item>> CHAIR_ITEM_SETS =
@@ -126,6 +130,10 @@ public class FoldingRegistration {
         CHAIR_ITEM_SETS.add(ChairBlockRegistration.POLISHED_DEEPSLATE_CHAIR_ITEM);
         CHAIR_ITEM_SETS.add(ChairBlockRegistration.DEEPSLATE_TILE_CHAIR_ITEM);
         CHAIR_ITEM_SETS.add(ChairBlockRegistration.DEEPSLATE_BRICK_CHAIR_ITEM);
+        
+        CHAIR_ITEM_SETS.add(ChairBlockRegistration.TUFF_CHAIR_ITEM);
+        CHAIR_ITEM_SETS.add(ChairBlockRegistration.POLISHED_TUFF_CHAIR_ITEM);
+        CHAIR_ITEM_SETS.add(ChairBlockRegistration.TUFF_BRICK_CHAIR_ITEM);
     }
 
     private static final List<DeferredHolder<Block, ? extends Block>> TABLE_BLOCK_SETS =
@@ -183,6 +191,10 @@ public class FoldingRegistration {
         TABLE_BLOCK_SETS.add(TableBlockRegistration.POLISHED_DEEPSLATE_TABLE);
         TABLE_BLOCK_SETS.add(TableBlockRegistration.DEEPSLATE_TILE_TABLE);
         TABLE_BLOCK_SETS.add(TableBlockRegistration.DEEPSLATE_BRICK_TABLE);
+
+        TABLE_BLOCK_SETS.add(TableBlockRegistration.TUFF_TABLE);
+        TABLE_BLOCK_SETS.add(TableBlockRegistration.POLISHED_TUFF_TABLE);
+        TABLE_BLOCK_SETS.add(TableBlockRegistration.TUFF_BRICK_TABLE);
     }
 
     private static final List<DeferredHolder<Item, ? extends Item>> TABLE_ITEM_SETS =
@@ -240,6 +252,10 @@ public class FoldingRegistration {
         TABLE_ITEM_SETS.add(TableBlockRegistration.POLISHED_DEEPSLATE_TABLE_ITEM);
         TABLE_ITEM_SETS.add(TableBlockRegistration.DEEPSLATE_TILE_TABLE_ITEM);
         TABLE_ITEM_SETS.add(TableBlockRegistration.DEEPSLATE_BRICK_TABLE_ITEM);
+
+        TABLE_ITEM_SETS.add(TableBlockRegistration.TUFF_TABLE_ITEM);
+        TABLE_ITEM_SETS.add(TableBlockRegistration.POLISHED_TUFF_TABLE_ITEM);
+        TABLE_ITEM_SETS.add(TableBlockRegistration.TUFF_BRICK_TABLE_ITEM);
     }
 
     private static final List<DeferredHolder<Block, ? extends Block>> COLUMN_BLOCK_SETS =
@@ -297,6 +313,10 @@ public class FoldingRegistration {
         COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.POLISHED_DEEPSLATE_COLUMN);
         COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.DEEPSLATE_TILE_COLUMN);
         COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.DEEPSLATE_BRICK_COLUMN);
+
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.TUFF_COLUMN);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.POLISHED_TUFF_COLUMN);
+        COLUMN_BLOCK_SETS.add(ColumnBlockRegistration.TUFF_BRICK_COLUMN);
     }
 
     private static final List<DeferredHolder<Item, ? extends Item>> COLUMN_ITEM_SETS =
@@ -354,6 +374,10 @@ public class FoldingRegistration {
         COLUMN_ITEM_SETS.add(ColumnBlockRegistration.POLISHED_DEEPSLATE_COLUMN_ITEM);
         COLUMN_ITEM_SETS.add(ColumnBlockRegistration.DEEPSLATE_TILE_COLUMN_ITEM);
         COLUMN_ITEM_SETS.add(ColumnBlockRegistration.DEEPSLATE_BRICK_COLUMN_ITEM);
+
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.TUFF_COLUMN_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.POLISHED_TUFF_COLUMN_ITEM);
+        COLUMN_ITEM_SETS.add(ColumnBlockRegistration.TUFF_BRICK_COLUMN_ITEM);
     }
 
     private static final List<DeferredHolder<Block, ? extends Block>> CARVED_COLUMN_BLOCK_SETS =
@@ -411,10 +435,14 @@ public class FoldingRegistration {
         CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.POLISHED_DEEPSLATE_CARVED_COLUMN);
         CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.DEEPSLATE_TILE_CARVED_COLUMN);
         CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.DEEPSLATE_BRICK_CARVED_COLUMN);
+
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.TUFF_CARVED_COLUMN);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.POLISHED_TUFF_CARVED_COLUMN);
+        CARVED_COLUMN_BLOCK_SETS.add(CarvedColumnBlockRegistration.TUFF_BRICK_CARVED_COLUMN);
     }
 
     private static final List<DeferredHolder<Item, ? extends Item>> CARVED_COLUMN_ITEM_SETS =
-            new ArrayList<>(List.of(CarvedColumnBlockRegistration.OAK_CARVED_COLUMN_ITEM));
+        new ArrayList<>(List.of(CarvedColumnBlockRegistration.OAK_CARVED_COLUMN_ITEM));
     static {
         CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.COBBLESTONE_CARVED_COLUMN_ITEM);
         CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.BRICK_CARVED_COLUMN_ITEM);
@@ -468,8 +496,11 @@ public class FoldingRegistration {
         CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.POLISHED_DEEPSLATE_CARVED_COLUMN_ITEM);
         CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.DEEPSLATE_TILE_CARVED_COLUMN_ITEM);
         CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.DEEPSLATE_BRICK_CARVED_COLUMN_ITEM);
-    }
 
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.TUFF_CARVED_COLUMN_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.POLISHED_TUFF_CARVED_COLUMN_ITEM);
+        CARVED_COLUMN_ITEM_SETS.add(CarvedColumnBlockRegistration.TUFF_BRICK_CARVED_COLUMN_ITEM);
+    }
     private static final List<DeferredHolder<Block, ? extends Block>> LIGHTED_COLUMN_BLOCK_SETS =
             new ArrayList<>(List.of(LightedColumnBlockRegistration.OAK_LIGHTED_COLUMN));
     static {
@@ -525,6 +556,10 @@ public class FoldingRegistration {
         LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.POLISHED_DEEPSLATE_LIGHTED_COLUMN);
         LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.DEEPSLATE_TILE_LIGHTED_COLUMN);
         LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.DEEPSLATE_BRICK_LIGHTED_COLUMN);
+
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.TUFF_LIGHTED_COLUMN);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.POLISHED_TUFF_LIGHTED_COLUMN);
+        LIGHTED_COLUMN_BLOCK_SETS.add(LightedColumnBlockRegistration.TUFF_BRICK_LIGHTED_COLUMN);
     }
 
     private static final List<DeferredHolder<Item, ? extends Item>> LIGHTED_COLUMN_ITEM_SETS =
@@ -582,6 +617,10 @@ public class FoldingRegistration {
         LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.POLISHED_DEEPSLATE_LIGHTED_COLUMN_ITEM);
         LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.DEEPSLATE_TILE_LIGHTED_COLUMN_ITEM);
         LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.DEEPSLATE_BRICK_LIGHTED_COLUMN_ITEM);
+
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.TUFF_LIGHTED_COLUMN_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.POLISHED_TUFF_LIGHTED_COLUMN_ITEM);
+        LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.TUFF_BRICK_LIGHTED_COLUMN_ITEM);
     }
 
     public static List<DeferredHolder<Block, ? extends Block>> getChairBlockLists() {
@@ -677,6 +716,10 @@ public class FoldingRegistration {
         PROPERTY_BLOCKS.add(Blocks.POLISHED_DEEPSLATE);
         PROPERTY_BLOCKS.add(Blocks.DEEPSLATE_TILES);
         PROPERTY_BLOCKS.add(Blocks.DEEPSLATE_BRICKS);
+
+        PROPERTY_BLOCKS.add(Blocks.TUFF);
+        PROPERTY_BLOCKS.add(Blocks.POLISHED_TUFF);
+        PROPERTY_BLOCKS.add(Blocks.TUFF_BRICKS);
     }
     public static List<Block> getPropertyBlocks() {
         return PROPERTY_BLOCKS;
@@ -734,6 +777,10 @@ public class FoldingRegistration {
         PROPERTY_TAGS.add(BlockTags.MINEABLE_WITH_PICKAXE);
         PROPERTY_TAGS.add(BlockTags.MINEABLE_WITH_PICKAXE);
         PROPERTY_TAGS.add(BlockTags.MINEABLE_WITH_PICKAXE);
+        PROPERTY_TAGS.add(BlockTags.MINEABLE_WITH_PICKAXE);
+        PROPERTY_TAGS.add(BlockTags.MINEABLE_WITH_PICKAXE);
+        PROPERTY_TAGS.add(BlockTags.MINEABLE_WITH_PICKAXE);
+
         PROPERTY_TAGS.add(BlockTags.MINEABLE_WITH_PICKAXE);
         PROPERTY_TAGS.add(BlockTags.MINEABLE_WITH_PICKAXE);
         PROPERTY_TAGS.add(BlockTags.MINEABLE_WITH_PICKAXE);
@@ -795,62 +842,69 @@ public class FoldingRegistration {
         PROPERTY_KINDS.put("deepslate_tile", "deepslate_tiles");
         PROPERTY_KINDS.put("deepslate_brick", "deepslate_bricks");
 
+        PROPERTY_KINDS.put("tuff", "tuff");
+        PROPERTY_KINDS.put("polished_tuff", "polished_tuff");
+        PROPERTY_KINDS.put("tuff_brick", "tuff_bricks");
     }
 
 
     public static final String[] PROPERTY_KINDS_CHINESE_KEY = new String[]{
-            "橡木",
-            "圆石",
-            "砖",
-            "石砖",
-            "泥砖",
-            "下界砖",
-            "砂岩",
-            "云杉木",
-            "白桦木",
-            "从林木",
-            "石英",
-            "金合欢木",
-            "樱花木",
-            "深色橡木",
-            "红树木板",
-            "竹板",
-            "编织竹板",
-            "海晶石",
-            "海晶石砖",
-            "暗海晶石",
-            "红砂岩",
-            "紫珀",
-            "磨制花岗岩",
-            "平滑红砂岩",
-            "苔石砖",
-            "磨制闪长岩",
-            "苔石",
-            "末地石砖",
-            "石",
-            "平滑砂岩",
-            "平滑石英",
-            "花岗岩",
-            "安山岩",
-            "红色下界砖",
-            "磨制安山岩",
-            "闪长岩",
-            "绯红木",
-            "诡异木",
-            "黑石",
-            "磨制黑石砖",
-            "磨制黑石",
-            "氧化的切制铜",
-            "锈蚀的切制铜",
-            "斑驳的切制铜",
-            "切制铜",
-            "氧化的涂蜡切制铜",
-            "锈蚀的涂蜡切制铜",
-            "斑驳的涂蜡切制铜",
-            "涂蜡切制铜",
-            "深板岩圆石",
-            "磨制的深板岩",
-            "深板岩瓦",
-            "深板岩砖"
+        "橡木",
+        "圆石",
+        "砖",
+        "石砖",
+        "泥砖",
+        "下界砖",
+        "砂岩",
+        "云杉木",
+        "白桦木",
+        "从林木",
+        "石英",
+        "金合欢木",
+        "樱花木",
+        "深色橡木",
+        "红树木板",
+        "竹板",
+        "编织竹板",
+        "海晶石",
+        "海晶石砖",
+        "暗海晶石",
+        "红砂岩",
+        "紫珀",
+        "磨制花岗岩",
+        "平滑红砂岩",
+        "苔石砖",
+        "磨制闪长岩",
+        "苔石",
+        "末地石砖",
+        "石",
+        "平滑砂岩",
+        "平滑石英",
+        "花岗岩",
+        "安山岩",
+        "红色下界砖",
+        "磨制安山岩",
+        "闪长岩",
+        "绯红木",
+        "诡异木",
+        "黑石",
+        "磨制黑石砖",
+        "磨制黑石",
+        "氧化的切制铜",
+        "锈蚀的切制铜",
+        "斑驳的切制铜",
+        "切制铜",
+        "氧化的涂蜡切制铜",
+        "锈蚀的涂蜡切制铜",
+        "斑驳的涂蜡切制铜",
+        "涂蜡切制铜",
+        "深板岩圆石",
+        "磨制的深板岩",
+        "深板岩瓦",
+        "深板岩砖",
+
+        "凝灰岩",
+        "磨制凝灰岩",
+        "凝灰岩砖"
     };
 }

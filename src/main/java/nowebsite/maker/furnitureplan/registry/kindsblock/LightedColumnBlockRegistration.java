@@ -125,6 +125,13 @@ public class LightedColumnBlockRegistration extends BRUtils {
     public static final DeferredHolder<Item, BlockItem> DEEPSLATE_TILE_LIGHTED_COLUMN_ITEM = ItemRegistration.ITEMS.register("deepslate_tile_lighted_column", () -> new BlockItem(DEEPSLATE_TILE_LIGHTED_COLUMN.get(), new Item.Properties()));
     public static final DeferredHolder<Item, BlockItem> DEEPSLATE_BRICK_LIGHTED_COLUMN_ITEM = ItemRegistration.ITEMS.register("deepslate_brick_lighted_column", () -> new BlockItem(DEEPSLATE_BRICK_LIGHTED_COLUMN.get(), new Item.Properties()));
 
+    public static final DeferredHolder<Block, LightedColumnBlock> TUFF_LIGHTED_COLUMN = BlockRegistration.BLOCKS.register("tuff_lighted_column", () -> usageLightedColumnBlock(Blocks.TUFF));
+    public static final DeferredHolder<Block, LightedColumnBlock> POLISHED_TUFF_LIGHTED_COLUMN = BlockRegistration.BLOCKS.register("polished_tuff_lighted_column", () -> usageLightedColumnBlock(Blocks.POLISHED_TUFF));
+    public static final DeferredHolder<Block, LightedColumnBlock> TUFF_BRICK_LIGHTED_COLUMN = BlockRegistration.BLOCKS.register("tuff_brick_lighted_column", () -> usageLightedColumnBlock(Blocks.TUFF_BRICKS));
+    public static final DeferredHolder<Item, BlockItem> TUFF_LIGHTED_COLUMN_ITEM = ItemRegistration.ITEMS.register("tuff_lighted_column", () -> new BlockItem(TUFF_LIGHTED_COLUMN.get(), new Item.Properties()));
+    public static final DeferredHolder<Item, BlockItem> POLISHED_TUFF_LIGHTED_COLUMN_ITEM = ItemRegistration.ITEMS.register("polished_tuff_lighted_column", () -> new BlockItem(POLISHED_TUFF_LIGHTED_COLUMN.get(), new Item.Properties()));
+    public static final DeferredHolder<Item, BlockItem> TUFF_BRICK_LIGHTED_COLUMN_ITEM = ItemRegistration.ITEMS.register("tuff_brick_lighted_column", () -> new BlockItem(TUFF_BRICK_LIGHTED_COLUMN.get(), new Item.Properties()));
+
     @Contract("_ -> new")
     @SuppressWarnings("deprecation")
     public static @NotNull LightedColumnBlock usageLightedColumnBlock(@NotNull Block propertyBlock) {

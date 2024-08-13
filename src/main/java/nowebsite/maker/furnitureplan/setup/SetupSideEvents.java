@@ -9,6 +9,8 @@ import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.networks.CupboardPayloadHandler;
 import nowebsite.maker.furnitureplan.networks.CupboardSyncData;
+import nowebsite.maker.furnitureplan.networks.GraverPayloadHandler;
+import nowebsite.maker.furnitureplan.networks.GraverSyncData;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import org.jetbrains.annotations.NotNull;
 
@@ -45,10 +47,15 @@ public class SetupSideEvents {
     @SubscribeEvent
     public static void registerPayloads(final @NotNull RegisterPayloadHandlersEvent event) {
         final PayloadRegistrar registrar = event.registrar("1");
-        registrar.commonToClient(
+        registrar.playToClient(
             CupboardSyncData.TYPE,
             CupboardSyncData.STREAM_CODEC,
             new CupboardPayloadHandler()
+        );
+        registrar.playToClient(
+            GraverSyncData.TYPE,
+            GraverSyncData.STREAM_CODEC,
+            new GraverPayloadHandler()
         );
     }
 }

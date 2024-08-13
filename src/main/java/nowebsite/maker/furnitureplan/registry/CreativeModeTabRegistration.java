@@ -38,7 +38,8 @@ public class CreativeModeTabRegistration {
             event.accept(ItemRegistration.DETRITUS.get());
             event.accept(ItemRegistration.SAWDUST.get());
             event.accept(BlockRegistration.CUPBOARD_BLOCK_ITEM.get());
-            event.accept(BlockRegistration.VASE_B_BLOCK_ITEM.get());
+            event.accept(BlockRegistration.STOVE_BLOCK_ITEM.get());
+            //event.accept(BlockRegistration.VASE_B_BLOCK_ITEM.get());
         }
     }
 

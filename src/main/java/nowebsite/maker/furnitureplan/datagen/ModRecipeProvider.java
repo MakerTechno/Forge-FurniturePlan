@@ -6,7 +6,9 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
+import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.registry.ItemRegistration;
 import org.jetbrains.annotations.NotNull;
 
@@ -27,5 +29,13 @@ public class ModRecipeProvider extends RecipeProvider {
                     .pattern(" S ")
                     .unlockedBy("has_iron_nugget", has(Items.IRON_NUGGET))
                     .save(recipeOutput);
+            ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistration.CUPBOARD_BLOCK_ITEM.get())
+                .define('O', ItemTags.PLANKS)
+                .define('X', Items.CHEST)
+                .pattern("OOO")
+                .pattern("OXO")
+                .pattern("OOO")
+                .unlockedBy("has_planks", has(ItemTags.PLANKS))
+                .save(recipeOutput);
     }
 }
