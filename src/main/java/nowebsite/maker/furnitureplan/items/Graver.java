@@ -34,6 +34,7 @@ import nowebsite.maker.furnitureplan.registry.ItemRegistration;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 public class Graver extends Item {
@@ -125,7 +126,7 @@ public class Graver extends Item {
             tooltipComponents.add(Component.translatable("tip.furnitureplan.click"));
             tooltipComponents.add(
                 Component.translatable("tip.furnitureplan.graver.kind")
-                    .append(Component.translatable("tip.furnitureplan.graver.kind." + kind.name().toLowerCase()))
+                    .append(Component.translatable("tip.furnitureplan.graver.kind." + kind.name().toLowerCase(Locale.ROOT)))
                     .withStyle(ChatFormatting.GREEN)
             );
         } else {

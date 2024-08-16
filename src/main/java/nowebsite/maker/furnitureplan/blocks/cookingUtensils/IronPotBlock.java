@@ -217,6 +217,6 @@ public class IronPotBlock extends HorizontalDirectionalBlock implements EntityBl
 
     @Override
     public String textureName() {
-        return parentName();
+        return "stove";
     }
 }

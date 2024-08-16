@@ -28,7 +28,7 @@ public class ModEnglishLanguageProvider extends LanguageProvider {
         add("tip.furnitureplan.graver", "This graver can grave some of the blocks to mod's block.\nActually, the kinds of block it can grave is just the kind of blocks which could be used to make stairs.");
         add("tip.furnitureplan.graver.kind", "Kind: ");
         for (Graver.GraveKind kind : Graver.GraveKind.values()) {
-            add("tip.furnitureplan.graver.kind." + kind.name().toLowerCase(), kind.name().toLowerCase());
+            add("tip.furnitureplan.graver.kind." + kind.name().toLowerCase(Locale.ROOT), kind.name().toLowerCase(Locale.ROOT));
         }
         add(ItemRegistration.DETRITUS.get(), "Detritus");
         add(ItemRegistration.SAWDUST.get(), "Sawdust");
@@ -46,7 +46,13 @@ public class ModEnglishLanguageProvider extends LanguageProvider {
         add(BlockRegistration.IRON_POT_BLOCK_ITEM.get(), "Iron pot");
         add(BlockRegistration.STOVE_BLOCK_ITEM.get(), "Stove");
         add(BlockRegistration.CUPBOARD_BLOCK_ITEM.get(), "Cupboard");
-        add(BlockRegistration.VASE_B_BLOCK_ITEM.get(), "Vase");
+        add(BlockRegistration.VASE_B_BLOCK_ITEM.get(), "Vase(Deprecated)");
+        add(BlockRegistration.TABLE_LAMP_ITEM.get(), "Table lamp");
+        add(BlockRegistration.GRASS_GRASS_ITEM.get(), "Grass(In fact)");
+        add("advancements.furniture.root.title", "Let's carve a furniture!");
+        add("advancements.furniture.root.description", "Get a furniture graver");
+        add("advancements.furniture.grassit.title", "It's worth it a grass");
+        add("advancements.furniture.grassit.description", "Try to eat a grass(furnitureplan)");
         add("furnitureplan.networking.failed", "Failed to sync data.");
     }
 

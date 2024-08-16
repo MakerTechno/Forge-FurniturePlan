@@ -4,27 +4,30 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.blocks.cookingUtensils.IronPotBlock;
 import nowebsite.maker.furnitureplan.blocks.cookingUtensils.StoveBlock;
 import nowebsite.maker.furnitureplan.blocks.cookingUtensils.blockentities.IronPotBlockEntity;
-import nowebsite.maker.furnitureplan.blocks.func.definition.ColumnShape;
-import nowebsite.maker.furnitureplan.blocks.func.definition.PlateShape;
-import nowebsite.maker.furnitureplan.blocks.func.definition.StoveShape;
-import nowebsite.maker.furnitureplan.blocks.func.definition.TableShape;
+import nowebsite.maker.furnitureplan.blocks.func.definition.*;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.CupboardBlock;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.LanternBlock;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.TableLampBlock;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.VaseBBlock;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.CupboardBlockEntity;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.VaseBBlockEntity;
@@ -37,6 +40,7 @@ import nowebsite.maker.furnitureplan.items.BaseBERBlockItem;
 import nowebsite.maker.furnitureplan.items.GlassBBlockItem;
 import nowebsite.maker.furnitureplan.items.IronPotItem;
 import nowebsite.maker.furnitureplan.registry.kindsblock.*;
+import oshi.util.tuples.Pair;
 
 public class BlockRegistration extends BRUtils{
     public static void init() {
@@ -109,6 +113,33 @@ public class BlockRegistration extends BRUtils{
     );
     public static final DeferredHolder<Item, Item> VASE_B_BLOCK_ITEM = ItemRegistration.ITEMS.register("vase_b_block", () -> new BlockItem(VASE_B_BLOCK.get(), new Item.Properties().stacksTo(16)));
 
+    public static final DeferredHolder<Block, Block> TABLE_LAMP = BLOCKS.register("table_lamp", () -> new TableLampBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(2, 3).noOcclusion().lightLevel(state -> state.getValue(TableLampBlock.LIT_E).isLit() ? 15 : 0)));
+    public static final DeferredHolder<Item, Item> TABLE_LAMP_ITEM = ItemRegistration.ITEMS.register("table_lamp", () -> new BlockItem(TABLE_LAMP.get(), new Item.Properties()));
+    public static final DeferredHolder<Block, Block> GRASS_GRASS = BLOCKS.register("grass_grass",
+        () -> new FlowerBlock(
+            makeEffectList(
+                new Pair<>(MobEffects.DARKNESS, 2F)
+            ) ,
+            BlockBehaviour.Properties.of()
+                .mapColor(MapColor.PLANT)
+                .noCollission()
+                .instabreak()
+                .sound(SoundType.GRASS)
+                .offsetType(BlockBehaviour.OffsetType.XZ)
+                .pushReaction(PushReaction.DESTROY)
+        )
+    );
+    public static final DeferredHolder<Item, Item> GRASS_GRASS_ITEM = ItemRegistration.ITEMS.register("grass_grass", () -> new BlockItem(
+        GRASS_GRASS.get(),
+        new Item.Properties().food(
+            new FoodProperties.Builder()
+                .nutrition(2)
+                .saturationModifier(0.1F)
+                .effect(() -> new MobEffectInstance(MobEffects.DARKNESS, 200, 255), 1.0F)
+                .build()
+        )
+    ));
+
     public static class BlockStateRegistration{
         public static void init(){}
 
@@ -116,5 +147,6 @@ public class BlockRegistration extends BRUtils{
         public static final EnumProperty<StoveShape> STOVE_SHAPE = EnumProperty.create("shape", StoveShape.class);
         public static final EnumProperty<TableShape> TABLE_SHAPE = EnumProperty.create("shape", TableShape.class);
         public static final EnumProperty<ColumnShape> COLUMN_SHAPE = EnumProperty.create("shape", ColumnShape.class);
+        public static final EnumProperty<TableLampShape> TABLE_LAMP_SHAPE = EnumProperty.create("shape", TableLampShape.class);
     }
 }

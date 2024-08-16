@@ -5,6 +5,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
@@ -22,7 +23,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.InvalidPropertiesFormatException;
 import java.util.List;
 
 public class ModBlockStateProvider extends BlockStateProvider {
@@ -37,35 +37,36 @@ public class ModBlockStateProvider extends BlockStateProvider {
         BlockRegistration.BLOCKS.getEntries().forEach(blockRegistryObject -> {
             Block type = blockRegistryObject.get();
             String name = keyName(type);
-            try {
-                if (type instanceof ILocalDefine define){
-                    if (hasProperties(type)) {
-                        registerEnumWithMultiStateBlock(
-                                type,
-                                define.textureKey(),
-                                textureSwitch(define, name),
-                                fromModSource(define.parentName()));
-                    } else if (type instanceof ISimpleBlock simpleBlock) {
-                        simpleBlock(type, models().singleTexture(
-                                name,
-                                fromModSource(simpleBlock.parentName()),
-                                simpleBlock.textureKey(),
-                                textureSwitch(simpleBlock, name)
-                        ));
-                    } else if (type instanceof IHorizontalBlock horizontalBlock){
-                        horizontalBlock(type, models().singleTexture(
-                                name,
-                                fromModSource(horizontalBlock.parentName()),
-                                horizontalBlock.textureKey(),
-                                textureSwitch(horizontalBlock, name)
-                        ));
-                    }
+            if (type instanceof ILocalDefine define){
+                if (hasProperties(type)) {
+                    registerEnumWithMultiStateBlock(
+                        type,
+                        define.textureKey(),
+                        textureSwitch(define, name),
+                        fromModSource(define.parentName()));
+                } else if (type instanceof ISimpleBlock simpleBlock) {
+                    simpleBlock(type, models().singleTexture(
+                        name,
+                        fromModSource(simpleBlock.parentName()),
+                        simpleBlock.textureKey(),
+                        textureSwitch(simpleBlock, name)
+                    ));
+                } else if (type instanceof IHorizontalBlock horizontalBlock){
+                    horizontalBlock(type, models().singleTexture(
+                        name,
+                        fromModSource(horizontalBlock.parentName()),
+                        horizontalBlock.textureKey(),
+                        textureSwitch(horizontalBlock, name)
+                    ));
                 }
-
-            } catch (InvalidPropertiesFormatException e) {
-                FurniturePlan.LOGGER.error(e.getLocalizedMessage());
+            } else if (type instanceof FlowerBlock) {
+                simpleBlock(type, models().singleTexture(
+                    name,
+                    modLoc("grass_cul"),
+                    "cross",
+                    fromModSource("grass_grass")
+                ));
             }
-
         });
     }
 
@@ -90,7 +91,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
 
     @SuppressWarnings({"unused", "unchecked"})
-    public <T extends Comparable<T>, M extends Enum<M> & ModelSR> void registerEnumWithMultiStateBlock(Block block, String key, ResourceLocation texture, ResourceLocation probableModel) throws InvalidPropertiesFormatException {
+    public <T extends Comparable<T>, M extends Enum<M> & ModelSR> void registerEnumWithMultiStateBlock(Block block, String key, ResourceLocation texture, ResourceLocation probableModel) {
         VariantBlockStateBuilder builder = getVariantBuilder(block);
 
         /*Change all properties into every possible list*/
@@ -176,14 +177,21 @@ public class ModBlockStateProvider extends BlockStateProvider {
         return key(b).toString();
     }
     public String name(Block b) {return key(b).getPath();}
-    public ResourceLocation forVanillaSource(@NotNull String registryName, String specificNameEnd){
+    public ResourceLocation forVanillaVariety(@NotNull String registryName, String specificNameEnd){
         return mcLoc("block/" + FoldingRegistration.PROPERTY_KINDS.get(registryName.split("_"+specificNameEnd)[0].split(FurniturePlan.MOD_ID+":")[1]));
+    }
+    public ResourceLocation fromVanillaSource(String name){
+        return mcLoc("block/" + name);
     }
     public ResourceLocation fromModSource(String name){
         return modLoc("block/" + name);
     }
     public ResourceLocation textureSwitch(ILocalDefine block, String registeredName){
-        return block instanceof IVarietyBlock varietyBlock ? forVanillaSource(registeredName, varietyBlock.getSpecificName()) : fromModSource(block.textureName());
+        return block instanceof IVarietyBlock varietyBlock
+            ? forVanillaVariety(registeredName, varietyBlock.getSpecificName())
+            : block.fromVanilla()
+            ? fromVanillaSource(block.textureName())
+            : fromModSource(block.textureName());
     }
     @SuppressWarnings("unchecked")
     public <T extends Comparable<T>> boolean hasProperties(@NotNull Block block) {

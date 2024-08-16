@@ -113,7 +113,7 @@ public class GlassBBlock extends HalfTransparentBlock implements SimpleWaterlogg
     }
     @Override
     public boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader level, @NotNull BlockPos pos) {
-        return BaseSmallHallBasedBlock.canSurvive(level,pos);
+        return BaseSmallHallBasedBlock.needsDownsideSupport(level,pos);
     }
 
     @Override

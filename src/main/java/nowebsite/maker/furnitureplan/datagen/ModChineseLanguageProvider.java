@@ -44,7 +44,13 @@ public class ModChineseLanguageProvider extends LanguageProvider {
         add(BlockRegistration.IRON_POT_BLOCK_ITEM.get(), "铁锅");
         add(BlockRegistration.STOVE_BLOCK_ITEM.get(), "灶台");
         add(BlockRegistration.CUPBOARD_BLOCK_ITEM.get(), "橱柜");
-        add(BlockRegistration.VASE_B_BLOCK_ITEM.get(), "花瓶");
+        add(BlockRegistration.VASE_B_BLOCK_ITEM.get(), "花瓶(已弃用)");
+        add(BlockRegistration.TABLE_LAMP_ITEM.get(), "台灯");
+        add(BlockRegistration.GRASS_GRASS_ITEM.get(), "草(字面上、物理上的)");
+        add("advancements.furniture.root.title", "开始雕刻家具吧!");
+        add("advancements.furniture.root.description", "获取一个家具计划雕刻刀");
+        add("advancements.furniture.grassit.title", "令人眼前一黑的好活");
+        add("advancements.furniture.grassit.description", "吃下一颗来自家具计划的草");
         add("furnitureplan.networking.failed", "在同步数据时发生错误。");
     }
 

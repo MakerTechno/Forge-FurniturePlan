@@ -30,15 +30,16 @@ public class CreativeModeTabRegistration {
             event.accept(BlockRegistration.CUTLERY_ITEM.get());
             event.accept(BlockRegistration.LANTERN_ITEM.get());
             event.accept(BlockRegistration.IRON_POT_BLOCK.get());
+            event.accept(BlockRegistration.CUPBOARD_BLOCK_ITEM.get());
+            event.accept(BlockRegistration.STOVE_BLOCK_ITEM.get());
+            event.accept(BlockRegistration.TABLE_LAMP_ITEM.get());
+            event.accept(ItemRegistration.DETRITUS.get());
+            event.accept(ItemRegistration.SAWDUST.get());
             initKindItem(event, FoldingRegistration.getChairItemLists());
             initKindItem(event, FoldingRegistration.getTableItemLists());
             initKindItem(event, FoldingRegistration.getColumnItemLists());
             initKindItem(event, FoldingRegistration.getCarvedColumnItemLists());
             initKindItem(event, FoldingRegistration.getLightedColumnItemLists());
-            event.accept(ItemRegistration.DETRITUS.get());
-            event.accept(ItemRegistration.SAWDUST.get());
-            event.accept(BlockRegistration.CUPBOARD_BLOCK_ITEM.get());
-            event.accept(BlockRegistration.STOVE_BLOCK_ITEM.get());
             //event.accept(BlockRegistration.VASE_B_BLOCK_ITEM.get());
         }
     }

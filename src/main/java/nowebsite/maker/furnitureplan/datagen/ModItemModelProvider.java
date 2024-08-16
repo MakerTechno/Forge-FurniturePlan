@@ -63,6 +63,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         withExistingParent(BlockRegistration.CUPBOARD_BLOCK_ITEM.get().toString(), modLoc("item/cupboard"));
         withExistingParent(BlockRegistration.VASE_B_BLOCK_ITEM.get().toString(), modLoc("block/vase"));
+        withExistingParent(BlockRegistration.TABLE_LAMP_ITEM.get().toString(), modLoc("block/table_lamp_off"));
+        withExistingParent(BlockRegistration.GRASS_GRASS_ITEM.get().toString(), modLoc("block/grass_grass"));
     }
 
     public void add(@NotNull List<DeferredHolder<Item, ? extends Item>> list) {

@@ -37,5 +37,12 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("OOO")
                 .unlockedBy("has_planks", has(ItemTags.PLANKS))
                 .save(recipeOutput);
+            ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistration.GRASS_GRASS_ITEM.get())
+                .define('G', Items.SHORT_GRASS)
+                .pattern("G G")
+                .pattern("GGG")
+                .pattern("G G")
+                .unlockedBy("has_grass", has(Items.SHORT_GRASS))
+                .save(recipeOutput);
     }
 }

@@ -4,7 +4,6 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
@@ -21,7 +20,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -36,7 +34,6 @@ import nowebsite.maker.furnitureplan.blocks.func.IHorizontalBlock;
 import nowebsite.maker.furnitureplan.blocks.func.definition.StoveShape;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 public class StoveBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock, IHorizontalBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -66,35 +63,28 @@ public class StoveBlock extends HorizontalDirectionalBlock implements SimpleWate
     @Override
     public @NotNull BlockState playerWillDestroy(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull Player player) {
         this.spawnDestroyParticles(level, player, pos, state);
-        if (!level.isClientSide) {
-            BlockState newState = Blocks.AIR.defaultBlockState();
-            SimpleContainer inventory = new SimpleContainer(1);
-            ItemStack stack = ItemStack.EMPTY;
-            switch (state.getValue(SHAPE)) {
-                case STOVE_AND_POT_LIT -> {
-                    newState = state.setValue(SHAPE, StoveShape.STOVE_LIT);
-                    stack = new ItemStack(BlockRegistration.IRON_POT_BLOCK_ITEM.get(), 1);
-                }
-                case STOVE_AND_POT_UNLIT -> {
-                    newState = state.setValue(SHAPE, StoveShape.STOVE_UNLIT);
-                    stack = new ItemStack(BlockRegistration.IRON_POT_BLOCK_ITEM.get(), 1);
-                }
-                case STOVE_LIT, STOVE_UNLIT -> stack = new ItemStack(BlockRegistration.STOVE_BLOCK_ITEM.get(), 1);
+        BlockState newState = Blocks.AIR.defaultBlockState();
+        SimpleContainer inventory = new SimpleContainer(1);
+        ItemStack stack = ItemStack.EMPTY;
+        switch (state.getValue(SHAPE)) {
+            case STOVE_AND_POT_LIT -> {
+                newState = state.setValue(SHAPE, StoveShape.STOVE_LIT);
+                stack = new ItemStack(BlockRegistration.IRON_POT_BLOCK_ITEM.get(), 1);
             }
+            case STOVE_AND_POT_UNLIT -> {
+                newState = state.setValue(SHAPE, StoveShape.STOVE_UNLIT);
+                stack = new ItemStack(BlockRegistration.IRON_POT_BLOCK_ITEM.get(), 1);
+            }
+        }
+        if (!level.isClientSide) {
             inventory.setItem(0, stack);
             Containers.dropContents(level, pos, inventory);
-            level.setBlockAndUpdate(pos, newState);
         }
+        level.setBlockAndUpdate(pos, newState);
         return state;
     }
     @Override
-    public void playerDestroy(@NotNull Level level, @NotNull Player player, @NotNull BlockPos pos, @NotNull BlockState state, @Nullable BlockEntity pBlockEntity, @NotNull ItemStack tool) {
-        player.awardStat(Stats.BLOCK_MINED.get(this));
-        player.causeFoodExhaustion(0.005F);
-    }
-    @Override
     public boolean onDestroyedByPlayer(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, boolean willHarvest, @NotNull FluidState fluid) {
-        this.playerWillDestroy(level,pos,state,player);
         return false;
     }
 

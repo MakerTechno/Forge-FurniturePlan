@@ -51,7 +51,7 @@ public enum TableShape implements ModelSR {
         ALL = Shapes.or(TOP, NE_C, ES_C, SW_C, WN_C);
     }
     @Override
-    public VoxelShape getOccModel(@NotNull BlockState state, BlockGetter level, BlockPos pos) {
+    public VoxelShape getOccModel(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
         int countState =
                 (level.getBlockState(pos.north()).is(BlockRegistration.TABLE_BLOCK) ? 1 : 0)
                         + (level.getBlockState(pos.east()).is(BlockRegistration.TABLE_BLOCK) ? 2 : 0)
@@ -70,7 +70,6 @@ public enum TableShape implements ModelSR {
             default -> TOP;
         };
     }
-
     @Override
     public @NotNull String getSerializedName() {
         return name;

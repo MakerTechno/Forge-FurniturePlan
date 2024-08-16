@@ -18,4 +18,7 @@ public interface ModelSR extends StringRepresentable {
     default ResourceLocation modLoc(String name){
         return ResourceLocation.fromNamespaceAndPath(FurniturePlan.MOD_ID, name);
     }
+    default ResourceLocation mcLoc(String name) {
+        return ResourceLocation.parse(name);
+    }
 }

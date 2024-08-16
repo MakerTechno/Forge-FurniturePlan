@@ -120,6 +120,7 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
     }
     @Override
     public boolean onDestroyedByPlayer(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, boolean willHarvest, @NotNull FluidState fluid) {
+        this.spawnDestroyParticles(level, player, pos, state);
         PlateShape shape =  state.isAir() ? null : state.getValue(SHAPE_DEF).getNext();
         BlockState newState = shape == null ? Blocks.AIR.defaultBlockState() : BlockRegistration.FOOD_PLATE_BLOCK.get().defaultBlockState().setValue(FACING, state.getValue(FACING)).setValue(SHAPE_DEF,shape);
         if (newState.isAir() || state.getValue(SHAPE_DEF).getNext() == newState.getValue(SHAPE_DEF)){
@@ -150,7 +151,7 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
     /**From {@link FaceAttachedHorizontalDirectionalBlock}*/
     @Override
     public boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader level, @NotNull BlockPos pos) {
-        return BaseSmallHallBasedBlock.canSurvive(level, pos);
+        return BaseSmallHallBasedBlock.needsDownsideSupport(level, pos);
     }
     public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return this.getOcclusionShape(state, getter, pos);

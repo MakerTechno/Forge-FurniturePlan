@@ -1,4 +1,4 @@
-// 1.21	2024-08-13T17:32:18.0149134	Loot Tables
+// 1.21	2024-08-15T21:39:53.4791732	Loot Tables
 05349ef1e2a30af79c00ce21e1822835778a1a14 data/furnitureplan/loot_table/blocks/acacia_carved_column.json
 85af16593ae75916ae63266c004cb0d16a161b70 data/furnitureplan/loot_table/blocks/acacia_chair.json
 820e93cad1659e1a04a359559a2e27c0ae577603 data/furnitureplan/loot_table/blocks/acacia_column.json
@@ -103,6 +103,7 @@ b088ca6cad9539ad371063176451db0ed246d487 data/furnitureplan/loot_table/blocks/gr
 8a4f1eaeeba9aab10f430776572a7b1efcb1097b data/furnitureplan/loot_table/blocks/granite_column.json
 10ca74ae47e3f3c0dd0c8420a3b2984fcdf2389c data/furnitureplan/loot_table/blocks/granite_lighted_column.json
 f572b5fd600640c94c40745c9d705beb885e6fab data/furnitureplan/loot_table/blocks/granite_table.json
+23f1da129f9129a05fd3b9009c180923c516bbbb data/furnitureplan/loot_table/blocks/grass_grass.json
 3e71f771895df4f0b2e2328e583f4c856a0679a3 data/furnitureplan/loot_table/blocks/iron_pot_block.json
 56c34c701e8aed9dbd3edb0f0f271cbe47434e0a data/furnitureplan/loot_table/blocks/jungle_carved_column.json
 f52d9aec1e94d1653a9a41ae21f137ffbad2fb92 data/furnitureplan/loot_table/blocks/jungle_chair.json
@@ -246,6 +247,7 @@ bf762182ccf531e18dbad4a3b60cd9dcdba641df data/furnitureplan/loot_table/blocks/st
 600ce89e472ba8d5e9ab4d00548feee796542261 data/furnitureplan/loot_table/blocks/stone_lighted_column.json
 d7f50ee95c8dc48cca668dbdedb505005b483f90 data/furnitureplan/loot_table/blocks/stone_table.json
 2830a5012f0f7915d3c269ec902566fd5918283b data/furnitureplan/loot_table/blocks/stove_block.json
+7787a34045186905f89f121e5edb4d69491feedf data/furnitureplan/loot_table/blocks/table_lamp.json
 743118e27750dba1272505cc487b01d10df7a982 data/furnitureplan/loot_table/blocks/tuff_brick_carved_column.json
 b311d1f3604c8e943a8e6f1b2bafc1147c8fb166 data/furnitureplan/loot_table/blocks/tuff_brick_chair.json
 2759c0f342ff1f347bb6adff42f081c824baed17 data/furnitureplan/loot_table/blocks/tuff_brick_column.json
