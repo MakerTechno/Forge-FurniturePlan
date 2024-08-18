@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/lighted_column_full",
+  "textures": {
+    "particle": "minecraft:block/andesite"
+  }
+}

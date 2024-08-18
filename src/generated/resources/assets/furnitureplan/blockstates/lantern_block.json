@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "lit=false,waterlogged=false": {
+      "model": "furnitureplan:block/lantern_block"
+    },
+    "lit=false,waterlogged=true": {
+      "model": "furnitureplan:block/lantern_block"
+    },
+    "lit=true,waterlogged=false": {
+      "model": "furnitureplan:block/lantern_block"
+    },
+    "lit=true,waterlogged=true": {
+      "model": "furnitureplan:block/lantern_block"
+    }
+  }
+}

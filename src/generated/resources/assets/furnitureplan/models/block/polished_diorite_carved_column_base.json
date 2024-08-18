@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/carved_column_base",
+  "textures": {
+    "particle": "minecraft:block/polished_diorite"
+  }
+}
