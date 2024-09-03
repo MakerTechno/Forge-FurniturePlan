@@ -35,6 +35,7 @@ public class CreativeModeTabRegistration {
             event.accept(BlockRegistration.TABLE_LAMP_ITEM.get());
             event.accept(ItemRegistration.DETRITUS.get());
             event.accept(ItemRegistration.SAWDUST.get());
+            initKindItem(event, FoldingRegistration.getPotHolderItemList());
             initKindItem(event, FoldingRegistration.getChairItemLists());
             initKindItem(event, FoldingRegistration.getTableItemLists());
             initKindItem(event, FoldingRegistration.getColumnItemLists());

@@ -51,11 +51,11 @@ public class Graver extends Item {
 
         public List<DeferredHolder<Block, ? extends Block>> getList(){
             return switch (this){
-                case CHAIR -> FoldingRegistration.getChairBlockLists();
-                case TABLE -> FoldingRegistration.getTableBlockLists();
-                case COLUMN -> FoldingRegistration.getColumnBlockLists();
-                case CARVED_COLUMN -> FoldingRegistration.getCarvedColumnBlockLists();
-                case LIGHTED_COLUMN -> FoldingRegistration.getLightedColumnBlockLists();
+                case CHAIR -> FoldingRegistration.getChairBlockList();
+                case TABLE -> FoldingRegistration.getTableBlockList();
+                case COLUMN -> FoldingRegistration.getColumnBlockList();
+                case CARVED_COLUMN -> FoldingRegistration.getCarvedColumnBlockList();
+                case LIGHTED_COLUMN -> FoldingRegistration.getLightedColumnBlockList();
             };
         }
     }

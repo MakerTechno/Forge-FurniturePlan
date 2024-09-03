@@ -25,7 +25,7 @@ public class ModEnglishLanguageProvider extends LanguageProvider {
         add("msg.furnitureplan.sit", "Something wrong happened, it's the reason why you can't sit on this block.");
         add("tip.furnitureplan.shiftdown", "Press SHIFT for more info.");
         add("tip.furnitureplan.click", "Right click air to switch carve kinds.");
-        add("tip.furnitureplan.graver", "This graver can grave some of the blocks to mod's block.\nActually, the kinds of block it can grave is just the kind of blocks which could be used to make stairs.");
+        add("tip.furnitureplan.graver", "This graver can grave some of the state1 to mod's block.\nActually, the kinds of block it can grave is just the kind of state1 which could be used to make stairs.");
         add("tip.furnitureplan.graver.kind", "Kind: ");
         for (Graver.GraveKind kind : Graver.GraveKind.values()) {
             add("tip.furnitureplan.graver.kind." + kind.name().toLowerCase(Locale.ROOT), kind.name().toLowerCase(Locale.ROOT));
@@ -33,11 +33,11 @@ public class ModEnglishLanguageProvider extends LanguageProvider {
         add(ItemRegistration.DETRITUS.get(), "Detritus");
         add(ItemRegistration.SAWDUST.get(), "Sawdust");
         add(ItemRegistration.GRAVER.get(), "Furniture plan-graver");
-        transformKinds(FoldingRegistration.getChairBlockLists());
-        transformKinds(FoldingRegistration.getTableBlockLists());
-        transformKinds(FoldingRegistration.getColumnBlockLists());
-        transformKinds(FoldingRegistration.getCarvedColumnBlockLists());
-        transformKinds(FoldingRegistration.getLightedColumnBlockLists());
+        transformKinds(FoldingRegistration.getChairBlockList());
+        transformKinds(FoldingRegistration.getTableBlockList());
+        transformKinds(FoldingRegistration.getColumnBlockList());
+        transformKinds(FoldingRegistration.getCarvedColumnBlockList());
+        transformKinds(FoldingRegistration.getLightedColumnBlockList());
 
         add(BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get(), "Food plate");
         add(BlockRegistration.GLASS_B_BLOCK_ITEM.get(), "Glass bottle");
@@ -54,6 +54,7 @@ public class ModEnglishLanguageProvider extends LanguageProvider {
         add("advancements.furniture.grassit.title", "It's worth it a grass");
         add("advancements.furniture.grassit.description", "Try to eat a grass(furnitureplan)");
         add("furnitureplan.networking.failed", "Failed to sync data.");
+        transformKinds(FoldingRegistration.getPotHolderBlockList());
     }
 
     public void transformKinds(@NotNull List<DeferredHolder<Block, ? extends Block>> list) {

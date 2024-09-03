@@ -623,7 +623,46 @@ public class FoldingRegistration {
         LIGHTED_COLUMN_ITEM_SETS.add(LightedColumnBlockRegistration.TUFF_BRICK_LIGHTED_COLUMN_ITEM);
     }
 
-    public static List<DeferredHolder<Block, ? extends Block>> getChairBlockLists() {
+    private static final List<DeferredHolder<Block, ? extends Block>> POT_HOLDER_BLOCK_LIST = new ArrayList<>();
+    static {
+        POT_HOLDER_BLOCK_LIST.add(PotHolderBlockRegistration.BLACK_POT_HOLDER_BLOCK);
+        POT_HOLDER_BLOCK_LIST.add(PotHolderBlockRegistration.BLUE_POT_HOLDER_BLOCK);
+        POT_HOLDER_BLOCK_LIST.add(PotHolderBlockRegistration.BROWN_POT_HOLDER_BLOCK);
+        POT_HOLDER_BLOCK_LIST.add(PotHolderBlockRegistration.CYAN_POT_HOLDER_BLOCK);
+        POT_HOLDER_BLOCK_LIST.add(PotHolderBlockRegistration.GRAY_POT_HOLDER_BLOCK);
+        POT_HOLDER_BLOCK_LIST.add(PotHolderBlockRegistration.GREEN_POT_HOLDER_BLOCK);
+        POT_HOLDER_BLOCK_LIST.add(PotHolderBlockRegistration.LIGHT_BLUE_POT_HOLDER_BLOCK);
+        POT_HOLDER_BLOCK_LIST.add(PotHolderBlockRegistration.LIGHT_GRAY_POT_HOLDER_BLOCK);
+        POT_HOLDER_BLOCK_LIST.add(PotHolderBlockRegistration.LIME_POT_HOLDER_BLOCK);
+        POT_HOLDER_BLOCK_LIST.add(PotHolderBlockRegistration.MAGENTA_POT_HOLDER_BLOCK);
+        POT_HOLDER_BLOCK_LIST.add(PotHolderBlockRegistration.ORANGE_POT_HOLDER_BLOCK);
+        POT_HOLDER_BLOCK_LIST.add(PotHolderBlockRegistration.PINK_POT_HOLDER_BLOCK);
+        POT_HOLDER_BLOCK_LIST.add(PotHolderBlockRegistration.PURPLE_POT_HOLDER_BLOCK);
+        POT_HOLDER_BLOCK_LIST.add(PotHolderBlockRegistration.RED_POT_HOLDER_BLOCK);
+        POT_HOLDER_BLOCK_LIST.add(PotHolderBlockRegistration.YELLOW_POT_HOLDER_BLOCK);
+        POT_HOLDER_BLOCK_LIST.add(PotHolderBlockRegistration.WHITE_POT_HOLDER_BLOCK);
+    }
+    private static final List<DeferredHolder<Item, ? extends Item>> POT_HOLDER_ITEM_LIST = new ArrayList<>();
+    static {
+        POT_HOLDER_ITEM_LIST.add(PotHolderBlockRegistration.BLACK_POT_HOLDER_BLOCK_ITEM);
+        POT_HOLDER_ITEM_LIST.add(PotHolderBlockRegistration.BLUE_POT_HOLDER_BLOCK_ITEM);
+        POT_HOLDER_ITEM_LIST.add(PotHolderBlockRegistration.BROWN_POT_HOLDER_BLOCK_ITEM);
+        POT_HOLDER_ITEM_LIST.add(PotHolderBlockRegistration.CYAN_POT_HOLDER_BLOCK_ITEM);
+        POT_HOLDER_ITEM_LIST.add(PotHolderBlockRegistration.GRAY_POT_HOLDER_BLOCK_ITEM);
+        POT_HOLDER_ITEM_LIST.add(PotHolderBlockRegistration.GREEN_POT_HOLDER_BLOCK_ITEM);
+        POT_HOLDER_ITEM_LIST.add(PotHolderBlockRegistration.LIGHT_BLUE_POT_HOLDER_BLOCK_ITEM);
+        POT_HOLDER_ITEM_LIST.add(PotHolderBlockRegistration.LIGHT_GRAY_POT_HOLDER_BLOCK_ITEM);
+        POT_HOLDER_ITEM_LIST.add(PotHolderBlockRegistration.LIME_POT_HOLDER_BLOCK_ITEM);
+        POT_HOLDER_ITEM_LIST.add(PotHolderBlockRegistration.MAGENTA_POT_HOLDER_BLOCK_ITEM);
+        POT_HOLDER_ITEM_LIST.add(PotHolderBlockRegistration.ORANGE_POT_HOLDER_BLOCK_ITEM);
+        POT_HOLDER_ITEM_LIST.add(PotHolderBlockRegistration.PINK_POT_HOLDER_BLOCK_ITEM);
+        POT_HOLDER_ITEM_LIST.add(PotHolderBlockRegistration.PURPLE_POT_HOLDER_BLOCK_ITEM);
+        POT_HOLDER_ITEM_LIST.add(PotHolderBlockRegistration.RED_POT_HOLDER_BLOCK_ITEM);
+        POT_HOLDER_ITEM_LIST.add(PotHolderBlockRegistration.YELLOW_POT_HOLDER_BLOCK_ITEM);
+        POT_HOLDER_ITEM_LIST.add(PotHolderBlockRegistration.WHITE_POT_HOLDER_BLOCK_ITEM);
+
+    }
+    public static List<DeferredHolder<Block, ? extends Block>> getChairBlockList() {
         return CHAIR_BLOCK_SETS;
     }
 
@@ -631,7 +670,7 @@ public class FoldingRegistration {
         return CHAIR_ITEM_SETS;
     }
 
-    public static List<DeferredHolder<Block, ? extends Block>> getTableBlockLists() {
+    public static List<DeferredHolder<Block, ? extends Block>> getTableBlockList() {
         return TABLE_BLOCK_SETS;
     }
 
@@ -639,7 +678,7 @@ public class FoldingRegistration {
         return TABLE_ITEM_SETS;
     }
 
-    public static List<DeferredHolder<Block, ? extends Block>> getColumnBlockLists() {
+    public static List<DeferredHolder<Block, ? extends Block>> getColumnBlockList() {
         return COLUMN_BLOCK_SETS;
     }
 
@@ -647,20 +686,20 @@ public class FoldingRegistration {
         return COLUMN_ITEM_SETS;
     }
 
-    public static List<DeferredHolder<Block, ? extends Block>> getCarvedColumnBlockLists() {
+    public static List<DeferredHolder<Block, ? extends Block>> getCarvedColumnBlockList() {
         return CARVED_COLUMN_BLOCK_SETS;
     }
-
     public static List<DeferredHolder<Item, ? extends Item>> getCarvedColumnItemLists() {
         return CARVED_COLUMN_ITEM_SETS;
     }
-
-    public static List<DeferredHolder<Block, ? extends Block>> getLightedColumnBlockLists() {return LIGHTED_COLUMN_BLOCK_SETS;}
-
+    public static List<DeferredHolder<Block, ? extends Block>> getLightedColumnBlockList() {return LIGHTED_COLUMN_BLOCK_SETS;}
     public static List<DeferredHolder<Item, ? extends Item>> getLightedColumnItemLists() {
         return LIGHTED_COLUMN_ITEM_SETS;
     }
-
+    public static List<DeferredHolder<Block, ? extends Block>> getPotHolderBlockList() {return POT_HOLDER_BLOCK_LIST;}
+    public static List<DeferredHolder<Item, ? extends Item>> getPotHolderItemList() {
+        return POT_HOLDER_ITEM_LIST;
+    }
     private static final List<Block> PROPERTY_BLOCKS = new ArrayList<>();
     static {
         PROPERTY_BLOCKS.add(Blocks.OAK_PLANKS);
@@ -906,5 +945,23 @@ public class FoldingRegistration {
         "凝灰岩",
         "磨制凝灰岩",
         "凝灰岩砖"
+    };
+    public static final String[] COLOR_KIND_CHINESE_KEY = new String[]{
+        "黑",
+        "蓝",
+        "棕",
+        "青",
+        "灰",
+        "绿",
+        "淡蓝",
+        "淡灰",
+        "黄绿",
+        "品红",
+        "橙",
+        "粉",
+        "紫",
+        "红",
+        "黄",
+        "白",
     };
 }

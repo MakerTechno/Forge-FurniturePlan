@@ -37,11 +37,12 @@ class ModCustomBlockLootProvider extends BlockLootSubProvider {
     }
 
     protected void generate() {
-        this.addKindsProp(FoldingRegistration.getChairBlockLists());
-        this.addKindsProp(FoldingRegistration.getTableBlockLists());
-        this.addKindsProp(FoldingRegistration.getColumnBlockLists());
-        this.addKindsProp(FoldingRegistration.getCarvedColumnBlockLists());
-        this.addKindsProp(FoldingRegistration.getLightedColumnBlockLists());
+        this.addList(FoldingRegistration.getChairBlockList());
+        this.addList(FoldingRegistration.getTableBlockList());
+        this.addList(FoldingRegistration.getColumnBlockList());
+        this.addList(FoldingRegistration.getCarvedColumnBlockList());
+        this.addList(FoldingRegistration.getLightedColumnBlockList());
+        this.addList(FoldingRegistration.getPotHolderBlockList());
 
         add(BlockRegistration.FOOD_PLATE_BLOCK.get(), noDrop());
         add(BlockRegistration.GLASS_B_BLOCK.get(), noDrop());
@@ -59,8 +60,7 @@ class ModCustomBlockLootProvider extends BlockLootSubProvider {
         return Iterables.transform(BlockRegistration.BLOCKS.getEntries(), DeferredHolder::get);
     }
 
-    public void addKindsProp(@NotNull List<DeferredHolder<Block, ? extends Block>> list) {
-        assert list.size() <= FoldingRegistration.PROPERTY_KINDS.size();
+    public void addList(@NotNull List<DeferredHolder<Block, ? extends Block>> list) {
         for(DeferredHolder<Block, ? extends Block> ro : list) {
             dropSelf(ro.get());
         }

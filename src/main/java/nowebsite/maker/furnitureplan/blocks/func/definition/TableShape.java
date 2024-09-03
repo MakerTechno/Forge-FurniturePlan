@@ -1,13 +1,14 @@
 package nowebsite.maker.furnitureplan.blocks.func.definition;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.utils.ModelSR;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -52,22 +53,31 @@ public enum TableShape implements ModelSR {
     }
     @Override
     public VoxelShape getOccModel(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
-        int countState =
-                (level.getBlockState(pos.north()).is(BlockRegistration.TABLE_BLOCK) ? 1 : 0)
-                        + (level.getBlockState(pos.east()).is(BlockRegistration.TABLE_BLOCK) ? 2 : 0)
-                        + (level.getBlockState(pos.south()).is(BlockRegistration.TABLE_BLOCK) ? 4 : 0)
-                        + (level.getBlockState(pos.west()).is(BlockRegistration.TABLE_BLOCK) ? 8 : 0);
-        return switch (countState) {
-            case 0 -> ALL;
-            case 1 -> S_M;
-            case 2 -> W_M;
-            case 3 -> SW_M;
-            case 4 -> N_M;
-            case 6 -> WN_M;
-            case 8 -> E_M;
-            case 9 -> ES_M;
-            case 12 -> NE_M;
-            default -> TOP;
+        return switch (this) {
+            case FULL -> ALL;
+            case PANE -> TOP;
+            case SIDE -> switchSideOcc(state.getValue(HorizontalDirectionalBlock.FACING));
+            case SINGLE -> switchSingleOcc(state.getValue(HorizontalDirectionalBlock.FACING));
+        };
+    }
+    @Contract(pure = true)
+    private VoxelShape switchSideOcc(@NotNull Direction direction) {
+        return switch (direction) {
+            case NORTH -> N_M;
+            case EAST -> E_M;
+            case SOUTH -> S_M;
+            case WEST -> W_M;
+            default -> null;
+        };
+    }
+    @Contract(pure = true)
+    private VoxelShape switchSingleOcc(@NotNull Direction direction) {
+        return switch (direction) {
+            case NORTH -> NE_M;
+            case EAST -> ES_M;
+            case SOUTH -> SW_M;
+            case WEST -> WN_M;
+            default -> null;
         };
     }
     @Override

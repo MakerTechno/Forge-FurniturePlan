@@ -153,28 +153,25 @@ public enum ColumnShape implements ModelSR {
     }
     @Override
     public VoxelShape getOccModel(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos) {
-        int countState =
-                (getter.getBlockState(pos.below()).getBlock() instanceof ColumnBlock ? 1 : 0)
-                        + (getter.getBlockState(pos.above()).getBlock() instanceof ColumnBlock ? 2 : 0);
         if(state.getBlock() instanceof CarvedColumnBlock) {
-            return switch (countState){
-                case 1 -> CARVED_COLUMN_TOP;
-                case 2 -> CARVED_COLUMN_BASE;
-                case 3 -> CARVED_COLUMN_CONNECT;
+            return switch (this){
+                case TOP -> CARVED_COLUMN_TOP;
+                case BASE -> CARVED_COLUMN_BASE;
+                case CONNECT -> CARVED_COLUMN_CONNECT;
                 default -> CARVED_COLUMN_FULL;
             };
         } else if (state.getBlock() instanceof LightedColumnBlock) {
-            return switch (countState){
-                case 1 -> LIGHTED_COLUMN_TOP;
-                case 2 -> LIGHTED_COLUMN_BASE;
-                case 3 -> LIGHTED_COLUMN_CONNECT;
+            return switch (this){
+                case TOP -> LIGHTED_COLUMN_TOP;
+                case BASE -> LIGHTED_COLUMN_BASE;
+                case CONNECT -> LIGHTED_COLUMN_CONNECT;
                 default -> LIGHTED_COLUMN_FULL;
             };
         } else {
-            return switch (countState){
-                case 1 -> COLUMN_TOP;
-                case 2 -> COLUMN_BASE;
-                case 3 -> COLUMN_CONNECT;
+            return switch (this){
+                case TOP -> COLUMN_TOP;
+                case BASE -> COLUMN_BASE;
+                case CONNECT -> COLUMN_CONNECT;
                 default -> COLUMN_FULL;
             };
         }

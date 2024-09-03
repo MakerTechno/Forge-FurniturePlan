@@ -1,17 +1,20 @@
 package nowebsite.maker.furnitureplan.setup;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import nowebsite.maker.furnitureplan.FurniturePlan;
-import nowebsite.maker.furnitureplan.networks.CupboardPayloadHandler;
-import nowebsite.maker.furnitureplan.networks.CupboardSyncData;
-import nowebsite.maker.furnitureplan.networks.GraverPayloadHandler;
-import nowebsite.maker.furnitureplan.networks.GraverSyncData;
+import nowebsite.maker.furnitureplan.networks.*;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
+import nowebsite.maker.furnitureplan.registry.kindsblock.PotHolderBlockRegistration;
+import nowebsite.maker.furnitureplan.utils.Vec3Utils;
 import org.jetbrains.annotations.NotNull;
 
 @EventBusSubscriber(modid = FurniturePlan.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
@@ -43,6 +46,11 @@ public class SetupSideEvents {
             BlockRegistration.VASE_B_BLOCK_ENTITY.get(),
             (blockEntity, direction) -> blockEntity.getLazyItemHandler().get()
         );
+        event.registerBlockEntity(
+            Capabilities.ItemHandler.BLOCK,
+            PotHolderBlockRegistration.POT_HOLDER_BLOCK_ENTITY.get(),
+            (blockEntity, direction) -> blockEntity.getLazyItemHandler().get()
+        );
     }
     @SubscribeEvent
     public static void registerPayloads(final @NotNull RegisterPayloadHandlersEvent event) {
@@ -56,6 +64,11 @@ public class SetupSideEvents {
             GraverSyncData.TYPE,
             GraverSyncData.STREAM_CODEC,
             new GraverPayloadHandler()
+        );
+        registrar.playToClient(
+            PotHolderSyncData.TYPE,
+            PotHolderSyncData.STREAM_CODEC,
+            new PotHolderPayloadHandler()
         );
     }
 }

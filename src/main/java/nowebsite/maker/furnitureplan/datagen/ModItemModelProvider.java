@@ -1,11 +1,13 @@
 package nowebsite.maker.furnitureplan.datagen;
 
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import nowebsite.maker.furnitureplan.FurniturePlan;
+import nowebsite.maker.furnitureplan.blocks.func.IColorfulBlock;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.registry.FoldingRegistration;
 import nowebsite.maker.furnitureplan.registry.ItemRegistration;
@@ -65,6 +67,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent(BlockRegistration.VASE_B_BLOCK_ITEM.get().toString(), modLoc("block/vase"));
         withExistingParent(BlockRegistration.TABLE_LAMP_ITEM.get().toString(), modLoc("block/table_lamp_off"));
         withExistingParent(BlockRegistration.GRASS_GRASS_ITEM.get().toString(), modLoc("block/grass_grass"));
+
+        addWithColorsSingleModel(FoldingRegistration.getPotHolderItemList(), "pot_holder");
     }
 
     public void add(@NotNull List<DeferredHolder<Item, ? extends Item>> list) {
@@ -77,6 +81,18 @@ public class ModItemModelProvider extends ItemModelProvider {
         assert list.size() <= FoldingRegistration.PROPERTY_KINDS.size();
         for(DeferredHolder<Item, ? extends Item> ro : list) {
             withExistingParent(ro.get().toString(), modLoc("block/" + ro.getId().getPath() + "_" + specificName));
+        }
+    }
+    public void addWithColorsSingleModel(@NotNull List<DeferredHolder<Item, ? extends Item>> list, String specificName) {
+        assert list.size() <= IColorfulBlock.CONCRETE_TEXTURE_LIST.size();
+        for(int i = 0; i < list.size(); i++) {
+            DeferredHolder<Item, ? extends Item> ro = list.get(i);
+            singleTexture(
+                ro.get().toString(),
+                modLoc("item/" + specificName),
+                "particle",
+                IColorfulBlock.CONCRETE_TEXTURE_LIST.get(i)
+            );
         }
     }
 }

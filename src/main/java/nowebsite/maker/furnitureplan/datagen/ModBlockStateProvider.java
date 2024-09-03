@@ -170,13 +170,13 @@ public class ModBlockStateProvider extends BlockStateProvider {
         }
     }
 
-    public ResourceLocation key(Block b) {
+    public static ResourceLocation key(Block b) {
         return BuiltInRegistries.BLOCK.getKey(b);
     }
-    public String keyName(Block b){
+    public static String keyName(Block b){
         return key(b).toString();
     }
-    public String name(Block b) {return key(b).getPath();}
+    public static String name(Block b) {return key(b).getPath();}
     public ResourceLocation forVanillaVariety(@NotNull String registryName, String specificNameEnd){
         return mcLoc("block/" + FoldingRegistration.PROPERTY_KINDS.get(registryName.split("_"+specificNameEnd)[0].split(FurniturePlan.MOD_ID+":")[1]));
     }
@@ -191,15 +191,17 @@ public class ModBlockStateProvider extends BlockStateProvider {
             ? forVanillaVariety(registeredName, varietyBlock.getSpecificName())
             : block.fromVanilla()
             ? fromVanillaSource(block.textureName())
+            : block instanceof IColorfulBlock colorfulBlock
+            ? colorfulBlock.getConcreteTextureByID()
             : fromModSource(block.textureName());
     }
     @SuppressWarnings("unchecked")
-    public <T extends Comparable<T>> boolean hasProperties(@NotNull Block block) {
+    public static <T extends Comparable<T>> boolean hasProperties(@NotNull Block block) {
         return !block.defaultBlockState().getProperties().stream().map(property -> (Property<T>) property).toList().isEmpty();
     }
 
     @SuppressWarnings("unchecked")
-    public <T extends Comparable<T>, M extends Enum<M> & ModelSR> int doModelSRCheck(@NotNull List<Property<T>> propertyList, Block block) {
+    public static <T extends Comparable<T>, M extends Enum<M> & ModelSR> int doModelSRCheck(@NotNull List<Property<T>> propertyList, Block block) {
         int currentManagedProp = 0;
         for (int i = 0; i < propertyList.size(); i++){
             try {

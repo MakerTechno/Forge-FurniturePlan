@@ -49,6 +49,7 @@ public class BlockRegistration extends BRUtils{
         ColumnBlockRegistration.init();
         CarvedColumnBlockRegistration.init();
         LightedColumnBlockRegistration.init();
+        PotHolderBlockRegistration.init();
     }
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.createBlocks(FurniturePlan.MOD_ID);
@@ -64,6 +65,7 @@ public class BlockRegistration extends BRUtils{
     public static final TagKey<Block> CARVED_COLUMN_BLOCK = BlockTags.create(ResourceLocation.fromNamespaceAndPath("furnitureplan", "carved_column"));
 
     public static final TagKey<Block> LIGHTED_COLUMN_BLOCK = BlockTags.create(ResourceLocation.fromNamespaceAndPath("furnitureplan", "lighted_column"));
+    public static final TagKey<Block> POT_HOLDER_BLOCK = BlockTags.create(ResourceLocation.fromNamespaceAndPath("furnitureplan", "pot_holder"));
 
 
     /*For tableware*/
@@ -140,6 +142,9 @@ public class BlockRegistration extends BRUtils{
         )
     ));
 
+
+
+
     public static class BlockStateRegistration{
         public static void init(){}
 
@@ -148,5 +153,6 @@ public class BlockRegistration extends BRUtils{
         public static final EnumProperty<TableShape> TABLE_SHAPE = EnumProperty.create("shape", TableShape.class);
         public static final EnumProperty<ColumnShape> COLUMN_SHAPE = EnumProperty.create("shape", ColumnShape.class);
         public static final EnumProperty<TableLampShape> TABLE_LAMP_SHAPE = EnumProperty.create("shape", TableLampShape.class);
+        public static final EnumProperty<PotHolderPart> POT_HOLDER_PART = EnumProperty.create("part", PotHolderPart.class);
     }
 }

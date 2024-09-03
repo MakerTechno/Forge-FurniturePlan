@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:item/pot_holder",
+  "textures": {
+    "particle": "minecraft:block/blue_concrete"
+  }
+}

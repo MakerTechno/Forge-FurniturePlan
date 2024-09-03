@@ -24,14 +24,18 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
     }
 
     protected void addTags(HolderLookup.@NotNull Provider provider) {
-        addKindsByDefault(FoldingRegistration.getChairBlockLists(), BlockRegistration.CHAIR_BLOCK);
-        addKindsByDefault(FoldingRegistration.getTableBlockLists(), BlockRegistration.TABLE_BLOCK);
-        addKindsByDefault(FoldingRegistration.getColumnBlockLists(), BlockRegistration.COLUMN_BLOCK);
-        addKindsByDefault(FoldingRegistration.getCarvedColumnBlockLists(), BlockRegistration.CARVED_COLUMN_BLOCK);
-        addKindsByDefault(FoldingRegistration.getLightedColumnBlockLists(), BlockRegistration.LIGHTED_COLUMN_BLOCK);
+        addKindsByDefault(FoldingRegistration.getChairBlockList(), BlockRegistration.CHAIR_BLOCK);
+        addKindsByDefault(FoldingRegistration.getTableBlockList(), BlockRegistration.TABLE_BLOCK);
+        addKindsByDefault(FoldingRegistration.getColumnBlockList(), BlockRegistration.COLUMN_BLOCK);
+        addKindsByDefault(FoldingRegistration.getCarvedColumnBlockList(), BlockRegistration.CARVED_COLUMN_BLOCK);
+        addKindsByDefault(FoldingRegistration.getLightedColumnBlockList(), BlockRegistration.LIGHTED_COLUMN_BLOCK);
+
+        addKindsByDefault(FoldingRegistration.getPotHolderBlockList(), BlockRegistration.POT_HOLDER_BLOCK);
+        addKindsByDefault(FoldingRegistration.getPotHolderBlockList(), BlockTags.NEEDS_STONE_TOOL, BlockTags.MINEABLE_WITH_PICKAXE);
     }
 
-    public void addKindsByDefault(@NotNull List<DeferredHolder<Block, ? extends Block>> list, TagKey<Block> additionalTag) {
+    @SafeVarargs
+    public final void addKindsByDefault(@NotNull List<DeferredHolder<Block, ? extends Block>> list, TagKey<Block>... additionalTags) {
         assert list.size() <= FoldingRegistration.PROPERTY_KINDS.size();
         int count = 0;
         for(DeferredHolder<Block, ? extends Block> holder : list) {
@@ -39,7 +43,11 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
             if (holder.get() instanceof IWeatheringCopper) {
                 tag(BlockTags.NEEDS_STONE_TOOL).add(holder.get());
             }
-            if (additionalTag != null) tag(additionalTag).add(holder.get());
+            if (additionalTags != null) {
+                for (TagKey<Block> tagKey : additionalTags){
+                    tag(tagKey).add(holder.get());
+                }
+            }
             count++;
         }
     }

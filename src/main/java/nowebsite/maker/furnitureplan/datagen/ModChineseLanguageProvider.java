@@ -20,11 +20,11 @@ public class ModChineseLanguageProvider extends LanguageProvider {
     protected void addTranslations() {
         add("itemGroup.furniture", "家具计划");
         add("msg.furnitureplan.sit", "出现某些错误导致乘坐方块失败。");
-        transformKinds(FoldingRegistration.getChairBlockLists(), null, "椅");
-        transformKinds(FoldingRegistration.getTableBlockLists(), null, "桌");
-        transformKinds(FoldingRegistration.getColumnBlockLists(), null, "柱");
-        transformKinds(FoldingRegistration.getCarvedColumnBlockLists(), "雕刻", "柱");
-        transformKinds(FoldingRegistration.getLightedColumnBlockLists(), "嵌灯", "柱");
+        transformKinds(FoldingRegistration.getChairBlockList(), null, "椅");
+        transformKinds(FoldingRegistration.getTableBlockList(), null, "桌");
+        transformKinds(FoldingRegistration.getColumnBlockList(), null, "柱");
+        transformKinds(FoldingRegistration.getCarvedColumnBlockList(), "雕刻", "柱");
+        transformKinds(FoldingRegistration.getLightedColumnBlockList(), "嵌灯", "柱");
         add(ItemRegistration.DETRITUS.get(), "碎石屑");
         add(ItemRegistration.SAWDUST.get(), "木屑");
         add(ItemRegistration.GRAVER.get(), "家具计划-雕刻刀");
@@ -52,6 +52,7 @@ public class ModChineseLanguageProvider extends LanguageProvider {
         add("advancements.furniture.grassit.title", "令人眼前一黑的好活");
         add("advancements.furniture.grassit.description", "吃下一颗来自家具计划的草");
         add("furnitureplan.networking.failed", "在同步数据时发生错误。");
+        transformColors(FoldingRegistration.getPotHolderBlockList(), "色花架");
     }
 
     public void transformKinds(@NotNull List<DeferredHolder<Block, ? extends Block>> list, String transformHead, String transformEnd) {
@@ -59,8 +60,19 @@ public class ModChineseLanguageProvider extends LanguageProvider {
         int count = 0;
         for(DeferredHolder<Block, ? extends Block> ro : list) {
             add(
-                    ro.get(), (transformHead == null? "" : transformHead) +
+                ro.get(), (transformHead == null? "" : transformHead) +
                     FoldingRegistration.PROPERTY_KINDS_CHINESE_KEY[count] +
+                    (transformEnd == null? "" : transformEnd)
+            );
+            count++;
+        }
+    }
+    public void transformColors(@NotNull List<DeferredHolder<Block, ? extends Block>> list, String transformEnd) {
+        assert list.size() <= FoldingRegistration.COLOR_KIND_CHINESE_KEY.length;
+        int count = 0;
+        for(DeferredHolder<Block, ? extends Block> ro : list) {
+            add(
+                ro.get(), FoldingRegistration.COLOR_KIND_CHINESE_KEY[count] +
                     (transformEnd == null? "" : transformEnd)
             );
             count++;
