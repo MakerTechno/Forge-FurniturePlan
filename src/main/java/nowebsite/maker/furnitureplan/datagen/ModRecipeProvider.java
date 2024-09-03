@@ -14,10 +14,8 @@ import nowebsite.maker.furnitureplan.registry.ItemRegistration;
 import nowebsite.maker.furnitureplan.registry.kindsblock.PotHolderBlockRegistration;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-import java.util.stream.Collectors;
 
 public class ModRecipeProvider extends RecipeProvider {
     public ModRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
@@ -108,5 +106,4 @@ public class ModRecipeProvider extends RecipeProvider {
             .unlockedBy("has_iron_nugget", has(Items.IRON_NUGGET))
             .save(recipeOutput);
     }
-    // TODO: 2024/9/3 add plate, glass, pot holder, iron pot, stove recipes.
 }

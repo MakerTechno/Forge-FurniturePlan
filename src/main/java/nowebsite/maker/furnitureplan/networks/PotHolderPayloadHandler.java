@@ -1,9 +1,7 @@
 package nowebsite.maker.furnitureplan.networks;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderSet;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.neoforged.neoforge.network.handling.IPayloadHandler;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.PotHolderBlockEntity;

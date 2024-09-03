@@ -8,7 +8,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import nowebsite.maker.furnitureplan.blocks.columns.CarvedColumnBlock;
-import nowebsite.maker.furnitureplan.blocks.columns.ColumnBlock;
 import nowebsite.maker.furnitureplan.blocks.columns.LightedColumnBlock;
 import nowebsite.maker.furnitureplan.utils.ModelSR;
 import org.jetbrains.annotations.Contract;

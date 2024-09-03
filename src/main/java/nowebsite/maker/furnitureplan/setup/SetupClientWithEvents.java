@@ -1,15 +1,11 @@
 package nowebsite.maker.furnitureplan.setup;
 
 import net.minecraft.client.renderer.entity.NoopRenderer;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
-import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.blocks.cookingUtensils.blockentities.renderers.IronPotBlockEntityRenderer;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.renderer.CupboardEntityRenderer;
@@ -22,7 +18,6 @@ import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.registry.EntityRegistration;
 import nowebsite.maker.furnitureplan.registry.GUIRegistration;
 import nowebsite.maker.furnitureplan.registry.kindsblock.PotHolderBlockRegistration;
-import nowebsite.maker.furnitureplan.utils.Vec3Utils;
 import org.jetbrains.annotations.NotNull;
 
 /*

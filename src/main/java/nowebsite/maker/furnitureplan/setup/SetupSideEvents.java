@@ -1,20 +1,15 @@
 package nowebsite.maker.furnitureplan.setup;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
-import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.networks.*;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.registry.kindsblock.PotHolderBlockRegistration;
-import nowebsite.maker.furnitureplan.utils.Vec3Utils;
 import org.jetbrains.annotations.NotNull;
 
 @EventBusSubscriber(modid = FurniturePlan.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
