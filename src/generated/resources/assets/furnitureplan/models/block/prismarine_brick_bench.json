@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/bench",
+  "textures": {
+    "particle": "minecraft:block/prismarine_bricks"
+  }
+}

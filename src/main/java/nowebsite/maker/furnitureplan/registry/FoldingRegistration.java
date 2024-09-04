@@ -662,11 +662,133 @@ public class FoldingRegistration {
         POT_HOLDER_ITEM_LIST.add(PotHolderBlockRegistration.WHITE_POT_HOLDER_BLOCK_ITEM);
 
     }
+
+    private static final List<DeferredHolder<Block, ? extends Block>> BENCH_BLOCK_SETS =
+        new ArrayList<>(List.of(BenchBlockRegistration.OAK_BENCH));
+    static {
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.COBBLESTONE_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.BRICK_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.STONE_BRICK_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.MUD_BRICK_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.NETHER_BRICK_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.SANDSTONE_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.SPRUCE_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.BIRCH_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.JUNGLE_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.QUARTZ_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.ACACIA_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.CHERRY_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.DARK_OAK_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.MANGROVE_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.BAMBOO_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.BAMBOO_MOSAIC_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.PRISMARINE_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.PRISMARINE_BRICK_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.DARK_PRISMARINE_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.RED_SANDSTONE_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.PURPUR_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.POLISHED_GRANITE_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.SMOOTH_RED_SANDSTONE_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.MOSSY_STONE_BRICK_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.POLISHED_DIORITE_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.MOSSY_COBBLESTONE_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.END_STONE_BRICK_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.STONE_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.SMOOTH_SANDSTONE_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.SMOOTH_QUARTZ_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.GRANITE_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.ANDESITE_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.RED_NETHER_BRICK_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.POLISHED_ANDESITE_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.DIORITE_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.CRIMSON_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.WARPED_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.BLACKSTONE_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.POLISHED_BLACKSTONE_BRICK_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.POLISHED_BLACKSTONE_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.OXIDIZED_CUT_COPPER_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.WEATHERED_CUT_COPPER_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.EXPOSED_CUT_COPPER_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.CUT_COPPER_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.WAXED_OXIDIZED_CUT_COPPER_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.WAXED_WEATHERED_CUT_COPPER_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.WAXED_EXPOSED_CUT_COPPER_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.WAXED_CUT_COPPER_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.COBBLED_DEEPSLATE_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.POLISHED_DEEPSLATE_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.DEEPSLATE_TILE_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.DEEPSLATE_BRICK_BENCH);
+
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.TUFF_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.POLISHED_TUFF_BENCH);
+        BENCH_BLOCK_SETS.add(BenchBlockRegistration.TUFF_BRICK_BENCH);
+    }
+
+    private static final List<DeferredHolder<Item, ? extends Item>> BENCH_ITEM_SETS =
+        new ArrayList<>(List.of(BenchBlockRegistration.OAK_BENCH_ITEM));
+    static {
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.COBBLESTONE_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.BRICK_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.STONE_BRICK_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.MUD_BRICK_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.NETHER_BRICK_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.SANDSTONE_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.SPRUCE_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.BIRCH_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.JUNGLE_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.QUARTZ_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.ACACIA_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.CHERRY_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.DARK_OAK_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.MANGROVE_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.BAMBOO_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.BAMBOO_MOSAIC_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.PRISMARINE_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.PRISMARINE_BRICK_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.DARK_PRISMARINE_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.RED_SANDSTONE_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.PURPUR_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.POLISHED_GRANITE_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.SMOOTH_RED_SANDSTONE_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.MOSSY_STONE_BRICK_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.POLISHED_DIORITE_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.MOSSY_COBBLESTONE_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.END_STONE_BRICK_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.STONE_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.SMOOTH_SANDSTONE_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.SMOOTH_QUARTZ_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.GRANITE_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.ANDESITE_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.RED_NETHER_BRICK_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.POLISHED_ANDESITE_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.DIORITE_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.CRIMSON_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.WARPED_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.BLACKSTONE_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.POLISHED_BLACKSTONE_BRICK_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.POLISHED_BLACKSTONE_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.OXIDIZED_CUT_COPPER_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.WEATHERED_CUT_COPPER_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.EXPOSED_CUT_COPPER_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.CUT_COPPER_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.WAXED_OXIDIZED_CUT_COPPER_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.WAXED_WEATHERED_CUT_COPPER_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.WAXED_EXPOSED_CUT_COPPER_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.WAXED_CUT_COPPER_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.COBBLED_DEEPSLATE_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.POLISHED_DEEPSLATE_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.DEEPSLATE_TILE_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.DEEPSLATE_BRICK_BENCH_ITEM);
+
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.TUFF_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.POLISHED_TUFF_BENCH_ITEM);
+        BENCH_ITEM_SETS.add(BenchBlockRegistration.TUFF_BRICK_BENCH_ITEM);
+    }
     public static List<DeferredHolder<Block, ? extends Block>> getChairBlockList() {
         return CHAIR_BLOCK_SETS;
     }
 
-    public static List<DeferredHolder<Item, ? extends Item>> getChairItemLists() {
+    public static List<DeferredHolder<Item, ? extends Item>> getChairItemList() {
         return CHAIR_ITEM_SETS;
     }
 
@@ -674,7 +796,7 @@ public class FoldingRegistration {
         return TABLE_BLOCK_SETS;
     }
 
-    public static List<DeferredHolder<Item, ? extends Item>> getTableItemLists() {
+    public static List<DeferredHolder<Item, ? extends Item>> getTableItemList() {
         return TABLE_ITEM_SETS;
     }
 
@@ -682,24 +804,33 @@ public class FoldingRegistration {
         return COLUMN_BLOCK_SETS;
     }
 
-    public static List<DeferredHolder<Item, ? extends Item>> getColumnItemLists() {
+    public static List<DeferredHolder<Item, ? extends Item>> getColumnItemList() {
         return COLUMN_ITEM_SETS;
     }
 
     public static List<DeferredHolder<Block, ? extends Block>> getCarvedColumnBlockList() {
         return CARVED_COLUMN_BLOCK_SETS;
     }
-    public static List<DeferredHolder<Item, ? extends Item>> getCarvedColumnItemLists() {
+    public static List<DeferredHolder<Item, ? extends Item>> getCarvedColumnItemList() {
         return CARVED_COLUMN_ITEM_SETS;
     }
     public static List<DeferredHolder<Block, ? extends Block>> getLightedColumnBlockList() {return LIGHTED_COLUMN_BLOCK_SETS;}
-    public static List<DeferredHolder<Item, ? extends Item>> getLightedColumnItemLists() {
+    public static List<DeferredHolder<Item, ? extends Item>> getLightedColumnItemList() {
         return LIGHTED_COLUMN_ITEM_SETS;
     }
     public static List<DeferredHolder<Block, ? extends Block>> getPotHolderBlockList() {return POT_HOLDER_BLOCK_LIST;}
     public static List<DeferredHolder<Item, ? extends Item>> getPotHolderItemList() {
         return POT_HOLDER_ITEM_LIST;
     }
+
+    public static List<DeferredHolder<Block, ? extends Block>> getBenchBlockList() {
+        return BENCH_BLOCK_SETS;
+    }
+
+    public static List<DeferredHolder<Item, ? extends Item>> getBenchItemList() {
+        return BENCH_ITEM_SETS;
+    }
+
     private static final List<Block> PROPERTY_BLOCKS = new ArrayList<>();
     static {
         PROPERTY_BLOCKS.add(Blocks.OAK_PLANKS);

@@ -29,6 +29,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         addKindsByDefault(FoldingRegistration.getColumnBlockList(), BlockRegistration.COLUMN_BLOCK);
         addKindsByDefault(FoldingRegistration.getCarvedColumnBlockList(), BlockRegistration.CARVED_COLUMN_BLOCK);
         addKindsByDefault(FoldingRegistration.getLightedColumnBlockList(), BlockRegistration.LIGHTED_COLUMN_BLOCK);
+        addKindsByDefault(FoldingRegistration.getBenchBlockList(), BlockRegistration.BENCH_BLOCK);
 
         addKindsByDefault(FoldingRegistration.getPotHolderBlockList(), BlockRegistration.POT_HOLDER_BLOCK);
         addKindsByDefault(FoldingRegistration.getPotHolderBlockList(), BlockTags.NEEDS_STONE_TOOL, BlockTags.MINEABLE_WITH_PICKAXE);

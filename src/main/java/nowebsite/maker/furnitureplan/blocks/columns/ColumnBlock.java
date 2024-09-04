@@ -40,7 +40,7 @@ public class ColumnBlock extends BasePropertyBlock<ColumnBlock> {
 
     @Override
     protected BasePropertyBlock<ColumnBlock> getSelfNew(BlockState baseState, Properties properties) {
-        return null;
+        return new ColumnBlock(baseState, properties);
     }
 
     @Override
@@ -55,7 +55,8 @@ public class ColumnBlock extends BasePropertyBlock<ColumnBlock> {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(WATERLOGGED, SHAPE);
+        super.createBlockStateDefinition(pBuilder);
+        pBuilder.add(SHAPE);
     }
 
 }

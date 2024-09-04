@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.BlockEntityType.Builder;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.neoforged.neoforge.registries.DeferredHolder;
-import nowebsite.maker.furnitureplan.blocks.columns.WeatheredCopperChair;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.WeatheredCopperChair;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.ChairBlock;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.ChairBlockEntity;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
@@ -180,17 +180,15 @@ public class ChairBlockRegistration {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ChairBlockEntity>> POLISHED_DEEPSLATE_CHAIR_ENTITY = BlockRegistration.BLOCK_ENTITY.register("polished_deepslate_chair", () -> Builder.of((pos, state) -> new ChairBlockEntity(ChairBlockRegistration.POLISHED_DEEPSLATE_CHAIR_ENTITY, pos, state), POLISHED_DEEPSLATE_CHAIR.get()).build(DSL.remainderType()));
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ChairBlockEntity>> DEEPSLATE_TILE_CHAIR_ENTITY = BlockRegistration.BLOCK_ENTITY.register("deepslate_tile_chair", () -> Builder.of((pos, state) -> new ChairBlockEntity(ChairBlockRegistration.DEEPSLATE_TILE_CHAIR_ENTITY, pos, state), DEEPSLATE_TILE_CHAIR.get()).build(DSL.remainderType()));
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ChairBlockEntity>> DEEPSLATE_BRICK_CHAIR_ENTITY = BlockRegistration.BLOCK_ENTITY.register("deepslate_brick_chair", () -> Builder.of((pos, state) -> new ChairBlockEntity(ChairBlockRegistration.DEEPSLATE_BRICK_CHAIR_ENTITY, pos, state), DEEPSLATE_BRICK_CHAIR.get()).build(DSL.remainderType()));
-
-
     public static final DeferredHolder<Block, ChairBlock> TUFF_CHAIR = BlockRegistration.BLOCKS.register("tuff_chair", () -> usageChairBlock(ChairBlockRegistration.TUFF_CHAIR_ENTITY, Blocks.TUFF));
     public static final DeferredHolder<Block, ChairBlock> POLISHED_TUFF_CHAIR = BlockRegistration.BLOCKS.register("polished_tuff_chair", () -> usageChairBlock(ChairBlockRegistration.POLISHED_TUFF_CHAIR_ENTITY, Blocks.POLISHED_TUFF));
     public static final DeferredHolder<Block, ChairBlock> TUFF_BRICK_CHAIR = BlockRegistration.BLOCKS.register("tuff_brick_chair", () -> usageChairBlock(ChairBlockRegistration.TUFF_BRICK_CHAIR_ENTITY, Blocks.TUFF_BRICKS));
     public static final DeferredHolder<Item, BlockItem> TUFF_CHAIR_ITEM = ItemRegistration.ITEMS.register("tuff_chair", () -> new BlockItem(TUFF_CHAIR.get(), new Item.Properties()));
     public static final DeferredHolder<Item, BlockItem> POLISHED_TUFF_CHAIR_ITEM = ItemRegistration.ITEMS.register("polished_tuff_chair", () -> new BlockItem(POLISHED_TUFF_CHAIR.get(), new Item.Properties()));
     public static final DeferredHolder<Item, BlockItem> TUFF_BRICK_CHAIR_ITEM = ItemRegistration.ITEMS.register("tuff_brick_chair", () -> new BlockItem(TUFF_BRICK_CHAIR.get(), new Item.Properties()));
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ChairBlockEntity>> TUFF_CHAIR_ENTITY = BlockRegistration.BLOCK_ENTITY.register("tuff_chair", () -> Builder.of((pos, state) -> new ChairBlockEntity(ChairBlockRegistration.TUFF_CHAIR_ENTITY, pos, state), POLISHED_DEEPSLATE_CHAIR.get()).build(DSL.remainderType()));
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ChairBlockEntity>> POLISHED_TUFF_CHAIR_ENTITY = BlockRegistration.BLOCK_ENTITY.register("polished_tuff_chair", () -> Builder.of((pos, state) -> new ChairBlockEntity(ChairBlockRegistration.POLISHED_TUFF_CHAIR_ENTITY, pos, state), DEEPSLATE_TILE_CHAIR.get()).build(DSL.remainderType()));
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ChairBlockEntity>> TUFF_BRICK_CHAIR_ENTITY = BlockRegistration.BLOCK_ENTITY.register("tuff_brick_chair", () -> Builder.of((pos, state) -> new ChairBlockEntity(ChairBlockRegistration.TUFF_BRICK_CHAIR_ENTITY, pos, state), DEEPSLATE_BRICK_CHAIR.get()).build(DSL.remainderType()));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ChairBlockEntity>> TUFF_CHAIR_ENTITY = BlockRegistration.BLOCK_ENTITY.register("tuff_chair", () -> Builder.of((pos, state) -> new ChairBlockEntity(ChairBlockRegistration.TUFF_CHAIR_ENTITY, pos, state), TUFF_CHAIR.get()).build(DSL.remainderType()));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ChairBlockEntity>> POLISHED_TUFF_CHAIR_ENTITY = BlockRegistration.BLOCK_ENTITY.register("polished_tuff_chair", () -> Builder.of((pos, state) -> new ChairBlockEntity(ChairBlockRegistration.POLISHED_TUFF_CHAIR_ENTITY, pos, state), POLISHED_TUFF_CHAIR.get()).build(DSL.remainderType()));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ChairBlockEntity>> TUFF_BRICK_CHAIR_ENTITY = BlockRegistration.BLOCK_ENTITY.register("tuff_brick_chair", () -> Builder.of((pos, state) -> new ChairBlockEntity(ChairBlockRegistration.TUFF_BRICK_CHAIR_ENTITY, pos, state), TUFF_BRICK_CHAIR.get()).build(DSL.remainderType()));
 
     @Contract("_, _ -> new")
     @SuppressWarnings("deprecation")

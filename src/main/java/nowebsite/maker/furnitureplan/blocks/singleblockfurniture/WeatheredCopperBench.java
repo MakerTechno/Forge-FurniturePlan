@@ -1,4 +1,4 @@
-package nowebsite.maker.furnitureplan.blocks.columns;
+package nowebsite.maker.furnitureplan.blocks.singleblockfurniture;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -7,17 +7,16 @@ import net.minecraft.world.level.block.ChangeOverTimeBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.registries.DeferredHolder;
-import nowebsite.maker.furnitureplan.blocks.func.BasePropertyHorizontalDirectionBlock;
+import nowebsite.maker.furnitureplan.blocks.func.BasePropertyBlock;
 import nowebsite.maker.furnitureplan.blocks.func.IWeatheringCopper;
-import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.ChairBlock;
-import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.ChairBlockEntity;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.BenchBlockEntity;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
-public class WeatheredCopperChair extends ChairBlock implements IWeatheringCopper {
+public class WeatheredCopperBench extends BenchBlock implements IWeatheringCopper {
     private final WeatherState weatherState;
-    public WeatheredCopperChair(DeferredHolder<BlockEntityType<?>, BlockEntityType<ChairBlockEntity>> type, @NotNull BlockState state, Properties properties, WeatherState weatherState) {
+    public WeatheredCopperBench(DeferredHolder<BlockEntityType<?>, BlockEntityType<BenchBlockEntity>> type, @NotNull BlockState state, Properties properties, WeatherState weatherState) {
         super(type, state, properties);
         this.weatherState = weatherState;
     }
@@ -77,7 +76,7 @@ public class WeatheredCopperChair extends ChairBlock implements IWeatheringCoppe
     }
 
     @Override
-    protected BasePropertyHorizontalDirectionBlock<ChairBlock> getSelfNew(BlockState baseState, Properties properties) {
-        return new WeatheredCopperChair(TYPE, baseState, properties, this.weatherState);
+    protected BasePropertyBlock<BenchBlock> getSelfNew(BlockState baseState, Properties properties) {
+        return new WeatheredCopperBench(TYPE, baseState, properties, this.weatherState);
     }
 }

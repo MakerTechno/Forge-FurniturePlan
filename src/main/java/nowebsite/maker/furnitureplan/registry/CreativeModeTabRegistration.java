@@ -36,11 +36,12 @@ public class CreativeModeTabRegistration {
             event.accept(ItemRegistration.DETRITUS.get());
             event.accept(ItemRegistration.SAWDUST.get());
             initKindItem(event, FoldingRegistration.getPotHolderItemList());
-            initKindItem(event, FoldingRegistration.getChairItemLists());
-            initKindItem(event, FoldingRegistration.getTableItemLists());
-            initKindItem(event, FoldingRegistration.getColumnItemLists());
-            initKindItem(event, FoldingRegistration.getCarvedColumnItemLists());
-            initKindItem(event, FoldingRegistration.getLightedColumnItemLists());
+            initKindItem(event, FoldingRegistration.getChairItemList());
+            initKindItem(event, FoldingRegistration.getTableItemList());
+            initKindItem(event, FoldingRegistration.getColumnItemList());
+            initKindItem(event, FoldingRegistration.getCarvedColumnItemList());
+            initKindItem(event, FoldingRegistration.getLightedColumnItemList());
+            initKindItem(event, FoldingRegistration.getBenchItemList());
             //event.accept(BlockRegistration.VASE_B_BLOCK_ITEM.get());
         }
     }

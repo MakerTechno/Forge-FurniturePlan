@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "waterlogged=false": {
+      "model": "furnitureplan:block/mossy_cobblestone_bench"
+    },
+    "waterlogged=true": {
+      "model": "furnitureplan:block/mossy_cobblestone_bench"
+    }
+  }
+}

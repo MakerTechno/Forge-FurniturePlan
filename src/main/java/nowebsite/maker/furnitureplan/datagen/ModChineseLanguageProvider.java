@@ -33,6 +33,7 @@ public class ModChineseLanguageProvider extends LanguageProvider {
         add("tip.furnitureplan.graver", "这个雕刻刀可以将一些方块雕刻成模组物品\n实际上，可雕刻的方块种类和制作各种楼梯的方块种类一样多");
         add("tip.furnitureplan.graver.kind", "种类: ");
         add("tip.furnitureplan.graver.kind.chair", "椅子");
+        add("tip.furnitureplan.graver.kind.bench", "凳子");
         add("tip.furnitureplan.graver.kind.table", "桌子");
         add("tip.furnitureplan.graver.kind.column", "柱子");
         add("tip.furnitureplan.graver.kind.carved_column", "雕刻柱子");
@@ -53,6 +54,7 @@ public class ModChineseLanguageProvider extends LanguageProvider {
         add("advancements.furniture.grassit.description", "吃下一颗来自家具计划的草");
         add("furnitureplan.networking.failed", "在同步数据时发生错误。");
         transformColors(FoldingRegistration.getPotHolderBlockList(), "色花架");
+        transformKinds(FoldingRegistration.getBenchBlockList(), null, "凳");
     }
 
     public void transformKinds(@NotNull List<DeferredHolder<Block, ? extends Block>> list, String transformHead, String transformEnd) {

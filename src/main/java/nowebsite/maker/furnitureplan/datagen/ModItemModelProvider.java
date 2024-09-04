@@ -44,11 +44,11 @@ public class ModItemModelProvider extends ItemModelProvider {
                 "layer0",
                 modLoc("item/detritus")
         );
-        add(FoldingRegistration.getChairItemLists());
-        add(FoldingRegistration.getTableItemLists(), "full");
-        add(FoldingRegistration.getColumnItemLists(), "full");
-        add(FoldingRegistration.getCarvedColumnItemLists(), "full");
-        add(FoldingRegistration.getLightedColumnItemLists(), "full");
+        add(FoldingRegistration.getChairItemList());
+        add(FoldingRegistration.getTableItemList(), "full");
+        add(FoldingRegistration.getColumnItemList(), "full");
+        add(FoldingRegistration.getCarvedColumnItemList(), "full");
+        add(FoldingRegistration.getLightedColumnItemList(), "full");
 
         withExistingParent(BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get().toString(), modLoc("block/food_plate_block_plt"));
         withExistingParent(BlockRegistration.GLASS_B_BLOCK_ITEM.get().toString(), modLoc("block/glass_b_block"));
@@ -68,6 +68,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent(BlockRegistration.GRASS_GRASS_ITEM.get().toString(), modLoc("block/grass_grass"));
 
         addWithColorsSingleModel(FoldingRegistration.getPotHolderItemList(), "pot_holder");
+        add(FoldingRegistration.getBenchItemList());
     }
 
     public void add(@NotNull List<DeferredHolder<Item, ? extends Item>> list) {

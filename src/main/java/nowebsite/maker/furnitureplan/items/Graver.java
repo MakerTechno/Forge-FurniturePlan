@@ -40,6 +40,7 @@ import java.util.Objects;
 public class Graver extends Item {
     public enum GraveKind{
         CHAIR,
+        BENCH,
         TABLE,
         COLUMN,
         CARVED_COLUMN,
@@ -52,6 +53,7 @@ public class Graver extends Item {
         public List<DeferredHolder<Block, ? extends Block>> getList(){
             return switch (this){
                 case CHAIR -> FoldingRegistration.getChairBlockList();
+                case BENCH -> FoldingRegistration.getBenchBlockList();
                 case TABLE -> FoldingRegistration.getTableBlockList();
                 case COLUMN -> FoldingRegistration.getColumnBlockList();
                 case CARVED_COLUMN -> FoldingRegistration.getCarvedColumnBlockList();

@@ -50,22 +50,22 @@ public class BlockRegistration extends BRUtils{
         CarvedColumnBlockRegistration.init();
         LightedColumnBlockRegistration.init();
         PotHolderBlockRegistration.init();
+        BenchBlockRegistration.init();
     }
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.createBlocks(FurniturePlan.MOD_ID);
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, FurniturePlan.MOD_ID);
 
 
-    public static final TagKey<Block> CHAIR_BLOCK = BlockTags.create(ResourceLocation.fromNamespaceAndPath("furnitureplan", "chair"));
+    public static final TagKey<Block> CHAIR_BLOCK = BlockTags.create(ResourceLocation.fromNamespaceAndPath(FurniturePlan.MOD_ID, "chair"));
+    public static final TagKey<Block> TABLE_BLOCK = BlockTags.create(ResourceLocation.fromNamespaceAndPath(FurniturePlan.MOD_ID, "table"));
+    public static final TagKey<Block> COLUMN_BLOCK = BlockTags.create(ResourceLocation.fromNamespaceAndPath(FurniturePlan.MOD_ID, "column"));
 
-    public static final TagKey<Block> TABLE_BLOCK = BlockTags.create(ResourceLocation.fromNamespaceAndPath("furnitureplan", "table"));
+    public static final TagKey<Block> CARVED_COLUMN_BLOCK = BlockTags.create(ResourceLocation.fromNamespaceAndPath(FurniturePlan.MOD_ID, "carved_column"));
 
-    public static final TagKey<Block> COLUMN_BLOCK = BlockTags.create(ResourceLocation.fromNamespaceAndPath("furnitureplan", "column"));
-
-    public static final TagKey<Block> CARVED_COLUMN_BLOCK = BlockTags.create(ResourceLocation.fromNamespaceAndPath("furnitureplan", "carved_column"));
-
-    public static final TagKey<Block> LIGHTED_COLUMN_BLOCK = BlockTags.create(ResourceLocation.fromNamespaceAndPath("furnitureplan", "lighted_column"));
-    public static final TagKey<Block> POT_HOLDER_BLOCK = BlockTags.create(ResourceLocation.fromNamespaceAndPath("furnitureplan", "pot_holder"));
+    public static final TagKey<Block> LIGHTED_COLUMN_BLOCK = BlockTags.create(ResourceLocation.fromNamespaceAndPath(FurniturePlan.MOD_ID, "lighted_column"));
+    public static final TagKey<Block> POT_HOLDER_BLOCK = BlockTags.create(ResourceLocation.fromNamespaceAndPath(FurniturePlan.MOD_ID, "pot_holder"));
+    public static final TagKey<Block> BENCH_BLOCK = BlockTags.create(ResourceLocation.fromNamespaceAndPath(FurniturePlan.MOD_ID, "bench"));
 
 
     /*For tableware*/

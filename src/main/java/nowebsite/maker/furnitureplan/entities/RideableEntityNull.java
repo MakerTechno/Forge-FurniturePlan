@@ -10,7 +10,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.neoforge.entity.IEntityWithComplexSpawn;
-import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.ChairBlockEntity;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.BaseSittableBE;
 import org.jetbrains.annotations.NotNull;
 
 public class RideableEntityNull extends VehicleEntity implements IEntityWithComplexSpawn {
@@ -36,7 +36,7 @@ public class RideableEntityNull extends VehicleEntity implements IEntityWithComp
     public void tick() {
         super.tick();
         BlockEntity blockEntity = level().getBlockEntity(blockEntityPos);
-        if (!(blockEntity instanceof ChairBlockEntity cast)){
+        if (!(blockEntity instanceof BaseSittableBE<?> cast)){
             this.remove(RemovalReason.DISCARDED);
         }
         else if (cast.getBlockState() != cast.containerBlock || canAddPassenger(this)){
@@ -49,7 +49,7 @@ public class RideableEntityNull extends VehicleEntity implements IEntityWithComp
         super.baseTick();
         if (count ==50) {
             BlockEntity blockEntity = level().getBlockEntity(blockEntityPos);
-            if (!(blockEntity instanceof ChairBlockEntity cast)){
+            if (!(blockEntity instanceof BaseSittableBE<?> cast)){
                 this.remove(RemovalReason.DISCARDED);
             }
             else if (cast.getBlockState() != cast.containerBlock || canAddPassenger(this)){

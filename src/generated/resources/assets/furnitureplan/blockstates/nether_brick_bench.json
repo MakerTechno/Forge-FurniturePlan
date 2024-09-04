@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "waterlogged=false": {
+      "model": "furnitureplan:block/nether_brick_bench"
+    },
+    "waterlogged=true": {
+      "model": "furnitureplan:block/nether_brick_bench"
+    }
+  }
+}

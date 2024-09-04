@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "waterlogged=false": {
+      "model": "furnitureplan:block/oak_bench"
+    },
+    "waterlogged=true": {
+      "model": "furnitureplan:block/oak_bench"
+    }
+  }
+}

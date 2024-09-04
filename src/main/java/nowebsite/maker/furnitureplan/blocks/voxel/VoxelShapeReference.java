@@ -62,4 +62,11 @@ public class VoxelShapeReference {
             Shapes.box(0.03125, 0.1875, 0.03125, 0.96875, 0.9375, 0.96875),
             Shapes.box(0, 0.9375, 0, 1, 1, 1)
     );
+    public static final VoxelShape BENCH_VOXEL = Shapes.or(
+        Shapes.box(0.75, 0, 0.75, 0.875, 0.25, 0.875),
+        Shapes.box(0.125, 0, 0.75, 0.25, 0.25, 0.875),
+        Shapes.box(0.125, 0, 0.125, 0.25, 0.25, 0.25),
+        Shapes.box(0.0625, 0.25, 0.0625, 0.9375, 0.375, 0.9375),
+        Shapes.box(0.75, 0, 0.125, 0.875, 0.25, 0.25)
+    );
 }

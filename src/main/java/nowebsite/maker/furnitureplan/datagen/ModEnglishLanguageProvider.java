@@ -55,6 +55,7 @@ public class ModEnglishLanguageProvider extends LanguageProvider {
         add("advancements.furniture.grassit.description", "Try to eat a grass(furnitureplan)");
         add("furnitureplan.networking.failed", "Failed to sync data.");
         transformKinds(FoldingRegistration.getPotHolderBlockList());
+        transformKinds(FoldingRegistration.getBenchBlockList());
     }
 
     public void transformKinds(@NotNull List<DeferredHolder<Block, ? extends Block>> list) {

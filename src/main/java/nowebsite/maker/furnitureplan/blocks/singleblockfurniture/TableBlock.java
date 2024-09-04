@@ -8,7 +8,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import nowebsite.maker.furnitureplan.blocks.func.BasePropertyHorizontalDirectionBlock;
 import nowebsite.maker.furnitureplan.blocks.func.IUVLockedBlock;
@@ -45,12 +44,10 @@ public class TableBlock extends BasePropertyHorizontalDirectionBlock<TableBlock>
             default -> pState.setValue(SHAPE, TableShape.PANE);
         };
     }
-
     @Override
     protected BasePropertyHorizontalDirectionBlock<TableBlock> getSelfNew(BlockState baseState, Properties properties) {
         return new TableBlock(baseState, properties);
     }
-
     @Override
     public boolean useShapeForLightOcclusion(@NotNull BlockState pState) {
         return true;
@@ -60,19 +57,10 @@ public class TableBlock extends BasePropertyHorizontalDirectionBlock<TableBlock>
         return state.getValue(SHAPE).getOccModel(state, getter, pos);
     }
     @Override
-    public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos, @NotNull CollisionContext context) {
-        return getOcclusionShape(state,getter,pos);
-    }
-    @Override
-    public @NotNull VoxelShape getCollisionShape(@NotNull BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos, @NotNull CollisionContext pContext) {
-        return getShape(pState, pLevel, pPos, pContext);
-    }
-
-    @Override
     protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(WATERLOGGED, SHAPE, FACING);
+        super.createBlockStateDefinition(pBuilder);
+        pBuilder.add(SHAPE);
     }
-
     @Override
     public String getSpecificName() {
         return "table";

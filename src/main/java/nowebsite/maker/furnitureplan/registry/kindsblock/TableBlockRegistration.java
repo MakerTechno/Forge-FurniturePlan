@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.neoforged.neoforge.registries.DeferredHolder;
-import nowebsite.maker.furnitureplan.blocks.columns.WeatheredCopperTable;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.WeatheredCopperTable;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.TableBlock;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.registry.ItemRegistration;

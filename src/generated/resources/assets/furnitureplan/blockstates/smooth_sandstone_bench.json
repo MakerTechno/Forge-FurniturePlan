@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "waterlogged=false": {
+      "model": "furnitureplan:block/smooth_sandstone_bench"
+    },
+    "waterlogged=true": {
+      "model": "furnitureplan:block/smooth_sandstone_bench"
+    }
+  }
+}

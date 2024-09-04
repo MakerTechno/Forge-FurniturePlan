@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "waterlogged=false": {
+      "model": "furnitureplan:block/acacia_bench"
+    },
+    "waterlogged=true": {
+      "model": "furnitureplan:block/acacia_bench"
+    }
+  }
+}
