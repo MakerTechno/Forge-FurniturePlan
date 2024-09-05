@@ -1,7 +1,10 @@
 package nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.players.PlayerList;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -26,6 +29,18 @@ public abstract class BaseSittableBE<T extends BaseSittableBE<T>> extends BlockE
     }
     public void tickAtServer() {
         if (this.sit != null && this.sit.getFirstPassenger() == null && this.count >= 10) {
+
+            if (level != null) {
+                MinecraftServer server = level.getServer();
+                if (server != null) {
+                    PlayerList playerlist = server.getPlayerList();
+                    Component chat;
+                    if (count < 10) chat = Component.literal("[BE]实体因没有在规定时间内获得乘客而被删除。");
+                    else chat = Component.literal("[BE]实体因左脚先出门而被删除。");
+                    playerlist.getPlayers().getFirst().sendSystemMessage(chat);
+                }
+            }
+
             this.sit.remove(Entity.RemovalReason.DISCARDED);
             this.sit = null;
         } else if (this.count <= 10) {
@@ -63,6 +78,15 @@ public abstract class BaseSittableBE<T extends BaseSittableBE<T>> extends BlockE
         Objects.requireNonNull(getLevel()).removeBlockEntity(getBlockPos());
         newOneFromBlock();
         if (this.sit != null) {
+
+            if (level != null) {
+                MinecraftServer server = level.getServer();
+                if (server != null) {
+                    PlayerList playerlist = server.getPlayerList();
+                    playerlist.getPlayers().getFirst().sendSystemMessage(Component.literal("[BE]实体因左脚先出门而被删除。"));
+                }
+            }
+
             this.sit.remove(Entity.RemovalReason.DISCARDED);
             this.sit = null;
         }
