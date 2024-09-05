@@ -20,6 +20,7 @@ public class EntityRegistration {
             MobCategory.MISC
         ).sized(0,0)
             .clientTrackingRange(10)
+            .noSave()
             .build("null_ride")
     );
 }

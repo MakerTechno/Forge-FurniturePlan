@@ -3,9 +3,6 @@ package nowebsite.maker.furnitureplan.entities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.network.chat.Component;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.players.PlayerList;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.vehicle.VehicleEntity;
 import net.minecraft.world.item.Item;
@@ -40,30 +37,9 @@ public class RideableEntityNull extends VehicleEntity implements IEntityWithComp
         super.tick();
         BlockEntity blockEntity = level().getBlockEntity(blockEntityPos);
         if (!(blockEntity instanceof BaseSittableBE<?> cast)){
-
-
-            MinecraftServer server = level().getServer();
-            if(server != null) {
-                PlayerList playerlist = server.getPlayerList();
-                playerlist.getPlayers().getFirst().sendSystemMessage(Component.literal("[Entity]实体因没发现方块实体而被删除。"));
-            }
-
-
             this.remove(RemovalReason.DISCARDED);
         }
         else if (cast.getBlockState() != cast.containerBlock || canAddPassenger(this)){
-
-
-            MinecraftServer server = level().getServer();
-            if(server != null) {
-                PlayerList playerlist = server.getPlayerList();
-                Component chat;
-                if (canAddPassenger(this)) chat = Component.literal("[Entity]实体因没有乘客而被删除。");
-                else chat = Component.literal("[Entity]实体因没在正确材质的椅子上而被删除。");
-                playerlist.getPlayers().getFirst().sendSystemMessage(chat);
-            }
-
-
             cast.setRemoved();
         }
     }
@@ -74,30 +50,9 @@ public class RideableEntityNull extends VehicleEntity implements IEntityWithComp
         if (count ==50) {
             BlockEntity blockEntity = level().getBlockEntity(blockEntityPos);
             if (!(blockEntity instanceof BaseSittableBE<?> cast)){
-
-
-                MinecraftServer server = level().getServer();
-                if(server != null) {
-                    PlayerList playerlist = server.getPlayerList();
-                    playerlist.getPlayers().getFirst().sendSystemMessage(Component.literal("[Entity]实体因没发现方块实体而被删除。"));
-                }
-
-
                 this.remove(RemovalReason.DISCARDED);
             }
             else if (cast.getBlockState() != cast.containerBlock || canAddPassenger(this)){
-
-
-                MinecraftServer server = level().getServer();
-                if(server != null) {
-                    PlayerList playerlist = server.getPlayerList();
-                    Component chat;
-                    if (canAddPassenger(this)) chat = Component.literal("[Entity]实体因没有乘客而被删除。");
-                    else chat = Component.literal("[Entity]实体因没在正确材质的椅子上而被删除。");
-                    playerlist.getPlayers().getFirst().sendSystemMessage(chat);
-                }
-
-
                 cast.setRemoved();
             }
         } else {
@@ -105,26 +60,9 @@ public class RideableEntityNull extends VehicleEntity implements IEntityWithComp
         }
     }
     @Override
-    protected void readAdditionalSaveData(@NotNull CompoundTag pCompound) {
-        MinecraftServer server = level().getServer();
-        if(server != null) {
-            PlayerList playerlist = server.getPlayerList();
-            playerlist.getPlayers().getFirst().sendSystemMessage(Component.literal("[Entity]实体因访问readAdditionalSaveData而被删除。"));
-        }
-
-        this.remove(RemovalReason.DISCARDED);
-    }
+    protected void readAdditionalSaveData(@NotNull CompoundTag compound) {}
     @Override
-    protected void addAdditionalSaveData(@NotNull CompoundTag pCompound) {
-        MinecraftServer server = level().getServer();
-        if(server != null) {
-            PlayerList playerlist = server.getPlayerList();
-            playerlist.getPlayers().getFirst().sendSystemMessage(Component.literal("[Entity]实体因访问addAdditionalSaveData而被删除。"));
-        }
-
-        this.remove(RemovalReason.DISCARDED);
-    }
-
+    protected void addAdditionalSaveData(@NotNull CompoundTag compound) {}
     @Override
     public void writeSpawnData(@NotNull RegistryFriendlyByteBuf buffer) {
         buffer.writeBlockPos(this.blockEntityPos);

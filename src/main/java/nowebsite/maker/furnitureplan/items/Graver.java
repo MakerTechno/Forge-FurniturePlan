@@ -21,6 +21,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
@@ -28,6 +29,8 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.registries.DeferredHolder;
+import nowebsite.maker.furnitureplan.blocks.func.BasePropertyHorizontalDirectionBlock;
+import nowebsite.maker.furnitureplan.blocks.func.IHorizontalBlock;
 import nowebsite.maker.furnitureplan.networks.GraverSyncData;
 import nowebsite.maker.furnitureplan.registry.FoldingRegistration;
 import nowebsite.maker.furnitureplan.registry.ItemRegistration;
@@ -91,7 +94,7 @@ public class Graver extends Item {
             }
             if (remainingUseDuration <= 4) {
                 if (hitresult instanceof BlockHitResult blockhitresult && hitresult.getType() == HitResult.Type.BLOCK) {
-                    findAndReplace(blockhitresult.getBlockPos(), level.getBlockState(blockhitresult.getBlockPos()), level, kind);
+                    findAndReplace(player, blockhitresult.getBlockPos(), level.getBlockState(blockhitresult.getBlockPos()), level, kind);
                     livingEntity.releaseUsingItem();
                     player.getCooldowns().addCooldown(ItemRegistration.GRAVER.get(), 20);
                 }
@@ -137,13 +140,13 @@ public class Graver extends Item {
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 
-    private void findAndReplace(BlockPos pos, BlockState state, Level level, GraveKind kind) {
+    private void findAndReplace(Player player, BlockPos pos, BlockState state, Level level, GraveKind kind) {
         int count = 0;
         for (Block block : FoldingRegistration.getPropertyBlocks()){
             if (block.equals(state.getBlock())) {
-                level.setBlockAndUpdate(pos, Objects.requireNonNull(
-                    kind.getList().get(count).get().defaultBlockState())
-                );
+                BlockState thisState = Objects.requireNonNull(kind.getList().get(count).get().defaultBlockState());
+                if (thisState.getBlock() instanceof IHorizontalBlock || thisState.getBlock() instanceof BasePropertyHorizontalDirectionBlock<?>) thisState = thisState.setValue(HorizontalDirectionalBlock.FACING, player.getDirection().getOpposite());
+                level.setBlockAndUpdate(pos, thisState);
                 if (block.defaultBlockState().getTags().anyMatch(blockTagKey -> blockTagKey.equals(BlockTags.PLANKS))){
                     Block.popResource(level, pos, new ItemStack(ItemRegistration.SAWDUST.get(), 2));
                 } else {
