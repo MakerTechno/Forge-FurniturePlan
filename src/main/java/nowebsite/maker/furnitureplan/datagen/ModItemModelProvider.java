@@ -1,18 +1,23 @@
 package nowebsite.maker.furnitureplan.datagen;
 
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.blocks.func.IColorfulBlock;
+import nowebsite.maker.furnitureplan.blocks.func.IVarietyBlock;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.registry.FoldingRegistration;
 import nowebsite.maker.furnitureplan.registry.ItemRegistration;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+
+import static nowebsite.maker.furnitureplan.datagen.ModBlockStateProvider.keyName;
 
 public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(PackOutput output, ExistingFileHelper helper) {
@@ -69,6 +74,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         addWithColorsSingleModel(FoldingRegistration.getPotHolderItemList(), "pot_holder");
         add(FoldingRegistration.getBenchItemList());
+        addKindsWithSingleModel(FoldingRegistration.getCabinetItemList(), "cabinet_item");
     }
 
     public void add(@NotNull List<DeferredHolder<Item, ? extends Item>> list) {
@@ -94,5 +100,20 @@ public class ModItemModelProvider extends ItemModelProvider {
                 IColorfulBlock.CONCRETE_TEXTURE_LIST.get(i)
             );
         }
+    }
+    public void addKindsWithSingleModel(@NotNull List<DeferredHolder<Item, ? extends Item>> list, String specificName) {
+        for (DeferredHolder<Item, ? extends Item> ro : list) {
+            if (!(ro.get() instanceof BlockItem blockItem)) return;
+            if (!(blockItem.getBlock() instanceof IVarietyBlock block)) return;
+            singleTexture(
+                ro.get().toString(),
+                modLoc("item/" + specificName),
+                "particle",
+                forVanillaVariety(keyName(blockItem.getBlock()), block.getSpecificName())
+            );
+        }
+    }
+    public ResourceLocation forVanillaVariety(@NotNull String registryName, String specificNameEnd){
+        return mcLoc("block/" + FoldingRegistration.PROPERTY_KINDS.get(registryName.split("_"+specificNameEnd)[0].split(FurniturePlan.MOD_ID+":")[1]));
     }
 }

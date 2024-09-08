@@ -44,6 +44,7 @@ class ModCustomBlockLootProvider extends BlockLootSubProvider {
         this.addList(FoldingRegistration.getLightedColumnBlockList());
         this.addList(FoldingRegistration.getPotHolderBlockList());
         this.addList(FoldingRegistration.getBenchBlockList());
+        this.addList(FoldingRegistration.getCabinetBlockList());
 
         add(BlockRegistration.FOOD_PLATE_BLOCK.get(), noDrop());
         add(BlockRegistration.GLASS_B_BLOCK.get(), noDrop());

@@ -27,6 +27,7 @@ public class ModEnglishLanguageProvider extends LanguageProvider {
         add("tip.furnitureplan.click", "Right click air to switch carve kinds.");
         add("tip.furnitureplan.graver", "This graver can grave some of the state1 to mod's block.\nActually, the kinds of block it can grave is just the kind of state1 which could be used to make stairs.");
         add("tip.furnitureplan.graver.kind", "Kind: ");
+        add("tip.furnitureplan.graver.kind_change", "Now carve target: ");
         for (Graver.GraveKind kind : Graver.GraveKind.values()) {
             add("tip.furnitureplan.graver.kind." + kind.name().toLowerCase(Locale.ROOT), kind.name().toLowerCase(Locale.ROOT));
         }
@@ -56,6 +57,7 @@ public class ModEnglishLanguageProvider extends LanguageProvider {
         add("furnitureplan.networking.failed", "Failed to sync data.");
         transformKinds(FoldingRegistration.getPotHolderBlockList());
         transformKinds(FoldingRegistration.getBenchBlockList());
+        transformKinds(FoldingRegistration.getCabinetBlockList());
     }
 
     public void transformKinds(@NotNull List<DeferredHolder<Block, ? extends Block>> list) {

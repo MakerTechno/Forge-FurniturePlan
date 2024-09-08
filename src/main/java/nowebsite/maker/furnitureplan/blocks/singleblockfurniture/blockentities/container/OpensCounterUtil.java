@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.entity.ContainerOpenersCounter;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
-public abstract class DrawerOpensCounter extends ContainerOpenersCounter {
+public abstract class OpensCounterUtil extends ContainerOpenersCounter {
     @Override
     protected void onOpen(@NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull BlockState pState) {
         playSound(pLevel, pPos, SoundEvents.CHEST_OPEN);

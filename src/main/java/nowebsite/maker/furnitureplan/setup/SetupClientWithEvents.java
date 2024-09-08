@@ -8,6 +8,7 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.blocks.cookingUtensils.blockentities.renderers.IronPotBlockEntityRenderer;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.renderer.CabinetEntityRenderer;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.renderer.CupboardEntityRenderer;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.renderer.PotHolderBlockEntityRenderer;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.renderer.VaseBBlockEntityRenderer;
@@ -17,6 +18,7 @@ import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.renderers.Gl
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.registry.EntityRegistration;
 import nowebsite.maker.furnitureplan.registry.GUIRegistration;
+import nowebsite.maker.furnitureplan.registry.kindsblock.CabinetBlockRegistration;
 import nowebsite.maker.furnitureplan.registry.kindsblock.PotHolderBlockRegistration;
 import org.jetbrains.annotations.NotNull;
 
@@ -41,6 +43,7 @@ public class SetupClientWithEvents {
         event.registerBlockEntityRenderer(BlockRegistration.CUPBOARD_BLOCK_ENTITY.get(), CupboardEntityRenderer::new);
         event.registerBlockEntityRenderer(BlockRegistration.VASE_B_BLOCK_ENTITY.get(), pContext -> new VaseBBlockEntityRenderer());
         event.registerBlockEntityRenderer(PotHolderBlockRegistration.POT_HOLDER_BLOCK_ENTITY.get(), context -> new PotHolderBlockEntityRenderer());
+        event.registerBlockEntityRenderer(CabinetBlockRegistration.CABINET_BLOCK_ENTITY.get(), context -> new CabinetEntityRenderer());
 
         event.registerEntityRenderer(EntityRegistration.NULL_RIDE.get(), NoopRenderer::new);
     }

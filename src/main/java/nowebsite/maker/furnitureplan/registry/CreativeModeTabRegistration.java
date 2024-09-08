@@ -42,6 +42,7 @@ public class CreativeModeTabRegistration {
             initKindItem(event, FoldingRegistration.getCarvedColumnItemList());
             initKindItem(event, FoldingRegistration.getLightedColumnItemList());
             initKindItem(event, FoldingRegistration.getBenchItemList());
+            initKindItem(event, FoldingRegistration.getCabinetItemList());
             //event.accept(BlockRegistration.VASE_B_BLOCK_ITEM.get());
         }
     }

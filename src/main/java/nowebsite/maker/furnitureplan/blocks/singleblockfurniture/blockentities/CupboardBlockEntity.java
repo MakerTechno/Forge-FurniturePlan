@@ -3,7 +3,12 @@ package nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Container;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.Nameable;
@@ -22,9 +27,8 @@ import net.neoforged.neoforge.items.wrapper.CombinedInvWrapper;
 import net.neoforged.neoforge.items.wrapper.InvWrapper;
 import net.neoforged.neoforge.network.PacketDistributor;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.container.DrawerContainer;
-import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.container.DrawerOpensCounter;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.container.OpensCounterUtil;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.gui.DrawerMenu;
-//import nowebsite.maker.furnitureplan.networks.packets.PlayerListSyncS2CPacket;
 import nowebsite.maker.furnitureplan.networks.CupboardSyncData;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import org.jetbrains.annotations.NotNull;
@@ -45,7 +49,7 @@ public class CupboardBlockEntity extends BlockEntity implements MenuProvider, Na
             drawer1 = new DrawerContainer(9, this),
             drawer2 = new DrawerContainer(9, this),
             drawer3 = new DrawerContainer(12, this);
-    public final DrawerOpensCounter counter = new DrawerOpensCounter() {
+    public final OpensCounterUtil counter = new OpensCounterUtil() {
         @Override
         protected boolean isOwnContainer(@NotNull Player player) {
             if (!(player.containerMenu instanceof DrawerMenu)) {
@@ -92,32 +96,32 @@ public class CupboardBlockEntity extends BlockEntity implements MenuProvider, Na
     /**Warnings: only call ON SERVER SIDE*/
     public void addUsingD1Player(Player player){
         usingDrawer1.add(player);
-        syncS2C();
+        markUpdated();
     }
     /**Warnings: only call ON SERVER SIDE*/
     public void addUsingD2Player(Player player){
         usingDrawer2.add(player);
-        syncS2C();
+        markUpdated();
     }
     /**Warnings: only call ON SERVER SIDE*/
     public void addUsingD3Player(Player player){
         usingDrawer3.add(player);
-        syncS2C();
+        markUpdated();
     }
     /**Warnings: only call ON SERVER SIDE*/
     public void removeUsingD1Player(Player player){
         usingDrawer1.remove(player);
-        syncS2C();
+        markUpdated();
     }
     /**Warnings: only call ON SERVER SIDE*/
     public void removeUsingD2Player(Player player){
         usingDrawer2.remove(player);
-        syncS2C();
+        markUpdated();
     }
     /**Warnings: only call ON SERVER SIDE*/
     public void removeUsingD3Player(Player player){
         usingDrawer3.remove(player);
-        syncS2C();
+        markUpdated();
     }
     public CupboardBlockEntity(BlockPos pPos, BlockState pBlockState) {
         this(BlockRegistration.CUPBOARD_BLOCK_ENTITY.get(), pPos, pBlockState);
@@ -137,16 +141,21 @@ public class CupboardBlockEntity extends BlockEntity implements MenuProvider, Na
     @Override
     protected void loadAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
         super.loadAdditional(tag, registries);
-        drawer1.loadFromBlockEntity(tag, registries, 0);
-        drawer2.loadFromBlockEntity(tag, registries, 1);
-        drawer3.loadFromBlockEntity(tag, registries, 2);
+        ListTag listTag = (ListTag) tag.get(DrawerContainer.TAG_NAME);
+        if (listTag != null) {
+            drawer1.loadFromBlockEntity(listTag.getCompound(0), registries);
+            drawer2.loadFromBlockEntity(listTag.getCompound(1), registries);
+            drawer3.loadFromBlockEntity(listTag.getCompound(2), registries);
+        }
     }
     @Override
     protected void saveAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
         super.saveAdditional(tag, registries);
-        drawer1.saveAdditionalFromBlockEntity(tag, registries, 0);
-        drawer2.saveAdditionalFromBlockEntity(tag, registries, 1);
-        drawer3.saveAdditionalFromBlockEntity(tag, registries, 2);
+        ListTag listTag = new ListTag();
+        listTag.add(drawer1.saveAdditionalFromBlockEntity(registries));
+        listTag.add(drawer2.saveAdditionalFromBlockEntity(registries));
+        listTag.add(drawer3.saveAdditionalFromBlockEntity(registries));
+        tag.put(DrawerContainer.TAG_NAME, listTag);
         if (this.name != null) {
             tag.putString("CustomName", Component.Serializer.toJson(this.name, registries));
         }
@@ -177,7 +186,28 @@ public class CupboardBlockEntity extends BlockEntity implements MenuProvider, Na
             this.counter.recheckOpeners(Objects.requireNonNull(this.getLevel()), this.getBlockPos(), this.getBlockState());
         }
     }
-    private void syncS2C(){
+    private void markUpdated(){
+        this.setChanged();
+        Objects.requireNonNull(this.getLevel()).sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
+        syncS2C();
+    }
+    public void syncS2C(){
         PacketDistributor.sendToAllPlayers(new CupboardSyncData(worldPosition.getCenter().toVector3f(), !usingDrawer1.isEmpty(), !usingDrawer2.isEmpty(), !usingDrawer3.isEmpty()));
+    }
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+    @Override
+    public void onDataPacket(@NotNull Connection net, @NotNull ClientboundBlockEntityDataPacket pkt, HolderLookup.@NotNull Provider lookupProvider) {
+        handleUpdateTag(pkt.getTag(), lookupProvider);
+    }
+    @Override
+    public @NotNull CompoundTag getUpdateTag(HolderLookup.@NotNull Provider registries) {
+        return saveWithoutMetadata(registries);
+    }
+    @Override
+    public void handleUpdateTag(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider lookupProvider) {
+        super.handleUpdateTag(tag, lookupProvider);
     }
 }

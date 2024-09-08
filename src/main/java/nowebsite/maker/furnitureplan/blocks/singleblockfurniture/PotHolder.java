@@ -69,7 +69,7 @@ public class PotHolder extends BaseEntityBlock implements IHorizontalBlock, ICol
         S3 = RCube.create(0.25, 0.5, 0.171875, 0.75, 0.9999374999999999, 0.734375);
         W3 = RCube.create(0.265625, 0.5, 0.25, 0.828125, 0.9999374999999999, 0.75);
     }
-    private final MapCodec<PotHolder> CODEC = RecordCodecBuilder.mapCodec(
+    private static final MapCodec<PotHolder> CODEC = RecordCodecBuilder.mapCodec(
         potHolderInstance -> potHolderInstance.group(
             propertiesCodec(),
             Codec.INT.fieldOf("colorId").forGetter(holder -> holder.colorId)

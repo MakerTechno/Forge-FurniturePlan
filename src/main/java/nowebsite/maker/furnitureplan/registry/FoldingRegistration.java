@@ -784,6 +784,127 @@ public class FoldingRegistration {
         BENCH_ITEM_SETS.add(BenchBlockRegistration.POLISHED_TUFF_BENCH_ITEM);
         BENCH_ITEM_SETS.add(BenchBlockRegistration.TUFF_BRICK_BENCH_ITEM);
     }
+    private static final List<DeferredHolder<Block, ? extends Block>> CABINET_BLOCK_SETS =
+        new ArrayList<>(List.of(CabinetBlockRegistration.OAK_CABINET));
+    static {
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.COBBLESTONE_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.BRICK_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.STONE_BRICK_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.MUD_BRICK_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.NETHER_BRICK_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.SANDSTONE_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.SPRUCE_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.BIRCH_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.JUNGLE_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.QUARTZ_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.ACACIA_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.CHERRY_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.DARK_OAK_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.MANGROVE_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.BAMBOO_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.BAMBOO_MOSAIC_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.PRISMARINE_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.PRISMARINE_BRICK_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.DARK_PRISMARINE_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.RED_SANDSTONE_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.PURPUR_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.POLISHED_GRANITE_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.SMOOTH_RED_SANDSTONE_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.MOSSY_STONE_BRICK_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.POLISHED_DIORITE_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.MOSSY_COBBLESTONE_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.END_STONE_BRICK_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.STONE_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.SMOOTH_SANDSTONE_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.SMOOTH_QUARTZ_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.GRANITE_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.ANDESITE_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.RED_NETHER_BRICK_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.POLISHED_ANDESITE_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.DIORITE_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.CRIMSON_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.WARPED_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.BLACKSTONE_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.POLISHED_BLACKSTONE_BRICK_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.POLISHED_BLACKSTONE_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.OXIDIZED_CUT_COPPER_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.WEATHERED_CUT_COPPER_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.EXPOSED_CUT_COPPER_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.CUT_COPPER_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.WAXED_OXIDIZED_CUT_COPPER_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.WAXED_WEATHERED_CUT_COPPER_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.WAXED_EXPOSED_CUT_COPPER_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.WAXED_CUT_COPPER_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.COBBLED_DEEPSLATE_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.POLISHED_DEEPSLATE_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.DEEPSLATE_TILE_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.DEEPSLATE_BRICK_CABINET);
+
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.TUFF_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.POLISHED_TUFF_CABINET);
+        CABINET_BLOCK_SETS.add(CabinetBlockRegistration.TUFF_BRICK_CABINET);
+    }
+
+    private static final List<DeferredHolder<Item, ? extends Item>> CABINET_ITEM_SETS =
+        new ArrayList<>(List.of(CabinetBlockRegistration.OAK_CABINET_ITEM));
+    static {
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.COBBLESTONE_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.BRICK_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.STONE_BRICK_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.MUD_BRICK_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.NETHER_BRICK_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.SANDSTONE_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.SPRUCE_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.BIRCH_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.JUNGLE_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.QUARTZ_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.ACACIA_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.CHERRY_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.DARK_OAK_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.MANGROVE_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.BAMBOO_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.BAMBOO_MOSAIC_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.PRISMARINE_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.PRISMARINE_BRICK_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.DARK_PRISMARINE_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.RED_SANDSTONE_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.PURPUR_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.POLISHED_GRANITE_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.SMOOTH_RED_SANDSTONE_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.MOSSY_STONE_BRICK_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.POLISHED_DIORITE_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.MOSSY_COBBLESTONE_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.END_STONE_BRICK_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.STONE_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.SMOOTH_SANDSTONE_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.SMOOTH_QUARTZ_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.GRANITE_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.ANDESITE_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.RED_NETHER_BRICK_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.POLISHED_ANDESITE_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.DIORITE_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.CRIMSON_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.WARPED_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.BLACKSTONE_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.POLISHED_BLACKSTONE_BRICK_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.POLISHED_BLACKSTONE_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.OXIDIZED_CUT_COPPER_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.WEATHERED_CUT_COPPER_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.EXPOSED_CUT_COPPER_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.CUT_COPPER_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.WAXED_OXIDIZED_CUT_COPPER_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.WAXED_WEATHERED_CUT_COPPER_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.WAXED_EXPOSED_CUT_COPPER_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.WAXED_CUT_COPPER_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.COBBLED_DEEPSLATE_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.POLISHED_DEEPSLATE_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.DEEPSLATE_TILE_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.DEEPSLATE_BRICK_CABINET_ITEM);
+
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.TUFF_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.POLISHED_TUFF_CABINET_ITEM);
+        CABINET_ITEM_SETS.add(CabinetBlockRegistration.TUFF_BRICK_CABINET_ITEM);
+    }
     public static List<DeferredHolder<Block, ? extends Block>> getChairBlockList() {
         return CHAIR_BLOCK_SETS;
     }
@@ -829,6 +950,13 @@ public class FoldingRegistration {
 
     public static List<DeferredHolder<Item, ? extends Item>> getBenchItemList() {
         return BENCH_ITEM_SETS;
+    }
+    public static List<DeferredHolder<Block, ? extends Block>> getCabinetBlockList() {
+        return CABINET_BLOCK_SETS;
+    }
+
+    public static List<DeferredHolder<Item, ? extends Item>> getCabinetItemList() {
+        return CABINET_ITEM_SETS;
     }
 
     private static final List<Block> PROPERTY_BLOCKS = new ArrayList<>();

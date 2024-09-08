@@ -2,12 +2,8 @@ package nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.LockCode;
-import net.minecraft.world.MenuProvider;
-import net.minecraft.world.Nameable;
-import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -21,6 +17,7 @@ import java.util.Objects;
 
 public class DrawerContainer extends SimpleContainer implements MenuProvider, Nameable {
     public static final String TAG_NAME = "DrawerContainer";
+    public static final String INVENTORY = "Inventory";
     private LockCode lockKey = LockCode.NO_LOCK;
     private final CupboardBlockEntity entitySelf;
     public DrawerContainer(int containerSize, CupboardBlockEntity entitySelf){
@@ -68,13 +65,16 @@ public class DrawerContainer extends SimpleContainer implements MenuProvider, Na
 
     }
 
-    public void loadFromBlockEntity(CompoundTag pTag, HolderLookup.Provider provider, int id){
-        this.lockKey = LockCode.fromTag(pTag);
-        this.fromTag((ListTag) Objects.requireNonNull(pTag.get(TAG_NAME + id)), provider);
+    public void loadFromBlockEntity(CompoundTag pTag, HolderLookup.Provider provider){
+        CompoundTag tag = pTag.getCompound(INVENTORY);
+        this.lockKey = LockCode.fromTag(tag);
+        ContainerHelper.loadAllItems(tag, this.getItems(), provider);
     }
 
-    public void saveAdditionalFromBlockEntity(CompoundTag pTag, HolderLookup.Provider provider, int id){
-        this.lockKey.addToTag(pTag);
-        pTag.put(TAG_NAME + id, this.createTag(provider));
+    public CompoundTag saveAdditionalFromBlockEntity(HolderLookup.Provider provider){
+        CompoundTag tag =new CompoundTag();
+        this.lockKey.addToTag(tag);
+        tag.put(INVENTORY, ContainerHelper.saveAllItems(new CompoundTag(), getItems(), provider));
+        return tag;
     }
 }

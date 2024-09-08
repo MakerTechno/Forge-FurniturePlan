@@ -9,6 +9,7 @@ import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.networks.*;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
+import nowebsite.maker.furnitureplan.registry.kindsblock.CabinetBlockRegistration;
 import nowebsite.maker.furnitureplan.registry.kindsblock.PotHolderBlockRegistration;
 import org.jetbrains.annotations.NotNull;
 
@@ -46,6 +47,11 @@ public class SetupSideEvents {
             PotHolderBlockRegistration.POT_HOLDER_BLOCK_ENTITY.get(),
             (blockEntity, direction) -> blockEntity.getLazyItemHandler().get()
         );
+        event.registerBlockEntity(
+            Capabilities.ItemHandler.BLOCK,
+            CabinetBlockRegistration.CABINET_BLOCK_ENTITY.get(),
+            (blockEntity, direction) -> blockEntity.createHandler().get()
+        );
     }
     @SubscribeEvent
     public static void registerPayloads(final @NotNull RegisterPayloadHandlersEvent event) {
@@ -64,6 +70,11 @@ public class SetupSideEvents {
             PotHolderSyncData.TYPE,
             PotHolderSyncData.STREAM_CODEC,
             new PotHolderPayloadHandler()
+        );
+        registrar.playToClient(
+            CabinetSyncData.TYPE,
+            CabinetSyncData.STREAM_CODEC,
+            new CabinetPayloadHandler()
         );
     }
 }

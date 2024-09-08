@@ -33,6 +33,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
         addKindsByDefault(FoldingRegistration.getPotHolderBlockList(), BlockRegistration.POT_HOLDER_BLOCK);
         addKindsByDefault(FoldingRegistration.getPotHolderBlockList(), BlockTags.NEEDS_STONE_TOOL, BlockTags.MINEABLE_WITH_PICKAXE);
+        addKindsByDefault(FoldingRegistration.getCabinetBlockList(), BlockRegistration.CABINET_BLOCK);
     }
 
     @SafeVarargs

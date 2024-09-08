@@ -34,7 +34,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.function.Supplier;
 
 @SuppressWarnings("deprecation")
-public class CupboardBlock extends AbstractCupboardBlock<CupboardBlockEntity> implements EntityBlock, IHorizontalBlock {
+public class CupboardBlock extends AbstractCupboardBlock<CupboardBlockEntity> implements IHorizontalBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public CupboardBlock(Properties properties, Supplier<BlockEntityType<? extends CupboardBlockEntity>> blockEntityType) {
         super(properties, blockEntityType);

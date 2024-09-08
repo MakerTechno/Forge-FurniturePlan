@@ -32,12 +32,14 @@ public class ModChineseLanguageProvider extends LanguageProvider {
         add("tip.furnitureplan.click", "右键空气以切换雕刻种类");
         add("tip.furnitureplan.graver", "这个雕刻刀可以将一些方块雕刻成模组物品\n实际上，可雕刻的方块种类和制作各种楼梯的方块种类一样多");
         add("tip.furnitureplan.graver.kind", "种类: ");
+        add("tip.furnitureplan.graver.kind_change", "当前雕刻目标: ");
         add("tip.furnitureplan.graver.kind.chair", "椅子");
         add("tip.furnitureplan.graver.kind.bench", "凳子");
         add("tip.furnitureplan.graver.kind.table", "桌子");
         add("tip.furnitureplan.graver.kind.column", "柱子");
         add("tip.furnitureplan.graver.kind.carved_column", "雕刻柱子");
         add("tip.furnitureplan.graver.kind.lighted_column", "嵌灯柱子");
+        add("tip.furnitureplan.graver.kind.cabinet", "柜子");
         add(BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get(), "盘子");
         add(BlockRegistration.GLASS_B_BLOCK_ITEM.get(), "玻璃杯");
         add(BlockRegistration.CUTLERY_ITEM.get(), "餐具");
@@ -55,6 +57,7 @@ public class ModChineseLanguageProvider extends LanguageProvider {
         add("furnitureplan.networking.failed", "在同步数据时发生错误。");
         transformColors(FoldingRegistration.getPotHolderBlockList(), "色花架");
         transformKinds(FoldingRegistration.getBenchBlockList(), null, "凳");
+        transformKinds(FoldingRegistration.getCabinetBlockList(), null, "柜");
     }
 
     public void transformKinds(@NotNull List<DeferredHolder<Block, ? extends Block>> list, String transformHead, String transformEnd) {

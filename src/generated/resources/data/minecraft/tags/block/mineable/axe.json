@@ -89,6 +89,18 @@
     "furnitureplan:purple_pot_holder_block",
     "furnitureplan:red_pot_holder_block",
     "furnitureplan:yellow_pot_holder_block",
-    "furnitureplan:white_pot_holder_block"
+    "furnitureplan:white_pot_holder_block",
+    "furnitureplan:oak_cabinet",
+    "furnitureplan:spruce_cabinet",
+    "furnitureplan:birch_cabinet",
+    "furnitureplan:jungle_cabinet",
+    "furnitureplan:acacia_cabinet",
+    "furnitureplan:cherry_cabinet",
+    "furnitureplan:dark_oak_cabinet",
+    "furnitureplan:mangrove_cabinet",
+    "furnitureplan:bamboo_cabinet",
+    "furnitureplan:bamboo_mosaic_cabinet",
+    "furnitureplan:crimson_cabinet",
+    "furnitureplan:warped_cabinet"
   ]
 }

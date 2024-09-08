@@ -47,10 +47,11 @@ public class Graver extends Item {
         TABLE,
         COLUMN,
         CARVED_COLUMN,
-        LIGHTED_COLUMN;
+        LIGHTED_COLUMN,
+        CABINET;
 
         public GraveKind getNext(){
-            return this.equals(LIGHTED_COLUMN) ? CHAIR : GraveKind.values()[this.ordinal()+1];
+            return this.ordinal() == GraveKind.values().length - 1 ? CHAIR : GraveKind.values()[this.ordinal()+1];
         }
 
         public List<DeferredHolder<Block, ? extends Block>> getList(){
@@ -61,6 +62,7 @@ public class Graver extends Item {
                 case COLUMN -> FoldingRegistration.getColumnBlockList();
                 case CARVED_COLUMN -> FoldingRegistration.getCarvedColumnBlockList();
                 case LIGHTED_COLUMN -> FoldingRegistration.getLightedColumnBlockList();
+                case CABINET -> FoldingRegistration.getCabinetBlockList();
             };
         }
     }
@@ -115,12 +117,17 @@ public class Graver extends Item {
 
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand hand) {
-        if (!level.isClientSide && this.calculateHitResult(player).getType() == HitResult.Type.MISS && !player.getCooldowns().isOnCooldown(ItemRegistration.GRAVER.get())) {
-            kind = kind.getNext();
-            player.getCooldowns().addCooldown(ItemRegistration.GRAVER.get(), 5);
-            PacketDistributor.sendToPlayer((ServerPlayer) player, new GraverSyncData((byte) kind.ordinal()));
-            return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), false);
-        }
+        if (!level.isClientSide) {
+            if (this.calculateHitResult(player).getType() == HitResult.Type.MISS && !player.getCooldowns().isOnCooldown(ItemRegistration.GRAVER.get())) {
+                kind = kind.getNext();
+                player.getCooldowns().addCooldown(ItemRegistration.GRAVER.get(), 5);
+                PacketDistributor.sendToPlayer((ServerPlayer) player, new GraverSyncData((byte) kind.ordinal()));
+                return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), false);
+            }
+        } else player.displayClientMessage(
+            Component.translatable("tip.furnitureplan.graver.kind_change")
+                .append(Component.translatable("tip.furnitureplan.graver.kind." + kind.getNext().name().toLowerCase(Locale.ROOT))),
+            true);
         return super.use(level, player, hand);
     }
 

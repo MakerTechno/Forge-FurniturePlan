@@ -39,6 +39,10 @@
     "furnitureplan:purple_pot_holder_block",
     "furnitureplan:red_pot_holder_block",
     "furnitureplan:yellow_pot_holder_block",
-    "furnitureplan:white_pot_holder_block"
+    "furnitureplan:white_pot_holder_block",
+    "furnitureplan:oxidized_cut_copper_cabinet",
+    "furnitureplan:weathered_cut_copper_cabinet",
+    "furnitureplan:exposed_cut_copper_cabinet",
+    "furnitureplan:cut_copper_cabinet"
   ]
 }

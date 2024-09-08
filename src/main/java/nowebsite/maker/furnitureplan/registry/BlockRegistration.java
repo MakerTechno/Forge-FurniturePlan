@@ -51,6 +51,7 @@ public class BlockRegistration extends BRUtils{
         LightedColumnBlockRegistration.init();
         PotHolderBlockRegistration.init();
         BenchBlockRegistration.init();
+        CabinetBlockRegistration.init();
     }
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.createBlocks(FurniturePlan.MOD_ID);
@@ -66,6 +67,7 @@ public class BlockRegistration extends BRUtils{
     public static final TagKey<Block> LIGHTED_COLUMN_BLOCK = BlockTags.create(ResourceLocation.fromNamespaceAndPath(FurniturePlan.MOD_ID, "lighted_column"));
     public static final TagKey<Block> POT_HOLDER_BLOCK = BlockTags.create(ResourceLocation.fromNamespaceAndPath(FurniturePlan.MOD_ID, "pot_holder"));
     public static final TagKey<Block> BENCH_BLOCK = BlockTags.create(ResourceLocation.fromNamespaceAndPath(FurniturePlan.MOD_ID, "bench"));
+    public static final TagKey<Block> CABINET_BLOCK = BlockTags.create(ResourceLocation.fromNamespaceAndPath(FurniturePlan.MOD_ID, "cabinet"));
 
 
     /*For tableware*/
