@@ -17,4 +17,11 @@ public class SheetReference {
         COPPER_TRANS_LIST.put(Blocks.WAXED_OXIDIZED_CUT_COPPER, Blocks.OXIDIZED_CUT_COPPER);
         COPPER_TRANS_LIST.put(Blocks.WAXED_EXPOSED_CUT_COPPER, Blocks.EXPOSED_CUT_COPPER);
     }
+    public static final Map<Block, ResourceLocation> FIX_TRANS_LIST = new HashMap<>();
+    static {
+        FIX_TRANS_LIST.put(Blocks.QUARTZ_BLOCK, ResourceLocation.parse("block/quartz_block_top"));
+        FIX_TRANS_LIST.put(Blocks.SMOOTH_RED_SANDSTONE, ResourceLocation.parse("block/red_sandstone_top"));
+        FIX_TRANS_LIST.put(Blocks.SMOOTH_SANDSTONE, ResourceLocation.parse("block/sandstone_top"));
+        FIX_TRANS_LIST.put(Blocks.SMOOTH_QUARTZ, ResourceLocation.parse("block/quartz_block_bottom"));
+    }
 }

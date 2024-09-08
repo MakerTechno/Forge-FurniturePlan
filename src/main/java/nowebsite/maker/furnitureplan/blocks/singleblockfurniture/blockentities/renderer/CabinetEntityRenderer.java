@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.data.models.model.TextureMapping;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -57,15 +58,21 @@ public class CabinetEntityRenderer implements BlockEntityRenderer<CabinetBlockEn
         }
         poseStack.rotateAround(faceRotate, .5f, .5f, .5f);
         poseStack.translate(.0625, .0625, 0);
+
         Block block = ((CabinetBlock)blockEntity.getBlockState().getBlock()).base;
+        boolean useRL = false;
+        ResourceLocation location = null;
         if (SheetReference.COPPER_TRANS_LIST.containsKey(block)) {
             block = SheetReference.COPPER_TRANS_LIST.get(block);
+        } else if (SheetReference.FIX_TRANS_LIST.containsKey(block)) {
+            useRL = true;
+            location = SheetReference.FIX_TRANS_LIST.get(block);
         }
 
         VertexConsumer builder = bufferSource.getBuffer(RenderType.cutout());
         TextureAtlasSprite sprite = Minecraft.getInstance().getModelManager()
             .getAtlas(InventoryMenu.BLOCK_ATLAS)
-            .getSprite(TextureMapping.getBlockTexture(block));
+            .getSprite(useRL?location:TextureMapping.getBlockTexture(block));
         TextureAtlasSprite trim = Minecraft.getInstance().getModelManager()
             .getAtlas(InventoryMenu.BLOCK_ATLAS)
             .getSprite(TextureMapping.getBlockTexture(Blocks.BROWN_CONCRETE));
