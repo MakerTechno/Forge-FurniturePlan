@@ -43,6 +43,24 @@ public class CreativeModeTabRegistration {
             initKindItem(event, FoldingRegistration.getLightedColumnItemList());
             initKindItem(event, FoldingRegistration.getBenchItemList());
             initKindItem(event, FoldingRegistration.getCabinetItemList());
+
+
+            initKindItem(event, ColorfulCabinetFolding.getBlackCabinetItemList());
+            initKindItem(event, ColorfulCabinetFolding.getBlueCabinetItemList());
+            initKindItem(event, ColorfulCabinetFolding.getBrownCabinetItemList());
+            initKindItem(event, ColorfulCabinetFolding.getCyanCabinetItemList());
+            initKindItem(event, ColorfulCabinetFolding.getGrayCabinetItemList());
+            initKindItem(event, ColorfulCabinetFolding.getGreenCabinetItemList());
+            initKindItem(event, ColorfulCabinetFolding.getLightBlueCabinetItemList());
+            initKindItem(event, ColorfulCabinetFolding.getLightGrayCabinetItemList());
+            initKindItem(event, ColorfulCabinetFolding.getLimeCabinetItemList());
+            initKindItem(event, ColorfulCabinetFolding.getMagentaCabinetItemList());
+            initKindItem(event, ColorfulCabinetFolding.getOrangeCabinetItemList());
+            initKindItem(event, ColorfulCabinetFolding.getPinkCabinetItemList());
+            initKindItem(event, ColorfulCabinetFolding.getPurpleCabinetItemList());
+            initKindItem(event, ColorfulCabinetFolding.getRedCabinetItemList());
+            initKindItem(event, ColorfulCabinetFolding.getYellowCabinetItemList());
+            initKindItem(event, ColorfulCabinetFolding.getWhiteCabinetItemList());
             //event.accept(BlockRegistration.VASE_B_BLOCK_ITEM.get());
         }
     }

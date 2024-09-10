@@ -6,6 +6,7 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
+import nowebsite.maker.furnitureplan.registry.ColorfulCabinetFolding;
 import nowebsite.maker.furnitureplan.registry.FoldingRegistration;
 import nowebsite.maker.furnitureplan.registry.ItemRegistration;
 import org.jetbrains.annotations.NotNull;
@@ -39,7 +40,7 @@ public class ModChineseLanguageProvider extends LanguageProvider {
         add("tip.furnitureplan.graver.kind.column", "柱子");
         add("tip.furnitureplan.graver.kind.carved_column", "雕刻柱子");
         add("tip.furnitureplan.graver.kind.lighted_column", "嵌灯柱子");
-        add("tip.furnitureplan.graver.kind.cabinet", "柜子");
+        add("tip.furnitureplan.graver.kind.disguise_cabinet", "伪装柜");
         add(BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get(), "盘子");
         add(BlockRegistration.GLASS_B_BLOCK_ITEM.get(), "玻璃杯");
         add(BlockRegistration.CUTLERY_ITEM.get(), "餐具");
@@ -57,7 +58,24 @@ public class ModChineseLanguageProvider extends LanguageProvider {
         add("furnitureplan.networking.failed", "在同步数据时发生错误。");
         transformColors(FoldingRegistration.getPotHolderBlockList(), "色花架");
         transformKinds(FoldingRegistration.getBenchBlockList(), null, "凳");
-        transformKinds(FoldingRegistration.getCabinetBlockList(), null, "柜");
+        transformKinds(FoldingRegistration.getCabinetBlockList(), null, "伪装柜");
+
+        transformKinds(ColorfulCabinetFolding.getBlackCabinetBlockList(), "黑色外框", "柜");
+        transformKinds(ColorfulCabinetFolding.getBlueCabinetBlockList(), "蓝色外框", "柜");
+        transformKinds(ColorfulCabinetFolding.getBrownCabinetBlockList(), "棕色外框", "柜");
+        transformKinds(ColorfulCabinetFolding.getCyanCabinetBlockList(), "青色外框", "柜");
+        transformKinds(ColorfulCabinetFolding.getGrayCabinetBlockList(), "灰色外框", "柜");
+        transformKinds(ColorfulCabinetFolding.getGreenCabinetBlockList(), "绿色外框", "柜");
+        transformKinds(ColorfulCabinetFolding.getLightBlueCabinetBlockList(), "淡蓝色外框", "柜");
+        transformKinds(ColorfulCabinetFolding.getLightGrayCabinetBlockList(), "淡灰色外框", "柜");
+        transformKinds(ColorfulCabinetFolding.getLimeCabinetBlockList(), "黄绿色外框", "柜");
+        transformKinds(ColorfulCabinetFolding.getMagentaCabinetBlockList(), "品红色外框", "柜");
+        transformKinds(ColorfulCabinetFolding.getOrangeCabinetBlockList(), "橙色外框", "柜");
+        transformKinds(ColorfulCabinetFolding.getPinkCabinetBlockList(), "粉色外框", "柜");
+        transformKinds(ColorfulCabinetFolding.getPurpleCabinetBlockList(), "紫色外框", "柜");
+        transformKinds(ColorfulCabinetFolding.getRedCabinetBlockList(), "红色外框", "柜");
+        transformKinds(ColorfulCabinetFolding.getYellowCabinetBlockList(), "黄色外框", "柜");
+        transformKinds(ColorfulCabinetFolding.getWhiteCabinetBlockList(), "白色外框", "柜");
     }
 
     public void transformKinds(@NotNull List<DeferredHolder<Block, ? extends Block>> list, String transformHead, String transformEnd) {

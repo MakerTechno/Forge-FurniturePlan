@@ -27,15 +27,18 @@ import net.neoforged.neoforge.common.util.Lazy;
 import net.neoforged.neoforge.items.IItemHandlerModifiable;
 import net.neoforged.neoforge.items.wrapper.InvWrapper;
 import net.neoforged.neoforge.network.PacketDistributor;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.ColorfulBorderedCabinet;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.container.OpensCounterUtil;
 import nowebsite.maker.furnitureplan.networks.CabinetSyncData;
-import nowebsite.maker.furnitureplan.registry.kindsblock.CabinetBlockRegistration;
+import nowebsite.maker.furnitureplan.registry.kindsblock.cabinet.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+
+import static nowebsite.maker.furnitureplan.registry.kindsblock.cabinet.CabinetBlockRegistration.CABINET_BLOCK_ENTITY;
 
 public class CabinetBlockEntity extends BlockEntity implements MenuProvider, Nameable {
     @Nullable
@@ -77,7 +80,28 @@ public class CabinetBlockEntity extends BlockEntity implements MenuProvider, Nam
         super(type, pos, blockState);
     }
     public CabinetBlockEntity(BlockPos pos, BlockState state) {
-        this(CabinetBlockRegistration.CABINET_BLOCK_ENTITY.get(), pos, state);
+        this(state.getBlock() instanceof ColorfulBorderedCabinet cabinet? getColored(cabinet.getColorId()) : CABINET_BLOCK_ENTITY.get(), pos, state);
+    }
+    public static BlockEntityType<CabinetBlockEntity> getColored(int colorId){
+        return switch (colorId) {
+            case 0 -> BlackCabinetRegistration.BLACK_CABINET_BLOCK_ENTITY.get();
+            case 1 -> BlueCabinetRegistration.BLUE_CABINET_BLOCK_ENTITY.get();
+            case 2 -> BrownCabinetRegistration.BROWN_CABINET_BLOCK_ENTITY.get();
+            case 3 -> CyanCabinetRegistration.CYAN_CABINET_BLOCK_ENTITY.get();
+            case 4 -> GrayCabinetRegistration.GRAY_CABINET_BLOCK_ENTITY.get();
+            case 5 -> GreenCabinetRegistration.GREEN_CABINET_BLOCK_ENTITY.get();
+            case 6 -> LightBlueCabinetRegistration.LIGHT_BLUE_CABINET_BLOCK_ENTITY.get();
+            case 7 -> LightGrayCabinetRegistration.LIGHT_GRAY_CABINET_BLOCK_ENTITY.get();
+            case 8 -> LimeCabinetRegistration.LIME_CABINET_BLOCK_ENTITY.get();
+            case 9 -> MagentaCabinetRegistration.MAGENTA_CABINET_BLOCK_ENTITY.get();
+            case 10 -> OrangeCabinetRegistration.ORANGE_CABINET_BLOCK_ENTITY.get();
+            case 11 -> PinkCabinetRegistration.PINK_CABINET_BLOCK_ENTITY.get();
+            case 12 -> PurpleCabinetRegistration.PURPLE_CABINET_BLOCK_ENTITY.get();
+            case 13 -> RedCabinetRegistration.RED_CABINET_BLOCK_ENTITY.get();
+            case 14 -> YellowCabinetRegistration.YELLOW_CABINET_BLOCK_ENTITY.get();
+            case 15 -> WhiteCabinetRegistration.WHITE_CABINET_BLOCK_ENTITY.get();
+            default -> CABINET_BLOCK_ENTITY.get();
+        };
     }
     public static void animateTick(Level ignore, BlockPos ignore1, BlockState ignore2, @NotNull CabinetBlockEntity blockEntity) {
         blockEntity.controller.tickLid();

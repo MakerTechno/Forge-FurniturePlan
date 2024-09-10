@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "furnitureplan:polished_diorite_cabinet_black"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "furnitureplan:blocks/polished_diorite_cabinet_black"
+}

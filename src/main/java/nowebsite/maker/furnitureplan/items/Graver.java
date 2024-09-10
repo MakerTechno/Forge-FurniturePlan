@@ -48,7 +48,7 @@ public class Graver extends Item {
         COLUMN,
         CARVED_COLUMN,
         LIGHTED_COLUMN,
-        CABINET;
+        DISGUISE_CABINET;
 
         public GraveKind getNext(){
             return this.ordinal() == GraveKind.values().length - 1 ? CHAIR : GraveKind.values()[this.ordinal()+1];
@@ -62,7 +62,7 @@ public class Graver extends Item {
                 case COLUMN -> FoldingRegistration.getColumnBlockList();
                 case CARVED_COLUMN -> FoldingRegistration.getCarvedColumnBlockList();
                 case LIGHTED_COLUMN -> FoldingRegistration.getLightedColumnBlockList();
-                case CABINET -> FoldingRegistration.getCabinetBlockList();
+                case DISGUISE_CABINET -> FoldingRegistration.getCabinetBlockList();
             };
         }
     }

@@ -1,5 +1,5 @@
 {
-  "parent": "furnitureplan:item/cabinet_item",
+  "parent": "furnitureplan:item/cabinet_item2",
   "textures": {
     "particle": "minecraft:block/exposed_cut_copper"
   }

@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:item/cabinet_item7",
+  "textures": {
+    "particle": "minecraft:block/red_sandstone_bottom"
+  }
+}

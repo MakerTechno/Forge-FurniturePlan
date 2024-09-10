@@ -29,7 +29,7 @@ import nowebsite.maker.furnitureplan.blocks.func.BasePropertyHorizontalDirection
 import nowebsite.maker.furnitureplan.blocks.func.IHorizontalBlock;
 import nowebsite.maker.furnitureplan.blocks.func.IVarietyBlock;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.CabinetBlockEntity;
-import nowebsite.maker.furnitureplan.registry.kindsblock.CabinetBlockRegistration;
+import nowebsite.maker.furnitureplan.registry.kindsblock.cabinet.CabinetBlockRegistration;
 import nowebsite.maker.furnitureplan.utils.Vec3Utils;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -41,13 +41,13 @@ public class CabinetBlock extends BasePropertyHorizontalDirectionBlock<CabinetBl
         cabinetBlockInstance -> cabinetBlockInstance.group(
             propertiesCodec(),
             BlockState.CODEC.fieldOf("base_state").forGetter(block -> block.baseState),
-            Codec.INT.fieldOf("mapId").forGetter(block -> block.mapId)
+            Codec.BOOL.fieldOf("hasDoorRendered").forGetter(block -> block.hasDoorRendered)
         ).apply(cabinetBlockInstance, this::getSelfNew)
     );
-    public final int mapId;
-    public CabinetBlock(Properties properties, BlockState state, int mapId) {
+    final boolean hasDoorRendered;
+    public CabinetBlock(Properties properties, BlockState state, boolean hasDoorRendered) {
         super(state, properties);
-        this.mapId = mapId;
+        this.hasDoorRendered = hasDoorRendered;
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, Boolean.FALSE));
     }
     @Override
@@ -144,6 +144,9 @@ public class CabinetBlock extends BasePropertyHorizontalDirectionBlock<CabinetBl
     ) {
         return clientType == serverType ? (BlockEntityTicker<A>)ticker : null;
     }
+    public boolean hasDoorRendered() {
+        return this.hasDoorRendered;
+    }
     @SuppressWarnings("deprecation")
     @Override
     protected @NotNull RenderShape getRenderShape(@NotNull BlockState state) {
@@ -155,11 +158,11 @@ public class CabinetBlock extends BasePropertyHorizontalDirectionBlock<CabinetBl
     }
     @Override
     protected BasePropertyHorizontalDirectionBlock<CabinetBlock> getSelfNew(BlockState baseState, Properties properties) {
-        return new CabinetBlock(properties, baseState, mapId);
+        return new CabinetBlock(properties, baseState, hasDoorRendered);
     }
     @Contract("_, _, _ -> new")
-    protected @NotNull CabinetBlock getSelfNew(Properties properties, BlockState baseState, int mapId) {
-        return new CabinetBlock(properties, baseState, mapId);
+    protected @NotNull CabinetBlock getSelfNew(Properties properties, BlockState baseState, boolean hasDoorRendered) {
+        return new CabinetBlock(properties, baseState, hasDoorRendered);
     }
     private static boolean isNotBlockedDrawerByBlock(@NotNull BlockGetter level, BlockPos pos) {
         Direction direction = level.getBlockState(pos).getValue(FACING);
@@ -175,10 +178,14 @@ public class CabinetBlock extends BasePropertyHorizontalDirectionBlock<CabinetBl
     }
     @Override
     public String parentName() {
-        return "cabinet";
+        return "cube_all";
+    }
+    @Override
+    public String textureKey() {
+        return "all";
     }
     @Override
     public String getSpecificName() {
-        return parentName();
+        return "cabinet";
     }
 }

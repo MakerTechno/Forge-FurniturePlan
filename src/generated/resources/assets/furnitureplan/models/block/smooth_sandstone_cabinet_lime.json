@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/cabinet8",
+  "textures": {
+    "particle": "minecraft:block/sandstone_top"
+  }
+}

@@ -11,6 +11,7 @@ import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.blocks.func.IColorfulBlock;
 import nowebsite.maker.furnitureplan.blocks.func.IVarietyBlock;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
+import nowebsite.maker.furnitureplan.registry.ColorfulCabinetFolding;
 import nowebsite.maker.furnitureplan.registry.FoldingRegistration;
 import nowebsite.maker.furnitureplan.registry.ItemRegistration;
 import org.jetbrains.annotations.NotNull;
@@ -74,7 +75,24 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         addWithColorsSingleModel(FoldingRegistration.getPotHolderItemList(), "pot_holder");
         add(FoldingRegistration.getBenchItemList());
-        addKindsWithSingleModel(FoldingRegistration.getCabinetItemList(), "cabinet_item");
+        addKindsWithSingleModel(FoldingRegistration.getCabinetItemList(), "cabinet_item2");
+
+        addKindsWithSingleModel(ColorfulCabinetFolding.getBlackCabinetItemList(), "cabinet_item0");
+        addKindsWithSingleModel(ColorfulCabinetFolding.getBlueCabinetItemList(), "cabinet_item1");
+        addKindsWithSingleModel(ColorfulCabinetFolding.getBrownCabinetItemList(), "cabinet_item2");
+        addKindsWithSingleModel(ColorfulCabinetFolding.getCyanCabinetItemList(), "cabinet_item3");
+        addKindsWithSingleModel(ColorfulCabinetFolding.getGrayCabinetItemList(), "cabinet_item4");
+        addKindsWithSingleModel(ColorfulCabinetFolding.getGreenCabinetItemList(), "cabinet_item5");
+        addKindsWithSingleModel(ColorfulCabinetFolding.getLightBlueCabinetItemList(), "cabinet_item6");
+        addKindsWithSingleModel(ColorfulCabinetFolding.getLightGrayCabinetItemList(), "cabinet_item7");
+        addKindsWithSingleModel(ColorfulCabinetFolding.getLimeCabinetItemList(), "cabinet_item8");
+        addKindsWithSingleModel(ColorfulCabinetFolding.getMagentaCabinetItemList(), "cabinet_item9");
+        addKindsWithSingleModel(ColorfulCabinetFolding.getOrangeCabinetItemList(), "cabinet_item10");
+        addKindsWithSingleModel(ColorfulCabinetFolding.getPinkCabinetItemList(), "cabinet_item11");
+        addKindsWithSingleModel(ColorfulCabinetFolding.getPurpleCabinetItemList(), "cabinet_item12");
+        addKindsWithSingleModel(ColorfulCabinetFolding.getRedCabinetItemList(), "cabinet_item13");
+        addKindsWithSingleModel(ColorfulCabinetFolding.getYellowCabinetItemList(), "cabinet_item14");
+        addKindsWithSingleModel(ColorfulCabinetFolding.getWhiteCabinetItemList(), "cabinet_item15");
     }
 
     public void add(@NotNull List<DeferredHolder<Item, ? extends Item>> list) {

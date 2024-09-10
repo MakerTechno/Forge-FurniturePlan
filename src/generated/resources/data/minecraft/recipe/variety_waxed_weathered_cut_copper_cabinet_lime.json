@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "cabinets",
+  "ingredients": [
+    {
+      "item": "minecraft:lime_concrete"
+    },
+    {
+      "item": "furnitureplan:waxed_weathered_cut_copper_cabinet"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "furnitureplan:waxed_weathered_cut_copper_cabinet_lime"
+  }
+}

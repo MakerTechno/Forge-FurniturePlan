@@ -40,6 +40,7 @@ import nowebsite.maker.furnitureplan.items.BaseBERBlockItem;
 import nowebsite.maker.furnitureplan.items.GlassBBlockItem;
 import nowebsite.maker.furnitureplan.items.IronPotItem;
 import nowebsite.maker.furnitureplan.registry.kindsblock.*;
+import nowebsite.maker.furnitureplan.registry.kindsblock.cabinet.CabinetBlockRegistration;
 import oshi.util.tuples.Pair;
 
 public class BlockRegistration extends BRUtils{

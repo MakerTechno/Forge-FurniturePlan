@@ -13,10 +13,11 @@ import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
+import nowebsite.maker.furnitureplan.blocks.func.IColorfulBlock;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.CabinetBlock;
+import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.ColorfulBorderedCabinet;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.CabinetBlockEntity;
 import nowebsite.maker.furnitureplan.registry.SheetReference;
 import nowebsite.maker.furnitureplan.utils.Couple;
@@ -59,23 +60,32 @@ public class CabinetEntityRenderer implements BlockEntityRenderer<CabinetBlockEn
         poseStack.rotateAround(faceRotate, .5f, .5f, .5f);
         poseStack.translate(.0625, .0625, 0);
 
-        Block block = ((CabinetBlock)blockEntity.getBlockState().getBlock()).base;
+        CabinetBlock based = (CabinetBlock)blockEntity.getBlockState().getBlock();
+        if (!based.hasDoorRendered()){
+            poseStack.popPose();
+            return;
+        }
+        if (!(based instanceof ColorfulBorderedCabinet colorful)) {
+            poseStack.popPose();
+            return;
+        }
+        Block baseBlock = based.base;
         boolean useRL = false;
         ResourceLocation location = null;
-        if (SheetReference.COPPER_TRANS_LIST.containsKey(block)) {
-            block = SheetReference.COPPER_TRANS_LIST.get(block);
-        } else if (SheetReference.FIX_TRANS_LIST.containsKey(block)) {
+        if (SheetReference.COPPER_TRANS_LIST.containsKey(baseBlock)) {
+            baseBlock = SheetReference.COPPER_TRANS_LIST.get(baseBlock);
+        } else if (SheetReference.FIX_TRANS_LIST.containsKey(baseBlock)) {
             useRL = true;
-            location = SheetReference.FIX_TRANS_LIST.get(block);
+            location = SheetReference.FIX_TRANS_LIST.get(baseBlock);
         }
 
         VertexConsumer builder = bufferSource.getBuffer(RenderType.cutout());
         TextureAtlasSprite sprite = Minecraft.getInstance().getModelManager()
             .getAtlas(InventoryMenu.BLOCK_ATLAS)
-            .getSprite(useRL?location:TextureMapping.getBlockTexture(block));
+            .getSprite(useRL?location:TextureMapping.getBlockTexture(baseBlock));
         TextureAtlasSprite trim = Minecraft.getInstance().getModelManager()
             .getAtlas(InventoryMenu.BLOCK_ATLAS)
-            .getSprite(TextureMapping.getBlockTexture(Blocks.BROWN_CONCRETE));
+            .getSprite(IColorfulBlock.CONCRETE_TEXTURE_LIST.get(colorful.getColorId()));
 
         float openness = 1 - blockEntity.getOpenness(partialTick);
         float partRotate = (float) ((1 - Math.pow(openness, 3))*Math.PI/2);
@@ -97,6 +107,7 @@ public class CabinetEntityRenderer implements BlockEntityRenderer<CabinetBlockEn
             );
             poseStack.popPose();
         }
+
         poseStack.pushPose();
         transform(poseStack, HANDLE, partRotate);
         GUIUtil.drawTexturedRect(
@@ -105,10 +116,11 @@ public class CabinetEntityRenderer implements BlockEntityRenderer<CabinetBlockEn
             packedLight, packedOverlay
         );
         poseStack.popPose();
+
         poseStack.popPose();
     }
 
-    private static void transform(@NotNull PoseStack poseStack, Couple<Vec3, Vec2, Vec3> part, float partRotate) {
+    private static void transform(@NotNull PoseStack poseStack, @NotNull Couple<Vec3, Vec2, Vec3> part, float partRotate) {
         boolean flag1 = part.third().y == 180;
         boolean flag2 = part.third().x == 0;
         boolean flag3 = part.third().x == 270;

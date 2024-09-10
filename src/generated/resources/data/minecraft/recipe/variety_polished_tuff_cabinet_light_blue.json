@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "cabinets",
+  "ingredients": [
+    {
+      "item": "minecraft:light_blue_concrete"
+    },
+    {
+      "item": "furnitureplan:polished_tuff_cabinet"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "furnitureplan:polished_tuff_cabinet_light_blue"
+  }
+}

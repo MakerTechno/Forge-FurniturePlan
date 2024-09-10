@@ -18,7 +18,7 @@ import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.renderers.Gl
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.registry.EntityRegistration;
 import nowebsite.maker.furnitureplan.registry.GUIRegistration;
-import nowebsite.maker.furnitureplan.registry.kindsblock.CabinetBlockRegistration;
+import nowebsite.maker.furnitureplan.registry.kindsblock.cabinet.*;
 import nowebsite.maker.furnitureplan.registry.kindsblock.PotHolderBlockRegistration;
 import org.jetbrains.annotations.NotNull;
 
@@ -46,6 +46,24 @@ public class SetupClientWithEvents {
         event.registerBlockEntityRenderer(CabinetBlockRegistration.CABINET_BLOCK_ENTITY.get(), context -> new CabinetEntityRenderer());
 
         event.registerEntityRenderer(EntityRegistration.NULL_RIDE.get(), NoopRenderer::new);
+
+
+        event.registerBlockEntityRenderer(BlackCabinetRegistration.BLACK_CABINET_BLOCK_ENTITY.get(), context -> new CabinetEntityRenderer());
+        event.registerBlockEntityRenderer(BlueCabinetRegistration.BLUE_CABINET_BLOCK_ENTITY.get(), context -> new CabinetEntityRenderer());
+        event.registerBlockEntityRenderer(BrownCabinetRegistration.BROWN_CABINET_BLOCK_ENTITY.get(), context -> new CabinetEntityRenderer());
+        event.registerBlockEntityRenderer(CyanCabinetRegistration.CYAN_CABINET_BLOCK_ENTITY.get(), context -> new CabinetEntityRenderer());
+        event.registerBlockEntityRenderer(GrayCabinetRegistration.GRAY_CABINET_BLOCK_ENTITY.get(), context -> new CabinetEntityRenderer());
+        event.registerBlockEntityRenderer(GreenCabinetRegistration.GREEN_CABINET_BLOCK_ENTITY.get(), context -> new CabinetEntityRenderer());
+        event.registerBlockEntityRenderer(LightBlueCabinetRegistration.LIGHT_BLUE_CABINET_BLOCK_ENTITY.get(), context -> new CabinetEntityRenderer());
+        event.registerBlockEntityRenderer(LightGrayCabinetRegistration.LIGHT_GRAY_CABINET_BLOCK_ENTITY.get(), context -> new CabinetEntityRenderer());
+        event.registerBlockEntityRenderer(LimeCabinetRegistration.LIME_CABINET_BLOCK_ENTITY.get(), context -> new CabinetEntityRenderer());
+        event.registerBlockEntityRenderer(MagentaCabinetRegistration.MAGENTA_CABINET_BLOCK_ENTITY.get(), context -> new CabinetEntityRenderer());
+        event.registerBlockEntityRenderer(OrangeCabinetRegistration.ORANGE_CABINET_BLOCK_ENTITY.get(), context -> new CabinetEntityRenderer());
+        event.registerBlockEntityRenderer(PinkCabinetRegistration.PINK_CABINET_BLOCK_ENTITY.get(), context -> new CabinetEntityRenderer());
+        event.registerBlockEntityRenderer(PurpleCabinetRegistration.PURPLE_CABINET_BLOCK_ENTITY.get(), context -> new CabinetEntityRenderer());
+        event.registerBlockEntityRenderer(RedCabinetRegistration.RED_CABINET_BLOCK_ENTITY.get(), context -> new CabinetEntityRenderer());
+        event.registerBlockEntityRenderer(YellowCabinetRegistration.YELLOW_CABINET_BLOCK_ENTITY.get(), context -> new CabinetEntityRenderer());
+        event.registerBlockEntityRenderer(WhiteCabinetRegistration.WHITE_CABINET_BLOCK_ENTITY.get(), context -> new CabinetEntityRenderer());
     }
 
 }

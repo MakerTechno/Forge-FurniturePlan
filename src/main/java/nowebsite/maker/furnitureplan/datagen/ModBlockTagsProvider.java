@@ -11,6 +11,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.blocks.func.IWeatheringCopper;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
+import nowebsite.maker.furnitureplan.registry.ColorfulCabinetFolding;
 import nowebsite.maker.furnitureplan.registry.FoldingRegistration;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -34,6 +35,23 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         addKindsByDefault(FoldingRegistration.getPotHolderBlockList(), BlockRegistration.POT_HOLDER_BLOCK);
         addKindsByDefault(FoldingRegistration.getPotHolderBlockList(), BlockTags.NEEDS_STONE_TOOL, BlockTags.MINEABLE_WITH_PICKAXE);
         addKindsByDefault(FoldingRegistration.getCabinetBlockList(), BlockRegistration.CABINET_BLOCK);
+
+        addKindsByDefault(ColorfulCabinetFolding.getBlackCabinetBlockList(), BlockRegistration.CABINET_BLOCK);
+        addKindsByDefault(ColorfulCabinetFolding.getBlueCabinetBlockList(), BlockRegistration.CABINET_BLOCK);
+        addKindsByDefault(ColorfulCabinetFolding.getBrownCabinetBlockList(), BlockRegistration.CABINET_BLOCK);
+        addKindsByDefault(ColorfulCabinetFolding.getCyanCabinetBlockList(), BlockRegistration.CABINET_BLOCK);
+        addKindsByDefault(ColorfulCabinetFolding.getGrayCabinetBlockList(), BlockRegistration.CABINET_BLOCK);
+        addKindsByDefault(ColorfulCabinetFolding.getGreenCabinetBlockList(), BlockRegistration.CABINET_BLOCK);
+        addKindsByDefault(ColorfulCabinetFolding.getLightBlueCabinetBlockList(), BlockRegistration.CABINET_BLOCK);
+        addKindsByDefault(ColorfulCabinetFolding.getLightGrayCabinetBlockList(), BlockRegistration.CABINET_BLOCK);
+        addKindsByDefault(ColorfulCabinetFolding.getLimeCabinetBlockList(), BlockRegistration.CABINET_BLOCK);
+        addKindsByDefault(ColorfulCabinetFolding.getMagentaCabinetBlockList(), BlockRegistration.CABINET_BLOCK);
+        addKindsByDefault(ColorfulCabinetFolding.getOrangeCabinetBlockList(), BlockRegistration.CABINET_BLOCK);
+        addKindsByDefault(ColorfulCabinetFolding.getPinkCabinetBlockList(), BlockRegistration.CABINET_BLOCK);
+        addKindsByDefault(ColorfulCabinetFolding.getPurpleCabinetBlockList(), BlockRegistration.CABINET_BLOCK);
+        addKindsByDefault(ColorfulCabinetFolding.getRedCabinetBlockList(), BlockRegistration.CABINET_BLOCK);
+        addKindsByDefault(ColorfulCabinetFolding.getYellowCabinetBlockList(), BlockRegistration.CABINET_BLOCK);
+        addKindsByDefault(ColorfulCabinetFolding.getWhiteCabinetBlockList(), BlockRegistration.CABINET_BLOCK);
     }
 
     @SafeVarargs

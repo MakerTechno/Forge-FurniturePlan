@@ -27,6 +27,24 @@ public interface IColorfulBlock {
         Items.YELLOW_DYE,
         Items.WHITE_DYE
     );
+    List<Item> CONCRETES = List.of(
+        Items.BLACK_CONCRETE,
+        Items.BLUE_CONCRETE,
+        Items.BROWN_CONCRETE,
+        Items.CYAN_CONCRETE,
+        Items.GRAY_CONCRETE,
+        Items.GREEN_CONCRETE,
+        Items.LIGHT_BLUE_CONCRETE,
+        Items.LIGHT_GRAY_CONCRETE,
+        Items.LIME_CONCRETE,
+        Items.MAGENTA_CONCRETE,
+        Items.ORANGE_CONCRETE,
+        Items.PINK_CONCRETE,
+        Items.PURPLE_CONCRETE,
+        Items.RED_CONCRETE,
+        Items.YELLOW_CONCRETE,
+        Items.WHITE_CONCRETE
+    );
     List<DyeColor> COLOR_LIST = List.of(
         DyeColor.BLACK,
         DyeColor.BLUE,

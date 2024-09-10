@@ -14,6 +14,7 @@ import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
+import nowebsite.maker.furnitureplan.registry.ColorfulCabinetFolding;
 import nowebsite.maker.furnitureplan.registry.FoldingRegistration;
 import org.jetbrains.annotations.NotNull;
 
@@ -45,6 +46,22 @@ class ModCustomBlockLootProvider extends BlockLootSubProvider {
         this.addList(FoldingRegistration.getPotHolderBlockList());
         this.addList(FoldingRegistration.getBenchBlockList());
         this.addList(FoldingRegistration.getCabinetBlockList());
+        this.addList(ColorfulCabinetFolding.getBlackCabinetBlockList());
+        this.addList(ColorfulCabinetFolding.getBlueCabinetBlockList());
+        this.addList(ColorfulCabinetFolding.getBrownCabinetBlockList());
+        this.addList(ColorfulCabinetFolding.getCyanCabinetBlockList());
+        this.addList(ColorfulCabinetFolding.getGrayCabinetBlockList());
+        this.addList(ColorfulCabinetFolding.getGreenCabinetBlockList());
+        this.addList(ColorfulCabinetFolding.getLightBlueCabinetBlockList());
+        this.addList(ColorfulCabinetFolding.getLightGrayCabinetBlockList());
+        this.addList(ColorfulCabinetFolding.getLimeCabinetBlockList());
+        this.addList(ColorfulCabinetFolding.getMagentaCabinetBlockList());
+        this.addList(ColorfulCabinetFolding.getOrangeCabinetBlockList());
+        this.addList(ColorfulCabinetFolding.getPinkCabinetBlockList());
+        this.addList(ColorfulCabinetFolding.getPurpleCabinetBlockList());
+        this.addList(ColorfulCabinetFolding.getRedCabinetBlockList());
+        this.addList(ColorfulCabinetFolding.getYellowCabinetBlockList());
+        this.addList(ColorfulCabinetFolding.getWhiteCabinetBlockList());
 
         add(BlockRegistration.FOOD_PLATE_BLOCK.get(), noDrop());
         add(BlockRegistration.GLASS_B_BLOCK.get(), noDrop());

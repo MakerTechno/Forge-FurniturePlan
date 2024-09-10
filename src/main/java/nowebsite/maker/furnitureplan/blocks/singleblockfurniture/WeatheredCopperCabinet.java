@@ -12,8 +12,8 @@ import java.util.Optional;
 
 public class WeatheredCopperCabinet extends CabinetBlock implements IWeatheringCopper {
     private final WeatherState weatherState;
-    public WeatheredCopperCabinet(@NotNull BlockState state, Properties properties, WeatherState weatherState, int mapId) {
-        super(properties, state, mapId);
+    public WeatheredCopperCabinet(@NotNull BlockState state, Properties properties, WeatherState weatherState, boolean hasDoorRendered) {
+        super(properties, state, hasDoorRendered);
         this.weatherState = weatherState;
     }
     @Override
@@ -72,7 +72,7 @@ public class WeatheredCopperCabinet extends CabinetBlock implements IWeatheringC
     }
 
     @Override
-    protected @NotNull CabinetBlock getSelfNew(Properties properties, BlockState baseState, int mapId) {
-        return new WeatheredCopperCabinet(baseState, properties, this.weatherState, mapId);
+    protected @NotNull CabinetBlock getSelfNew(Properties properties, BlockState baseState, boolean hasDoorRendered) {
+        return new WeatheredCopperCabinet(baseState, properties, this.weatherState, hasDoorRendered);
     }
 }

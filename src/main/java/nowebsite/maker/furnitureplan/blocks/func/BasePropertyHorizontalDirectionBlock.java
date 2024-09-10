@@ -30,7 +30,7 @@ public abstract class BasePropertyHorizontalDirectionBlock<T extends BasePropert
     );
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public final Block base;
-    protected final BlockState baseState;
+    public final BlockState baseState;
     public BasePropertyHorizontalDirectionBlock(@NotNull BlockState state, Properties properties) {
         super(properties);
         this.base = state.getBlock();

@@ -8,6 +8,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.items.Graver;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
+import nowebsite.maker.furnitureplan.registry.ColorfulCabinetFolding;
 import nowebsite.maker.furnitureplan.registry.FoldingRegistration;
 import nowebsite.maker.furnitureplan.registry.ItemRegistration;
 import org.jetbrains.annotations.NotNull;
@@ -29,7 +30,7 @@ public class ModEnglishLanguageProvider extends LanguageProvider {
         add("tip.furnitureplan.graver.kind", "Kind: ");
         add("tip.furnitureplan.graver.kind_change", "Now carve target: ");
         for (Graver.GraveKind kind : Graver.GraveKind.values()) {
-            add("tip.furnitureplan.graver.kind." + kind.name().toLowerCase(Locale.ROOT), kind.name().toLowerCase(Locale.ROOT));
+            add("tip.furnitureplan.graver.kind." + kind.name().toLowerCase(Locale.ROOT), kind.name().replace('_', ' ').toLowerCase(Locale.ROOT));
         }
         add(ItemRegistration.DETRITUS.get(), "Detritus");
         add(ItemRegistration.SAWDUST.get(), "Sawdust");
@@ -57,7 +58,25 @@ public class ModEnglishLanguageProvider extends LanguageProvider {
         add("furnitureplan.networking.failed", "Failed to sync data.");
         transformKinds(FoldingRegistration.getPotHolderBlockList());
         transformKinds(FoldingRegistration.getBenchBlockList());
-        transformKinds(FoldingRegistration.getCabinetBlockList());
+
+        transformKinds(FoldingRegistration.getCabinetBlockList(), "Disguise");
+
+        transformKinds(ColorfulCabinetFolding.getBlackCabinetBlockList());
+        transformKinds(ColorfulCabinetFolding.getBlueCabinetBlockList());
+        transformKinds(ColorfulCabinetFolding.getBrownCabinetBlockList());
+        transformKinds(ColorfulCabinetFolding.getCyanCabinetBlockList());
+        transformKinds(ColorfulCabinetFolding.getGrayCabinetBlockList());
+        transformKinds(ColorfulCabinetFolding.getGreenCabinetBlockList());
+        transformKinds(ColorfulCabinetFolding.getLightBlueCabinetBlockList());
+        transformKinds(ColorfulCabinetFolding.getLightGrayCabinetBlockList());
+        transformKinds(ColorfulCabinetFolding.getLimeCabinetBlockList());
+        transformKinds(ColorfulCabinetFolding.getMagentaCabinetBlockList());
+        transformKinds(ColorfulCabinetFolding.getOrangeCabinetBlockList());
+        transformKinds(ColorfulCabinetFolding.getPinkCabinetBlockList());
+        transformKinds(ColorfulCabinetFolding.getPurpleCabinetBlockList());
+        transformKinds(ColorfulCabinetFolding.getRedCabinetBlockList());
+        transformKinds(ColorfulCabinetFolding.getYellowCabinetBlockList());
+        transformKinds(ColorfulCabinetFolding.getWhiteCabinetBlockList());
     }
 
     public void transformKinds(@NotNull List<DeferredHolder<Block, ? extends Block>> list) {
@@ -65,6 +84,13 @@ public class ModEnglishLanguageProvider extends LanguageProvider {
         for(DeferredHolder<Block, ? extends Block> ro : list) {
             String s = BuiltInRegistries.BLOCK.getKey(ro.get()).getPath().replace('_', ' ');
             add(ro.get(), s.substring(0, 1).toUpperCase(Locale.ROOT) + s.substring(1));
+        }
+    }
+    public void transformKinds(@NotNull List<DeferredHolder<Block, ? extends Block>> list, String formed) {
+        assert list.size() <= FoldingRegistration.PROPERTY_KINDS.size();
+        for(DeferredHolder<Block, ? extends Block> ro : list) {
+            String s = BuiltInRegistries.BLOCK.getKey(ro.get()).getPath().replace('_', ' ');
+            add(ro.get(), formed + " " + s);
         }
     }
 }

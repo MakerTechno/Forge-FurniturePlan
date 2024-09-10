@@ -9,6 +9,7 @@ import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import nowebsite.maker.furnitureplan.blocks.func.IColorfulBlock;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
+import nowebsite.maker.furnitureplan.registry.ColorfulCabinetFolding;
 import nowebsite.maker.furnitureplan.registry.FoldingRegistration;
 import nowebsite.maker.furnitureplan.registry.ItemRegistration;
 import nowebsite.maker.furnitureplan.registry.kindsblock.PotHolderBlockRegistration;
@@ -105,5 +106,43 @@ public class ModRecipeProvider extends RecipeProvider {
             .requires(Items.IRON_NUGGET, 3)
             .unlockedBy("has_iron_nugget", has(Items.IRON_NUGGET))
             .save(recipeOutput);
+        boarderBlockWithConcrete(
+            recipeOutput, IColorfulBlock.CONCRETES,
+            FoldingRegistration.getCabinetItemList(),
+            "cabinets",
+            ColorfulCabinetFolding.getBlackCabinetItemList(),
+            ColorfulCabinetFolding.getBlueCabinetItemList(),
+            ColorfulCabinetFolding.getBrownCabinetItemList(),
+            ColorfulCabinetFolding.getCyanCabinetItemList(),
+            ColorfulCabinetFolding.getGrayCabinetItemList(),
+            ColorfulCabinetFolding.getGreenCabinetItemList(),
+            ColorfulCabinetFolding.getLightBlueCabinetItemList(),
+            ColorfulCabinetFolding.getLightGrayCabinetItemList(),
+            ColorfulCabinetFolding.getLimeCabinetItemList(),
+            ColorfulCabinetFolding.getMagentaCabinetItemList(),
+            ColorfulCabinetFolding.getOrangeCabinetItemList(),
+            ColorfulCabinetFolding.getPinkCabinetItemList(),
+            ColorfulCabinetFolding.getPurpleCabinetItemList(),
+            ColorfulCabinetFolding.getRedCabinetItemList(),
+            ColorfulCabinetFolding.getYellowCabinetItemList(),
+            ColorfulCabinetFolding.getWhiteCabinetItemList()
+        );
+    }
+
+    @SuppressWarnings("all")
+    @SafeVarargs
+    protected static void boarderBlockWithConcrete(RecipeOutput recipeOutput, @NotNull List<Item> concretes, List<DeferredHolder<Item, ? extends Item>> bases, String group, List<DeferredHolder<Item, ? extends Item>> ...dyeableItems) {
+        for (int i = 0; i < concretes.size(); i++) {
+            List<DeferredHolder<Item, ? extends Item>> dyeableList = dyeableItems[i];
+            for (int j = 0; j < dyeableList.size(); j++) {
+                Item dyeing = dyeableList.get(j).get();
+                ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, dyeing)
+                    .requires(concretes.get(i))
+                    .requires(bases.get(j).get())
+                    .group(group)
+                    .unlockedBy("has_concrete", has(concretes.get(i)))
+                    .save(recipeOutput, "variety_" + getItemName(dyeing));
+            }
+        }
     }
 }

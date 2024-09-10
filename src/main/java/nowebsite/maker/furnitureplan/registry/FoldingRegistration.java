@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import nowebsite.maker.furnitureplan.registry.kindsblock.*;
+import nowebsite.maker.furnitureplan.registry.kindsblock.cabinet.CabinetBlockRegistration;
 
 import java.util.ArrayList;
 import java.util.HashMap;

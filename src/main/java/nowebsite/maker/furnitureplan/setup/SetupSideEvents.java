@@ -9,7 +9,7 @@ import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.networks.*;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
-import nowebsite.maker.furnitureplan.registry.kindsblock.CabinetBlockRegistration;
+import nowebsite.maker.furnitureplan.registry.kindsblock.cabinet.*;
 import nowebsite.maker.furnitureplan.registry.kindsblock.PotHolderBlockRegistration;
 import org.jetbrains.annotations.NotNull;
 
@@ -50,6 +50,89 @@ public class SetupSideEvents {
         event.registerBlockEntity(
             Capabilities.ItemHandler.BLOCK,
             CabinetBlockRegistration.CABINET_BLOCK_ENTITY.get(),
+            (blockEntity, direction) -> blockEntity.createHandler().get()
+        );
+
+
+
+        event.registerBlockEntity(
+            Capabilities.ItemHandler.BLOCK,
+            BlackCabinetRegistration.BLACK_CABINET_BLOCK_ENTITY.get(),
+            (blockEntity, direction) -> blockEntity.createHandler().get()
+        );
+        event.registerBlockEntity(
+            Capabilities.ItemHandler.BLOCK,
+            BlueCabinetRegistration.BLUE_CABINET_BLOCK_ENTITY.get(),
+            (blockEntity, direction) -> blockEntity.createHandler().get()
+        );
+        event.registerBlockEntity(
+            Capabilities.ItemHandler.BLOCK,
+            BrownCabinetRegistration.BROWN_CABINET_BLOCK_ENTITY.get(),
+            (blockEntity, direction) -> blockEntity.createHandler().get()
+        );
+        event.registerBlockEntity(
+            Capabilities.ItemHandler.BLOCK,
+            CyanCabinetRegistration.CYAN_CABINET_BLOCK_ENTITY.get(),
+            (blockEntity, direction) -> blockEntity.createHandler().get()
+        );
+        event.registerBlockEntity(
+            Capabilities.ItemHandler.BLOCK,
+            GrayCabinetRegistration.GRAY_CABINET_BLOCK_ENTITY.get(),
+            (blockEntity, direction) -> blockEntity.createHandler().get()
+        );
+        event.registerBlockEntity(
+            Capabilities.ItemHandler.BLOCK,
+            GreenCabinetRegistration.GREEN_CABINET_BLOCK_ENTITY.get(),
+            (blockEntity, direction) -> blockEntity.createHandler().get()
+        );
+        event.registerBlockEntity(
+            Capabilities.ItemHandler.BLOCK,
+            LightBlueCabinetRegistration.LIGHT_BLUE_CABINET_BLOCK_ENTITY.get(),
+            (blockEntity, direction) -> blockEntity.createHandler().get()
+        );
+        event.registerBlockEntity(
+            Capabilities.ItemHandler.BLOCK,
+            LightGrayCabinetRegistration.LIGHT_GRAY_CABINET_BLOCK_ENTITY.get(),
+            (blockEntity, direction) -> blockEntity.createHandler().get()
+        );
+        event.registerBlockEntity(
+            Capabilities.ItemHandler.BLOCK,
+            LimeCabinetRegistration.LIME_CABINET_BLOCK_ENTITY.get(),
+            (blockEntity, direction) -> blockEntity.createHandler().get()
+        );
+        event.registerBlockEntity(
+            Capabilities.ItemHandler.BLOCK,
+            MagentaCabinetRegistration.MAGENTA_CABINET_BLOCK_ENTITY.get(),
+            (blockEntity, direction) -> blockEntity.createHandler().get()
+        );
+        event.registerBlockEntity(
+            Capabilities.ItemHandler.BLOCK,
+            OrangeCabinetRegistration.ORANGE_CABINET_BLOCK_ENTITY.get(),
+            (blockEntity, direction) -> blockEntity.createHandler().get()
+        );
+        event.registerBlockEntity(
+            Capabilities.ItemHandler.BLOCK,
+            PinkCabinetRegistration.PINK_CABINET_BLOCK_ENTITY.get(),
+            (blockEntity, direction) -> blockEntity.createHandler().get()
+        );
+        event.registerBlockEntity(
+            Capabilities.ItemHandler.BLOCK,
+            PurpleCabinetRegistration.PURPLE_CABINET_BLOCK_ENTITY.get(),
+            (blockEntity, direction) -> blockEntity.createHandler().get()
+        );
+        event.registerBlockEntity(
+            Capabilities.ItemHandler.BLOCK,
+            RedCabinetRegistration.RED_CABINET_BLOCK_ENTITY.get(),
+            (blockEntity, direction) -> blockEntity.createHandler().get()
+        );
+        event.registerBlockEntity(
+            Capabilities.ItemHandler.BLOCK,
+            YellowCabinetRegistration.YELLOW_CABINET_BLOCK_ENTITY.get(),
+            (blockEntity, direction) -> blockEntity.createHandler().get()
+        );
+        event.registerBlockEntity(
+            Capabilities.ItemHandler.BLOCK,
+            WhiteCabinetRegistration.WHITE_CABINET_BLOCK_ENTITY.get(),
             (blockEntity, direction) -> blockEntity.createHandler().get()
         );
     }

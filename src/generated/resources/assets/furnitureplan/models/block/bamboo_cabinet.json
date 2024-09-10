@@ -1,6 +1,6 @@
 {
-  "parent": "furnitureplan:block/cabinet",
+  "parent": "furnitureplan:block/cube_all",
   "textures": {
-    "particle": "minecraft:block/bamboo_planks"
+    "all": "minecraft:block/bamboo_planks"
   }
 }

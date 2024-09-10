@@ -1,6 +1,6 @@
 {
-  "parent": "furnitureplan:block/cabinet",
+  "parent": "furnitureplan:block/cube_all",
   "textures": {
-    "particle": "minecraft:block/cut_copper"
+    "all": "minecraft:block/cut_copper"
   }
 }

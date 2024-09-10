@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "cabinets",
+  "ingredients": [
+    {
+      "item": "minecraft:light_gray_concrete"
+    },
+    {
+      "item": "furnitureplan:exposed_cut_copper_cabinet"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "furnitureplan:exposed_cut_copper_cabinet_light_gray"
+  }
+}

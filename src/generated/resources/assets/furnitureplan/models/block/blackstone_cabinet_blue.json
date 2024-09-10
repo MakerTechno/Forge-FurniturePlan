@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/cabinet1",
+  "textures": {
+    "particle": "minecraft:block/blackstone"
+  }
+}

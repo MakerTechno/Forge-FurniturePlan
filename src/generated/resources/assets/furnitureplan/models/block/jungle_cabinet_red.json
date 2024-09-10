@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/cabinet13",
+  "textures": {
+    "particle": "minecraft:block/jungle_planks"
+  }
+}
