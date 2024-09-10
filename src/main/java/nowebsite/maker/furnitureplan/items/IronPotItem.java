@@ -20,12 +20,12 @@ import org.jetbrains.annotations.NotNull;
 public class IronPotItem extends BlockItem {
     //1200' is a minute, as 20 per second.
     private static final MobEffectInstance[] effectAbilities = {
-            new MobEffectInstance(MobEffects.BLINDNESS, 200, 0, false, false),
-            new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 0, false, false),
-            new MobEffectInstance(MobEffects.CONFUSION, 200, 0, false, false),//as well-known "nausea"
-            new MobEffectInstance(MobEffects.WEAKNESS, 200, 0, false, false),
-            new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 200, 0, false, false),
-            new MobEffectInstance(MobEffects.DARKNESS, 200, 0, false, false)
+            new MobEffectInstance(MobEffects.BLINDNESS, 200, 255, false, true),
+            new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 2, false, true),
+            new MobEffectInstance(MobEffects.CONFUSION, 200, 1, false, true),//as well-known "nausea"
+            new MobEffectInstance(MobEffects.WEAKNESS, 200, 2, false, true),
+            new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 200, 2, false, true),
+            new MobEffectInstance(MobEffects.DARKNESS, 400, 2, false, true)
     };
     public IronPotItem(Block block, Properties properties) {
         super(block, properties);
@@ -38,7 +38,8 @@ public class IronPotItem extends BlockItem {
     public boolean hurtEnemy(@NotNull ItemStack stack, @NotNull LivingEntity target, @NotNull LivingEntity attacker) {
         attacker.playSound(SoundEvents.ANVIL_LAND, 5.0f, 1.0f);
         target.addEffect(getRandomEffect(attacker.getRandom()));
-        target.addDeltaMovement(attacker.getViewVector(1.0F).normalize().scale(1.8));
+        target.addEffect(getRandomEffect(attacker.getRandom()));
+        target.addDeltaMovement(attacker.getViewVector(1.0F).normalize().scale(2.6).add(attacker.getDeltaMovement()));
         target.hurtMarked = true;
         return super.hurtEnemy(stack, target, attacker);
     }
