@@ -127,6 +127,18 @@ public class ModRecipeProvider extends RecipeProvider {
             ColorfulCabinetFolding.getYellowCabinetItemList(),
             ColorfulCabinetFolding.getWhiteCabinetItemList()
         );
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistration.WATER_DISPENSER_ITEM.get())
+            .define('C', Items.WHITE_CONCRETE)
+            .define('I', Items.IRON_INGOT)
+            .pattern("CCC")
+            .pattern("CIC")
+            .pattern("CCC")
+            .unlockedBy("has_iron", has(Items.IRON_INGOT))
+            .save(recipeOutput);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BlockRegistration.BOTTLE_ITEM.get())
+            .requires(Items.GLASS, 2)
+            .unlockedBy("has_glass", has(Items.GLASS))
+            .save(recipeOutput);
     }
 
     @SuppressWarnings("all")

@@ -1,4 +1,4 @@
-// 1.21	2024-09-18T21:42:10.260516	Recipes
+// 1.21	2024-09-18T23:50:56.5699996	Recipes
 eca45c505385e5a9256d153541ca1a0de9f39afd data/furnitureplan/advancement/recipes/misc/cupboard_block.json
 1e4ba05bcb3ef58d697f6740d820d5c6de7c892f data/furnitureplan/advancement/recipes/misc/cutlery_block.json
 066c6466426ae8396d7dd014033bfd38674300d9 data/furnitureplan/advancement/recipes/misc/glass_b_block.json
@@ -9,6 +9,8 @@ a64ccf031e65620623f1f1ac02321fbbf99a0585 data/furnitureplan/advancement/recipes/
 08591d9bb99a72cd093e037a669eaab936095fb3 data/furnitureplan/advancement/recipes/misc/plate.json
 8a4092125f8ae2621ea2d94bb0fd48cdbe448376 data/furnitureplan/advancement/recipes/misc/stove_block.json
 806ccfbbf0ab70a92e6500c98b4706e3c0854707 data/furnitureplan/advancement/recipes/misc/table_lamp.json
+deb1ab825080e4595fe54b2cddffe263f6071932 data/furnitureplan/advancement/recipes/misc/water_bottle.json
+d6ef71f551c784228916b7b0acedb6429d471784 data/furnitureplan/advancement/recipes/misc/water_dispenser.json
 29b494248bc8339c0bede68ac1fe4848d78f79e3 data/furnitureplan/advancement/recipes/misc/white_pot_holder_block.json
 671c76cfa641cd36fe2a7226fe1dbeac4d9c10eb data/furnitureplan/recipe/cupboard_block.json
 464b91898d995712594ee31a9ad16852d026ed95 data/furnitureplan/recipe/cutlery_block.json
@@ -20,6 +22,8 @@ c8b3a7d6663842166232ced04e8090d0fc89ae11 data/furnitureplan/recipe/iron_pot_bloc
 42f25eefca5630e7c2e9286557a02307887ce3c2 data/furnitureplan/recipe/plate.json
 14f731f3f43a719900dfe63a100edc2a8c93e577 data/furnitureplan/recipe/stove_block.json
 db4d319854e0c75cbb3c2c62c836b60c0fee8c55 data/furnitureplan/recipe/table_lamp.json
+46dce4f6e669c5e0a24630c5a3380b57d52853d6 data/furnitureplan/recipe/water_bottle.json
+25c4355df6a4ba9b2e59280b80f36511984c177b data/furnitureplan/recipe/water_dispenser.json
 8cf49ce45016f6a116fbfc712b54c84662834d83 data/furnitureplan/recipe/white_pot_holder_block.json
 614b79a5606c009fbd7188a5af708cea26bfd359 data/minecraft/advancement/recipes/building_blocks/dye_black_pot_holder_block.json
 814b9c53fe404f837c40da01ee4cf75f6bd4bca9 data/minecraft/advancement/recipes/building_blocks/dye_blue_pot_holder_block.json
