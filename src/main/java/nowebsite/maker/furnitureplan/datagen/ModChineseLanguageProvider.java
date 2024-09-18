@@ -51,6 +51,8 @@ public class ModChineseLanguageProvider extends LanguageProvider {
         add(BlockRegistration.VASE_B_BLOCK_ITEM.get(), "花瓶(已弃用)");
         add(BlockRegistration.TABLE_LAMP_ITEM.get(), "台灯");
         add(BlockRegistration.GRASS_GRASS_ITEM.get(), "草(字面上、物理上的)");
+        add(BlockRegistration.WATER_DISPENSER_ITEM.get(), "饮水机");
+        add(BlockRegistration.BOTTLE_ITEM.get(), "大水桶");
         add("advancements.furniture.root.title", "开始雕刻家具吧!");
         add("advancements.furniture.root.description", "获取一个家具计划雕刻刀");
         add("advancements.furniture.grassit.title", "令人眼前一黑的好活");

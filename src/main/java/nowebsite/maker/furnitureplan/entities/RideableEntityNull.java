@@ -10,7 +10,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.neoforge.entity.IEntityWithComplexSpawn;
-import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.BaseSittableBE;
+import nowebsite.maker.furnitureplan.blocks.func.BaseSittableBE;
 import org.jetbrains.annotations.NotNull;
 
 public class RideableEntityNull extends VehicleEntity implements IEntityWithComplexSpawn {

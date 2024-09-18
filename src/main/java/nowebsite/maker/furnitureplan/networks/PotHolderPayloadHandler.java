@@ -4,7 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.neoforged.neoforge.network.handling.IPayloadHandler;
-import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.PotHolderBlockEntity;
+import nowebsite.maker.furnitureplan.blocks.multiaffected.blockentities.PotHolderBlockEntity;
 import org.jetbrains.annotations.NotNull;
 
 public class PotHolderPayloadHandler implements IPayloadHandler<PotHolderSyncData> {

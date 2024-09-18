@@ -1,4 +1,4 @@
-package nowebsite.maker.furnitureplan.blocks.singleblockfurniture;
+package nowebsite.maker.furnitureplan.blocks.multiaffected;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

@@ -48,6 +48,10 @@ public class CabinetEntityRenderer implements BlockEntityRenderer<CabinetBlockEn
         MAPS.add(Pair.of(new Vec2(1f/16, 1f/16), new Vec2(15f/16, 2f/16)));
     }
     @Override
+    public boolean shouldRenderOffScreen(@NotNull CabinetBlockEntity blockEntity) {
+        return true;
+    }
+    @Override
     public void render(@NotNull CabinetBlockEntity blockEntity, float partialTick, @NotNull PoseStack poseStack, @NotNull MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
         poseStack.pushPose();
         Quaternionf faceRotate;

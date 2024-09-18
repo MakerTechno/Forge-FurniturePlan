@@ -5,15 +5,16 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.ChangeOverTimeBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import nowebsite.maker.furnitureplan.blocks.func.IUVLockedBlock;
 import nowebsite.maker.furnitureplan.blocks.func.IWeatheringCopper;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
-public class WeatheredColorfulBorderedCopperCabinet extends ColorfulBorderedCabinet implements IWeatheringCopper {
+public class WeatheredColorfulBorderedCopperCabinet extends ColorfulBorderedCabinet implements IUVLockedBlock, IWeatheringCopper {
     private final WeatherState weatherState;
     public WeatheredColorfulBorderedCopperCabinet(@NotNull BlockState state, Properties properties, WeatherState weatherState, boolean hasDoorRendered, int colorId) {
-        super(properties, state, hasDoorRendered, colorId);
+        super(properties.noOcclusion(), state, hasDoorRendered, colorId);
         this.weatherState = weatherState;
     }
     @Override

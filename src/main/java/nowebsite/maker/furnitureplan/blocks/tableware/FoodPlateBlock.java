@@ -119,12 +119,9 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
         return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
     @Override
-    public boolean onDestroyedByPlayer(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, boolean willHarvest, @NotNull FluidState fluid) {
-        this.spawnDestroyParticles(level, player, pos, state);
-        PlateShape shape =  state.isAir() ? null : state.getValue(SHAPE_DEF).getNext();
-        BlockState newState = shape == null ? Blocks.AIR.defaultBlockState() : BlockRegistration.FOOD_PLATE_BLOCK.get().defaultBlockState().setValue(FACING, state.getValue(FACING)).setValue(SHAPE_DEF,shape);
-        if (newState.isAir() || state.getValue(SHAPE_DEF).getNext() == newState.getValue(SHAPE_DEF)){
-            if (willHarvest && level.getBlockEntity(pos) instanceof FoodPlateBlockEntity cast) {
+    protected void onRemove(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState newState, boolean movedByPiston) {
+        if (!(newState.getBlock() instanceof FoodPlateBlock)) {
+            if (level.getBlockEntity(pos) instanceof FoodPlateBlockEntity cast) {
                 SimpleContainer inventory = new SimpleContainer(1);
                 ItemStack stack = ItemStack.EMPTY;
                 if (canSurvive(state, level, pos)) {
@@ -145,9 +142,8 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
                 Containers.dropContents(level, pos, inventory);
             }
         }
-        level.setBlockAndUpdate(pos, newState);
-        return shape == null;
     }
+
     /**From {@link FaceAttachedHorizontalDirectionalBlock}*/
     @Override
     public boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader level, @NotNull BlockPos pos) {

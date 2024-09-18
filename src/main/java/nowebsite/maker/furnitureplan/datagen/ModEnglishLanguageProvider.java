@@ -51,6 +51,8 @@ public class ModEnglishLanguageProvider extends LanguageProvider {
         add(BlockRegistration.VASE_B_BLOCK_ITEM.get(), "Vase(Deprecated)");
         add(BlockRegistration.TABLE_LAMP_ITEM.get(), "Table lamp");
         add(BlockRegistration.GRASS_GRASS_ITEM.get(), "Grass(In fact)");
+        add(BlockRegistration.WATER_DISPENSER_ITEM.get(), "Water dispenser");
+        add(BlockRegistration.BOTTLE_ITEM.get(), "Water bottle");
         add("advancements.furniture.root.title", "Let's carve a furniture!");
         add("advancements.furniture.root.description", "Get a furniture graver");
         add("advancements.furniture.grassit.title", "It's worth it a grass");

@@ -33,6 +33,8 @@ public class CreativeModeTabRegistration {
             event.accept(BlockRegistration.CUPBOARD_BLOCK_ITEM.get());
             event.accept(BlockRegistration.STOVE_BLOCK_ITEM.get());
             event.accept(BlockRegistration.TABLE_LAMP_ITEM.get());
+            event.accept(BlockRegistration.WATER_DISPENSER_ITEM.get());
+            event.accept(BlockRegistration.BOTTLE_ITEM.get());
             event.accept(ItemRegistration.DETRITUS.get());
             event.accept(ItemRegistration.SAWDUST.get());
             initKindItem(event, FoldingRegistration.getPotHolderItemList());

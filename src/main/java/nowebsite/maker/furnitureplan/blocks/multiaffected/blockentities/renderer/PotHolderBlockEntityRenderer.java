@@ -1,4 +1,4 @@
-package nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.renderer;
+package nowebsite.maker.furnitureplan.blocks.multiaffected.blockentities.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
@@ -8,8 +8,8 @@ import net.minecraft.client.renderer.block.BlockRenderDispatcher;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.core.Direction;
 import net.minecraft.world.phys.Vec3;
-import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.PotHolder;
-import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.PotHolderBlockEntity;
+import nowebsite.maker.furnitureplan.blocks.multiaffected.PotHolder;
+import nowebsite.maker.furnitureplan.blocks.multiaffected.blockentities.PotHolderBlockEntity;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Quaternionf;
 

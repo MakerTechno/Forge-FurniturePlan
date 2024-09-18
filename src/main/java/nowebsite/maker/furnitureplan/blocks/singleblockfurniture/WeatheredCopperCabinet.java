@@ -5,12 +5,13 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.ChangeOverTimeBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import nowebsite.maker.furnitureplan.blocks.func.IUVLockedBlock;
 import nowebsite.maker.furnitureplan.blocks.func.IWeatheringCopper;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
-public class WeatheredCopperCabinet extends CabinetBlock implements IWeatheringCopper {
+public class WeatheredCopperCabinet extends CabinetBlock implements IUVLockedBlock, IWeatheringCopper {
     private final WeatherState weatherState;
     public WeatheredCopperCabinet(@NotNull BlockState state, Properties properties, WeatherState weatherState, boolean hasDoorRendered) {
         super(properties, state, hasDoorRendered);

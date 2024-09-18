@@ -10,7 +10,7 @@ import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.blocks.cookingUtensils.blockentities.renderers.IronPotBlockEntityRenderer;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.renderer.CabinetEntityRenderer;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.renderer.CupboardEntityRenderer;
-import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.renderer.PotHolderBlockEntityRenderer;
+import nowebsite.maker.furnitureplan.blocks.multiaffected.blockentities.renderer.PotHolderBlockEntityRenderer;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.renderer.VaseBBlockEntityRenderer;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.gui.CupboardScreen;
 import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.renderers.FoodPlateBlockEntityRenderer;

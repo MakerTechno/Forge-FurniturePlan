@@ -1,4 +1,4 @@
-// 1.21	2024-09-11T00:01:02.1882223	Item Models: furnitureplan
+// 1.21	2024-09-18T21:42:10.272516	Item Models: furnitureplan
 63f48382b918b5ba558ad6da3b6dc72b80333ca6 assets/furnitureplan/models/item/acacia_bench.json
 474f5fb74219da68a7ac74fff9b36f4ee1e62927 assets/furnitureplan/models/item/acacia_cabinet.json
 1323622e8bd0466cda847a6f7c664a76da5c146e assets/furnitureplan/models/item/acacia_cabinet_black.json
@@ -1200,6 +1200,8 @@ f9b9f31a46b8e1cd8dfd349b822e47c7c4fc541c assets/furnitureplan/models/item/warped
 e1a90b80be69824fa2e3ec3496c2d75ec9de52ab assets/furnitureplan/models/item/warped_column.json
 e5e2e84a205c974a2a028dab1588fc14c43a5905 assets/furnitureplan/models/item/warped_lighted_column.json
 c2d7b9300ace6b61e155fb5af3a0c6a5de54777d assets/furnitureplan/models/item/warped_table.json
+ab9c0b1066694475a61f85a0ac182cc2d38fcc8a assets/furnitureplan/models/item/water_bottle.json
+2c643d1fd8ade4e204fca8741cd6021c944fa88e assets/furnitureplan/models/item/water_dispenser.json
 51ed247ccaf5aa00c587e84ab89d663296e343ce assets/furnitureplan/models/item/waxed_cut_copper_bench.json
 00b5300510169dda9c66d9f1c5f1f01822bf5509 assets/furnitureplan/models/item/waxed_cut_copper_cabinet.json
 9e5a1285584c7f083f47cf7ebaf6e2ed297d9a1d assets/furnitureplan/models/item/waxed_cut_copper_cabinet_black.json

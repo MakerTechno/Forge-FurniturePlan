@@ -1,4 +1,4 @@
-package nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities;
+package nowebsite.maker.furnitureplan.blocks.multiaffected.blockentities;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;

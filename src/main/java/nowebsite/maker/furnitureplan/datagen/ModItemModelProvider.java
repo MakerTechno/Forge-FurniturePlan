@@ -72,6 +72,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent(BlockRegistration.VASE_B_BLOCK_ITEM.get().toString(), modLoc("block/vase"));
         withExistingParent(BlockRegistration.TABLE_LAMP_ITEM.get().toString(), modLoc("block/table_lamp_off"));
         withExistingParent(BlockRegistration.GRASS_GRASS_ITEM.get().toString(), modLoc("block/grass_grass"));
+        withExistingParent(BlockRegistration.WATER_DISPENSER_ITEM.get().toString(), modLoc("block/water_dispenser"));
+        withExistingParent(BlockRegistration.BOTTLE_ITEM.get().toString(), modLoc("block/water_bottle_normal"));
 
         addWithColorsSingleModel(FoldingRegistration.getPotHolderItemList(), "pot_holder");
         add(FoldingRegistration.getBenchItemList());

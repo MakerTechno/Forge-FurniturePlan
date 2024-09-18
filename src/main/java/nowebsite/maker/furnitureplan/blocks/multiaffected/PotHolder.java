@@ -1,4 +1,4 @@
-package nowebsite.maker.furnitureplan.blocks.singleblockfurniture;
+package nowebsite.maker.furnitureplan.blocks.multiaffected;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
@@ -36,7 +36,7 @@ import nowebsite.maker.furnitureplan.blocks.func.BaseSmallHallBasedBlock;
 import nowebsite.maker.furnitureplan.blocks.func.IColorfulBlock;
 import nowebsite.maker.furnitureplan.blocks.func.IHorizontalBlock;
 import nowebsite.maker.furnitureplan.blocks.func.definition.PotHolderPart;
-import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.PotHolderBlockEntity;
+import nowebsite.maker.furnitureplan.blocks.multiaffected.blockentities.PotHolderBlockEntity;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import nowebsite.maker.furnitureplan.utils.RCube;
 import nowebsite.maker.furnitureplan.utils.Vec3Utils;

@@ -10,13 +10,14 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import nowebsite.maker.furnitureplan.blocks.func.IUVLockedBlock;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.CabinetBlockEntity;
 import nowebsite.maker.furnitureplan.registry.kindsblock.cabinet.*;
 import org.jetbrains.annotations.NotNull;
 
 import static nowebsite.maker.furnitureplan.registry.kindsblock.cabinet.CabinetBlockRegistration.CABINET_BLOCK_ENTITY;
 
-public class ColorfulBorderedCabinet extends CabinetBlock{
+public class ColorfulBorderedCabinet extends CabinetBlock implements IUVLockedBlock {
     private final MapCodec<ColorfulBorderedCabinet> CODEC = RecordCodecBuilder.mapCodec(
         cabinetBlockInstance -> cabinetBlockInstance.group(
             propertiesCodec(),

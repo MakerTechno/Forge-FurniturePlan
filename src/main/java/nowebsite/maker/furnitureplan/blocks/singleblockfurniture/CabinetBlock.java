@@ -27,6 +27,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import nowebsite.maker.furnitureplan.blocks.func.BasePropertyHorizontalDirectionBlock;
 import nowebsite.maker.furnitureplan.blocks.func.IHorizontalBlock;
+import nowebsite.maker.furnitureplan.blocks.func.IUVLockedBlock;
 import nowebsite.maker.furnitureplan.blocks.func.IVarietyBlock;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.CabinetBlockEntity;
 import nowebsite.maker.furnitureplan.registry.kindsblock.cabinet.CabinetBlockRegistration;
@@ -36,7 +37,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
-public class CabinetBlock extends BasePropertyHorizontalDirectionBlock<CabinetBlock> implements IHorizontalBlock, IVarietyBlock, EntityBlock {
+public class CabinetBlock extends BasePropertyHorizontalDirectionBlock<CabinetBlock> implements IHorizontalBlock, IVarietyBlock, IUVLockedBlock, EntityBlock {
     private final MapCodec<CabinetBlock> CODEC = RecordCodecBuilder.mapCodec(
         cabinetBlockInstance -> cabinetBlockInstance.group(
             propertiesCodec(),

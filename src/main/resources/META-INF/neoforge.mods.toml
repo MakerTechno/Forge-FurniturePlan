@@ -23,7 +23,7 @@ issueTrackerURL="https://github.com/MakerTechno/Forge-FurniturePlan/issues" #opt
 modId="furnitureplan" #mandatory
 
 # The version number of the mod
-version="0.0.8" #mandatory
+version="0.1.01" #mandatory
 
 # A display name for the mod
 displayName="Furniture Plan Mod" #mandatory
@@ -41,26 +41,21 @@ logoFile="thismod.png" #optional
 #credits="" #optional
 
 # A text field displayed in the mod UI
-authors="MakerAsYEEEEAH~, Jing_qiAsDownAndUp, Victor_CNAsConfusing" #optional
+authors="Maker as YEEEEAH~, Jing_qi as DownAndUp, Victor_CN as >_<Confusing" #optional
 
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-· What is Furniture Plan Alpha?
-Furniture Plan Alpha is a mod written by MakerTechno(also called Maker or Maker-2333),
+· What is Furniture Plan (Alpha)?
+Furniture Plan (Alpha) is a mod written by MakerTechno(also called Maker or Maker-2333),
 including kinds of furniture and some interesting changes.
-These changes make minecraft funnier and not so boring.
-When you need many pickaxe to mine but not much iron you have.
-(Using cooper and change it to *brass!)
-Furniture include chairs, tables and so on.
-Most of the model were made by (NotCurrentGameID)jing_qi and me.
-code and most textures by me, MakerTechno.
+Furniture include chairs, tables, cabinets and so on.
+Most of the models were made by (NotCurrentGameID)jing_qi, withdrawn23 and me.
+Code and most textures by me, MakerTechno.
 
 · How this mod came out?
 Hmm.... Just one day, we logged in the server, play for a while,
 then jing_qi found that the game needs more furniture for his beautiful house.
-Also, he needs more quartz but he used over his iron ingots for the pickaxes, he didn't want to find more.
-He found many cooper but no more iron...maybe we can change it to a new material and make a pickaxe?(Well, pure copper is not very hard)
-Then it comes, The brass refiner(Actually, it was not made yet).
+Then it comes, The furniture plan.
 '''
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.

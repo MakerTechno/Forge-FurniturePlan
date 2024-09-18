@@ -1,4 +1,4 @@
-package nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities;
+package nowebsite.maker.furnitureplan.blocks.func;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -67,6 +67,6 @@ public abstract class BaseSittableBE<T extends BaseSittableBE<T>> extends BlockE
             this.sit = null;
         }
     }
-    abstract void newOneFromBlock();
-    abstract double getYSvOffset();
+    public abstract void newOneFromBlock();
+    public abstract double getYSvOffset();
 }

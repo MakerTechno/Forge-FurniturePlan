@@ -117,12 +117,12 @@ public class GlassBBlock extends HalfTransparentBlock implements SimpleWaterlogg
     }
 
     @Override
-    public boolean onDestroyedByPlayer(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, boolean willHarvest, @NotNull FluidState fluid) {
+    protected void onRemove(@NotNull BlockState state, Level level, @NotNull BlockPos pos, @NotNull BlockState newState, boolean movedByPiston) {
         BlockEntity blockEntity = level.getBlockEntity(pos);
-        if (blockEntity instanceof GlassBBlockEntity cast){
+        if (!(newState.getBlock() instanceof GlassBBlock) && blockEntity instanceof GlassBBlockEntity cast){
             cast.dropBottle();
         }
-        return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
+        super.onRemove(state, level, pos, newState, movedByPiston);
     }
 
     @Override

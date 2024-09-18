@@ -73,6 +73,8 @@ class ModCustomBlockLootProvider extends BlockLootSubProvider {
         dropSelf(BlockRegistration.VASE_B_BLOCK.get());
         dropSelf(BlockRegistration.TABLE_LAMP.get());
         dropSelf(BlockRegistration.GRASS_GRASS.get());
+        dropSelf(BlockRegistration.WATER_DISPENSER.get());
+        dropSelf(BlockRegistration.BOTTLE.get());
     }
 
     protected @NotNull Iterable<Block> getKnownBlocks() {

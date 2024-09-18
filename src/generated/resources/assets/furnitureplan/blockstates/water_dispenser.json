@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "furnitureplan:block/water_dispenser",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "furnitureplan:block/water_dispenser"
+    },
+    "facing=south": {
+      "model": "furnitureplan:block/water_dispenser",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "furnitureplan:block/water_dispenser",
+      "y": 270
+    }
+  }
+}

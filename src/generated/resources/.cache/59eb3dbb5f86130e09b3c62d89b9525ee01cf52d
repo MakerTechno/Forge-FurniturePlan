@@ -1,4 +1,4 @@
-// 1.21	2024-09-11T00:01:02.1712221	Loot Tables
+// 1.21	2024-09-18T21:42:10.2545171	Loot Tables
 16286d753e091b915187f1f317e488bcb528944b data/furnitureplan/loot_table/blocks/acacia_bench.json
 8a80813eaf8d6c60e67dac221a00f209d6bf27b5 data/furnitureplan/loot_table/blocks/acacia_cabinet.json
 150b01e850e3802638f308a00d32764b1b5efadc data/furnitureplan/loot_table/blocks/acacia_cabinet_black.json
@@ -1196,6 +1196,8 @@ e90f179cef2704a2b16efe74be137691018b02c2 data/furnitureplan/loot_table/blocks/wa
 75c2b2d515e1d1c2889aa2a0fe46df28fcba8b9b data/furnitureplan/loot_table/blocks/warped_column.json
 e908d65a215bbb1dd9791f68ed829e817e44a5e6 data/furnitureplan/loot_table/blocks/warped_lighted_column.json
 ffea179243bd792fa41de4dbe97232e61d0bcbea data/furnitureplan/loot_table/blocks/warped_table.json
+3a3e95175b851d4ecddfa048a9b000ec2e2dd7e8 data/furnitureplan/loot_table/blocks/water_bottle.json
+fd8e5bbb4c7d0fd78e289bd845d6047cdeaaf790 data/furnitureplan/loot_table/blocks/water_dispenser.json
 f8a1c3c4cbfa1e4ef9ea9ed5042538e2b9c6614d data/furnitureplan/loot_table/blocks/waxed_cut_copper_bench.json
 7a030ae1535fb607c6bc1f7e3b7fb35ecd45c5e6 data/furnitureplan/loot_table/blocks/waxed_cut_copper_cabinet.json
 5b941fb07e38b582da681be825a34cb64b85ed87 data/furnitureplan/loot_table/blocks/waxed_cut_copper_cabinet_black.json

@@ -25,6 +25,8 @@ import nowebsite.maker.furnitureplan.blocks.cookingUtensils.IronPotBlock;
 import nowebsite.maker.furnitureplan.blocks.cookingUtensils.StoveBlock;
 import nowebsite.maker.furnitureplan.blocks.cookingUtensils.blockentities.IronPotBlockEntity;
 import nowebsite.maker.furnitureplan.blocks.func.definition.*;
+import nowebsite.maker.furnitureplan.blocks.multiaffected.BottleOfWater;
+import nowebsite.maker.furnitureplan.blocks.multiaffected.WaterDispenser;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.CupboardBlock;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.LanternBlock;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.TableLampBlock;
@@ -144,7 +146,11 @@ public class BlockRegistration extends BRUtils{
                 .build()
         )
     ));
+    public static final DeferredHolder<Block, Block> WATER_DISPENSER = BLOCKS.register("water_dispenser", () -> new WaterDispenser(BlockBehaviour.Properties.of().noOcclusion()));
+    public static final DeferredHolder<Item, Item> WATER_DISPENSER_ITEM = ItemRegistration.ITEMS.register("water_dispenser", () -> new BlockItem(WATER_DISPENSER.get(), new Item.Properties()));
 
+    public static final DeferredHolder<Block, Block> BOTTLE = BLOCKS.register("water_bottle", () -> new BottleOfWater(BlockBehaviour.Properties.of().noOcclusion()));
+    public static final DeferredHolder<Item, Item> BOTTLE_ITEM = ItemRegistration.ITEMS.register("water_bottle", () -> new BlockItem(BOTTLE.get(), new Item.Properties()));
 
 
 
@@ -157,5 +163,6 @@ public class BlockRegistration extends BRUtils{
         public static final EnumProperty<ColumnShape> COLUMN_SHAPE = EnumProperty.create("shape", ColumnShape.class);
         public static final EnumProperty<TableLampShape> TABLE_LAMP_SHAPE = EnumProperty.create("shape", TableLampShape.class);
         public static final EnumProperty<PotHolderPart> POT_HOLDER_PART = EnumProperty.create("part", PotHolderPart.class);
+        public static final EnumProperty<BottleDefine> BOTTLE_DEFINE = EnumProperty.create("define", BottleDefine.class);
     }
 }
