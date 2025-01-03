@@ -1,6 +1,0 @@
-{
-  "parent": "furnitureplan:item/cutlery_handing",
-  "textures": {
-    "particle": "furnitureplan:block/plate"
-  }
-}

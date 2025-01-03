@@ -1,6 +1,0 @@
-{
-  "parent": "furnitureplan:block/column_base",
-  "textures": {
-    "particle": "minecraft:block/mangrove_planks"
-  }
-}
