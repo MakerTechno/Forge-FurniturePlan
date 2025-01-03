@@ -81,8 +81,11 @@ public class FoodPlateBlockEntity extends BlockEntity implements HasPlateEntity,
         if (!getPotionStack().isEmpty() || !this.getBlockState().getValue(FoodPlateBlock.SHAPE_DEF).hasGlass()) return false;
         this.changePotion(stack.split(1));
         if (entity instanceof Player player && !player.getAbilities().instabuild) {
-            player.getInventory().add(new ItemStack(Items.GLASS_BOTTLE, 1));
-            player.getInventory().setChanged();
+            if (player.getInventory().getFreeSlot() != -1) {
+                player.getInventory().add(new ItemStack(Items.GLASS_BOTTLE, 1));
+                player.getInventory().setChanged();
+            }
+            else player.drop(new ItemStack(Items.GLASS_BOTTLE, 1), false,false);
         }
         if (this.level != null) {
             this.level.gameEvent(GameEvent.BLOCK_CHANGE, this.getBlockPos(), GameEvent.Context.of(entity, this.getBlockState()));
@@ -105,7 +108,11 @@ public class FoodPlateBlockEntity extends BlockEntity implements HasPlateEntity,
     public boolean restorePotion(Player player, @NotNull ItemStack stack){
         if (!stack.is(Items.GLASS_BOTTLE) || getPotionStack().isEmpty() || !this.getBlockState().getValue(FoodPlateBlock.SHAPE_DEF).hasGlass()) return false;
         stack.shrink(1);
-        player.getInventory().add(getPotionStack());
+        if (player.getInventory().getFreeSlot() != -1) {
+            player.getInventory().add(getPotionStack());
+            player.getInventory().setChanged();
+        }
+        else player.drop(getPotionStack(), false,false);
         changePotion(ItemStack.EMPTY);
         return true;
     }

@@ -6,8 +6,10 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
@@ -15,11 +17,9 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.component.CustomData;
-import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
@@ -34,11 +34,8 @@ public class GlassBBlockItem extends BlockItem {
     }
 
     @Override
-    public @NotNull InteractionResult useOn(@NotNull UseOnContext context) {
-        Level level = context.getLevel();
-        Player player = context.getPlayer();
-        if (player == null) return super.useOn(context);
-        ItemStack itemStack = player.getItemInHand(context.getHand());
+    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand usedHand) {
+        ItemStack itemStack = player.getItemInHand(usedHand);
         BlockHitResult hitResult = getPlayerPOVHitResult(level, player, ClipContext.Fluid.SOURCE_ONLY);
         if (hitResult.getType() != HitResult.Type.MISS) {
             if (hitResult.getType() == HitResult.Type.BLOCK) {
@@ -46,30 +43,31 @@ public class GlassBBlockItem extends BlockItem {
                 ItemStackHandler handler = new ItemStackHandler(2);
                 loadFromEntityData(player.registryAccess(), itemStack, handler);
 
-                if (!level.mayInteract(player, blockPos) || !handler.getStackInSlot(1).isEmpty() || !level.mayInteract(player, blockPos)) {
-                    return super.useOn(context);
+                if (!level.mayInteract(player, blockPos) || !handler.getStackInSlot(1).isEmpty()) {
+                    return InteractionResultHolder.fail(itemStack);
                 }
-
-                if (level.getFluidState(blockPos).is(FluidTags.WATER)) {
+                else if (level.getBlockState(blockPos).is(BlockRegistration.FOOD_PLATE_BLOCK.get())) return InteractionResultHolder.pass(itemStack);
+                else if (level.getFluidState(blockPos).is(FluidTags.WATER)) {
+                    player.awardStat(Stats.ITEM_USED.get(this));
                     level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.NEUTRAL, 1.0F, 1.0F);
                     level.gameEvent(player, GameEvent.FLUID_PICKUP, blockPos);
 
                     handler.setStackInSlot(1, PotionContents.createItemStack(Items.POTION, Potions.WATER));
-                    ItemStack newStack = itemStack.split(1);
+                    ItemStack newStack = player.getAbilities().instabuild ? itemStack.copyWithCount(1) : itemStack.split(1);
                     saveToEntityData(player.registryAccess(), newStack, handler);
-                    if (player.getInventory().getFreeSlot() != -1) player.getInventory().add(newStack);
+                    if (player.getInventory().getFreeSlot() != -1) {
+                        player.getInventory().add(newStack.copy());
+                        player.getInventory().setChanged();
+                    }
                     else player.drop(newStack, false,false);
 
-                    return InteractionResult.SUCCESS;
+                    return InteractionResultHolder.success(itemStack);
                 }
             }
         }
-        if (!level.isClientSide) {
-            BlockState state = level.getBlockState(context.getClickedPos());
-            if (state.is(BlockRegistration.FOOD_PLATE_BLOCK.get())) return InteractionResult.PASS;
-        }
-        return super.useOn(context);
+        return InteractionResultHolder.fail(itemStack);
     }
+
     public static void loadFromEntityData(HolderLookup.Provider provider, @NotNull ItemStack stack, ItemStackHandler handler){
         CustomData data = stack.get(DataComponents.BLOCK_ENTITY_DATA);
         if (data != null) {

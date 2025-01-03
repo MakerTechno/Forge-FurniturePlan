@@ -69,7 +69,30 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
             }
             PlateShape shape = state.getValue(SHAPE_DEF);
             boolean flag1 = shape.hasCutlery(), flag2 = shape.hasGlass();
-            if (flag1 && !cast.getFoodStack().isEmpty() && player.getFoodData().needsFood()) {
+            if (player.isShiftKeyDown()) {
+                SimpleContainer inventory = new SimpleContainer(1);
+                ItemStack stack = ItemStack.EMPTY;
+                BlockState newState = null;
+                if (canSurvive(state, level, pos)) {
+                    switch (shape) {
+                        case PLATE_AND_GLASS_SHAPE -> cast.dropBottle();
+                        case PLATE_AND_CUTLERY_SHAPE, PLATE_AND_GLASS_AND_CUTLERY_SHAPE -> stack = new ItemStack(BlockRegistration.CUTLERY_ITEM.get(), 1);
+                        case PLATE_SHAPE -> {
+                            stack = new ItemStack(BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get(), 1);
+                            cast.drops();
+                        }
+                    }
+                    if (shape.getNext() != null) newState = state.setValue(SHAPE_DEF, shape.getNext());
+                } else {
+                    if (state.getValue(SHAPE_DEF).hasCutlery()) stack = new ItemStack(BlockRegistration.CUTLERY_ITEM.get(), 1);
+                    cast.drops();
+                    cast.dropBottle();
+                }
+                inventory.setItem(0, stack);
+                Containers.dropContents(level, pos, inventory);
+                level.setBlock(pos, newState == null ? Blocks.AIR.defaultBlockState() : newState, 2);
+            }
+            else if (flag1 && !cast.getFoodStack().isEmpty() && player.getFoodData().needsFood()) {
                 player.eat(player.level(), cast.getFoodStack());
                 cast.changeFood(new ItemStack(Items.AIR));
                 player.getFoodData().setSaturation(player.getFoodData().getSaturationLevel() + 1);
@@ -118,30 +141,20 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
         }
         return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
+
     @Override
-    protected void onRemove(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState newState, boolean movedByPiston) {
-        if (!(newState.getBlock() instanceof FoodPlateBlock)) {
-            if (level.getBlockEntity(pos) instanceof FoodPlateBlockEntity cast) {
-                SimpleContainer inventory = new SimpleContainer(1);
-                ItemStack stack = ItemStack.EMPTY;
-                if (canSurvive(state, level, pos)) {
-                    switch (state.getValue(SHAPE_DEF)) {
-                        case PLATE_AND_GLASS_SHAPE -> cast.dropBottle();
-                        case PLATE_AND_CUTLERY_SHAPE, PLATE_AND_GLASS_AND_CUTLERY_SHAPE -> stack = new ItemStack(BlockRegistration.CUTLERY_ITEM.get(), 1);
-                        case PLATE_SHAPE -> {
-                            stack = new ItemStack(BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get(), 1);
-                            cast.drops();
-                        }
-                    }
-                } else {
-                    if (state.getValue(SHAPE_DEF).hasCutlery()) stack = new ItemStack(BlockRegistration.CUTLERY_ITEM.get(), 1);
-                    cast.drops();
-                    cast.dropBottle();
-                }
-                inventory.setItem(0, stack);
-                Containers.dropContents(level, pos, inventory);
-            }
+    public boolean onDestroyedByPlayer(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, boolean willHarvest, @NotNull FluidState fluid) {
+        if (level.getBlockEntity(pos) instanceof FoodPlateBlockEntity cast) {
+            SimpleContainer inventory = new SimpleContainer(2);
+            ItemStack stack = Items.AIR.getDefaultInstance();
+            if (state.getValue(SHAPE_DEF).hasCutlery()) stack = new ItemStack(BlockRegistration.CUTLERY_ITEM.get(), 1);
+            if (state.getValue(SHAPE_DEF).hasGlass()) cast.dropBottle();
+            cast.drops();
+            inventory.setItem(0, stack);
+            inventory.setItem(1, BlockRegistration.FOOD_PLATE_BLOCK_ITEM.get().getDefaultInstance());
+            Containers.dropContents(level, pos, inventory);
         }
+        return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
     }
 
     /**From {@link FaceAttachedHorizontalDirectionalBlock}*/

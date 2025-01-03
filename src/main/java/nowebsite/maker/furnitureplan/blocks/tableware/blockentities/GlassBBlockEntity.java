@@ -68,7 +68,8 @@ public class GlassBBlockEntity extends BlockEntity implements HasGlassEntity {
     public boolean restorePotion(Player player, @NotNull ItemStack stack){
         if (!stack.is(Items.GLASS_BOTTLE) || getPotionStack().isEmpty()) return false;
         stack.shrink(1);
-        player.getInventory().add(getPotionStack());
+        if (player.getInventory().getFreeSlot() != -1) player.getInventory().add(getPotionStack());
+        else player.drop(getPotionStack(), false,false);
         changePotion(ItemStack.EMPTY);
         return true;
     }
@@ -76,7 +77,11 @@ public class GlassBBlockEntity extends BlockEntity implements HasGlassEntity {
         if (!getPotionStack().isEmpty()) return false;
         this.changePotion(stack.split(1));
         if (entity instanceof Player player && !player.getAbilities().instabuild) {
-            player.getInventory().add(new ItemStack(Items.GLASS_BOTTLE));
+            if (player.getInventory().getFreeSlot() != -1) {
+                player.getInventory().add(new ItemStack(Items.GLASS_BOTTLE));
+                player.getInventory().setChanged();
+            }
+            else player.drop(new ItemStack(Items.GLASS_BOTTLE), false,false);
         }
         if (this.level != null) {
             this.level.gameEvent(GameEvent.BLOCK_CHANGE, this.getBlockPos(), GameEvent.Context.of(entity, this.getBlockState()));
