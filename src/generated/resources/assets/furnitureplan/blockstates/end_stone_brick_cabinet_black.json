@@ -1,0 +1,40 @@
+{
+  "variants": {
+    "facing=east,waterlogged=false": {
+      "model": "furnitureplan:block/end_stone_brick_cabinet_black",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=east,waterlogged=true": {
+      "model": "furnitureplan:block/end_stone_brick_cabinet_black",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=north,waterlogged=false": {
+      "model": "furnitureplan:block/end_stone_brick_cabinet_black"
+    },
+    "facing=north,waterlogged=true": {
+      "model": "furnitureplan:block/end_stone_brick_cabinet_black"
+    },
+    "facing=south,waterlogged=false": {
+      "model": "furnitureplan:block/end_stone_brick_cabinet_black",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=south,waterlogged=true": {
+      "model": "furnitureplan:block/end_stone_brick_cabinet_black",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=west,waterlogged=false": {
+      "model": "furnitureplan:block/end_stone_brick_cabinet_black",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=west,waterlogged=true": {
+      "model": "furnitureplan:block/end_stone_brick_cabinet_black",
+      "uvlock": true,
+      "y": 270
+    }
+  }
+}

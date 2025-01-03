@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "waterlogged=false": {
+      "model": "furnitureplan:block/cobblestone_bench"
+    },
+    "waterlogged=true": {
+      "model": "furnitureplan:block/cobblestone_bench"
+    }
+  }
+}

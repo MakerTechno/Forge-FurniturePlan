@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/cabinet15",
+  "textures": {
+    "particle": "minecraft:block/birch_planks"
+  }
+}

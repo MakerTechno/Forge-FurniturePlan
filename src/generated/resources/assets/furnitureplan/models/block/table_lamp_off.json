@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/table_lamp_xoff",
+  "textures": {
+    "particle": "furnitureplan:block/table_lamp"
+  }
+}

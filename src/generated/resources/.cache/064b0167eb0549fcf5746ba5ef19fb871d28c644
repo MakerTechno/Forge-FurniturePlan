@@ -1,0 +1,12 @@
+// 1.21	2024-09-18T21:42:10.2785155	Tags for minecraft:block mod id furnitureplan
+74feac27ed95e46a5ba883491d232148d67d2917 data/furnitureplan/tags/block/bench.json
+33651960cbfbfe565662e81a87bff521d9bf910a data/furnitureplan/tags/block/cabinet.json
+0ecdd2b651af3e78c3c114ec8b35b3fbe9af675e data/furnitureplan/tags/block/carved_column.json
+0bed8e3bd60c3eafbe9d541e130e10641deb28f0 data/furnitureplan/tags/block/chair.json
+5e95b01a7b1405d1a5a58af626ed692f54e24ba1 data/furnitureplan/tags/block/column.json
+621d8ae921094d568d35a4c8d2cdddcd70c0f420 data/furnitureplan/tags/block/lighted_column.json
+942c78c0665a29a694f072c065be7152e7d8b0dc data/furnitureplan/tags/block/pot_holder.json
+bf73549faa5c54f9ca5a3201631c945b09fdbc33 data/furnitureplan/tags/block/table.json
+182491d5644e891366574dfd96c6bde9ee0f7b27 data/minecraft/tags/block/mineable/axe.json
+c2868dee0c4d3f63a7b33cf3827984fcb4ce9b3b data/minecraft/tags/block/mineable/pickaxe.json
+53db4fd477a48c748fe05fc8e3cc06074056d07f data/minecraft/tags/block/needs_stone_tool.json

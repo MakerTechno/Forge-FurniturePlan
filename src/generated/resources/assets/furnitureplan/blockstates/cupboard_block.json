@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "furnitureplan:block/cupboard_block",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "furnitureplan:block/cupboard_block"
+    },
+    "facing=south": {
+      "model": "furnitureplan:block/cupboard_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "furnitureplan:block/cupboard_block",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "pot_holder",
+  "ingredients": [
+    {
+      "item": "minecraft:brown_dye"
+    },
+    [
+      {
+        "item": "furnitureplan:black_pot_holder_block"
+      },
+      {
+        "item": "furnitureplan:blue_pot_holder_block"
+      },
+      {
+        "item": "furnitureplan:cyan_pot_holder_block"
+      },
+      {
+        "item": "furnitureplan:gray_pot_holder_block"
+      },
+      {
+        "item": "furnitureplan:green_pot_holder_block"
+      },
+      {
+        "item": "furnitureplan:light_blue_pot_holder_block"
+      },
+      {
+        "item": "furnitureplan:light_gray_pot_holder_block"
+      },
+      {
+        "item": "furnitureplan:lime_pot_holder_block"
+      },
+      {
+        "item": "furnitureplan:magenta_pot_holder_block"
+      },
+      {
+        "item": "furnitureplan:orange_pot_holder_block"
+      },
+      {
+        "item": "furnitureplan:pink_pot_holder_block"
+      },
+      {
+        "item": "furnitureplan:purple_pot_holder_block"
+      },
+      {
+        "item": "furnitureplan:red_pot_holder_block"
+      },
+      {
+        "item": "furnitureplan:yellow_pot_holder_block"
+      },
+      {
+        "item": "furnitureplan:white_pot_holder_block"
+      }
+    ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "furnitureplan:brown_pot_holder_block"
+  }
+}

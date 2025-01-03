@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "cabinets",
+  "ingredients": [
+    {
+      "item": "minecraft:light_gray_concrete"
+    },
+    {
+      "item": "furnitureplan:bamboo_cabinet"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "furnitureplan:bamboo_cabinet_light_gray"
+  }
+}

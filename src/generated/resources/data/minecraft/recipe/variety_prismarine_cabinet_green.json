@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "cabinets",
+  "ingredients": [
+    {
+      "item": "minecraft:green_concrete"
+    },
+    {
+      "item": "furnitureplan:prismarine_cabinet"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "furnitureplan:prismarine_cabinet_green"
+  }
+}

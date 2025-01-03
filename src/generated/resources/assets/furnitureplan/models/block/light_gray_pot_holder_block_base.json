@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/pot_holder_down",
+  "textures": {
+    "particle": "minecraft:block/light_gray_concrete"
+  }
+}

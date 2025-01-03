@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "cabinets",
+  "ingredients": [
+    {
+      "item": "minecraft:red_concrete"
+    },
+    {
+      "item": "furnitureplan:red_nether_brick_cabinet"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "furnitureplan:red_nether_brick_cabinet_red"
+  }
+}

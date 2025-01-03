@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "waterlogged=false": {
+      "model": "furnitureplan:block/weathered_cut_copper_bench"
+    },
+    "waterlogged=true": {
+      "model": "furnitureplan:block/weathered_cut_copper_bench"
+    }
+  }
+}

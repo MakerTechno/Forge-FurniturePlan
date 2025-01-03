@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "waterlogged=false": {
+      "model": "furnitureplan:block/waxed_oxidized_cut_copper_bench"
+    },
+    "waterlogged=true": {
+      "model": "furnitureplan:block/waxed_oxidized_cut_copper_bench"
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "variants": {
+    "facing=east,shape=l,waterlogged=false": {
+      "model": "furnitureplan:block/stove_block_l",
+      "y": 90
+    },
+    "facing=east,shape=l,waterlogged=true": {
+      "model": "furnitureplan:block/stove_block_l",
+      "y": 90
+    },
+    "facing=east,shape=pl,waterlogged=false": {
+      "model": "furnitureplan:block/stove_block_pl",
+      "y": 90
+    },
+    "facing=east,shape=pl,waterlogged=true": {
+      "model": "furnitureplan:block/stove_block_pl",
+      "y": 90
+    },
+    "facing=east,shape=pu,waterlogged=false": {
+      "model": "furnitureplan:block/stove_block_pu",
+      "y": 90
+    },
+    "facing=east,shape=pu,waterlogged=true": {
+      "model": "furnitureplan:block/stove_block_pu",
+      "y": 90
+    },
+    "facing=east,shape=u,waterlogged=false": {
+      "model": "furnitureplan:block/stove_block_u",
+      "y": 90
+    },
+    "facing=east,shape=u,waterlogged=true": {
+      "model": "furnitureplan:block/stove_block_u",
+      "y": 90
+    },
+    "facing=north,shape=l,waterlogged=false": {
+      "model": "furnitureplan:block/stove_block_l"
+    },
+    "facing=north,shape=l,waterlogged=true": {
+      "model": "furnitureplan:block/stove_block_l"
+    },
+    "facing=north,shape=pl,waterlogged=false": {
+      "model": "furnitureplan:block/stove_block_pl"
+    },
+    "facing=north,shape=pl,waterlogged=true": {
+      "model": "furnitureplan:block/stove_block_pl"
+    },
+    "facing=north,shape=pu,waterlogged=false": {
+      "model": "furnitureplan:block/stove_block_pu"
+    },
+    "facing=north,shape=pu,waterlogged=true": {
+      "model": "furnitureplan:block/stove_block_pu"
+    },
+    "facing=north,shape=u,waterlogged=false": {
+      "model": "furnitureplan:block/stove_block_u"
+    },
+    "facing=north,shape=u,waterlogged=true": {
+      "model": "furnitureplan:block/stove_block_u"
+    },
+    "facing=south,shape=l,waterlogged=false": {
+      "model": "furnitureplan:block/stove_block_l",
+      "y": 180
+    },
+    "facing=south,shape=l,waterlogged=true": {
+      "model": "furnitureplan:block/stove_block_l",
+      "y": 180
+    },
+    "facing=south,shape=pl,waterlogged=false": {
+      "model": "furnitureplan:block/stove_block_pl",
+      "y": 180
+    },
+    "facing=south,shape=pl,waterlogged=true": {
+      "model": "furnitureplan:block/stove_block_pl",
+      "y": 180
+    },
+    "facing=south,shape=pu,waterlogged=false": {
+      "model": "furnitureplan:block/stove_block_pu",
+      "y": 180
+    },
+    "facing=south,shape=pu,waterlogged=true": {
+      "model": "furnitureplan:block/stove_block_pu",
+      "y": 180
+    },
+    "facing=south,shape=u,waterlogged=false": {
+      "model": "furnitureplan:block/stove_block_u",
+      "y": 180
+    },
+    "facing=south,shape=u,waterlogged=true": {
+      "model": "furnitureplan:block/stove_block_u",
+      "y": 180
+    },
+    "facing=west,shape=l,waterlogged=false": {
+      "model": "furnitureplan:block/stove_block_l",
+      "y": 270
+    },
+    "facing=west,shape=l,waterlogged=true": {
+      "model": "furnitureplan:block/stove_block_l",
+      "y": 270
+    },
+    "facing=west,shape=pl,waterlogged=false": {
+      "model": "furnitureplan:block/stove_block_pl",
+      "y": 270
+    },
+    "facing=west,shape=pl,waterlogged=true": {
+      "model": "furnitureplan:block/stove_block_pl",
+      "y": 270
+    },
+    "facing=west,shape=pu,waterlogged=false": {
+      "model": "furnitureplan:block/stove_block_pu",
+      "y": 270
+    },
+    "facing=west,shape=pu,waterlogged=true": {
+      "model": "furnitureplan:block/stove_block_pu",
+      "y": 270
+    },
+    "facing=west,shape=u,waterlogged=false": {
+      "model": "furnitureplan:block/stove_block_u",
+      "y": 270
+    },
+    "facing=west,shape=u,waterlogged=true": {
+      "model": "furnitureplan:block/stove_block_u",
+      "y": 270
+    }
+  }
+}

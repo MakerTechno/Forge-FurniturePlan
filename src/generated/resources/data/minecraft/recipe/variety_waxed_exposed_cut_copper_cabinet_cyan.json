@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "cabinets",
+  "ingredients": [
+    {
+      "item": "minecraft:cyan_concrete"
+    },
+    {
+      "item": "furnitureplan:waxed_exposed_cut_copper_cabinet"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "furnitureplan:waxed_exposed_cut_copper_cabinet_cyan"
+  }
+}

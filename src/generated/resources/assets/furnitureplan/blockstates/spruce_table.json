@@ -1,0 +1,148 @@
+{
+  "variants": {
+    "facing=east,shape=full,waterlogged=false": {
+      "model": "furnitureplan:block/spruce_table_full",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=east,shape=full,waterlogged=true": {
+      "model": "furnitureplan:block/spruce_table_full",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=east,shape=pane,waterlogged=false": {
+      "model": "furnitureplan:block/spruce_table_pane",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=east,shape=pane,waterlogged=true": {
+      "model": "furnitureplan:block/spruce_table_pane",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=east,shape=side,waterlogged=false": {
+      "model": "furnitureplan:block/spruce_table_side",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=east,shape=side,waterlogged=true": {
+      "model": "furnitureplan:block/spruce_table_side",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=east,shape=single,waterlogged=false": {
+      "model": "furnitureplan:block/spruce_table_single",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=east,shape=single,waterlogged=true": {
+      "model": "furnitureplan:block/spruce_table_single",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=north,shape=full,waterlogged=false": {
+      "model": "furnitureplan:block/spruce_table_full"
+    },
+    "facing=north,shape=full,waterlogged=true": {
+      "model": "furnitureplan:block/spruce_table_full"
+    },
+    "facing=north,shape=pane,waterlogged=false": {
+      "model": "furnitureplan:block/spruce_table_pane"
+    },
+    "facing=north,shape=pane,waterlogged=true": {
+      "model": "furnitureplan:block/spruce_table_pane"
+    },
+    "facing=north,shape=side,waterlogged=false": {
+      "model": "furnitureplan:block/spruce_table_side"
+    },
+    "facing=north,shape=side,waterlogged=true": {
+      "model": "furnitureplan:block/spruce_table_side"
+    },
+    "facing=north,shape=single,waterlogged=false": {
+      "model": "furnitureplan:block/spruce_table_single"
+    },
+    "facing=north,shape=single,waterlogged=true": {
+      "model": "furnitureplan:block/spruce_table_single"
+    },
+    "facing=south,shape=full,waterlogged=false": {
+      "model": "furnitureplan:block/spruce_table_full",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=south,shape=full,waterlogged=true": {
+      "model": "furnitureplan:block/spruce_table_full",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=south,shape=pane,waterlogged=false": {
+      "model": "furnitureplan:block/spruce_table_pane",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=south,shape=pane,waterlogged=true": {
+      "model": "furnitureplan:block/spruce_table_pane",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=south,shape=side,waterlogged=false": {
+      "model": "furnitureplan:block/spruce_table_side",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=south,shape=side,waterlogged=true": {
+      "model": "furnitureplan:block/spruce_table_side",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=south,shape=single,waterlogged=false": {
+      "model": "furnitureplan:block/spruce_table_single",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=south,shape=single,waterlogged=true": {
+      "model": "furnitureplan:block/spruce_table_single",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=west,shape=full,waterlogged=false": {
+      "model": "furnitureplan:block/spruce_table_full",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=west,shape=full,waterlogged=true": {
+      "model": "furnitureplan:block/spruce_table_full",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=west,shape=pane,waterlogged=false": {
+      "model": "furnitureplan:block/spruce_table_pane",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=west,shape=pane,waterlogged=true": {
+      "model": "furnitureplan:block/spruce_table_pane",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=west,shape=side,waterlogged=false": {
+      "model": "furnitureplan:block/spruce_table_side",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=west,shape=side,waterlogged=true": {
+      "model": "furnitureplan:block/spruce_table_side",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=west,shape=single,waterlogged=false": {
+      "model": "furnitureplan:block/spruce_table_single",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=west,shape=single,waterlogged=true": {
+      "model": "furnitureplan:block/spruce_table_single",
+      "uvlock": true,
+      "y": 270
+    }
+  }
+}

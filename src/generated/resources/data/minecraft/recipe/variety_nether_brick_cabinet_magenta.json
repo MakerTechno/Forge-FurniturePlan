@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "cabinets",
+  "ingredients": [
+    {
+      "item": "minecraft:magenta_concrete"
+    },
+    {
+      "item": "furnitureplan:nether_brick_cabinet"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "furnitureplan:nether_brick_cabinet_magenta"
+  }
+}

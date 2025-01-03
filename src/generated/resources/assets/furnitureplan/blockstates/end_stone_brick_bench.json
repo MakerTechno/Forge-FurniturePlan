@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "waterlogged=false": {
+      "model": "furnitureplan:block/end_stone_brick_bench"
+    },
+    "waterlogged=true": {
+      "model": "furnitureplan:block/end_stone_brick_bench"
+    }
+  }
+}

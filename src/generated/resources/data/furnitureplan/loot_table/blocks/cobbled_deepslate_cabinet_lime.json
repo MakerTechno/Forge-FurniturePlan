@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "furnitureplan:cobbled_deepslate_cabinet_lime"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "furnitureplan:blocks/cobbled_deepslate_cabinet_lime"
+}

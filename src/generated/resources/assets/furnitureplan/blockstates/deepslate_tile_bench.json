@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "waterlogged=false": {
+      "model": "furnitureplan:block/deepslate_tile_bench"
+    },
+    "waterlogged=true": {
+      "model": "furnitureplan:block/deepslate_tile_bench"
+    }
+  }
+}

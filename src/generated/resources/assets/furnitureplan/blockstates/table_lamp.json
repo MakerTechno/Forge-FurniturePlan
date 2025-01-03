@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "shape=off": {
+      "model": "furnitureplan:block/table_lamp_off"
+    },
+    "shape=on": {
+      "model": "furnitureplan:block/table_lamp_on"
+    }
+  }
+}

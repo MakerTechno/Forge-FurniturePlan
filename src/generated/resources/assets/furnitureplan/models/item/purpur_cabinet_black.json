@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:item/cabinet_item0",
+  "textures": {
+    "particle": "minecraft:block/purpur_block"
+  }
+}

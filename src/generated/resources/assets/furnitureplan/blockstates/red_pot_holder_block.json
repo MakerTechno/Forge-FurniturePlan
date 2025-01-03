@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=east,part=base,waterlogged=false": {
+      "model": "furnitureplan:block/red_pot_holder_block_base",
+      "y": 90
+    },
+    "facing=east,part=base,waterlogged=true": {
+      "model": "furnitureplan:block/red_pot_holder_block_base",
+      "y": 90
+    },
+    "facing=east,part=head,waterlogged=false": {
+      "model": "furnitureplan:block/red_pot_holder_block_head",
+      "y": 90
+    },
+    "facing=east,part=head,waterlogged=true": {
+      "model": "furnitureplan:block/red_pot_holder_block_head",
+      "y": 90
+    },
+    "facing=north,part=base,waterlogged=false": {
+      "model": "furnitureplan:block/red_pot_holder_block_base"
+    },
+    "facing=north,part=base,waterlogged=true": {
+      "model": "furnitureplan:block/red_pot_holder_block_base"
+    },
+    "facing=north,part=head,waterlogged=false": {
+      "model": "furnitureplan:block/red_pot_holder_block_head"
+    },
+    "facing=north,part=head,waterlogged=true": {
+      "model": "furnitureplan:block/red_pot_holder_block_head"
+    },
+    "facing=south,part=base,waterlogged=false": {
+      "model": "furnitureplan:block/red_pot_holder_block_base",
+      "y": 180
+    },
+    "facing=south,part=base,waterlogged=true": {
+      "model": "furnitureplan:block/red_pot_holder_block_base",
+      "y": 180
+    },
+    "facing=south,part=head,waterlogged=false": {
+      "model": "furnitureplan:block/red_pot_holder_block_head",
+      "y": 180
+    },
+    "facing=south,part=head,waterlogged=true": {
+      "model": "furnitureplan:block/red_pot_holder_block_head",
+      "y": 180
+    },
+    "facing=west,part=base,waterlogged=false": {
+      "model": "furnitureplan:block/red_pot_holder_block_base",
+      "y": 270
+    },
+    "facing=west,part=base,waterlogged=true": {
+      "model": "furnitureplan:block/red_pot_holder_block_base",
+      "y": 270
+    },
+    "facing=west,part=head,waterlogged=false": {
+      "model": "furnitureplan:block/red_pot_holder_block_head",
+      "y": 270
+    },
+    "facing=west,part=head,waterlogged=true": {
+      "model": "furnitureplan:block/red_pot_holder_block_head",
+      "y": 270
+    }
+  }
+}

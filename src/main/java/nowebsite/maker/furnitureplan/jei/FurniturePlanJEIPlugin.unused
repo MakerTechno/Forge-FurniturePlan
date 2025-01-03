@@ -1,0 +1,63 @@
+package nowebsite.maker.furnitureplan.jei;
+
+import mezz.jei.api.IModPlugin;
+import mezz.jei.api.JeiPlugin;
+import mezz.jei.api.constants.RecipeTypes;
+import mezz.jei.api.ingredients.IIngredientType;
+import mezz.jei.api.ingredients.ITypedIngredient;
+import mezz.jei.api.recipe.vanilla.IJeiIngredientInfoRecipe;
+import mezz.jei.api.registration.IRecipeRegistration;
+import net.minecraft.network.chat.FormattedText;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import nowebsite.maker.furnitureplan.FurniturePlan;
+import nowebsite.maker.furnitureplan.registry.FoldingRegistration;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Unmodifiable;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@JeiPlugin
+public class FurniturePlanJEIPlugin implements IModPlugin {
+    private static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath("jei_plugin", FurniturePlan.MOD_ID);
+    @Override
+    public @NotNull ResourceLocation getPluginUid() {
+        return ID;
+    }
+
+    @Override
+    public void registerRecipes(@NotNull IRecipeRegistration registration) {
+        IModPlugin.super.registerRecipes(registration);
+        registration.addRecipes(RecipeTypes.INFORMATION, );
+    }
+    public static final List<IJeiIngredientInfoRecipe> LIST = new ArrayList<>();
+    static {
+        LIST.add(new IJeiIngredientInfoRecipe() {
+            @Override
+            public @Unmodifiable List<ITypedIngredient<?>> getIngredients() {
+                return List.of(new ITypedIngredient<Item>() {
+                    @Override
+                    public IIngredientType<Item> getType() {
+                        return new IIngredientType<Item>() {
+                            @Override
+                            public Class<? extends Item> getIngredientClass() {
+                                return FoldingRegistration.getPropertyBlocks().stream().map(block -> block.asItem());
+                            }
+                        };
+                    }
+
+                    @Override
+                    public Object getIngredient() {
+                        return null;
+                    }
+                });
+            }
+
+            @Override
+            public @Unmodifiable List<FormattedText> getDescription() {
+                return null;
+            }
+        })
+    }
+}

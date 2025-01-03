@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "cabinets",
+  "ingredients": [
+    {
+      "item": "minecraft:pink_concrete"
+    },
+    {
+      "item": "furnitureplan:prismarine_brick_cabinet"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "furnitureplan:prismarine_brick_cabinet_pink"
+  }
+}

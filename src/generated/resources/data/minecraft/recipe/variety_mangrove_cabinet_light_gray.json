@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "cabinets",
+  "ingredients": [
+    {
+      "item": "minecraft:light_gray_concrete"
+    },
+    {
+      "item": "furnitureplan:mangrove_cabinet"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "furnitureplan:mangrove_cabinet_light_gray"
+  }
+}
