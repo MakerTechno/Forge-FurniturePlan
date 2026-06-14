@@ -18,13 +18,29 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.neoforged.neoforge.common.util.Lazy;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.transfer.item.ItemStackResourceHandler;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
 public class VaseBBlockEntity extends BlockEntity {
-    private final ItemStackHandler itemStackHandler = new ItemStackHandler(1){
+    private final ItemStackResourceHandler itemStackHandler = new ItemStackResourceHandler(1){
+        @Override
+        protected ItemStack getStack() {
+            return null;
+        }
+
+        @Override
+        protected void setStack(ItemStack stack) {
+
+        }
+
+        @Override
+        protected void onRootCommit(ItemStack originalState) {
+            super.onRootCommit(originalState);
+        }
+
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();

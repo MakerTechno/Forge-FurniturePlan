@@ -1,8 +1,6 @@
 package nowebsite.maker.furnitureplan.blocks.func.definition;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.BlockGetter;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -84,7 +82,7 @@ public enum StoveShape implements ModelSR {
     }
 
     @Override
-    public ResourceLocation getModel(Block block) {
+    public Identifier getModel(Block block) {
         return switch (this){
             case STOVE_LIT -> modLoc("stove");
             case STOVE_UNLIT -> modLoc("stove_off");
@@ -94,12 +92,12 @@ public enum StoveShape implements ModelSR {
     }
 
     @Override
-    public ResourceLocation getTexture() {
+    public Identifier getTexture() {
         return modLoc("block/stove");
     }
 
     @Override
-    public VoxelShape getOccModel(@NotNull BlockState state, BlockGetter getter, BlockPos pos) {
+    public VoxelShape getOccModel(@NotNull BlockState state) {
         return switch (this){
             case STOVE_LIT, STOVE_UNLIT -> STOVE;
             case STOVE_AND_POT_LIT, STOVE_AND_POT_UNLIT -> switch (state.getValue(StoveBlock.FACING)){

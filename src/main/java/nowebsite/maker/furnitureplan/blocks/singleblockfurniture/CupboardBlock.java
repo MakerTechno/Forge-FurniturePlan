@@ -19,7 +19,7 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -35,7 +35,7 @@ import java.util.function.Supplier;
 
 @SuppressWarnings("deprecation")
 public class CupboardBlock extends AbstractCupboardBlock<CupboardBlockEntity> implements IHorizontalBlock {
-    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
     public CupboardBlock(Properties properties, Supplier<BlockEntityType<? extends CupboardBlockEntity>> blockEntityType) {
         super(properties, blockEntityType);
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH));
@@ -52,7 +52,7 @@ public class CupboardBlock extends AbstractCupboardBlock<CupboardBlockEntity> im
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@NotNull Level pLevel, @NotNull BlockState pState, @NotNull BlockEntityType<T> pBlockEntityType) {
-        return pLevel.isClientSide ? createTickerHelper(pBlockEntityType, this.blockEntityType.get(), CupboardBlockEntity::animateTick) : null;
+        return pLevel.isClientSide() ? createTickerHelper(pBlockEntityType, this.blockEntityType.get(), CupboardBlockEntity::animateTick) : null;
     }
     @Override
     protected @NotNull MapCodec<? extends BaseEntityBlock> codec() {
@@ -80,8 +80,8 @@ public class CupboardBlock extends AbstractCupboardBlock<CupboardBlockEntity> im
         return !level.getBlockState(faceBlock).isRedstoneConductor(level, faceBlock);
     }
     @Override
-    protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
-        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+    protected @NotNull InteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
+        return InteractionResult.PASS;
     }
     @Override
     protected @NotNull InteractionResult useWithoutItem(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull BlockHitResult hitResult) {
@@ -91,7 +91,7 @@ public class CupboardBlock extends AbstractCupboardBlock<CupboardBlockEntity> im
             Vec3 hit = hitResult.getLocation().subtract(pos.getX(), pos.getY(), pos.getZ());
             double x = Vec3Utils.getXFromHit(facing, hit);
 
-            if (level.isClientSide) {
+            if (level.isClientSide()) {
                 return InteractionResult.SUCCESS;
             } else {
                 if (x > 3.0 / 16 && x < 15.0 / 16 && isNotBlockedDrawerByBlock(level, pos)) {
@@ -140,7 +140,7 @@ public class CupboardBlock extends AbstractCupboardBlock<CupboardBlockEntity> im
     }
     @Override
     public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
-        return this.getOcclusionShape(state, level, pos);
+        return VoxelShapeReference.CUPBOARD_VOXEL;
     }
     @Override
     protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> pBuilder) {
@@ -152,10 +152,7 @@ public class CupboardBlock extends AbstractCupboardBlock<CupboardBlockEntity> im
             blockEntity.recheckOpen();
         }
     }
-    @Override
-    public @NotNull VoxelShape getOcclusionShape(@NotNull BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos) {
-        return VoxelShapeReference.CUPBOARD_VOXEL;
-    }
+
     @Override
     public String parentName() {
         return "cupboard";

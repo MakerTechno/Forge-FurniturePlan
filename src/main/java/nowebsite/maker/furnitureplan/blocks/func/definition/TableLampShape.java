@@ -1,8 +1,6 @@
 package nowebsite.maker.furnitureplan.blocks.func.definition;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.BlockGetter;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -18,11 +16,11 @@ public enum TableLampShape implements ModelSR {
         this.name = name;
     }
     @Override
-    public ResourceLocation getModel(Block block) {
+    public Identifier getModel(Block block) {
         return modLoc("table_lamp_x" + this.getSerializedName());
     }
     @Override
-    public ResourceLocation getTexture() {
+    public Identifier getTexture() {
         return modLoc("block/table_lamp");   //Use only as particle
     }
     private static final VoxelShape SHAPE = Shapes.or(
@@ -31,7 +29,7 @@ public enum TableLampShape implements ModelSR {
         Shapes.box(0.1875, 0.4375, 0.1875, 0.8125, 0.8125, 0.8125)
     );
     @Override
-    public VoxelShape getOccModel(@NotNull BlockState state, BlockGetter getter, BlockPos pos) {
+    public VoxelShape getOccModel(@NotNull BlockState state) {
         return SHAPE;
     }
     @Override

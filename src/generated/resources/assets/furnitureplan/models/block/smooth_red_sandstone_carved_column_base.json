@@ -1,6 +1,0 @@
-{
-  "parent": "furnitureplan:block/carved_column_base",
-  "textures": {
-    "particle": "minecraft:block/red_sandstone_top"
-  }
-}

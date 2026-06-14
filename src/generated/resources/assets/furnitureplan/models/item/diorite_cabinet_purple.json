@@ -1,6 +1,0 @@
-{
-  "parent": "furnitureplan:item/cabinet_item12",
-  "textures": {
-    "particle": "minecraft:block/diorite"
-  }
-}

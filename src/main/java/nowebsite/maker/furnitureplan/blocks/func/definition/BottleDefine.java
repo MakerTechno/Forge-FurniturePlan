@@ -1,8 +1,7 @@
 package nowebsite.maker.furnitureplan.blocks.func.definition;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.BlockGetter;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -19,19 +18,19 @@ public enum BottleDefine implements ModelSR {
         this.name = name;
     }
     @Override
-    public ResourceLocation getModel(Block block) {
+    public Identifier getModel(Block block) {
         return switch (this) {
             case NORMAL -> modLoc("bottle_normal");
             case INSERT -> modLoc("bottle_verd");
         };
     }
     @Override
-    public ResourceLocation getTexture() {
+    public Identifier getTexture() {
         return modLoc("block/bottle");
     }
     public static final VoxelShape SHAPE = Shapes.box(0.125, 0, 0.125, 0.875, 0.9375, 0.875);
     @Override
-    public VoxelShape getOccModel(@NotNull BlockState state, BlockGetter getter, BlockPos pos) {
+    public VoxelShape getOccModel(@NotNull BlockState state) {
         return SHAPE;
     }
     @Override

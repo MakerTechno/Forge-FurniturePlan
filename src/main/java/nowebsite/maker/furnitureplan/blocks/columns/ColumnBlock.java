@@ -2,8 +2,11 @@ package nowebsite.maker.furnitureplan.blocks.columns;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -20,21 +23,23 @@ public class ColumnBlock extends BasePropertyBlock<ColumnBlock> {
         super(state, properties);
         this.registerDefaultState(this.getStateDefinition().any().setValue(WATERLOGGED, Boolean.FALSE).setValue(SHAPE, ColumnShape.FULL));
     }
+
     @Override
-    public @NotNull VoxelShape getOcclusionShape(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos) {
-        return state.getValue(SHAPE).getOccModel(state, getter, pos);
+    protected @NotNull VoxelShape getOcclusionShape(@NotNull BlockState state) {
+        return state.getValue(SHAPE).getOccModel(state);
     }
+
     @Override
-    public @NotNull BlockState updateShape(@NotNull BlockState pState, @NotNull Direction pDirection, @NotNull BlockState pNeighborState, @NotNull LevelAccessor pLevel, @NotNull BlockPos pPos, @NotNull BlockPos pNeighborPos) {
-        super.updateShape(pState, pDirection, pNeighborState, pLevel, pPos, pNeighborPos);
+    protected BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess ticks, BlockPos pos, Direction directionToNeighbour, BlockPos neighbourPos, BlockState neighbourState, RandomSource random) {
+        super.updateShape(state, level, ticks, pos, directionToNeighbour, neighbourPos, neighbourState, random);
         int countState =
-                (pLevel.getBlockState(pPos.below()).getBlock() instanceof ColumnBlock ? 1 : 0)
-                        + (pLevel.getBlockState(pPos.above()).getBlock() instanceof ColumnBlock ? 2 : 0);
+            (level.getBlockState(pos.below()).getBlock() instanceof ColumnBlock ? 1 : 0)
+                + (level.getBlockState(pos.above()).getBlock() instanceof ColumnBlock ? 2 : 0);
         return switch (countState) {
-            case 1 -> pState.setValue(SHAPE, ColumnShape.TOP);
-            case 2 -> pState.setValue(SHAPE, ColumnShape.BASE);
-            case 3 -> pState.setValue(SHAPE, ColumnShape.CONNECT);
-            default -> pState.setValue(SHAPE, ColumnShape.FULL);
+            case 1 -> state.setValue(SHAPE, ColumnShape.TOP);
+            case 2 -> state.setValue(SHAPE, ColumnShape.BASE);
+            case 3 -> state.setValue(SHAPE, ColumnShape.CONNECT);
+            default -> state.setValue(SHAPE, ColumnShape.FULL);
         };
     }
 
@@ -54,7 +59,7 @@ public class ColumnBlock extends BasePropertyBlock<ColumnBlock> {
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> pBuilder) {
+    protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, @NotNull BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder);
         pBuilder.add(SHAPE);
     }

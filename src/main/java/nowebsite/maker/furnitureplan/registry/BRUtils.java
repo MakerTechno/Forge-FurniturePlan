@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.function.ToIntFunction;
 
 public class BRUtils {
+    @SuppressWarnings("SameParameterValue")
     @Contract(pure = true)
     protected static @NotNull ToIntFunction<BlockState> litBlockEmission(int lightValue) {
         return (state) -> state.getValue(BlockStateProperties.LIT) ? lightValue : 0;
@@ -33,7 +34,7 @@ public class BRUtils {
                 .pushReaction(PushReaction.DESTROY)
                 .strength(0.2f)
                 .noOcclusion()
-                .noCollission()
+                .noCollision()
                 .isRedstoneConductor(BRUtils::never)
                 .isViewBlocking(BRUtils::never);
     }

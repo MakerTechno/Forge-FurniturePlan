@@ -41,11 +41,11 @@ public class Vec3Utils {
             (point.y >= Math.min(from.y, to.y) && point.y <= Math.max(from.y, to.y)) &&
             (point.z >= Math.min(from.z, to.z) && point.z <= Math.max(from.z, to.z));
     }
-    public static boolean isInBox(Vec3 point, @NotNull RCube cube){
+    public static boolean isInBox(Vec3 point, @NotNull InteractionSpace cube){
         return isInBox(point, cube.from(), cube.end());
     }
-    public static boolean isInBox(Vec3 point, @NotNull List<RCube> list) {
-        for (RCube cube : list) {
+    public static boolean isInBox(Vec3 point, @NotNull List<InteractionSpace> list) {
+        for (InteractionSpace cube : list) {
             if (isInBox(point, cube)) return true;
         }
         return false;

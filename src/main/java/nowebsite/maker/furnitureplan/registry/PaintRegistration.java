@@ -1,7 +1,7 @@
 package nowebsite.maker.furnitureplan.registry;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.entity.decoration.PaintingVariant;
+import net.minecraft.world.entity.decoration.painting.PaintingVariant;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 

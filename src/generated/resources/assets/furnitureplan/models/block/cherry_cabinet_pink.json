@@ -1,6 +1,0 @@
-{
-  "parent": "furnitureplan:block/cabinet11",
-  "textures": {
-    "particle": "minecraft:block/cherry_planks"
-  }
-}

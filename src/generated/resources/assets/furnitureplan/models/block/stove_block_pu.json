@@ -1,6 +1,0 @@
-{
-  "parent": "furnitureplan:block/stove_with_pot_off",
-  "textures": {
-    "particle": "furnitureplan:block/stove"
-  }
-}

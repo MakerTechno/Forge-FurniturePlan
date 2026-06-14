@@ -1,6 +1,0 @@
-{
-  "parent": "furnitureplan:block/grass_cul",
-  "textures": {
-    "cross": "furnitureplan:block/grass_grass"
-  }
-}

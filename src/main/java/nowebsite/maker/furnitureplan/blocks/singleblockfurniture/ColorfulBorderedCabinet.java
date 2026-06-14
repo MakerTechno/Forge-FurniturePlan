@@ -56,7 +56,7 @@ public class ColorfulBorderedCabinet extends CabinetBlock implements IUVLockedBl
     }
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@NotNull Level pLevel, @NotNull BlockState pState, @NotNull BlockEntityType<T> pBlockEntityType) {
-        return pLevel.isClientSide ? createTickerHelper(pBlockEntityType, getColored(), CabinetBlockEntity::animateTick) : null;
+        return pLevel.isClientSide() ? createTickerHelper(pBlockEntityType, getColored(), CabinetBlockEntity::animateTick) : null;
     }
     public BlockEntityType<CabinetBlockEntity> getColored(){
         return switch (colorId) {

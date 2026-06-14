@@ -5,7 +5,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.MenuAccess;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 
 @OnlyIn(Dist.CLIENT)
 public class CupboardScreen extends AbstractContainerScreen<DrawerMenu> implements MenuAccess<DrawerMenu> {
-    private static final ResourceLocation LOCATION = ResourceLocation.fromNamespaceAndPath(FurniturePlan.MOD_ID, "textures/gui/container/cupboard.png");
+    private static final Identifier LOCATION = Identifier.fromNamespaceAndPath(FurniturePlan.MOD_ID, "textures/gui/container/cupboard.png");
     private final int containerRows;
     public CupboardScreen(DrawerMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);

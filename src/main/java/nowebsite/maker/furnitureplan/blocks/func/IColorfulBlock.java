@@ -1,6 +1,6 @@
 package nowebsite.maker.furnitureplan.blocks.func;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -63,7 +63,7 @@ public interface IColorfulBlock {
         DyeColor.YELLOW,
         DyeColor.WHITE
     );
-    List<ResourceLocation> CONCRETE_TEXTURE_LIST = List.of(
+    List<Identifier> CONCRETE_TEXTURE_LIST = List.of(
         mcTxrLoc("black_concrete"),
         mcTxrLoc("blue_concrete"),
         mcTxrLoc("brown_concrete"),
@@ -81,14 +81,14 @@ public interface IColorfulBlock {
         mcTxrLoc("yellow_concrete"),
         mcTxrLoc("white_concrete")
     );
-    default ResourceLocation getConcreteTextureByID() {
+    default Identifier getConcreteTextureByID() {
         return CONCRETE_TEXTURE_LIST.get(getId());
     }
     int getId();
-    static ResourceLocation mcTxrLoc(String name) {
-        return ResourceLocation.parse("block/" + name);
+    static Identifier mcTxrLoc(String name) {
+        return Identifier.parse("block/" + name);
     }
-    static ResourceLocation of(int index){
+    static Identifier of(int index){
         return CONCRETE_TEXTURE_LIST.get(index);
     }
 }

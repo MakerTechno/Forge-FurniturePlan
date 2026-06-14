@@ -7,7 +7,7 @@ import net.neoforged.neoforge.network.handling.IPayloadHandler;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.CabinetBlockEntity;
 import org.jetbrains.annotations.NotNull;
 
-public class CabinetPayloadHandler implements IPayloadHandler<CabinetSyncData> {
+public class CabinetPayloadHandler implements IPayloadHandler<@NotNull CabinetSyncData> {
     public static void function(@NotNull IPayloadContext context, @NotNull CabinetSyncData data){
         BlockPos pos = BlockPos.containing(data.pos().x, data.pos().y, data.pos().z);
         if (context.player().level().getBlockEntity(pos) instanceof CabinetBlockEntity cast) {

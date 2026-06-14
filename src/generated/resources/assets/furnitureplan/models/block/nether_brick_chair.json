@@ -1,6 +1,0 @@
-{
-  "parent": "furnitureplan:block/chair",
-  "textures": {
-    "particle": "minecraft:block/nether_bricks"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "parent": "furnitureplan:block/table_side",
-  "textures": {
-    "particle": "minecraft:block/mossy_cobblestone"
-  }
-}

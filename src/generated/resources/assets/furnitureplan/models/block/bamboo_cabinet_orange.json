@@ -1,6 +1,0 @@
-{
-  "parent": "furnitureplan:block/cabinet10",
-  "textures": {
-    "particle": "minecraft:block/bamboo_planks"
-  }
-}

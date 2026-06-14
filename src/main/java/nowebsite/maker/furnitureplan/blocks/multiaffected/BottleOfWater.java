@@ -2,9 +2,8 @@ package nowebsite.maker.furnitureplan.blocks.multiaffected;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -33,11 +32,13 @@ public class BottleOfWater extends Block implements ILocalDefine {
     }
 
     @Override
-    protected @NotNull BlockState updateShape(@NotNull BlockState state, @NotNull Direction direction, @NotNull BlockState neighborState, @NotNull LevelAccessor level, @NotNull BlockPos pos, @NotNull BlockPos neighborPos) {
+    protected BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess ticks, BlockPos pos, Direction directionToNeighbour, BlockPos neighbourPos, BlockState neighbourState, RandomSource random) {
+        super.updateShape(state, level, ticks, pos, directionToNeighbour, neighbourPos, neighbourState, random);
         return (level.getBlockState(pos.below()).getBlock() instanceof WaterDispenser)?
             state.setValue(REF, BottleDefine.INSERT):
             state.setValue(REF, BottleDefine.NORMAL);
     }
+
     @Override
     public String parentName() {
         return null;
@@ -45,12 +46,7 @@ public class BottleOfWater extends Block implements ILocalDefine {
 
     @Override
     protected @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
-        return getOcclusionShape(state, level, pos);
-    }
-
-    @Override
-    protected @NotNull VoxelShape getOcclusionShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
-        return state.getValue(REF).getOccModel(state, level, pos);
+        return state.getValue(REF).getOccModel(state);
     }
 
     @Override

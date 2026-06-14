@@ -1,6 +1,0 @@
-{
-  "parent": "furnitureplan:block/table_single",
-  "textures": {
-    "particle": "minecraft:block/stone_bricks"
-  }
-}

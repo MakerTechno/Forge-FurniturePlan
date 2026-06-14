@@ -2,12 +2,16 @@ package nowebsite.maker.furnitureplan.blocks.multiaffected;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import nowebsite.maker.furnitureplan.blocks.func.BasePropertyHorizontalDirectionBlock;
 import nowebsite.maker.furnitureplan.blocks.func.IUVLockedBlock;
@@ -23,27 +27,29 @@ public class TableBlock extends BasePropertyHorizontalDirectionBlock<TableBlock>
         super(state, properties);
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, Boolean.FALSE));
     }
+
     @Override
-    public @NotNull BlockState updateShape(@NotNull BlockState pState, @NotNull Direction pDirection, @NotNull BlockState pNeighborState, @NotNull LevelAccessor pLevel, @NotNull BlockPos pPos, @NotNull BlockPos pNeighborPos) {
-        super.updateShape(pState, pDirection, pNeighborState, pLevel, pPos, pNeighborPos);
+    protected BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess ticks, BlockPos pos, Direction directionToNeighbour, BlockPos neighbourPos, BlockState neighbourState, RandomSource random) {
+        super.updateShape(state, level, ticks, pos, directionToNeighbour, neighbourPos, neighbourState, random);
         int countState =
-                (pLevel.getBlockState(pPos.north()).is(BlockRegistration.TABLE_BLOCK) ? 1 : 0)
-                        + (pLevel.getBlockState(pPos.east()).is(BlockRegistration.TABLE_BLOCK) ? 2 : 0)
-                        + (pLevel.getBlockState(pPos.south()).is(BlockRegistration.TABLE_BLOCK) ? 4 : 0)
-                        + (pLevel.getBlockState(pPos.west()).is(BlockRegistration.TABLE_BLOCK) ? 8 : 0);
+            (level.getBlockState(pos.north()).is(BlockRegistration.TABLE_BLOCK) ? 1 : 0)
+                + (level.getBlockState(pos.east()).is(BlockRegistration.TABLE_BLOCK) ? 2 : 0)
+                + (level.getBlockState(pos.south()).is(BlockRegistration.TABLE_BLOCK) ? 4 : 0)
+                + (level.getBlockState(pos.west()).is(BlockRegistration.TABLE_BLOCK) ? 8 : 0);
         return switch (countState) {
-            case 0 -> pState.setValue(SHAPE, TableShape.FULL);
-            case 1 -> pState.setValue(SHAPE, TableShape.SIDE).setValue(FACING, Direction.SOUTH);
-            case 2 -> pState.setValue(SHAPE, TableShape.SIDE).setValue(FACING, Direction.WEST);
-            case 3 -> pState.setValue(SHAPE, TableShape.SINGLE).setValue(FACING, Direction.SOUTH);
-            case 4 -> pState.setValue(SHAPE, TableShape.SIDE).setValue(FACING, Direction.NORTH);
-            case 6 -> pState.setValue(SHAPE, TableShape.SINGLE).setValue(FACING, Direction.WEST);
-            case 8 -> pState.setValue(SHAPE, TableShape.SIDE).setValue(FACING, Direction.EAST);
-            case 9 -> pState.setValue(SHAPE, TableShape.SINGLE).setValue(FACING, Direction.EAST);
-            case 12 -> pState.setValue(SHAPE, TableShape.SINGLE).setValue(FACING, Direction.NORTH);
-            default -> pState.setValue(SHAPE, TableShape.PANE);
+            case 0 -> state.setValue(SHAPE, TableShape.FULL);
+            case 1 -> state.setValue(SHAPE, TableShape.SIDE).setValue(FACING, Direction.SOUTH);
+            case 2 -> state.setValue(SHAPE, TableShape.SIDE).setValue(FACING, Direction.WEST);
+            case 3 -> state.setValue(SHAPE, TableShape.SINGLE).setValue(FACING, Direction.SOUTH);
+            case 4 -> state.setValue(SHAPE, TableShape.SIDE).setValue(FACING, Direction.NORTH);
+            case 6 -> state.setValue(SHAPE, TableShape.SINGLE).setValue(FACING, Direction.WEST);
+            case 8 -> state.setValue(SHAPE, TableShape.SIDE).setValue(FACING, Direction.EAST);
+            case 9 -> state.setValue(SHAPE, TableShape.SINGLE).setValue(FACING, Direction.EAST);
+            case 12 -> state.setValue(SHAPE, TableShape.SINGLE).setValue(FACING, Direction.NORTH);
+            default -> state.setValue(SHAPE, TableShape.PANE);
         };
     }
+
     @Override
     protected BasePropertyHorizontalDirectionBlock<TableBlock> getSelfNew(BlockState baseState, Properties properties) {
         return new TableBlock(baseState, properties);
@@ -52,10 +58,12 @@ public class TableBlock extends BasePropertyHorizontalDirectionBlock<TableBlock>
     public boolean useShapeForLightOcclusion(@NotNull BlockState pState) {
         return true;
     }
+
     @Override
-    public @NotNull VoxelShape getOcclusionShape(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos) {
-        return state.getValue(SHAPE).getOccModel(state, getter, pos);
+    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return state.getValue(SHAPE).getOccModel(state);
     }
+
     @Override
     protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder);

@@ -46,8 +46,8 @@ public abstract class BaseSittableBE<T extends BaseSittableBE<T>> extends BlockE
             };
             sit.setYRot(180 + rotate);*/
             level.addFreshEntity(this.sit);
-            if (!player.startRiding(this.sit, true)) {
-                player.displayClientMessage(Component.translatable("msg.furnitureplan.sit"), true);
+            if (!player.startRiding(this.sit, true, true)) {
+                player.sendOverlayMessage(Component.translatable("msg.furnitureplan.sit"));
                 this.sit.remove(Entity.RemovalReason.DISCARDED);
                 this.sit = null;
                 return InteractionResult.PASS;

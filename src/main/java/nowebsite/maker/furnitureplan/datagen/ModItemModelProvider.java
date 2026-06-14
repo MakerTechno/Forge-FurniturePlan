@@ -1,7 +1,7 @@
 package nowebsite.maker.furnitureplan.datagen;
 
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
@@ -133,7 +133,7 @@ public class ModItemModelProvider extends ItemModelProvider {
             );
         }
     }
-    public ResourceLocation forVanillaVariety(@NotNull String registryName, String specificNameEnd){
+    public Identifier forVanillaVariety(@NotNull String registryName, String specificNameEnd){
         return mcLoc("block/" + FoldingRegistration.PROPERTY_KINDS.get(registryName.split("_"+specificNameEnd)[0].split(FurniturePlan.MOD_ID+":")[1]));
     }
 }

@@ -175,7 +175,7 @@ public class FoodPlateBlock extends HorizontalDirectionalBlock implements Entity
     }
     @Override
     public @NotNull VoxelShape getOcclusionShape(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos) {
-        return Objects.requireNonNull(state.getValue(SHAPE_DEF).getOccModel(state, getter, pos));
+        return Objects.requireNonNull(state.getValue(SHAPE_DEF).getOccModel(state));
     }
 
     @Override

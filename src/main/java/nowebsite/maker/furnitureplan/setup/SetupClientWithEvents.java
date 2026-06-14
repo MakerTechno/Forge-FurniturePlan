@@ -27,7 +27,7 @@ import org.jetbrains.annotations.NotNull;
  *     DELETED STH.
  *
  */
-@EventBusSubscriber(modid = FurniturePlan.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = FurniturePlan.MOD_ID, value = Dist.CLIENT)
 public class SetupClientWithEvents {
     @SubscribeEvent
     public static void registerScreens(@NotNull RegisterMenuScreensEvent event) {
@@ -39,7 +39,7 @@ public class SetupClientWithEvents {
     public static void registerEntityRenderers(EntityRenderersEvent.@NotNull RegisterRenderers event) {
         event.registerBlockEntityRenderer(BlockRegistration.FOOD_PLATE_BLOCK_ENTITY.get(), pContext -> new FoodPlateBlockEntityRenderer());
         event.registerBlockEntityRenderer(BlockRegistration.GLASS_B_BLOCK_ENTITY.get(), pContext -> new GlassBBlockEntityRenderer());
-        event.registerBlockEntityRenderer(BlockRegistration.IRON_POT_BLOCK_ENTITY.get(), pContext -> new IronPotBlockEntityRenderer());
+        event.registerBlockEntityRenderer(BlockRegistration.IRON_POT_BLOCK_ENTITY.get(), IronPotBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(BlockRegistration.CUPBOARD_BLOCK_ENTITY.get(), CupboardEntityRenderer::new);
         event.registerBlockEntityRenderer(BlockRegistration.VASE_B_BLOCK_ENTITY.get(), pContext -> new VaseBBlockEntityRenderer());
         event.registerBlockEntityRenderer(PotHolderBlockRegistration.POT_HOLDER_BLOCK_ENTITY.get(), context -> new PotHolderBlockEntityRenderer());

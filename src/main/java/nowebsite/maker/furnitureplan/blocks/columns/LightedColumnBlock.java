@@ -17,7 +17,7 @@ public class LightedColumnBlock extends ColumnBlock {
         this.registerDefaultState(this.getStateDefinition().any().setValue(LIT, Boolean.TRUE).setValue(SHAPE, ColumnShape.FULL).setValue(WATERLOGGED, Boolean.FALSE));
     }
     @Override
-    protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, @NotNull BlockState> builder) {
         super.createBlockStateDefinition(builder);
         builder.add(LIT);
     }

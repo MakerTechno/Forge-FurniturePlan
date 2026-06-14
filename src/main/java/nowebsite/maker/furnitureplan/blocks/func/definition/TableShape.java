@@ -1,9 +1,7 @@
 package nowebsite.maker.furnitureplan.blocks.func.definition;
 
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.BlockGetter;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -25,13 +23,13 @@ public enum TableShape implements ModelSR {
         this.name = name;
     }
     @Override
-    public ResourceLocation getModel(Block block) {
+    public Identifier getModel(Block block) {
         return modLoc("table_" + this.getSerializedName());
     }
 
     @Contract(pure = true)
     @Override
-    public @Nullable ResourceLocation getTexture() {
+    public @Nullable Identifier getTexture() {
         return null; // We choose it at a texture list.
     }
     private static final VoxelShape TOP, NE_C, ES_C, SW_C, WN_C, NE_M, ES_M, SW_M, WN_M, N_M, E_M, S_M, W_M, ALL;
@@ -52,7 +50,7 @@ public enum TableShape implements ModelSR {
         ALL = Shapes.or(TOP, NE_C, ES_C, SW_C, WN_C);
     }
     @Override
-    public VoxelShape getOccModel(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
+    public VoxelShape getOccModel(@NotNull BlockState state) {
         return switch (this) {
             case FULL -> ALL;
             case PANE -> TOP;

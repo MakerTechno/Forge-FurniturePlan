@@ -2,7 +2,7 @@ package nowebsite.maker.furnitureplan.blocks.singleblockfurniture;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
@@ -47,33 +47,29 @@ public class VaseBBlock extends Block implements EntityBlock, ISimpleBlock {
     }
 
     @Override
-    protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
-        if (!level.isClientSide) {
+    protected @NotNull InteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
+        if (!level.isClientSide()) {
             if (!(level.getBlockEntity(pos) instanceof VaseBBlockEntity cast)) {
                 throw new IllegalStateException("Vase b block entity at x: " + pos.getX() + ", y: " + pos.getY() + ", z: " + pos.getZ() + " could not be found.");
             }
             boolean flag = false;
             if (stack.getItem() instanceof BlockItem blockItem){
                 Block block = blockItem.getBlock();
-                flag = block instanceof FlowerBlock || block instanceof DeadBushBlock || block instanceof AzaleaBlock || block instanceof BambooStalkBlock;
+                flag = block instanceof FlowerBlock || block.equals(Blocks.DEAD_BUSH) || block instanceof AzaleaBlock || block instanceof BambooStalkBlock;
             }
             if (flag && cast.getFlowerStack().isEmpty()) {
                 cast.placeFlower(player, player.getAbilities().instabuild ? stack.copy() : stack);
             }
-            else return ItemInteractionResult.FAIL;
+            else return InteractionResult.FAIL;
         }
-        return ItemInteractionResult.CONSUME;
+        return InteractionResult.CONSUME;
     }
 
     @Override
     public @NotNull VoxelShape getShape(@NotNull BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos, @NotNull CollisionContext pContext) {
-        return this.getOcclusionShape(pState, pLevel, pPos);
-    }
-
-    @Override
-    public @NotNull VoxelShape getOcclusionShape(@NotNull BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos) {
         return MY_SHAPE;
     }
+
     static {
         MY_SHAPE = Shapes.or(
                 Shapes.box(0.4375, 0, 0.4375, 0.5625, 0.03125, 0.5625),

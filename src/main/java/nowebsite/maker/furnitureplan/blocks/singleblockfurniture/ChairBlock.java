@@ -3,7 +3,6 @@ package nowebsite.maker.furnitureplan.blocks.singleblockfurniture;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
@@ -15,6 +14,7 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import nowebsite.maker.furnitureplan.FurniturePlan;
@@ -38,8 +38,9 @@ public class ChairBlock extends BasePropertyHorizontalDirectionBlock<ChairBlock>
     public boolean useShapeForLightOcclusion(@NotNull BlockState pState) {
         return true;
     }
+
     @Override
-    public @NotNull VoxelShape getOcclusionShape(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos) {
+    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return switch (state.getValue(FACING)) {
             case EAST -> CHAIR_SHAPE_E;
             case SOUTH -> CHAIR_SHAPE_S;
@@ -47,6 +48,7 @@ public class ChairBlock extends BasePropertyHorizontalDirectionBlock<ChairBlock>
             default -> CHAIR_SHAPE_N;
         };
     }
+
     @Override
     public void destroy(@NotNull LevelAccessor level, @NotNull BlockPos pos, @NotNull BlockState state) {
         try {
@@ -55,13 +57,13 @@ public class ChairBlock extends BasePropertyHorizontalDirectionBlock<ChairBlock>
         super.destroy(level, pos, state);
     }
     @Override
-    protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
-        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+    protected @NotNull InteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
+        return InteractionResult.PASS;
     }
     @Override
     protected @NotNull InteractionResult useWithoutItem(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull BlockHitResult hitResult) {
         InteractionResult resultA;
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
             if (blockEntity instanceof ChairBlockEntity chairBlock) {
                 resultA = chairBlock.useAct(level, pos, player/*, state.getValue(FACING)*/);

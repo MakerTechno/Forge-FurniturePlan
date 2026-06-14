@@ -1,8 +1,6 @@
 package nowebsite.maker.furnitureplan.blocks.func.definition;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.BlockGetter;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -171,7 +169,7 @@ public enum PlateShape implements ModelSR {
             PAGAC_S = Shapes.or(PLATE_BASE,GLASS_S,CUTLERY_S),
             PAGAC_W = Shapes.or(PLATE_BASE,GLASS_W,CUTLERY_W);
     @Override
-    public @Nullable VoxelShape getOccModel(@NotNull BlockState state, BlockGetter getter, BlockPos pos) {
+    public @Nullable VoxelShape getOccModel(@NotNull BlockState state) {
         return switch (this){
             case PLATE_SHAPE -> PLATE_BASE;
             case PLATE_AND_GLASS_SHAPE ->
@@ -205,7 +203,7 @@ public enum PlateShape implements ModelSR {
     }
 
     @Override
-    public ResourceLocation getModel(Block block) {
+    public Identifier getModel(Block block) {
         return switch (this){
             case PLATE_SHAPE -> modLoc("plate");
             case PLATE_AND_GLASS_SHAPE -> modLoc("plate_and_glass");
@@ -215,7 +213,7 @@ public enum PlateShape implements ModelSR {
     }
 
     @Override
-    public ResourceLocation getTexture() {
+    public Identifier getTexture() {
         // We write like this for the current break particle color.
         return switch (this){
             case PLATE_SHAPE, PLATE_AND_CUTLERY_SHAPE, PLATE_AND_GLASS_AND_CUTLERY_SHAPE -> modLoc("block/plate");

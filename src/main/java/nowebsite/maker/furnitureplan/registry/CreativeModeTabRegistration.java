@@ -20,7 +20,7 @@ public class CreativeModeTabRegistration {
 
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, FurniturePlan.MOD_ID);
 
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> MAIN_TAB = TABS.register("main_tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.furniture")).icon(() -> new ItemStack(ChairBlockRegistration.OAK_CHAIR_ITEM.get())).build());
+    public static final DeferredHolder<CreativeModeTab, @NotNull CreativeModeTab> MAIN_TAB = TABS.register("main_tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.furniture")).icon(() -> new ItemStack(ChairBlockRegistration.OAK_CHAIR_ITEM.get())).build());
 
     public static void registerCreativeModeTabItems(@NotNull BuildCreativeModeTabContentsEvent event) {
         if (event.getTab().equals(MAIN_TAB.get())) {

@@ -1,6 +1,0 @@
-{
-  "parent": "furnitureplan:block/bottle_verd",
-  "textures": {
-    "particle": "furnitureplan:block/bottle"
-  }
-}

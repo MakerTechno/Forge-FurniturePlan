@@ -13,12 +13,12 @@ import nowebsite.maker.furnitureplan.registry.kindsblock.cabinet.*;
 import nowebsite.maker.furnitureplan.registry.kindsblock.PotHolderBlockRegistration;
 import org.jetbrains.annotations.NotNull;
 
-@EventBusSubscriber(modid = FurniturePlan.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = FurniturePlan.MOD_ID)
 public class SetupSideEvents {
     @SubscribeEvent
     public static void registerCapabilities(@NotNull RegisterCapabilitiesEvent event) {
         event.registerBlockEntity(
-            Capabilities.ItemHandler.BLOCK,
+            Capabilities.Item.BLOCK,
             BlockRegistration.FOOD_PLATE_BLOCK_ENTITY.get(),
             (blockEntity, direction) -> blockEntity.getLazyItemHandler().get()
         );

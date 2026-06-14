@@ -10,7 +10,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.data.models.model.TextureMapping;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.Vec2;
@@ -75,7 +75,7 @@ public class CabinetEntityRenderer implements BlockEntityRenderer<CabinetBlockEn
         }
         Block baseBlock = based.base;
         boolean useRL = false;
-        ResourceLocation location = null;
+        Identifier location = null;
         if (SheetReference.COPPER_TRANS_LIST.containsKey(baseBlock)) {
             baseBlock = SheetReference.COPPER_TRANS_LIST.get(baseBlock);
         } else if (SheetReference.FIX_TRANS_LIST.containsKey(baseBlock)) {

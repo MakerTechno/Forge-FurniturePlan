@@ -1,6 +1,0 @@
-{
-  "parent": "furnitureplan:block/lighted_column_top",
-  "textures": {
-    "particle": "minecraft:block/bamboo_mosaic"
-  }
-}

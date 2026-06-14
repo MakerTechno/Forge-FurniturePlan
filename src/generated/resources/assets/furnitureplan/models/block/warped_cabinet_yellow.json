@@ -1,6 +1,0 @@
-{
-  "parent": "furnitureplan:block/cabinet14",
-  "textures": {
-    "particle": "minecraft:block/warped_planks"
-  }
-}

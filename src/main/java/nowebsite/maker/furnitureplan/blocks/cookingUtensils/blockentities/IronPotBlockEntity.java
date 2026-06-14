@@ -1,55 +1,49 @@
 package nowebsite.maker.furnitureplan.blocks.cookingUtensils.blockentities;
 
+import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
+import net.minecraft.core.component.DataComponentGetter;
+import net.minecraft.core.component.DataComponentMap;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.Connection;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.world.Containers;
-import net.minecraft.world.SimpleContainer;
+import net.minecraft.util.ProblemReporter;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.neoforged.neoforge.common.util.Lazy;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import net.minecraft.world.level.storage.TagValueOutput;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import nowebsite.maker.furnitureplan.blocks.tableware.blockentities.HasPlateEntity;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
 
 import java.util.Objects;
 
-public class IronPotBlockEntity extends BlockEntity implements HasPlateEntity {
-    private final ItemStackHandler itemStackHandler = new ItemStackHandler(1){
-        @Override
-        protected void onContentsChanged(int slot) {
-            setChanged();
-            if (level != null) {
-                level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
-            }
-        }
-        @Override
-        public void setSize(int size) {
-            super.setSize(1);
-        }
-    };
-    public static final String INVENTORY = "inventory";
+public class IronPotBlockEntity extends BlockEntity implements HasPlateEntity, Clearable {
+    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final String STORAGE_NAME = "inventory";
+    private ItemStack item = ItemStack.EMPTY;
     public IronPotBlockEntity(BlockPos pos, BlockState state) {
         super(BlockRegistration.IRON_POT_BLOCK_ENTITY.get(), pos, state);
     }
-    private Lazy<IItemHandler> lazyItemHandler = Lazy.of(() -> itemStackHandler);
     /**You can't change this*/
-    public ItemStack getFoodStack() {return itemStackHandler.getStackInSlot(0).copy();}
+    public ItemStack getFoodStack() {
+        return item.copy();
+    }
 
     public void changeFood(@NotNull ItemStack stack) {
-        itemStackHandler.setStackInSlot(0, stack);
+        item = stack;
     }
+
     public boolean placeFood(Entity entity, ItemStack stack) {
         if (!getFoodStack().isEmpty() || stack.is(Items.HONEY_BOTTLE)) return false;
         changeFood(stack.split(1));
@@ -59,49 +53,78 @@ public class IronPotBlockEntity extends BlockEntity implements HasPlateEntity {
         this.markUpdated();
         return true;
     }
+
     private void markUpdated() {
         this.setChanged();
         Objects.requireNonNull(this.getLevel()).sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
     }
-    public Lazy<IItemHandler> getLazyItemHandler() {
-        return lazyItemHandler;
-    }
+
     @Override
-    public void onLoad() {
-        super.onLoad();
-        lazyItemHandler = Lazy.of(() -> itemStackHandler);
+    protected void loadAdditional(@NotNull ValueInput input) {
+        super.loadAdditional(input);
+        clearContent();
+        this.item = input.read(STORAGE_NAME, ItemStack.CODEC).orElse(ItemStack.EMPTY);
     }
+
     @Override
-    protected void saveAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
-        tag.put(INVENTORY, itemStackHandler.serializeNBT(registries));
-        super.saveAdditional(tag, registries);
+    protected void saveAdditional(@NotNull ValueOutput output) {
+        super.saveAdditional(output);
+        if (!getFoodStack().isEmpty()) output.store(STORAGE_NAME, ItemStack.CODEC, getFoodStack());
     }
+
     @Override
-    protected void loadAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
-        itemStackHandler.deserializeNBT(registries, tag.getCompound(INVENTORY));
-        super.loadAdditional(tag, registries);
-    }
-    @Override
-    public Packet<ClientGamePacketListener> getUpdatePacket() {
+    public ClientboundBlockEntityDataPacket getUpdatePacket() {
         return ClientboundBlockEntityDataPacket.create(this);
     }
-    @Override
-    public void onDataPacket(@NotNull Connection net, @NotNull ClientboundBlockEntityDataPacket pkt, HolderLookup.@NotNull Provider lookupProvider) {
-        handleUpdateTag(pkt.getTag(), lookupProvider);
-    }
+
+
     @Override
     public @NotNull CompoundTag getUpdateTag(HolderLookup.@NotNull Provider registries) {
-        return saveWithoutMetadata(registries);
+        CompoundTag tag;
+        try (ProblemReporter.ScopedCollector reporter = new ProblemReporter.ScopedCollector(this.problemPath(), LOGGER)) {
+            TagValueOutput output = TagValueOutput.createWithContext(reporter, registries);
+            ValueOutput.TypedOutputList<ItemStackWithSlot> itemsOutput = output.list("Items", ItemStackWithSlot.CODEC);
+            if (!item.isEmpty()) {
+                itemsOutput.add(new ItemStackWithSlot(0, item));
+            }
+            tag = output.buildResult();
+        }
+        return tag;
     }
+
     @Override
-    public void handleUpdateTag(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider lookupProvider) {
-        super.handleUpdateTag(tag, lookupProvider);
+    public void preRemoveSideEffects(@NotNull BlockPos pos, @NotNull BlockState state) {
+        if (this.getLevel() != null) drops();
     }
+
+    @Override
+    protected void applyImplicitComponents(@NotNull DataComponentGetter components) {
+        super.applyImplicitComponents(components);
+        item = components.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY).copyOne();
+    }
+
+    @Override
+    protected void collectImplicitComponents(DataComponentMap.@NotNull Builder components) {
+        super.collectImplicitComponents(components);
+        components.set(DataComponents.CONTAINER, ItemContainerContents.fromItems(NonNullList.of(item)));
+    }
+
+    @Override
+    @SuppressWarnings("deprecation")
+    public void removeComponentsFromTag(ValueOutput output) {
+        output.discard(STORAGE_NAME);
+    }
+
     public void drops(){
         SimpleContainer inventory = new SimpleContainer(1);
         inventory.setItem(0, getFoodStack());
         Containers.dropContents(Objects.requireNonNull(this.getLevel()), this.worldPosition, inventory);
-        changeFood(ItemStack.EMPTY);
+        clearContent();
         markUpdated();
+    }
+
+    @Override
+    public void clearContent() {
+        this.item = ItemStack.EMPTY;
     }
 }

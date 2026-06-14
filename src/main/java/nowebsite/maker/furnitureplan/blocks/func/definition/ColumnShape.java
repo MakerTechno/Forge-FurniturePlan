@@ -1,8 +1,7 @@
 package nowebsite.maker.furnitureplan.blocks.func.definition;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.BlockGetter;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -24,7 +23,7 @@ public enum ColumnShape implements ModelSR {
         this.name = name;
     }
     @Override
-    public ResourceLocation getModel(Block block) {
+    public Identifier getModel(Block block) {
         return modLoc(
                 (block instanceof CarvedColumnBlock ? "carved_" : "") +
                         (block instanceof LightedColumnBlock ? "lighted_" : "") +
@@ -35,7 +34,7 @@ public enum ColumnShape implements ModelSR {
 
     @Contract(pure = true)
     @Override
-    public @Nullable ResourceLocation getTexture() {
+    public @Nullable Identifier getTexture() {
         return null;// We choose it at a texture list.
     }
 
@@ -151,7 +150,7 @@ public enum ColumnShape implements ModelSR {
         LIGHTED_COLUMN_TOP = Shapes.or(NORMAL_DOWN_CONNECT, LIGHTED_MIDDLE, NORMAL_TOP);
     }
     @Override
-    public VoxelShape getOccModel(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos) {
+    public VoxelShape getOccModel(@NotNull BlockState state) {
         if(state.getBlock() instanceof CarvedColumnBlock) {
             return switch (this){
                 case TOP -> CARVED_COLUMN_TOP;

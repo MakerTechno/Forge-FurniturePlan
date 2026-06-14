@@ -23,6 +23,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import nowebsite.maker.furnitureplan.blocks.func.BasePropertyHorizontalDirectionBlock;
@@ -52,8 +53,8 @@ public class CabinetBlock extends BasePropertyHorizontalDirectionBlock<CabinetBl
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, Boolean.FALSE));
     }
     @Override
-    protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
-        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+    protected @NotNull InteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
+        return InteractionResult.PASS;
     }
     @Override
     protected @NotNull InteractionResult useWithoutItem(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull BlockHitResult hitResult) {
@@ -63,7 +64,7 @@ public class CabinetBlock extends BasePropertyHorizontalDirectionBlock<CabinetBl
             Vec3 hit = hitResult.getLocation().subtract(pos.getX(), pos.getY(), pos.getZ());
             double x = Vec3Utils.getXFromHit(facing, hit);
 
-            if (level.isClientSide) {
+            if (level.isClientSide()) {
                 if (x > 1.0 / 16 && x < 15.0 / 16 && isNotBlockedDrawerByBlock(level, pos)) {
                     return InteractionResult.SUCCESS;
                 }
@@ -91,9 +92,9 @@ public class CabinetBlock extends BasePropertyHorizontalDirectionBlock<CabinetBl
     }
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@NotNull Level pLevel, @NotNull BlockState pState, @NotNull BlockEntityType<T> pBlockEntityType) {
-        return pLevel.isClientSide ? createTickerHelper(pBlockEntityType, CabinetBlockRegistration.CABINET_BLOCK_ENTITY.get(), CabinetBlockEntity::animateTick) : null;
+        return pLevel.isClientSide() ? createTickerHelper(pBlockEntityType, CabinetBlockRegistration.CABINET_BLOCK_ENTITY.get(), CabinetBlockEntity::animateTick) : null;
     }
-    @SuppressWarnings("deprecation")
+
     @Override
     protected boolean triggerEvent(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, int id, int param) {
         super.triggerEvent(state, level, pos, id, param);
@@ -134,7 +135,7 @@ public class CabinetBlock extends BasePropertyHorizontalDirectionBlock<CabinetBl
     }
 
     @Override
-    protected @NotNull VoxelShape getOcclusionShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
+    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return Shapes.block();
     }
 
@@ -148,7 +149,7 @@ public class CabinetBlock extends BasePropertyHorizontalDirectionBlock<CabinetBl
     public boolean hasDoorRendered() {
         return this.hasDoorRendered;
     }
-    @SuppressWarnings("deprecation")
+
     @Override
     protected @NotNull RenderShape getRenderShape(@NotNull BlockState state) {
         return RenderShape.MODEL;

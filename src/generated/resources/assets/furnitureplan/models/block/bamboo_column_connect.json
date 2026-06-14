@@ -1,6 +1,0 @@
-{
-  "parent": "furnitureplan:block/column_connect",
-  "textures": {
-    "particle": "minecraft:block/bamboo_planks"
-  }
-}

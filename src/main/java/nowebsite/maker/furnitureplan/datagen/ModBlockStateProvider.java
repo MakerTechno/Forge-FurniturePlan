@@ -3,7 +3,7 @@ package nowebsite.maker.furnitureplan.datagen;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
@@ -71,7 +71,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     private record Result(VariantBlockStateBuilder.PartialBlockstate build, int xRot, int yRot, boolean flag) {}
-    public <T extends Comparable<T>> void registerStateWithProperties(List<Property<T>> propertyList, VariantBlockStateBuilder builder, Block block, String key, ResourceLocation texture, ResourceLocation model){
+    public <T extends Comparable<T>> void registerStateWithProperties(List<Property<T>> propertyList, VariantBlockStateBuilder builder, Block block, String key, Identifier texture, Identifier model){
         List<List<T>> probableValues = generateCombinations(propertyList);
 
         ModelFile modelFile = models()
@@ -91,7 +91,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
 
     @SuppressWarnings({"unused", "unchecked"})
-    public <T extends Comparable<T>, M extends Enum<M> & ModelSR> void registerEnumWithMultiStateBlock(Block block, String key, ResourceLocation texture, ResourceLocation probableModel) {
+    public <T extends Comparable<T>, M extends Enum<M> & ModelSR> void registerEnumWithMultiStateBlock(Block block, String key, Identifier texture, Identifier probableModel) {
         VariantBlockStateBuilder builder = getVariantBuilder(block);
 
         /*Change all properties into every possible list*/
@@ -170,23 +170,23 @@ public class ModBlockStateProvider extends BlockStateProvider {
         }
     }
 
-    public static ResourceLocation key(Block b) {
+    public static Identifier key(Block b) {
         return BuiltInRegistries.BLOCK.getKey(b);
     }
     public static String keyName(Block b){
         return key(b).toString();
     }
     public static String name(Block b) {return key(b).getPath();}
-    public ResourceLocation forVanillaVariety(@NotNull String registryName, String specificNameEnd){
+    public Identifier forVanillaVariety(@NotNull String registryName, String specificNameEnd){
         return mcLoc("block/" + FoldingRegistration.PROPERTY_KINDS.get(registryName.split("_"+specificNameEnd)[0].split(FurniturePlan.MOD_ID+":")[1]));
     }
-    public ResourceLocation fromVanillaSource(String name){
+    public Identifier fromVanillaSource(String name){
         return mcLoc("block/" + name);
     }
-    public ResourceLocation fromModSource(String name){
+    public Identifier fromModSource(String name){
         return modLoc("block/" + name);
     }
-    public ResourceLocation textureSwitch(ILocalDefine block, String registeredName){
+    public Identifier textureSwitch(ILocalDefine block, String registeredName){
         return block instanceof IVarietyBlock varietyBlock
             ? forVanillaVariety(registeredName, varietyBlock.getSpecificName())
             : block.fromVanilla()

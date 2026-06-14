@@ -1,9 +1,7 @@
 package nowebsite.maker.furnitureplan.blocks.func.definition;
 
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.BlockGetter;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -22,12 +20,12 @@ public enum PotHolderPart implements ModelSR {
         this.name = name;
     }
     @Override
-    public ResourceLocation getModel(Block block) {
+    public Identifier getModel(Block block) {
         return modLoc("pot_holder_" + (this.equals(BASE) ? "down" : "up"));
     }
     @Contract(pure = true)
     @Override
-    public @Nullable ResourceLocation getTexture() {
+    public @Nullable Identifier getTexture() {
         return null;    //Switch with a color list
     }
     private static final VoxelShape DOWN_N, DOWN_E, DOWN_S, DOWN_W, UP_N, UP_E, UP_S, UP_W;
@@ -581,7 +579,7 @@ public enum PotHolderPart implements ModelSR {
         P3_W = Shapes.box(0.425, 0.53125, 0.3875, 0.65, 0.84375, 0.6125);
     }*/
     @Override
-    public VoxelShape getOccModel(@NotNull BlockState state, BlockGetter getter, BlockPos pos) {
+    public VoxelShape getOccModel(@NotNull BlockState state) {
         Direction facing = state.getValue(HorizontalDirectionalBlock.FACING);
         return this.equals(BASE) ?
             switch (facing){
