@@ -25,7 +25,16 @@ sourceSets.main.resources {
     exclude("**/*.bbmodel") // BlockBench project files
     exclude("src/generated/**/.cache") // datagen cache files
 }
-
+sourceSets.test.resources {
+    srcDir('src/generated/resources')
+    exclude("**/*.bbmodel")
+    exclude("src/generated/**/.cache")
+}
+sourceSets {
+    test {
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    }
+}
 repositories {
     // Add here additional repositories if required by some of the dependencies below.
 }
@@ -113,8 +122,8 @@ configurations {
 }
 
 dependencies {
+    compileOnly "com.google.auto.service:auto-service-annotations:1.1.1"
     annotationProcessor "com.google.auto.service:auto-service:1.1.1"
-    compileOnly "com.google.auto.service:auto-service:1.1.1"
 }
 
 jar {

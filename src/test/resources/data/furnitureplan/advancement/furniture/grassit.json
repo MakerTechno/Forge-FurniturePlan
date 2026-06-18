@@ -1,0 +1,35 @@
+{
+  "parent": "furnitureplan:furniture/root",
+  "criteria": {
+    "grass": {
+      "conditions": {
+        "item": {
+          "items": "furnitureplan:grass_grass"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.furniture.grassit.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "furnitureplan:grass_grass"
+    },
+    "title": {
+      "translate": "advancements.furniture.grassit.title"
+    }
+  },
+  "requirements": [
+    [
+      "grass"
+    ]
+  ],
+  "rewards": {
+    "experience": 10
+  },
+  "sends_telemetry_event": true
+}
