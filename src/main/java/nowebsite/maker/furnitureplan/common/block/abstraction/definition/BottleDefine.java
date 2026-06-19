@@ -23,10 +23,6 @@ public enum BottleDefine implements ICustomModelInfo {
             case INSERT -> blockTemplateLoc("bottle_verd");
         };
     }
-    @Override
-    public Identifier getTexture() {
-        return blockTemplateLoc("block/bottle");
-    }
     public static final VoxelShape SHAPE = Shapes.box(0.125, 0, 0.125, 0.875, 0.9375, 0.875);
     @Override
     public VoxelShape getOccModel(@NotNull BlockState state) {

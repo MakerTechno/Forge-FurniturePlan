@@ -27,11 +27,6 @@ public enum TableShape implements ICustomModelInfo {
         return blockTemplateLoc("table_" + this.getSerializedName());
     }
 
-    @Contract(pure = true)
-    @Override
-    public @Nullable Identifier getTexture() {
-        return null; // We choose it at a texture list.
-    }
     private static final VoxelShape TOP, NE_C, ES_C, SW_C, WN_C, NE_M, ES_M, SW_M, WN_M, N_M, E_M, S_M, W_M, ALL;
     static {
         TOP = Shapes.box(0, 0.875, 0, 1, 1, 1);

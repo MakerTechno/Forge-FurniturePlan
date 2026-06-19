@@ -47,7 +47,7 @@ public abstract class BaseSittableBE<T extends BaseSittableBE<T>> extends BlockE
      * @apiNote 无需空值检查，但注意外部必须实现{@link #tickAtServer}才能保证及时解除占用状态。
      */
     public InteractionResult useAct(Level level, BlockPos pos, Player player) {
-        if (this.sit != null) return InteractionResult.PASS;
+        if (this.sit != null) return InteractionResult.FAIL;
 
         this.delayer = 0;
         this.sit = new RideableEntityNull(FPEntityTypeReg.NULL_RIDE.get(), level, this.worldPosition);
@@ -57,10 +57,9 @@ public abstract class BaseSittableBE<T extends BaseSittableBE<T>> extends BlockE
             player.sendOverlayMessage(Component.translatable("msg.terra_furniture.sit"));
             this.sit.remove(Entity.RemovalReason.DISCARDED);
             this.sit = null;
-            return InteractionResult.PASS;
-        } else {
-            return InteractionResult.SUCCESS;
+            return InteractionResult.FAIL;
         }
+        return InteractionResult.SUCCESS_SERVER;
     }
 
     /**

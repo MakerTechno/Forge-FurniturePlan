@@ -24,7 +24,6 @@ public class FPEntityTypeReg {
                 MobCategory.MISC
             ).sized(0,0)
             .clientTrackingRange(10)
-            .noSave()
             .build(entityId("null_ride"))
     );
 

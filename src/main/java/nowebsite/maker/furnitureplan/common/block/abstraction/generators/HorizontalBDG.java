@@ -24,6 +24,6 @@ public abstract class HorizontalBDG<T extends Block & BlockSetGetter> extends De
                 TextureSlot.PARTICLE
             )
         ));
-        blockModelGenerators.registerSimpleItemModel(block, FurniturePlan.asResource(getTemplateLoc(block)).withPrefix("block/"));
+        //blockModelGenerators.registerSimpleItemModel(block, FurniturePlan.asResource(getTemplateLoc(block)).withPrefix("block/"));
     }
 }

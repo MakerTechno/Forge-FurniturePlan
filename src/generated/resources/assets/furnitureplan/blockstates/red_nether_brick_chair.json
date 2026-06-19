@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "furnitureplan:block/red_nether_brick_chair",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "furnitureplan:block/red_nether_brick_chair"
+    },
+    "facing=south": {
+      "model": "furnitureplan:block/red_nether_brick_chair",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "furnitureplan:block/red_nether_brick_chair",
+      "y": 270
+    }
+  }
+}

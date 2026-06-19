@@ -27,6 +27,7 @@ import nowebsite.maker.furnitureplan.common.block.abstraction.generators.Default
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockSetType;
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockType;
 import nowebsite.maker.furnitureplan.common.block.seating.entity.BenchBlockEntity;
+import nowebsite.maker.furnitureplan.common.block.seating.entity.ChairBlockEntity;
 import nowebsite.maker.furnitureplan.common.data.gen.empowered.BlockDataGenerator;
 import nowebsite.maker.furnitureplan.common.init.FPTags;
 import org.jetbrains.annotations.NotNull;
@@ -78,19 +79,13 @@ public class BenchBlock extends BasePropertyExtendedBlock<BenchBlock> implements
 
     @Override
     protected @NotNull InteractionResult useWithoutItem(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull BlockHitResult hitResult) {
-        InteractionResult resultA;
-        if (!level.isClientSide()) {
-            BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (blockEntity instanceof BenchBlockEntity benchBlock) {
-                resultA = benchBlock.useAct(level, pos, player/*, state.getValue(FACING)*/);
-            } else {
-                FurniturePlan.LOGGER.error("? Where's my bench block entity???");
-                resultA = InteractionResult.FAIL;
-            }
-        } else {
-            resultA = InteractionResult.PASS;
+        if (level.isClientSide()) return InteractionResult.CONSUME;
+        BlockEntity blockEntity = level.getBlockEntity(pos);
+        if (!(blockEntity instanceof BenchBlockEntity benchBlock)) {
+            FurniturePlan.LOGGER.error("ChairBE block entity is missing, it's an unexpected state.");
+            return InteractionResult.FAIL;
         }
-        return resultA;
+        return benchBlock.useAct(level, pos, player);
     }
 
     @Override

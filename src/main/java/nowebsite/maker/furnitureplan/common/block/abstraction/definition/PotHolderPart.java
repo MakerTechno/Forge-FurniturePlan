@@ -8,9 +8,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import nowebsite.maker.furnitureplan.utils.ICustomModelInfo;
-import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 public enum PotHolderPart implements ICustomModelInfo {
     BASE("base"),
@@ -22,11 +20,6 @@ public enum PotHolderPart implements ICustomModelInfo {
     @Override
     public Identifier getModel(Block block) {
         return blockTemplateLoc("pot_holder_" + (this.equals(BASE) ? "down" : "up"));
-    }
-    @Contract(pure = true)
-    @Override
-    public @Nullable Identifier getTexture() {
-        return null;    //Switch with a color list
     }
     private static final VoxelShape DOWN_N, DOWN_E, DOWN_S, DOWN_W, UP_N, UP_E, UP_S, UP_W;
     static {

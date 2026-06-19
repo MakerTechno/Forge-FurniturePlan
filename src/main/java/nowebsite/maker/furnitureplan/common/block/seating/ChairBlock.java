@@ -80,7 +80,7 @@ public class ChairBlock extends BasePropertyHorizontalDirectionBlock<ChairBlock>
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-        if (level.isClientSide()) return InteractionResult.PASS;
+        if (level.isClientSide()) return InteractionResult.CONSUME;
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (!(blockEntity instanceof ChairBlockEntity chairBlock)) {
             FurniturePlan.LOGGER.error("ChairBE block entity is missing, it's an unexpected state.");
@@ -88,6 +88,7 @@ public class ChairBlock extends BasePropertyHorizontalDirectionBlock<ChairBlock>
         }
         return chairBlock.useAct(level, pos, player);
     }
+
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {

@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import nowebsite.maker.furnitureplan.FurniturePlan;
+import nowebsite.maker.furnitureplan.common.data.gen.empowered.BlockDataGenerator;
 import nowebsite.maker.furnitureplan.common.init.FPBlockReg;
 import nowebsite.maker.furnitureplan.utils.ICustomModelInfo;
 import org.jetbrains.annotations.NotNull;
@@ -30,13 +31,6 @@ import java.util.*;
 public class FPModelProvider extends ModelProvider {
     private final PackOutput output;
 
-    public static final ModelTemplate VANILLA_TEXTURE_SOURCE = new ModelTemplate(
-        Optional.empty(),
-        Optional.empty(),
-        TextureSlot.PARTICLE
-    );
-
-
     public FPModelProvider(PackOutput output) {
         super(output, FurniturePlan.MOD_ID);
         this.output = output;
@@ -45,10 +39,19 @@ public class FPModelProvider extends ModelProvider {
     @Override
     protected void registerModels(BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
         simpleHorizontalBlockWithItem(FPBlockReg.IRON_POT_BLOCK.get(), blockModels);
-
+        simpleBlockWithItem(FPBlockReg.LANTERN_BLOCK_P1.get(), blockModels);
+        simpleBlockWithItem(FPBlockReg.LANTERN_BLOCK_P2.get(), blockModels);
+        customModelBlockWithItem(FPBlockReg.TABLE_LAMP_BLOCK.get(), blockModels);
+        FPDataGenerators.GENERATORS.forEach((block, blockDataGenerator) -> invokeGenerator(block, blockDataGenerator, blockModels, itemModels));
     }
 
-    public static void simpleBlockWithItem(Block block, BlockModelGenerators generators, boolean doLockUV) {
+    @SuppressWarnings("unchecked")
+    private <T extends Block> void  invokeGenerator(Block block, BlockDataGenerator<?> generator, BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
+        BlockDataGenerator<T> typeGenerator = (BlockDataGenerator<T>) generator;
+        typeGenerator.buildModelWithTemplate((T) block, blockModels, itemModels, output);
+    }
+
+    public static void simpleBlockWithItem(Block block, BlockModelGenerators generators) {
         MultiVariant model = BlockModelGenerators.plainVariant(TexturedModel.createDefault(
             block1 -> new TextureMapping()
                 .put(TextureSlot.PARTICLE, TextureMapping.getBlockTexture(block1)),
@@ -59,7 +62,6 @@ public class FPModelProvider extends ModelProvider {
             )).create(block, generators.modelOutput)
         );
         MultiVariantGenerator variant = MultiVariantGenerator.dispatch(block, model);
-        if (doLockUV) variant.with(BlockModelGenerators.UV_LOCK);
         generators.blockStateOutput.accept(variant);
     }
 
@@ -108,7 +110,7 @@ public class FPModelProvider extends ModelProvider {
 
         for (List<T> propertyList : propertyCombineResult) {
             ICustomModelInfo info = (ICustomModelInfo) propertyList.getFirst();
-            // 2026/6/19-00:07 TODO: Not completed yet
+            dispatch.select((M) info, (Direction) propertyList.get(1), BlockModelGenerators.plainVariant(info.getModel(block)));
         }
 
         MultiVariantGenerator variant = MultiVariantGenerator.dispatch(block).with(dispatch);
@@ -127,7 +129,7 @@ public class FPModelProvider extends ModelProvider {
     }
 
     public static Identifier getFromTemplate(String name) {
-        return FurniturePlan.asResource("block/templates/" + name);
+        return FurniturePlan.asResource("block/template/" + name);
     }
 
     @SuppressWarnings("unchecked")

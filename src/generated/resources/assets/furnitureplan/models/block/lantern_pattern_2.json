@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/template/lantern_pattern_2",
+  "textures": {
+    "particle": "furnitureplan:block/lantern_pattern_2"
+  }
+}

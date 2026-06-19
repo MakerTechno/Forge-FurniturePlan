@@ -45,11 +45,10 @@ public class LanternBlock extends Block {
 
     @Override
     protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if (!level.isClientSide()){
-            if (stack.is(Items.FLINT_AND_STEEL)){
-                level.setBlock(pos, state.cycle(LIT), 2);
-                return InteractionResult.SUCCESS;
-            }
+        if (level.isClientSide()) return InteractionResult.CONSUME;
+        if (stack.is(Items.FLINT_AND_STEEL)){
+            level.setBlock(pos, state.cycle(LIT), 2);
+            return InteractionResult.SUCCESS;
         }
         return InteractionResult.PASS;
     }
@@ -65,5 +64,10 @@ public class LanternBlock extends Block {
     @Override
     public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource source) {
         super.tick(state, level, pos, source);
+    }
+
+    @Override
+    public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
+        return state.getValue(LIT) ? 15 : 0;
     }
 }

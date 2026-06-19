@@ -1,6 +1,9 @@
 package nowebsite.maker.furnitureplan.common.block.abstraction.set;
 
 import it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -17,10 +20,12 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class FPBlockSet {
+    public final FPBlockSetType materialType;
     public final DeferredBlock<@NotNull ChairBlock> CHAIR;
     public final DeferredBlock<@NotNull BenchBlock> BENCH;
 
     protected FPBlockSet(Builder builder) {
+        this.materialType = builder.materialType;
         CHAIR = init(builder, FPBlockType.CHAIR);
         BENCH = init(builder, FPBlockType.BENCH);
     }
@@ -49,13 +54,12 @@ public class FPBlockSet {
                 this.properties = defaultProp;
                 this.blockSupplier = blockSupplier;
             }
-            public Supplier<T> getEntryResult() {
+            public Function<Identifier, T> getEntryResult() {
                 /* Copy to instance-like */
                 BlockBehaviour.Properties propertiesFinal = this.properties;
                 Consumer<BlockBehaviour.Properties> applierFinal = applier;
                 BiFunction<BlockBehaviour.Properties, Consumer<BlockBehaviour.Properties>, T> blockSupplierFinal = blockSupplier;
-
-                return () -> blockSupplierFinal.apply(propertiesFinal, applierFinal);
+                return name -> blockSupplierFinal.apply(propertiesFinal.setId(ResourceKey.create(Registries.BLOCK, name)), applierFinal.andThen(p -> p.setId(ResourceKey.create(Registries.BLOCK, name))));
             }
         }
 
@@ -70,6 +74,8 @@ public class FPBlockSet {
             this.fullCopyProp = fullCopyProp;
             this.propSourceBlock = propSourceBlock;
             //putEntry(FPBlockType.BUTTON, (p, a) -> new ButtonBlock(materialType.getType(), this.buttonPressedTick, p));
+            putEntry(FPBlockType.CHAIR, (p, a) -> new ChairBlock(materialType, propSourceBlock.defaultBlockState(), a, 0.4375F));
+            putEntry(FPBlockType.BENCH, (p, a) -> new BenchBlock(materialType, propSourceBlock.defaultBlockState(), p));
         }
 
         @SuppressWarnings("deprecation")

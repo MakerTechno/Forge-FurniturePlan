@@ -81,4 +81,8 @@ public final class FPBlockSetType {
     public boolean shouldCopyAll() {
         return copyAll;
     }
+
+    public Map<String, String> getTranslations() {
+        return translations;
+    }
 }
