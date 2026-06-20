@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "shape=base": {
+      "model": "furnitureplan:block/polished_andesite_column_base"
+    },
+    "shape=connect": {
+      "model": "furnitureplan:block/polished_andesite_column_connect"
+    },
+    "shape=full": {
+      "model": "furnitureplan:block/polished_andesite_column_full"
+    },
+    "shape=top": {
+      "model": "furnitureplan:block/polished_andesite_column_top"
+    }
+  }
+}

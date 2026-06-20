@@ -37,10 +37,10 @@ public class LightningBoltMixin {
             level.setBlockAndUpdate(blockPos, state);
 
             BlockPos.MutableBlockPos blockpos$mutableblockpos = pos.mutable();
-            int i = level.random.nextInt(3) + 3;
+            int i = level.getRandom().nextInt(3) + 3;
 
             for(int j = 0; j < i; ++j) {
-                int k = level.random.nextInt(8) + 1;
+                int k = level.getRandom().nextInt(8) + 1;
                 forge1_19_4FurniturePlan$iRandomWalkCleaningCopper(level, blockPos, blockpos$mutableblockpos, k);
             }
         }
@@ -62,7 +62,7 @@ public class LightningBoltMixin {
 
     @Unique
     private static Optional<BlockPos> forge1_19_4FurniturePlan$iRandomStepCleaningCopper(@NotNull Level level, BlockPos pos) {
-        for(BlockPos blockpos : BlockPos.randomInCube(level.random, 10, pos, 1)) {
+        for(BlockPos blockpos : BlockPos.randomInCube(level.getRandom(), 10, pos, 1)) {
             BlockState blockstate = level.getBlockState(blockpos);
             if (blockstate.getBlock() instanceof IWeatheringCopper) {
                 IWeatheringCopper.getPrevious(blockstate).ifPresent((p_147144_) -> {

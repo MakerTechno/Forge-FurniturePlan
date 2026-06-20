@@ -29,7 +29,6 @@ import net.neoforged.neoforge.items.wrapper.InvWrapper;
 import net.neoforged.neoforge.network.PacketDistributor;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.ColorfulBorderedCabinet;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.container.OpensCounterUtil;
-import nowebsite.maker.furnitureplan.networks.CabinetSyncData;
 import nowebsite.maker.furnitureplan.registry.kindsblock.cabinet.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

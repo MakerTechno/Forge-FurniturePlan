@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/template/carved_column_base",
+  "textures": {
+    "particle": "minecraft:block/mossy_cobblestone"
+  }
+}

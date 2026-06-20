@@ -1,6 +1,9 @@
 {
   "values": [
-    "furnitureplan:polished_granite_bench",
-    "furnitureplan:polished_granite_chair"
+    "furnitureplan:polished_granite_carved_column",
+    "furnitureplan:polished_granite_column",
+    "furnitureplan:polished_granite_chair",
+    "furnitureplan:polished_granite_lighted_column",
+    "furnitureplan:polished_granite_bench"
   ]
 }

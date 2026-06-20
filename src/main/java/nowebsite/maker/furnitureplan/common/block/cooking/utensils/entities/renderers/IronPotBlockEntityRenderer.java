@@ -15,7 +15,7 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.phys.Vec3;
 import nowebsite.maker.furnitureplan.common.block.cooking.utensils.IronPotBlock;
 import nowebsite.maker.furnitureplan.common.block.cooking.utensils.entities.IronPotBlockEntity;
-import nowebsite.maker.furnitureplan.common.block.cooking.utensils.entities.states.IronPotBlockRenderState;
+import nowebsite.maker.furnitureplan.common.block.cooking.utensils.entities.renderers.states.IronPotBlockRenderState;
 import org.jetbrains.annotations.NotNull;
 import org.jspecify.annotations.Nullable;
 

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "shape=base": {
+      "model": "furnitureplan:block/oxidized_cut_copper_lighted_column_base"
+    },
+    "shape=connect": {
+      "model": "furnitureplan:block/oxidized_cut_copper_lighted_column_connect"
+    },
+    "shape=full": {
+      "model": "furnitureplan:block/oxidized_cut_copper_lighted_column_full"
+    },
+    "shape=top": {
+      "model": "furnitureplan:block/oxidized_cut_copper_lighted_column_top"
+    }
+  }
+}

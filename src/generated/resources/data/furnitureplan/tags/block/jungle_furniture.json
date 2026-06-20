@@ -1,6 +1,9 @@
 {
   "values": [
+    "furnitureplan:jungle_carved_column",
     "furnitureplan:jungle_bench",
-    "furnitureplan:jungle_chair"
+    "furnitureplan:jungle_column",
+    "furnitureplan:jungle_chair",
+    "furnitureplan:jungle_lighted_column"
   ]
 }

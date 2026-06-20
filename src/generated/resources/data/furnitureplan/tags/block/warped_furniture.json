@@ -1,6 +1,9 @@
 {
   "values": [
+    "furnitureplan:warped_carved_column",
+    "furnitureplan:warped_chair",
+    "furnitureplan:warped_lighted_column",
     "furnitureplan:warped_bench",
-    "furnitureplan:warped_chair"
+    "furnitureplan:warped_column"
   ]
 }

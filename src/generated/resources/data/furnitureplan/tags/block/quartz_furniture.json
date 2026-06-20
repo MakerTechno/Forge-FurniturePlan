@@ -1,5 +1,8 @@
 {
   "values": [
+    "furnitureplan:quartz_carved_column",
+    "furnitureplan:quartz_column",
+    "furnitureplan:quartz_lighted_column",
     "furnitureplan:quartz_chair",
     "furnitureplan:quartz_bench"
   ]

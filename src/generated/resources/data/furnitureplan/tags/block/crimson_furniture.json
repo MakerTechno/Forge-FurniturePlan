@@ -1,6 +1,9 @@
 {
   "values": [
+    "furnitureplan:crimson_column",
+    "furnitureplan:crimson_carved_column",
     "furnitureplan:crimson_bench",
-    "furnitureplan:crimson_chair"
+    "furnitureplan:crimson_chair",
+    "furnitureplan:crimson_lighted_column"
   ]
 }

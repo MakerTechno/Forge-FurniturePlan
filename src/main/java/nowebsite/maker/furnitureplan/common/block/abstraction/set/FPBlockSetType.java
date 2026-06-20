@@ -8,7 +8,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-public final class FPBlockSetType {
+public class FPBlockSetType {
     public static final Set<FPBlockSetType> TYPES = new HashSet<>();
     private final String name;
     private final Supplier<List<TagKey<Block>>> tagKeys;

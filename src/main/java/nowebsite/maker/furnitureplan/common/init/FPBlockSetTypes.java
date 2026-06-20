@@ -1,8 +1,11 @@
 package nowebsite.maker.furnitureplan.common.init;
 
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockSetType;
+import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPColorfulSetType;
 import nowebsite.maker.furnitureplan.common.data.gen.FPChineseProvider;
 
 import java.util.List;
@@ -607,4 +610,213 @@ public class FPBlockSetTypes {
         "deepslate_bricks"
     );
 
+
+    public static final FPColorfulSetType BLACK_SET = new FPColorfulSetType(
+        "black",
+        DyeColor.BLACK,
+        Items.BLACK_DYE,
+        Items.BLACK_CONCRETE,
+        Blocks.BLACK_CONCRETE,
+        true,
+        () -> List.of(),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "黑色混凝土");
+            return true;
+        }
+    );
+    public static final FPColorfulSetType BLUE_SET = new FPColorfulSetType(
+        "blue",
+        DyeColor.BLUE,
+        Items.BLUE_DYE,
+        Items.BLUE_CONCRETE,
+        Blocks.BLUE_CONCRETE,
+        true,
+        () -> List.of(),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "蓝色混凝土");
+            return true;
+        }
+    );
+    public static final FPColorfulSetType BROWN_SET = new FPColorfulSetType(
+        "brown",
+        DyeColor.BROWN,
+        Items.BROWN_DYE,
+        Items.BROWN_CONCRETE,
+        Blocks.BROWN_CONCRETE,
+        true,
+        () -> List.of(),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "棕色混凝土");
+            return true;
+        }
+    );
+    public static final FPColorfulSetType CYAN_SET = new FPColorfulSetType(
+        "cyan",
+        DyeColor.CYAN,
+        Items.CYAN_DYE,
+        Items.CYAN_CONCRETE,
+        Blocks.CYAN_CONCRETE,
+        true,
+        () -> List.of(),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "青色混凝土");
+            return true;
+        }
+    );
+    public static final FPColorfulSetType GRAY_SET = new FPColorfulSetType(
+        "gray",
+        DyeColor.GRAY,
+        Items.GRAY_DYE,
+        Items.GRAY_CONCRETE,
+        Blocks.GRAY_CONCRETE,
+        true,
+        () -> List.of(),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "灰色混凝土");
+            return true;
+        }
+    );
+    public static final FPColorfulSetType GREEN_SET = new FPColorfulSetType(
+        "green",
+        DyeColor.GREEN,
+        Items.GREEN_DYE,
+        Items.GREEN_CONCRETE,
+        Blocks.GREEN_CONCRETE,
+        true,
+        () -> List.of(),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "绿色混凝土");
+            return true;
+        }
+    );
+    public static final FPColorfulSetType LIGHT_BLUE_SET = new FPColorfulSetType(
+        "light_blue",
+        DyeColor.LIGHT_BLUE,
+        Items.LIGHT_BLUE_DYE,
+        Items.LIGHT_BLUE_CONCRETE,
+        Blocks.LIGHT_BLUE_CONCRETE,
+        true,
+        () -> List.of(),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "淡蓝色混凝土");
+            return true;
+        }
+    );
+    public static final FPColorfulSetType LIGHT_GRAY_SET = new FPColorfulSetType(
+        "light_gray",
+        DyeColor.LIGHT_GRAY,
+        Items.LIGHT_GRAY_DYE,
+        Items.LIGHT_GRAY_CONCRETE,
+        Blocks.LIGHT_GRAY_CONCRETE,
+        true,
+        () -> List.of(),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "淡灰色混凝土");
+            return true;
+        }
+    );
+    public static final FPColorfulSetType LIME_SET = new FPColorfulSetType(
+        "lime",
+        DyeColor.LIME,
+        Items.LIME_DYE,
+        Items.LIME_CONCRETE,
+        Blocks.LIME_CONCRETE,
+        true,
+        () -> List.of(),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "莱姆混凝土");
+            return true;
+        }
+    );
+    public static final FPColorfulSetType MAGENTA_SET = new FPColorfulSetType(
+        "magenta",
+        DyeColor.MAGENTA,
+        Items.MAGENTA_DYE,
+        Items.MAGENTA_CONCRETE,
+        Blocks.MAGENTA_CONCRETE,
+        true,
+        () -> List.of(),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "品红色混凝土");
+            return true;
+        }
+    );
+    public static final FPColorfulSetType ORANGE_SET = new FPColorfulSetType(
+        "orange",
+        DyeColor.ORANGE,
+        Items.ORANGE_DYE,
+        Items.ORANGE_CONCRETE,
+        Blocks.ORANGE_CONCRETE,
+        true,
+        () -> List.of(),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "橘色混凝土");
+            return true;
+        }
+    );
+    public static final FPColorfulSetType PINK_SET = new FPColorfulSetType(
+        "pink",
+        DyeColor.PINK,
+        Items.PINK_DYE,
+        Items.PINK_CONCRETE,
+        Blocks.PINK_CONCRETE,
+        true,
+        () -> List.of(),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "粉色混凝土");
+            return true;
+        }
+    );
+    public static final FPColorfulSetType PURPLE_SET = new FPColorfulSetType(
+        "purple",
+        DyeColor.PURPLE,
+        Items.PURPLE_DYE,
+        Items.PURPLE_CONCRETE,
+        Blocks.PURPLE_CONCRETE,
+        true,
+        () -> List.of(),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "紫色混凝土");
+            return true;
+        }
+    );
+    public static final FPColorfulSetType RED_SET = new FPColorfulSetType(
+        "red",
+        DyeColor.RED,
+        Items.RED_DYE,
+        Items.RED_CONCRETE,
+        Blocks.RED_CONCRETE,
+        true,
+        () -> List.of(),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "红色混凝土");
+            return true;
+        }
+    );
+    public static final FPColorfulSetType YELLOW_SET = new FPColorfulSetType(
+        "yellow",
+        DyeColor.YELLOW,
+        Items.YELLOW_DYE,
+        Items.YELLOW_CONCRETE,
+        Blocks.YELLOW_CONCRETE,
+        true,
+        () -> List.of(),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "黄色混凝土");
+            return true;
+        }
+    );
+    public static final FPColorfulSetType WHITE_SET = new FPColorfulSetType(
+        "white",
+        DyeColor.WHITE,
+        Items.WHITE_DYE,
+        Items.WHITE_CONCRETE,
+        Blocks.WHITE_CONCRETE,
+        true,
+        () -> List.of(),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "白色混凝土");
+            return true;
+        }
+    );
 }

@@ -29,7 +29,6 @@ import net.neoforged.neoforge.network.PacketDistributor;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.container.DrawerContainer;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.blockentities.container.OpensCounterUtil;
 import nowebsite.maker.furnitureplan.blocks.singleblockfurniture.gui.DrawerMenu;
-import nowebsite.maker.furnitureplan.networks.CupboardSyncData;
 import nowebsite.maker.furnitureplan.registry.BlockRegistration;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

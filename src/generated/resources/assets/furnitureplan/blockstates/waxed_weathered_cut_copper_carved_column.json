@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "shape=base": {
+      "model": "furnitureplan:block/waxed_weathered_cut_copper_carved_column_base"
+    },
+    "shape=connect": {
+      "model": "furnitureplan:block/waxed_weathered_cut_copper_carved_column_connect"
+    },
+    "shape=full": {
+      "model": "furnitureplan:block/waxed_weathered_cut_copper_carved_column_full"
+    },
+    "shape=top": {
+      "model": "furnitureplan:block/waxed_weathered_cut_copper_carved_column_top"
+    }
+  }
+}

@@ -27,7 +27,6 @@ import nowebsite.maker.furnitureplan.common.block.abstraction.generators.Default
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockSetType;
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockType;
 import nowebsite.maker.furnitureplan.common.block.seating.entity.BenchBlockEntity;
-import nowebsite.maker.furnitureplan.common.block.seating.entity.ChairBlockEntity;
 import nowebsite.maker.furnitureplan.common.data.gen.empowered.BlockDataGenerator;
 import nowebsite.maker.furnitureplan.common.init.FPTags;
 import org.jetbrains.annotations.NotNull;
@@ -37,7 +36,6 @@ import java.util.HashSet;
 import java.util.Objects;
 
 public class BenchBlock extends BasePropertyExtendedBlock<BenchBlock> implements EntityBlock {
-
     public static final VoxelShape SHAPE = Shapes.or(
         Shapes.box(0.75, 0, 0.75, 0.875, 0.25, 0.875),
         Shapes.box(0.125, 0, 0.75, 0.25, 0.25, 0.875),
@@ -46,11 +44,8 @@ public class BenchBlock extends BasePropertyExtendedBlock<BenchBlock> implements
         Shapes.box(0.75, 0, 0.125, 0.875, 0.25, 0.25)
     );
 
-    public final FPBlockSetType type;
-
     public BenchBlock(FPBlockSetType type, @NotNull BlockState state, BlockBehaviour.Properties properties) {
         super(type, state, properties);
-        this.type = type;
         this.registerDefaultState(this.getStateDefinition().any().setValue(WATERLOGGED, Boolean.FALSE));
     }
 
@@ -61,7 +56,7 @@ public class BenchBlock extends BasePropertyExtendedBlock<BenchBlock> implements
 
     @Override
     protected BasePropertyExtendedBlock<BenchBlock> createNewInstance(BlockState baseState, BlockBehaviour.Properties properties) {
-        return new BenchBlock(type, baseState, properties);
+        return new BenchBlock(getType(), baseState, properties);
     }
 
     @Override
@@ -104,6 +99,11 @@ public class BenchBlock extends BasePropertyExtendedBlock<BenchBlock> implements
     @Override
     public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
         return new BenchBlockEntity(pos, state);
+    }
+
+    @Override
+    protected boolean shouldChangedStateKeepBlockEntity(BlockState oldState) {
+        return true;
     }
 
     @Override

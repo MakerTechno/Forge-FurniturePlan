@@ -59,7 +59,7 @@ public interface BlockDataGenerator<T extends Block> {
      * 获取模板文件位置
      */
     default String getTemplateLoc(T block) {
-        return TEMPLATE_FOLDER + "/" + getTemplateType(block);
+        return "block/" + TEMPLATE_FOLDER + "/" + getTemplateType(block);
     }
 
     /**

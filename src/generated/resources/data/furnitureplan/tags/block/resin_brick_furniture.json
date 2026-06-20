@@ -1,6 +1,9 @@
 {
   "values": [
+    "furnitureplan:resin_brick_lighted_column",
+    "furnitureplan:resin_brick_carved_column",
     "furnitureplan:resin_brick_bench",
+    "furnitureplan:resin_brick_column",
     "furnitureplan:resin_brick_chair"
   ]
 }

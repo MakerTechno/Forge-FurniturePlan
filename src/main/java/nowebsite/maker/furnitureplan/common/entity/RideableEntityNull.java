@@ -2,6 +2,7 @@ package nowebsite.maker.furnitureplan.common.entity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.vehicle.VehicleEntity;
 import net.minecraft.world.item.Item;
@@ -43,9 +44,12 @@ public class RideableEntityNull extends VehicleEntity implements IEntityWithComp
         super.tick();
         BlockEntity blockEntity = level().getBlockEntity(blockEntityPos);
         if (!(blockEntity instanceof BaseSittableBE<?> cast)){
+            if (!getPassengers().isEmpty()) {
+                for (Entity passenger : getPassengers()) passenger.startRiding(this);
+            }
             this.remove(RemovalReason.DISCARDED);
         } else {
-            if (canAddPassenger(this)) cast.cleanSeat();
+            if (canAddPassenger(this)) cast.mayCleanSeat();
         }
     }
 

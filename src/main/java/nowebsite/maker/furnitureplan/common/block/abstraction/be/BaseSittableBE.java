@@ -80,8 +80,8 @@ public abstract class BaseSittableBE<T extends BaseSittableBE<T>> extends BlockE
     /**
      * 仅应从乘坐实体调用此方法，方块交互不需要使用手动清除。
      */
-    public void cleanSeat() {
-        if (this.sit != null) {
+    public void mayCleanSeat() {
+        if (this.sit != null && delayer >= PLAYER_SIT_ON_CHECK_DELAY) {
             this.sit.remove(Entity.RemovalReason.DISCARDED);
             this.sit = null;
         }

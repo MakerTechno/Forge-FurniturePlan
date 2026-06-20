@@ -124,6 +124,11 @@ public class ChairBlock extends BasePropertyHorizontalDirectionBlock<ChairBlock>
         };
     }
 
+    @Override
+    protected boolean shouldChangedStateKeepBlockEntity(BlockState oldState) {
+        return true;
+    }
+
     public FPBlockType<? extends @NotNull ChairBlock> getBlockType() {
         return FPBlockType.CHAIR;
     }

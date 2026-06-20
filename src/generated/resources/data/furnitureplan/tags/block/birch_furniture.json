@@ -1,6 +1,9 @@
 {
   "values": [
+    "furnitureplan:birch_carved_column",
+    "furnitureplan:birch_lighted_column",
     "furnitureplan:birch_chair",
-    "furnitureplan:birch_bench"
+    "furnitureplan:birch_bench",
+    "furnitureplan:birch_column"
   ]
 }

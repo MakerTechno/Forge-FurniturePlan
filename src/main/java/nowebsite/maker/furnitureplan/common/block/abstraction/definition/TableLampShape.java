@@ -9,7 +9,7 @@ import nowebsite.maker.furnitureplan.utils.ICustomModelInfo;
 import org.jetbrains.annotations.NotNull;
 
 public enum TableLampShape implements ICustomModelInfo {
-    ON("on"), OFF("off");
+    OFF("off"), ON("on");
     private final String name;
     TableLampShape(String name) {
         this.name = name;
@@ -22,8 +22,12 @@ public enum TableLampShape implements ICustomModelInfo {
 
     private static final VoxelShape SHAPE = Shapes.or(
         Shapes.box(0.3125, 0, 0.3125, 0.6875, 0.0625, 0.6875),
-        Shapes.box(0.453125, 0.0625, 0.453125, 0.546875, 0.4375, 0.546875),
-        Shapes.box(0.1875, 0.4375, 0.1875, 0.8125, 0.8125, 0.8125)
+        Shapes.box(0.453125, 0.0625, 0.453125, 0.546875, 0.75, 0.546875),
+        Shapes.box(0.25, 0.75, 0.25, 0.75, 0.8125, 0.75),
+        Shapes.box(0.25, 0.4375, 0.1875, 0.75, 0.8125, 0.25),
+        Shapes.box(0.25, 0.4375, 0.75, 0.75, 0.8125, 0.8125),
+        Shapes.box(0.1875, 0.4375, 0.1875, 0.25, 0.8125, 0.8125),
+        Shapes.box(0.75, 0.4375, 0.1875, 0.8125, 0.8125, 0.8125)
     );
     @Override
     public VoxelShape getOccModel(@NotNull BlockState state) {

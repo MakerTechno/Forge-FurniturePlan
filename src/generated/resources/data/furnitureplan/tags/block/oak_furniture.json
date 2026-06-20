@@ -1,6 +1,9 @@
 {
   "values": [
+    "furnitureplan:oak_column",
     "furnitureplan:oak_bench",
-    "furnitureplan:oak_chair"
+    "furnitureplan:oak_lighted_column",
+    "furnitureplan:oak_chair",
+    "furnitureplan:oak_carved_column"
   ]
 }

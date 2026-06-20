@@ -3,6 +3,7 @@ package nowebsite.maker.furnitureplan.common.block.abstraction.set;
 import it.unimi.dsi.fastutil.objects.ObjectArraySet;
 import net.minecraft.world.level.block.*;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import nowebsite.maker.furnitureplan.common.block.decorating.columns.*;
 import nowebsite.maker.furnitureplan.common.block.seating.BenchBlock;
 import nowebsite.maker.furnitureplan.common.block.seating.ChairBlock;
 import nowebsite.maker.furnitureplan.common.data.gen.FPChineseProvider;
@@ -15,9 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.BiConsumer;
 import java.util.function.Consumer;
-import java.util.function.Function;
 
 public class FPBlockType<T extends Block> {
 
@@ -66,4 +65,7 @@ public class FPBlockType<T extends Block> {
 
     public static final FPBlockType<@NotNull ChairBlock> CHAIR = create("chair", map -> map.put(FPChineseProvider.LOCALE, "椅"));
     public static final FPBlockType<@NotNull BenchBlock> BENCH = create("bench", map -> map.put(FPChineseProvider.LOCALE, "凳"));
+    public static final FPBlockType<@NotNull ColumnBlock> COLUMN = create("column", map -> map.put(FPChineseProvider.LOCALE, "柱"));
+    public static final FPBlockType<@NotNull CarvedColumnBlock> CARVED_COLUMN = create("carved_column", map -> map.put(FPChineseProvider.LOCALE, "雕纹柱"));
+    public static final FPBlockType<@NotNull LightedColumnBlock> LIGHTED_COLUMN = create("lighted_column", map -> map.put(FPChineseProvider.LOCALE, "嵌灯柱"));
 }

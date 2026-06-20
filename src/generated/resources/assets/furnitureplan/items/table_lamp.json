@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "furnitureplan:block/template/table_lamp_on"
+    "model": "furnitureplan:block/template/table_lamp_off"
   }
 }

@@ -24,9 +24,12 @@ import nowebsite.maker.furnitureplan.common.block.decorating.LanternBlock;
 import nowebsite.maker.furnitureplan.common.block.decorating.TableLampBlock;
 import nowebsite.maker.furnitureplan.common.block.seating.entity.BenchBlockEntity;
 import nowebsite.maker.furnitureplan.common.block.seating.entity.ChairBlockEntity;
+import org.apache.logging.log4j.util.Lazy;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -52,19 +55,35 @@ public class FPBlockReg {
     public static final DeferredBlock<@NotNull TableLampBlock> TABLE_LAMP_BLOCK = registerWithItem("table_lamp", name -> new TableLampBlock(BlockBehaviour.Properties.of().setId(getId(name))));
 
     public static final Set<FPBlockSet> AUTO_FURNITURE_SET = new HashSet<>(FPBlockSetType.TYPES.stream().map(type -> new FPBlockSet.Builder(type, type.getBase(), type.shouldCopyAll()).build()).collect(Collectors.toSet()));
+    public static final Lazy<Set<Block>> CHAIRS = Lazy.lazy(() -> AUTO_FURNITURE_SET.stream().map(set -> set.CHAIR.get()).collect(Collectors.toSet()));
+    public static final Lazy<Set<Block>> BENCHES = Lazy.lazy(() -> AUTO_FURNITURE_SET.stream().map(set -> set.BENCH.get()).collect(Collectors.toSet()));
+
+    public static final Lazy<FPBlockSet> OXIDIZED_COPPERS = Lazy.lazy(() -> FPBlockReg.AUTO_FURNITURE_SET.stream()
+        .filter(set -> set.materialType.equals(FPBlockSetTypes.OXIDIZED_CUT_COPPER_SET))
+        .findFirst().orElse(null));
+    public static final Lazy<FPBlockSet> WEATHERED_COPPERS = Lazy.lazy(() -> FPBlockReg.AUTO_FURNITURE_SET.stream()
+        .filter(set -> set.materialType.equals(FPBlockSetTypes.WEATHERED_CUT_COPPER_SET))
+        .findFirst().orElse(null));
+    public static final Lazy<FPBlockSet> EXPOSED_COPPERS = Lazy.lazy(() -> FPBlockReg.AUTO_FURNITURE_SET.stream()
+        .filter(set -> set.materialType.equals(FPBlockSetTypes.EXPOSED_CUT_COPPER_SET))
+        .findFirst().orElse(null));
+    public static final Lazy<FPBlockSet> CUT_COPPERS = Lazy.lazy(() -> FPBlockReg.AUTO_FURNITURE_SET.stream()
+        .filter(set -> set.materialType.equals(FPBlockSetTypes.CUT_COPPER_SET))
+        .findFirst().orElse(null));
+
 
     public static final DeferredHolder<BlockEntityType<?>, @NotNull BlockEntityType<@NotNull ChairBlockEntity>> CHAIR_BLOCK_ENTITY = BLOCK_ENTITIES.register(
         "chair_block_entity",
         () -> new BlockEntityType<>(
             ChairBlockEntity::new,
-            AUTO_FURNITURE_SET.stream().map(set -> set.CHAIR.get()).collect(Collectors.toSet())
+            CHAIRS.get()
         )
     );
     public static final DeferredHolder<BlockEntityType<?>, @NotNull BlockEntityType<@NotNull BenchBlockEntity>> BENCH_BLOCK_ENTITY = BLOCK_ENTITIES.register(
         "bench_block_entity",
         () -> new BlockEntityType<>(
             BenchBlockEntity::new,
-            AUTO_FURNITURE_SET.stream().map(set -> set.BENCH.get()).collect(Collectors.toSet())
+            BENCHES.get()
         )
     );
 
@@ -100,6 +119,7 @@ public class FPBlockReg {
     public static final class BlockStateReg {
         public static void init(){}
 
+        public static final EnumProperty<@NotNull ColumnShape> COLUMN_SHAPE = EnumProperty.create("shape", ColumnShape.class);
         public static final EnumProperty<@NotNull TableShape> TABLE_SHAPE = EnumProperty.create("shape", TableShape.class);
         public static final EnumProperty<@NotNull TableLampShape> TABLE_LAMP_SHAPE = EnumProperty.create("shape", TableLampShape.class);
         public static final EnumProperty<@NotNull PotHolderPart> POT_HOLDER_PART = EnumProperty.create("part", PotHolderPart.class);

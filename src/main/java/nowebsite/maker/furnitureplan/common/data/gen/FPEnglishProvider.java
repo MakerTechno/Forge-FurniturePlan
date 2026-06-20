@@ -16,7 +16,7 @@ public class FPEnglishProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        add("itemGroup.furniture", "家具计划");
+        add("itemGroup.furniture", "Furniture plan");
         FPBlockReg.BLOCKS.getEntries().forEach(block -> add(block.get(), toTitleCase(block.getId().getPath())));
     }
 

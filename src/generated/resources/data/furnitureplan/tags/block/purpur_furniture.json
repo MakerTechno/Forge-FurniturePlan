@@ -1,6 +1,9 @@
 {
   "values": [
     "furnitureplan:purpur_bench",
-    "furnitureplan:purpur_chair"
+    "furnitureplan:purpur_chair",
+    "furnitureplan:purpur_lighted_column",
+    "furnitureplan:purpur_column",
+    "furnitureplan:purpur_carved_column"
   ]
 }

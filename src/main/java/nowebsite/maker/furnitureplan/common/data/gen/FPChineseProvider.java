@@ -1,7 +1,5 @@
 package nowebsite.maker.furnitureplan.common.data.gen;
 
-import net.minecraft.client.data.models.BlockModelGenerators;
-import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.LanguageProvider;
@@ -18,6 +16,7 @@ public class FPChineseProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
+        add("itemGroup.furniture", "家具计划");
         add(FPBlockReg.IRON_POT_BLOCK.get(), "铁锅");
         add(FPBlockReg.LANTERN_BLOCK_P1.get(), "灯笼 样式1");
         add(FPBlockReg.LANTERN_BLOCK_P2.get(), "灯笼 样式2");

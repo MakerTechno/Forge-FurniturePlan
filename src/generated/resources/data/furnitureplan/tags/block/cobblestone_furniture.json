@@ -1,6 +1,9 @@
 {
   "values": [
+    "furnitureplan:cobblestone_column",
+    "furnitureplan:cobblestone_chair",
+    "furnitureplan:cobblestone_lighted_column",
     "furnitureplan:cobblestone_bench",
-    "furnitureplan:cobblestone_chair"
+    "furnitureplan:cobblestone_carved_column"
   ]
 }

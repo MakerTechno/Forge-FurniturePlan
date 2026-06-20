@@ -7,8 +7,12 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import nowebsite.maker.furnitureplan.common.block.abstraction.IWeatheringCopper;
+import nowebsite.maker.furnitureplan.common.block.decorating.columns.*;
 import nowebsite.maker.furnitureplan.common.block.seating.BenchBlock;
 import nowebsite.maker.furnitureplan.common.block.seating.ChairBlock;
+import nowebsite.maker.furnitureplan.common.block.seating.WeatheredCopperBenchBlock;
+import nowebsite.maker.furnitureplan.common.block.seating.WeatheredCopperChairBlock;
 import nowebsite.maker.furnitureplan.common.init.FPBlockReg;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -17,17 +21,22 @@ import java.util.Map;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 public class FPBlockSet {
     public final FPBlockSetType materialType;
     public final DeferredBlock<@NotNull ChairBlock> CHAIR;
     public final DeferredBlock<@NotNull BenchBlock> BENCH;
+    public final DeferredBlock<@NotNull ColumnBlock> COLUMN;
+    public final DeferredBlock<@NotNull CarvedColumnBlock> CARVED_COLUMN;
+    public final DeferredBlock<@NotNull LightedColumnBlock> LIGHTED_COLUMN;
 
     protected FPBlockSet(Builder builder) {
         this.materialType = builder.materialType;
         CHAIR = init(builder, FPBlockType.CHAIR);
         BENCH = init(builder, FPBlockType.BENCH);
+        COLUMN = init(builder, FPBlockType.COLUMN);
+        CARVED_COLUMN = init(builder, FPBlockType.CARVED_COLUMN);
+        LIGHTED_COLUMN = init(builder, FPBlockType.LIGHTED_COLUMN);
     }
 
     @SuppressWarnings("all")
@@ -73,9 +82,24 @@ public class FPBlockSet {
             this.materialType = materialType;
             this.fullCopyProp = fullCopyProp;
             this.propSourceBlock = propSourceBlock;
-            //putEntry(FPBlockType.BUTTON, (p, a) -> new ButtonBlock(materialType.getType(), this.buttonPressedTick, p));
-            putEntry(FPBlockType.CHAIR, (p, a) -> new ChairBlock(materialType, propSourceBlock.defaultBlockState(), a, 0.4375F));
-            putEntry(FPBlockType.BENCH, (p, a) -> new BenchBlock(materialType, propSourceBlock.defaultBlockState(), p));
+            putEntry(FPBlockType.CHAIR, (_, a) -> IWeatheringCopper.isWeatheringType(materialType)
+                ? new WeatheredCopperChairBlock(materialType, propSourceBlock.defaultBlockState(), a, 0.4375F)
+                : new ChairBlock(materialType, propSourceBlock.defaultBlockState(), a, 0.4375F));
+            putEntry(FPBlockType.BENCH, (p, _) -> IWeatheringCopper.isWeatheringType(materialType)
+                ? new WeatheredCopperBenchBlock(materialType, propSourceBlock.defaultBlockState(), p)
+                : new BenchBlock(materialType, propSourceBlock.defaultBlockState(), p));
+            putEntry(FPBlockType.COLUMN, (p, _) -> IWeatheringCopper.isWeatheringType(materialType)
+                ? new WeatheredCopperColumnBlock(materialType, propSourceBlock.defaultBlockState(), p)
+                : new ColumnBlock(materialType, propSourceBlock.defaultBlockState(), p)
+            );
+            putEntry(FPBlockType.CARVED_COLUMN, (p, _) -> IWeatheringCopper.isWeatheringType(materialType)
+                ? new WeatheredCopperCarvedColumnBlock(materialType, propSourceBlock.defaultBlockState(), p)
+                : new CarvedColumnBlock(materialType, propSourceBlock.defaultBlockState(), p)
+            );
+            putEntry(FPBlockType.LIGHTED_COLUMN, (p, _) -> IWeatheringCopper.isWeatheringType(materialType)
+                ? new WeatheredCopperLightedColumnBlock(materialType, propSourceBlock.defaultBlockState(), p)
+                : new LightedColumnBlock(materialType, propSourceBlock.defaultBlockState(), p)
+            );
         }
 
         @SuppressWarnings("deprecation")

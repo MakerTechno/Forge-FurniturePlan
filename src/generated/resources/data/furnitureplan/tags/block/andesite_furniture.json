@@ -1,6 +1,9 @@
 {
   "values": [
     "furnitureplan:andesite_chair",
-    "furnitureplan:andesite_bench"
+    "furnitureplan:andesite_bench",
+    "furnitureplan:andesite_lighted_column",
+    "furnitureplan:andesite_column",
+    "furnitureplan:andesite_carved_column"
   ]
 }

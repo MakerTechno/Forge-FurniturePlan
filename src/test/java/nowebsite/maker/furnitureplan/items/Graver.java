@@ -31,7 +31,6 @@ import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import nowebsite.maker.furnitureplan.blocks.func.BasePropertyHorizontalDirectionBlock;
 import nowebsite.maker.furnitureplan.blocks.func.IHorizontalBlock;
-import nowebsite.maker.furnitureplan.networks.GraverSyncData;
 import nowebsite.maker.furnitureplan.registry.FoldingRegistration;
 import nowebsite.maker.furnitureplan.registry.ItemRegistration;
 import org.jetbrains.annotations.NotNull;

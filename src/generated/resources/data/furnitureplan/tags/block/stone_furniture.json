@@ -1,6 +1,9 @@
 {
   "values": [
-    "furnitureplan:stone_bench",
-    "furnitureplan:stone_chair"
+    "furnitureplan:stone_column",
+    "furnitureplan:stone_carved_column",
+    "furnitureplan:stone_lighted_column",
+    "furnitureplan:stone_chair",
+    "furnitureplan:stone_bench"
   ]
 }

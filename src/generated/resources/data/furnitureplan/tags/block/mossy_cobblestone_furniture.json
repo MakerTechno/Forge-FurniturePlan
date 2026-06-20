@@ -1,6 +1,9 @@
 {
   "values": [
+    "furnitureplan:mossy_cobblestone_carved_column",
     "furnitureplan:mossy_cobblestone_chair",
+    "furnitureplan:mossy_cobblestone_column",
+    "furnitureplan:mossy_cobblestone_lighted_column",
     "furnitureplan:mossy_cobblestone_bench"
   ]
 }

@@ -33,7 +33,7 @@ public abstract class DefaultBlockDataGenerator<T extends Block & BlockSetGetter
             _ -> new TextureMapping()
                 .put(TextureSlot.PARTICLE, new Material(block.getType().getTexture())),
             new ModelTemplate(
-                Optional.of(FurniturePlan.asResource("block/template/" + getTemplateType(block))),
+                Optional.of(toIdentifier("block/template/" + getTemplateType(block))),
                 Optional.empty(),
                 TextureSlot.PARTICLE
             )).create(block, blockModelGenerators.modelOutput)

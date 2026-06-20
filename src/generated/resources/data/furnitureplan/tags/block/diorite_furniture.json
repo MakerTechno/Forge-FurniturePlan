@@ -1,6 +1,9 @@
 {
   "values": [
+    "furnitureplan:diorite_lighted_column",
+    "furnitureplan:diorite_carved_column",
+    "furnitureplan:diorite_chair",
     "furnitureplan:diorite_bench",
-    "furnitureplan:diorite_chair"
+    "furnitureplan:diorite_column"
   ]
 }

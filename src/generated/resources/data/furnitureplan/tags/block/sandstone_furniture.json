@@ -1,6 +1,9 @@
 {
   "values": [
+    "furnitureplan:sandstone_carved_column",
+    "furnitureplan:sandstone_column",
+    "furnitureplan:sandstone_bench",
     "furnitureplan:sandstone_chair",
-    "furnitureplan:sandstone_bench"
+    "furnitureplan:sandstone_lighted_column"
   ]
 }
