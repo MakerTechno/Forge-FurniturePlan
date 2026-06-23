@@ -12,7 +12,6 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.Clearable;
 import net.minecraft.world.Containers;
-import net.minecraft.world.ItemStackWithSlot;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
@@ -24,13 +23,14 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.storage.TagValueOutput;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+import net.minecraft.world.ticks.ContainerSingleItem;
 import nowebsite.maker.furnitureplan.common.init.FPBlockReg;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 
 import java.util.Objects;
 
-public class IronPotBlockEntity extends BlockEntity implements IFoodHolder, Clearable {
+public class IronPotBlockEntity extends BlockEntity implements IFoodHolder, Clearable, ContainerSingleItem.BlockContainerSingleItem {
     private static final Logger LOGGER = LogUtils.getLogger();
     public static final String STORAGE_NAME = "inventory";
     private ItemStack item = ItemStack.EMPTY;
@@ -85,9 +85,8 @@ public class IronPotBlockEntity extends BlockEntity implements IFoodHolder, Clea
         CompoundTag tag;
         try (ProblemReporter.ScopedCollector reporter = new ProblemReporter.ScopedCollector(this.problemPath(), LOGGER)) {
             TagValueOutput output = TagValueOutput.createWithContext(reporter, registries);
-            ValueOutput.TypedOutputList<ItemStackWithSlot> itemsOutput = output.list("Items", ItemStackWithSlot.CODEC);
-            if (!item.isEmpty()) {
-                itemsOutput.add(new ItemStackWithSlot(0, item));
+            if (!getFoodStack().isEmpty()) {
+                output.store(STORAGE_NAME, ItemStack.CODEC, getFoodStack());
             }
             tag = output.buildResult();
         }
@@ -126,7 +125,23 @@ public class IronPotBlockEntity extends BlockEntity implements IFoodHolder, Clea
     }
 
     @Override
+    public ItemStack getTheItem() {
+        return getFoodStack();
+    }
+
+    @Override
+    public void setTheItem(ItemStack itemStack) {
+        changeFood(itemStack);
+    }
+
+    @Override
     public void clearContent() {
         this.item = ItemStack.EMPTY;
+    }
+
+
+    @Override
+    public BlockEntity getContainerBlockEntity() {
+        return this;
     }
 }

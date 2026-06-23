@@ -2,6 +2,7 @@ package nowebsite.maker.furnitureplan.common.block.surfacing;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
@@ -12,18 +13,26 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import nowebsite.maker.furnitureplan.blocks.func.BasePropertyHorizontalDirectionBlock;
-import nowebsite.maker.furnitureplan.blocks.func.IUVLockedBlock;
-import nowebsite.maker.furnitureplan.blocks.func.IVarietyBlock;
-import nowebsite.maker.furnitureplan.blocks.func.definition.TableShape;
-import nowebsite.maker.furnitureplan.registry.BlockRegistration;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
+import nowebsite.maker.furnitureplan.common.block.abstraction.BasePropertyHorizontalDirectionBlock;
+import nowebsite.maker.furnitureplan.common.block.abstraction.MulStateGetter;
+import nowebsite.maker.furnitureplan.common.block.abstraction.definition.TableShape;
+import nowebsite.maker.furnitureplan.common.block.abstraction.generators.HorizontalMulStateBDG;
+import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockSetType;
+import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockType;
+import nowebsite.maker.furnitureplan.common.data.gen.empowered.BlockDataGenerator;
+import nowebsite.maker.furnitureplan.common.init.FPBlockReg;
+import nowebsite.maker.furnitureplan.common.init.FPTags;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-public class TableBlock extends BasePropertyHorizontalDirectionBlock<TableBlock> implements IVarietyBlock, IUVLockedBlock {
-    private static final EnumProperty<TableShape> SHAPE = BlockRegistration.BlockStateRegistration.TABLE_SHAPE;
+import java.util.HashSet;
 
-    public TableBlock(@NotNull BlockState state, Properties properties) {
-        super(state, properties);
+public class TableBlock extends BasePropertyHorizontalDirectionBlock<TableBlock> implements MulStateGetter<TableShape> {
+    private static final EnumProperty<@NotNull TableShape> SHAPE = FPBlockReg.BlockStateReg.TABLE_SHAPE;
+
+    public TableBlock(FPBlockSetType type, BlockState state, Properties properties) {
+        super(type, state, properties);
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, Boolean.FALSE));
     }
 
@@ -31,10 +40,10 @@ public class TableBlock extends BasePropertyHorizontalDirectionBlock<TableBlock>
     protected BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess ticks, BlockPos pos, Direction directionToNeighbour, BlockPos neighbourPos, BlockState neighbourState, RandomSource random) {
         super.updateShape(state, level, ticks, pos, directionToNeighbour, neighbourPos, neighbourState, random);
         int countState =
-            (level.getBlockState(pos.north()).is(BlockRegistration.TABLE_BLOCK) ? 1 : 0)
-                + (level.getBlockState(pos.east()).is(BlockRegistration.TABLE_BLOCK) ? 2 : 0)
-                + (level.getBlockState(pos.south()).is(BlockRegistration.TABLE_BLOCK) ? 4 : 0)
-                + (level.getBlockState(pos.west()).is(BlockRegistration.TABLE_BLOCK) ? 8 : 0);
+            (level.getBlockState(pos.north()).getBlock() instanceof TableBlock ? 1 : 0)
+                + (level.getBlockState(pos.east()).getBlock() instanceof TableBlock ? 2 : 0)
+                + (level.getBlockState(pos.south()).getBlock() instanceof TableBlock ? 4 : 0)
+                + (level.getBlockState(pos.west()).getBlock() instanceof TableBlock ? 8 : 0);
         return switch (countState) {
             case 0 -> state.setValue(SHAPE, TableShape.FULL);
             case 1 -> state.setValue(SHAPE, TableShape.SIDE).setValue(FACING, Direction.SOUTH);
@@ -50,11 +59,11 @@ public class TableBlock extends BasePropertyHorizontalDirectionBlock<TableBlock>
     }
 
     @Override
-    protected BasePropertyHorizontalDirectionBlock<TableBlock> getSelfNew(BlockState baseState, Properties properties) {
-        return new TableBlock(baseState, properties);
+    protected BasePropertyHorizontalDirectionBlock<TableBlock> createNewInstance(BlockState baseState, Properties properties) {
+        return new TableBlock(getType(), baseState, properties);
     }
     @Override
-    public boolean useShapeForLightOcclusion(@NotNull BlockState pState) {
+    public boolean useShapeForLightOcclusion(BlockState pState) {
         return true;
     }
 
@@ -64,18 +73,30 @@ public class TableBlock extends BasePropertyHorizontalDirectionBlock<TableBlock>
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> pBuilder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, @NotNull BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder);
         pBuilder.add(SHAPE);
     }
+
     @Override
-    public String getSpecificName() {
-        return "table";
+    public @Nullable BlockDataGenerator<? super @NotNull TableBlock> getGenerator() {
+        return new HorizontalMulStateBDG<>() {
+            @Override
+            public FPBlockType<? extends @NotNull TableBlock> getTemplateType(TableBlock block) {
+                return FPBlockType.TABLE;
+            }
+
+            @Override
+            public void addBlockTags(@NotNull TableBlock block, BlockTagsProvider provider, HashSet<TagKey<Block>> keys) {
+                super.addBlockTags(block, provider, keys);
+                keys.add(FPTags.TABLE_BLOCK);
+            }
+        };
     }
 
     @Override
-    public String parentName() {
-        return null;
+    public EnumProperty<@NotNull TableShape> getContainer() {
+        return SHAPE;
     }
 }
 

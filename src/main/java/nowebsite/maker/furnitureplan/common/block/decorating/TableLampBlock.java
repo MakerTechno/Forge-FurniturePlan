@@ -32,7 +32,7 @@ public class TableLampBlock extends Block {
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if (level.isClientSide()) return InteractionResult.CONSUME;
         level.setBlock(pos, state.cycle(LIT_E), 2);
-        return InteractionResult.SUCCESS;
+        return InteractionResult.SUCCESS_SERVER;
     }
     @Override
     public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {

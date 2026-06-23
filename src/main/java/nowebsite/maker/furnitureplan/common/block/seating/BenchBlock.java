@@ -2,13 +2,10 @@ package nowebsite.maker.furnitureplan.common.block.seating;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -33,7 +30,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.HashSet;
-import java.util.Objects;
 
 public class BenchBlock extends BasePropertyExtendedBlock<BenchBlock> implements EntityBlock {
     public static final VoxelShape SHAPE = Shapes.or(
@@ -57,19 +53,6 @@ public class BenchBlock extends BasePropertyExtendedBlock<BenchBlock> implements
     @Override
     protected BasePropertyExtendedBlock<BenchBlock> createNewInstance(BlockState baseState, BlockBehaviour.Properties properties) {
         return new BenchBlock(getType(), baseState, properties);
-    }
-
-    @Override
-    public void destroy(@NotNull LevelAccessor level, @NotNull BlockPos pos, @NotNull BlockState state) {
-        try {
-            Objects.requireNonNull(level.getBlockEntity(pos)).setRemoved();
-        } catch (Exception ignore) {}
-        super.destroy(level, pos, state);
-    }
-
-    @Override
-    protected @NotNull InteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
-        return InteractionResult.PASS;
     }
 
     @Override

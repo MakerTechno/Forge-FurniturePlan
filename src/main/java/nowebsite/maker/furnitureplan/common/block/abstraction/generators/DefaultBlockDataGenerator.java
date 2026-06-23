@@ -15,7 +15,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ItemTagsProvider;
-import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.common.block.abstraction.BlockSetGetter;
 import nowebsite.maker.furnitureplan.common.data.gen.empowered.BlockDataGenerator;
 import org.jetbrains.annotations.NotNull;

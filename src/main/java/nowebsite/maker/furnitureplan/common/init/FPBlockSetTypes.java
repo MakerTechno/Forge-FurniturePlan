@@ -618,7 +618,7 @@ public class FPBlockSetTypes {
         Items.BLACK_CONCRETE,
         Blocks.BLACK_CONCRETE,
         true,
-        () -> List.of(),
+        () -> List.of(FPTags.BLACK_DYE_FURNITURE),
         map -> {
             map.put(FPChineseProvider.LOCALE, "黑色混凝土");
             return true;
@@ -631,7 +631,7 @@ public class FPBlockSetTypes {
         Items.BLUE_CONCRETE,
         Blocks.BLUE_CONCRETE,
         true,
-        () -> List.of(),
+        () -> List.of(FPTags.BLUE_DYE_FURNITURE),
         map -> {
             map.put(FPChineseProvider.LOCALE, "蓝色混凝土");
             return true;
@@ -644,7 +644,7 @@ public class FPBlockSetTypes {
         Items.BROWN_CONCRETE,
         Blocks.BROWN_CONCRETE,
         true,
-        () -> List.of(),
+        () -> List.of(FPTags.BROWN_DYE_FURNITURE),
         map -> {
             map.put(FPChineseProvider.LOCALE, "棕色混凝土");
             return true;
@@ -657,7 +657,7 @@ public class FPBlockSetTypes {
         Items.CYAN_CONCRETE,
         Blocks.CYAN_CONCRETE,
         true,
-        () -> List.of(),
+        () -> List.of(FPTags.CYAN_DYE_FURNITURE),
         map -> {
             map.put(FPChineseProvider.LOCALE, "青色混凝土");
             return true;
@@ -670,7 +670,7 @@ public class FPBlockSetTypes {
         Items.GRAY_CONCRETE,
         Blocks.GRAY_CONCRETE,
         true,
-        () -> List.of(),
+        () -> List.of(FPTags.GRAY_DYE_FURNITURE),
         map -> {
             map.put(FPChineseProvider.LOCALE, "灰色混凝土");
             return true;
@@ -683,7 +683,7 @@ public class FPBlockSetTypes {
         Items.GREEN_CONCRETE,
         Blocks.GREEN_CONCRETE,
         true,
-        () -> List.of(),
+        () -> List.of(FPTags.GREEN_DYE_FURNITURE),
         map -> {
             map.put(FPChineseProvider.LOCALE, "绿色混凝土");
             return true;
@@ -696,7 +696,7 @@ public class FPBlockSetTypes {
         Items.LIGHT_BLUE_CONCRETE,
         Blocks.LIGHT_BLUE_CONCRETE,
         true,
-        () -> List.of(),
+        () -> List.of(FPTags.LIGHT_BLUE_DYE_FURNITURE),
         map -> {
             map.put(FPChineseProvider.LOCALE, "淡蓝色混凝土");
             return true;
@@ -709,7 +709,7 @@ public class FPBlockSetTypes {
         Items.LIGHT_GRAY_CONCRETE,
         Blocks.LIGHT_GRAY_CONCRETE,
         true,
-        () -> List.of(),
+        () -> List.of(FPTags.LIGHT_GRAY_DYE_FURNITURE),
         map -> {
             map.put(FPChineseProvider.LOCALE, "淡灰色混凝土");
             return true;
@@ -722,9 +722,9 @@ public class FPBlockSetTypes {
         Items.LIME_CONCRETE,
         Blocks.LIME_CONCRETE,
         true,
-        () -> List.of(),
+        () -> List.of(FPTags.LIME_DYE_FURNITURE),
         map -> {
-            map.put(FPChineseProvider.LOCALE, "莱姆混凝土");
+            map.put(FPChineseProvider.LOCALE, "黄绿色混凝土");
             return true;
         }
     );
@@ -735,7 +735,7 @@ public class FPBlockSetTypes {
         Items.MAGENTA_CONCRETE,
         Blocks.MAGENTA_CONCRETE,
         true,
-        () -> List.of(),
+        () -> List.of(FPTags.MAGENTA_DYE_FURNITURE),
         map -> {
             map.put(FPChineseProvider.LOCALE, "品红色混凝土");
             return true;
@@ -748,9 +748,9 @@ public class FPBlockSetTypes {
         Items.ORANGE_CONCRETE,
         Blocks.ORANGE_CONCRETE,
         true,
-        () -> List.of(),
+        () -> List.of(FPTags.ORANGE_DYE_FURNITURE),
         map -> {
-            map.put(FPChineseProvider.LOCALE, "橘色混凝土");
+            map.put(FPChineseProvider.LOCALE, "橙色混凝土");
             return true;
         }
     );
@@ -761,9 +761,9 @@ public class FPBlockSetTypes {
         Items.PINK_CONCRETE,
         Blocks.PINK_CONCRETE,
         true,
-        () -> List.of(),
+        () -> List.of(FPTags.PINK_DYE_FURNITURE),
         map -> {
-            map.put(FPChineseProvider.LOCALE, "粉色混凝土");
+            map.put(FPChineseProvider.LOCALE, "粉红色混凝土");
             return true;
         }
     );
@@ -774,7 +774,7 @@ public class FPBlockSetTypes {
         Items.PURPLE_CONCRETE,
         Blocks.PURPLE_CONCRETE,
         true,
-        () -> List.of(),
+        () -> List.of(FPTags.PURPLE_DYE_FURNITURE),
         map -> {
             map.put(FPChineseProvider.LOCALE, "紫色混凝土");
             return true;
@@ -787,7 +787,7 @@ public class FPBlockSetTypes {
         Items.RED_CONCRETE,
         Blocks.RED_CONCRETE,
         true,
-        () -> List.of(),
+        () -> List.of(FPTags.RED_DYE_FURNITURE),
         map -> {
             map.put(FPChineseProvider.LOCALE, "红色混凝土");
             return true;
@@ -800,7 +800,7 @@ public class FPBlockSetTypes {
         Items.YELLOW_CONCRETE,
         Blocks.YELLOW_CONCRETE,
         true,
-        () -> List.of(),
+        () -> List.of(FPTags.YELLOW_DYE_FURNITURE),
         map -> {
             map.put(FPChineseProvider.LOCALE, "黄色混凝土");
             return true;
@@ -813,10 +813,13 @@ public class FPBlockSetTypes {
         Items.WHITE_CONCRETE,
         Blocks.WHITE_CONCRETE,
         true,
-        () -> List.of(),
+        () -> List.of(FPTags.WHITE_DYE_FURNITURE),
         map -> {
             map.put(FPChineseProvider.LOCALE, "白色混凝土");
             return true;
         }
     );
+    public static boolean isColorfulSet(FPBlockSetType type) {
+        return type instanceof FPColorfulSetType;
+    }
 }

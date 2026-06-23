@@ -4,7 +4,6 @@ import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.common.init.FPBlockReg;
-import nowebsite.maker.furnitureplan.common.init.FPCreativeModTabReg;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -16,8 +15,22 @@ public class FPEnglishProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        add("itemGroup.furniture", "Furniture plan");
+        add("itemGroup.furniture.miscellaneous", "Furniture Plan: Miscellaneous");
+        add("itemGroup.furniture.sitting", "Furniture Plan: Sitting");
+        add("itemGroup.furniture.surfacing", "Furniture Plan: Surfacing");
+        add("itemGroup.furniture.decorating", "Furniture Plan: Decorating");
+        add("itemGroup.furniture.storaging", "Furniture Plan: Storaging");
         FPBlockReg.BLOCKS.getEntries().forEach(block -> add(block.get(), toTitleCase(block.getId().getPath())));
+
+        add(FPBlockReg.IRON_POT_ITEM.get(), "Iron Pot");
+        add(FPBlockReg.GRASS_GRASS_ITEM.get(), "Grass!?");
+        add("item.furnitureplan.grass_grass.desc", "Maybe you can try to eat it(?)");
+        add("advancements.furniture.root.title", "Let's carve a furniture!");
+        add("advancements.furniture.root.description", "Get a furniture graver");
+        add("advancements.furniture.grassit.title", "It's worth it a grass");
+        add("advancements.furniture.grassit.description", "Try to eat a grass(furnitureplan)");
+        add("furnitureplan.networking.failed", "Failed to sync data.");
+        add("block.furnitureplan.cupboard_block", "Cupboard");
     }
 
     public static String capitalize(String str) {

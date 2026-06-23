@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "furnitureplan:block/lime_cupboard",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "furnitureplan:block/lime_cupboard"
+    },
+    "facing=south": {
+      "model": "furnitureplan:block/lime_cupboard",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "furnitureplan:block/lime_cupboard",
+      "y": 270
+    }
+  }
+}

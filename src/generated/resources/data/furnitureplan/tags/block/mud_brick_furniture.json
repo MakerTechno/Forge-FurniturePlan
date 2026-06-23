@@ -1,9 +1,11 @@
 {
   "values": [
+    "furnitureplan:mud_brick_column",
+    "furnitureplan:mud_brick_table",
     "furnitureplan:mud_brick_lighted_column",
     "furnitureplan:mud_brick_chair",
-    "furnitureplan:mud_brick_column",
     "furnitureplan:mud_brick_carved_column",
-    "furnitureplan:mud_brick_bench"
+    "furnitureplan:mud_brick_bench",
+    "furnitureplan:mud_brick_cupboard"
   ]
 }

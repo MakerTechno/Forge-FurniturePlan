@@ -4,7 +4,7 @@ import it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import nowebsite.maker.furnitureplan.common.block.abstraction.IWeatheringCopper;
@@ -13,6 +13,11 @@ import nowebsite.maker.furnitureplan.common.block.seating.BenchBlock;
 import nowebsite.maker.furnitureplan.common.block.seating.ChairBlock;
 import nowebsite.maker.furnitureplan.common.block.seating.WeatheredCopperBenchBlock;
 import nowebsite.maker.furnitureplan.common.block.seating.WeatheredCopperChairBlock;
+import nowebsite.maker.furnitureplan.common.block.storaging.CupboardBlock;
+import nowebsite.maker.furnitureplan.common.block.storaging.WeatheredCopperCupboardBlock;
+import nowebsite.maker.furnitureplan.common.block.surfacing.PotHolderBlock;
+import nowebsite.maker.furnitureplan.common.block.surfacing.TableBlock;
+import nowebsite.maker.furnitureplan.common.block.surfacing.WeatheredCopperTableBlock;
 import nowebsite.maker.furnitureplan.common.init.FPBlockReg;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -29,6 +34,10 @@ public class FPBlockSet {
     public final DeferredBlock<@NotNull ColumnBlock> COLUMN;
     public final DeferredBlock<@NotNull CarvedColumnBlock> CARVED_COLUMN;
     public final DeferredBlock<@NotNull LightedColumnBlock> LIGHTED_COLUMN;
+    public final DeferredBlock<@NotNull PotHolderBlock> POT_HOLDER;
+    public final DeferredBlock<@NotNull TableBlock> TABLE;
+    public final DeferredBlock<@NotNull CupboardBlock> CUPBOARD;
+
 
     protected FPBlockSet(Builder builder) {
         this.materialType = builder.materialType;
@@ -37,6 +46,9 @@ public class FPBlockSet {
         COLUMN = init(builder, FPBlockType.COLUMN);
         CARVED_COLUMN = init(builder, FPBlockType.CARVED_COLUMN);
         LIGHTED_COLUMN = init(builder, FPBlockType.LIGHTED_COLUMN);
+        POT_HOLDER = init(builder, FPBlockType.POT_HOLDER);
+        TABLE = init(builder, FPBlockType.TABLE);
+        CUPBOARD = init(builder, FPBlockType.CUPBOARD);
     }
 
     @SuppressWarnings("all")
@@ -100,6 +112,21 @@ public class FPBlockSet {
                 ? new WeatheredCopperLightedColumnBlock(materialType, propSourceBlock.defaultBlockState(), p)
                 : new LightedColumnBlock(materialType, propSourceBlock.defaultBlockState(), p)
             );
+            putEntry(FPBlockType.TABLE, (p, _) -> IWeatheringCopper.isWeatheringType(materialType)
+                ? new WeatheredCopperTableBlock(materialType, propSourceBlock.defaultBlockState(), p)
+                : new TableBlock(materialType, propSourceBlock.defaultBlockState(), p)
+            );
+            putEntry(FPBlockType.CUPBOARD, (p, _) -> IWeatheringCopper.isWeatheringType(materialType)
+                ? new WeatheredCopperCupboardBlock(materialType, propSourceBlock.defaultBlockState(), p)
+                : new CupboardBlock(materialType, propSourceBlock.defaultBlockState(), p)
+            );
+
+            if (materialType instanceof FPColorfulSetType colorfulType) {
+                putEntry(FPBlockType.POT_HOLDER, (p, _) -> new PotHolderBlock(colorfulType, p));
+            } else {
+                putEntry(FPBlockType.POT_HOLDER, (_, _) -> null);
+                setAvailabilityFor(FPBlockType.POT_HOLDER, false);
+            }
         }
 
         @SuppressWarnings("deprecation")

@@ -1,9 +1,11 @@
 {
   "values": [
-    "furnitureplan:mossy_stone_brick_lighted_column",
+    "furnitureplan:mossy_stone_brick_column",
+    "furnitureplan:mossy_stone_brick_cupboard",
+    "furnitureplan:mossy_stone_brick_bench",
     "furnitureplan:mossy_stone_brick_chair",
     "furnitureplan:mossy_stone_brick_carved_column",
-    "furnitureplan:mossy_stone_brick_column",
-    "furnitureplan:mossy_stone_brick_bench"
+    "furnitureplan:mossy_stone_brick_table",
+    "furnitureplan:mossy_stone_brick_lighted_column"
   ]
 }

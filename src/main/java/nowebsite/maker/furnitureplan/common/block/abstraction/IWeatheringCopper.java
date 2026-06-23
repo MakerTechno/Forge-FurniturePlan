@@ -25,6 +25,27 @@ public interface IWeatheringCopper extends WeatheringCopper {
             .put(FPBlockReg.EXPOSED_COPPERS.get().BENCH.get(), FPBlockReg.WEATHERED_COPPERS.get().BENCH.get())
             .put(FPBlockReg.WEATHERED_COPPERS.get().BENCH.get(), FPBlockReg.OXIDIZED_COPPERS.get().BENCH.get())
 
+            .put(FPBlockReg.CUT_COPPERS.get().TABLE.get(), FPBlockReg.EXPOSED_COPPERS.get().TABLE.get())
+            .put(FPBlockReg.EXPOSED_COPPERS.get().TABLE.get(), FPBlockReg.WEATHERED_COPPERS.get().TABLE.get())
+            .put(FPBlockReg.WEATHERED_COPPERS.get().TABLE.get(), FPBlockReg.OXIDIZED_COPPERS.get().TABLE.get())
+
+            .put(FPBlockReg.CUT_COPPERS.get().COLUMN.get(), FPBlockReg.EXPOSED_COPPERS.get().COLUMN.get())
+            .put(FPBlockReg.EXPOSED_COPPERS.get().COLUMN.get(), FPBlockReg.WEATHERED_COPPERS.get().COLUMN.get())
+            .put(FPBlockReg.WEATHERED_COPPERS.get().COLUMN.get(), FPBlockReg.OXIDIZED_COPPERS.get().COLUMN.get())
+
+            .put(FPBlockReg.CUT_COPPERS.get().CARVED_COLUMN.get(), FPBlockReg.EXPOSED_COPPERS.get().CARVED_COLUMN.get())
+            .put(FPBlockReg.EXPOSED_COPPERS.get().CARVED_COLUMN.get(), FPBlockReg.WEATHERED_COPPERS.get().CARVED_COLUMN.get())
+            .put(FPBlockReg.WEATHERED_COPPERS.get().CARVED_COLUMN.get(), FPBlockReg.OXIDIZED_COPPERS.get().CARVED_COLUMN.get())
+
+            .put(FPBlockReg.CUT_COPPERS.get().LIGHTED_COLUMN.get(), FPBlockReg.EXPOSED_COPPERS.get().LIGHTED_COLUMN.get())
+            .put(FPBlockReg.EXPOSED_COPPERS.get().LIGHTED_COLUMN.get(), FPBlockReg.WEATHERED_COPPERS.get().LIGHTED_COLUMN.get())
+            .put(FPBlockReg.WEATHERED_COPPERS.get().LIGHTED_COLUMN.get(), FPBlockReg.OXIDIZED_COPPERS.get().LIGHTED_COLUMN.get())
+
+            .put(FPBlockReg.CUT_COPPERS.get().CUPBOARD.get(), FPBlockReg.EXPOSED_COPPERS.get().CUPBOARD.get())
+            .put(FPBlockReg.EXPOSED_COPPERS.get().CUPBOARD.get(), FPBlockReg.WEATHERED_COPPERS.get().CUPBOARD.get())
+            .put(FPBlockReg.WEATHERED_COPPERS.get().CUPBOARD.get(), FPBlockReg.OXIDIZED_COPPERS.get().CUPBOARD.get())
+
+
             .build()
     );
 

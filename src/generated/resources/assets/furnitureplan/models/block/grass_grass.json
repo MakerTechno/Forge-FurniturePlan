@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/template/grass_grass",
+  "textures": {
+    "particle": "furnitureplan:block/grass_grass"
+  }
+}

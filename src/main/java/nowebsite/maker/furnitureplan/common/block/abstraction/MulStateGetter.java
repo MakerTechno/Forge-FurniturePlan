@@ -2,13 +2,14 @@ package nowebsite.maker.furnitureplan.common.block.abstraction;
 
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import org.jetbrains.annotations.NotNull;
 
-import java.util.Collection;
+import java.util.List;
 
 public interface MulStateGetter<S extends Enum<S> & StringRepresentable> {
-    EnumProperty<S> getContainer();
+    EnumProperty<@NotNull S> getContainer();
 
-    default Collection<S> getEnumPropertyObjects() {
+    default List<S> getEnumPropertyObjects() {
         return getContainer().getPossibleValues();
     }
 }

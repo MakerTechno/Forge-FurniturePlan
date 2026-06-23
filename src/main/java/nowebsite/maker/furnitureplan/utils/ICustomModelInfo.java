@@ -7,10 +7,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public interface ICustomModelInfo extends StringRepresentable {
     Identifier getModel(Block block);
-    VoxelShape getOccModel(@NotNull BlockState state);
+    @Nullable VoxelShape getOccModel(@NotNull BlockState state);
 
     default Identifier blockTemplateLoc(String name){
         return Identifier.fromNamespaceAndPath(FurniturePlan.MOD_ID, "block/template/" + name);

@@ -1,9 +1,11 @@
 {
   "values": [
-    "furnitureplan:dark_oak_lighted_column",
     "furnitureplan:dark_oak_bench",
-    "furnitureplan:dark_oak_chair",
+    "furnitureplan:dark_oak_lighted_column",
+    "furnitureplan:dark_oak_table",
     "furnitureplan:dark_oak_column",
+    "furnitureplan:dark_oak_cupboard",
+    "furnitureplan:dark_oak_chair",
     "furnitureplan:dark_oak_carved_column"
   ]
 }

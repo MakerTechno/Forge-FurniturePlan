@@ -12,6 +12,7 @@ import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ItemTagsProvider;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockType;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.HashSet;
 
@@ -26,6 +27,11 @@ public interface BlockDataGenerator<T extends Block> {
      * 对应方块的模板类型
      */
     FPBlockType<? extends T> getTemplateType(T block);
+
+    @Nullable
+    default Identifier getItemTemplate() {
+        return null;
+    }
 
     /**
      * 生成方块标签，在现有基础上添加标签请用{@link #addBlockTags(Block, BlockTagsProvider, HashSet)}

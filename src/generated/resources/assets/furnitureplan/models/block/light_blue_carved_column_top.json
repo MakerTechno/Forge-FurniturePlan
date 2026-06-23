@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/template/carved_column_top",
+  "textures": {
+    "particle": "minecraft:block/light_blue_concrete"
+  }
+}

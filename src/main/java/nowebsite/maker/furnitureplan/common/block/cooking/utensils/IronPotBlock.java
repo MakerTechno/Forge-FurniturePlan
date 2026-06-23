@@ -54,26 +54,30 @@ public class IronPotBlock extends HorizontalDirectionalBlock implements EntityBl
 
     @Override
     protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if (!level.isClientSide()) {
-            if (!(level.getBlockEntity(pos) instanceof IronPotBlockEntity cast)) {
-                throw new IllegalStateException("Iron pot block entity at x: " + pos.getX() + ", y: " + pos.getY() + ", z: " + pos.getZ() + " could not be found.");
-            }
-            if (stack.getComponents().get(DataComponents.FOOD) != null && cast.getFoodStack().isEmpty()) {
-                if (cast.placeFood(player, player.getAbilities().instabuild ? stack.copy() : stack)) return InteractionResult.SUCCESS;
-            }
+        if (level.isClientSide()) return InteractionResult.CONSUME;
+
+        if (!(level.getBlockEntity(pos) instanceof IronPotBlockEntity cast)) {
+            throw new IllegalStateException("Iron pot block entity at x: " + pos.getX() + ", y: " + pos.getY() + ", z: " + pos.getZ() + " could not be found.");
+        }
+        if (stack.getComponents().get(DataComponents.FOOD) != null && cast.getFoodStack().isEmpty()) {
+            if (cast.placeFood(player, player.getAbilities().instabuild ? stack.copy() : stack)) return InteractionResult.SUCCESS_SERVER;
+        }
+        return InteractionResult.TRY_WITH_EMPTY_HAND;
+    }
+
+    @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+        if (level.isClientSide()) return InteractionResult.CONSUME;
+        if (!(level.getBlockEntity(pos) instanceof IronPotBlockEntity cast)) {
+            throw new IllegalStateException("Iron pot block entity at x: " + pos.getX() + ", y: " + pos.getY() + ", z: " + pos.getZ() + " could not be found.");
+        }
+        if (!cast.getFoodStack().isEmpty()) {
+            cast.drops();
+            return InteractionResult.SUCCESS_SERVER;
         }
         return InteractionResult.PASS;
     }
-    @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-        if (!level.isClientSide()) {
-            if (!(level.getBlockEntity(pos) instanceof IronPotBlockEntity cast)) {
-                throw new IllegalStateException("Iron pot block entity at x: " + pos.getX() + ", y: " + pos.getY() + ", z: " + pos.getZ() + " could not be found.");
-            }
-            if (!cast.getFoodStack().isEmpty()) cast.drops();
-        }
-        return InteractionResult.SUCCESS;
-    }
+
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
         return SHAPE.getShape(state.getValue(FACING));

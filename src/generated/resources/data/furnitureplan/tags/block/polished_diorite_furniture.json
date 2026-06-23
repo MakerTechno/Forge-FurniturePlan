@@ -1,9 +1,11 @@
 {
   "values": [
-    "furnitureplan:polished_diorite_chair",
-    "furnitureplan:polished_diorite_carved_column",
     "furnitureplan:polished_diorite_column",
     "furnitureplan:polished_diorite_bench",
-    "furnitureplan:polished_diorite_lighted_column"
+    "furnitureplan:polished_diorite_lighted_column",
+    "furnitureplan:polished_diorite_carved_column",
+    "furnitureplan:polished_diorite_table",
+    "furnitureplan:polished_diorite_cupboard",
+    "furnitureplan:polished_diorite_chair"
   ]
 }

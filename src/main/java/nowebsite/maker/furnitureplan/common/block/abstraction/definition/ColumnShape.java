@@ -8,9 +8,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import nowebsite.maker.furnitureplan.common.block.decorating.columns.CarvedColumnBlock;
 import nowebsite.maker.furnitureplan.common.block.decorating.columns.LightedColumnBlock;
 import nowebsite.maker.furnitureplan.utils.ICustomModelInfo;
-import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 public enum ColumnShape implements ICustomModelInfo {
     FULL("full"),

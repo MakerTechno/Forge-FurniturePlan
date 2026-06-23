@@ -73,6 +73,24 @@ public class FPTags {
     public static final TagKey<Block> DEEPSLATE_TILE_FURNITURE = registerForBlock("deepslate_tile_furniture");
     public static final TagKey<Block> DEEPSLATE_BRICK_FURNITURE = registerForBlock("deepslate_brick_furniture");
 
+    public static final TagKey<Block> BLACK_DYE_FURNITURE = registerForBlock("black_dye_furniture");
+    public static final TagKey<Block> BLUE_DYE_FURNITURE = registerForBlock("blue_dye_furniture");
+    public static final TagKey<Block> BROWN_DYE_FURNITURE = registerForBlock("brown_dye_furniture");
+    public static final TagKey<Block> CYAN_DYE_FURNITURE = registerForBlock("cyan_dye_furniture");
+    public static final TagKey<Block> GRAY_DYE_FURNITURE = registerForBlock("gray_dye_furniture");
+    public static final TagKey<Block> GREEN_DYE_FURNITURE = registerForBlock("green_dye_furniture");
+    public static final TagKey<Block> LIGHT_BLUE_DYE_FURNITURE = registerForBlock("light_blue_dye_furniture");
+    public static final TagKey<Block> LIGHT_GRAY_DYE_FURNITURE = registerForBlock("light_gray_dye_furniture");
+    public static final TagKey<Block> LIME_DYE_FURNITURE = registerForBlock("lime_dye_furniture");
+    public static final TagKey<Block> MAGENTA_DYE_FURNITURE = registerForBlock("magenta_dye_furniture");
+    public static final TagKey<Block> ORANGE_DYE_FURNITURE = registerForBlock("orange_dye_furniture");
+    public static final TagKey<Block> PINK_DYE_FURNITURE = registerForBlock("pink_dye_furniture");
+    public static final TagKey<Block> PURPLE_DYE_FURNITURE = registerForBlock("purple_dye_furniture");
+    public static final TagKey<Block> RED_DYE_FURNITURE = registerForBlock("red_dye_furniture");
+    public static final TagKey<Block> YELLOW_DYE_FURNITURE = registerForBlock("yellow_dye_furniture");
+    public static final TagKey<Block> WHITE_DYE_FURNITURE = registerForBlock("white_dye_furniture");
+
+
 
     public static final TagKey<Block> CHAIR_BLOCK = registerForBlock("chair");
     public static final TagKey<Block> TABLE_BLOCK = registerForBlock("table");
@@ -81,6 +99,7 @@ public class FPTags {
     public static final TagKey<Block> LIGHTED_COLUMN_BLOCK = registerForBlock("lighted_column");
     public static final TagKey<Block> POT_HOLDER_BLOCK = registerForBlock("pot_holder");
     public static final TagKey<Block> BENCH_BLOCK = registerForBlock("bench");
+    public static final TagKey<Block> CUPBOARD_BLOCK = registerForBlock("cupboard");
     public static final TagKey<Block> CABINET_BLOCK = registerForBlock("cabinet");
 
 

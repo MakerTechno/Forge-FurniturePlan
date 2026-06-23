@@ -8,9 +8,11 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.Containers;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -22,13 +24,14 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.network.PacketDistributor;
+import nowebsite.maker.furnitureplan.common.init.FPBlockReg;
 import nowebsite.maker.furnitureplan.networks.PotHolderSyncData;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
-public class PotHolderBlockEntity extends BlockEntity {
+public class PotHolderBlockEntity extends BlockEntity implements Container {
     public static final String STORAGE_NAME = "inventory";
 
     public boolean havePotAt0, havePotAt1, havePotAt2;
@@ -38,7 +41,7 @@ public class PotHolderBlockEntity extends BlockEntity {
         super(type, pos, blockState);
     }
     public PotHolderBlockEntity(BlockPos pos, BlockState blockState) {
-        this(PotHolderBlockRegistration.POT_HOLDER_BLOCK_ENTITY.get(), pos, blockState);
+        this(FPBlockReg.POT_HOLDER_BLOCK_ENTITY.get(), pos, blockState);
     }
     private void markUpdated() {
         flushState();
@@ -145,6 +148,10 @@ public class PotHolderBlockEntity extends BlockEntity {
         Containers.dropContents(Objects.requireNonNull(this.getLevel()), this.worldPosition, inventory);
         return true;
     }
+    @Override
+    public void preRemoveSideEffects(@NotNull BlockPos pos, @NotNull BlockState state) {
+        if (this.getLevel() != null) dropAll();
+    }
     public void dropAll() {
         SimpleContainer inventory = new SimpleContainer(6);
         for (int i = 0; i < 3; i++) {
@@ -199,5 +206,65 @@ public class PotHolderBlockEntity extends BlockEntity {
     @Override
     public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
         return saveWithoutMetadata(registries);
+    }
+
+    @Override
+    public int getContainerSize() {
+        return 6;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return this.items.isEmpty() && !this.havePotAt0 && !this.havePotAt1 && !this.havePotAt2;
+    }
+
+    @Override
+    public ItemStack getItem(int slot) {
+        return slot > 2 ? getPlantAt(slot - 3)
+            : hasPlantAt(slot) ? Items.FLOWER_POT.getDefaultInstance() : ItemStack.EMPTY;
+    }
+
+    @Override
+    public ItemStack removeItem(int slot, int count) {
+        if (slot > 2) return ContainerHelper.removeItem(items, slot - 3, count);
+        else if (hasPotAt(slot)) {
+            setPotAt(slot, false);
+            return Items.FLOWER_POT.getDefaultInstance();
+        }
+        return ItemStack.EMPTY;
+    }
+
+    @Override
+    public ItemStack removeItemNoUpdate(int slot) {
+        if (slot > 2) return ContainerHelper.takeItem(this.items, slot - 3);
+        else if (hasPotAt(slot)) {
+            setPotAt(slot, false);
+            return Items.FLOWER_POT.getDefaultInstance();
+        }
+        return ItemStack.EMPTY;
+    }
+
+    @Override
+    public void setItem(int slot, ItemStack itemStack) {
+        if (itemStack.getItem() instanceof BlockItem blockItem) {
+            if (slot > 2) setPlantAt(slot - 3, blockItem);
+            else if (itemStack.is(Items.FLOWER_POT)) setPotAt(slot, true);
+        } else if (itemStack.equals(ItemStack.EMPTY)) {
+            if (slot > 2) setPlant(slot - 3, null);
+            else setPotAt(slot, false);
+        }
+    }
+
+    @Override
+    public boolean stillValid(Player player) {
+        return Container.stillValidBlockEntity(this, player);
+    }
+
+    @Override
+    public void clearContent() {
+        for (int i = 0; i < 3; i++) {
+            ContainerHelper.removeItem(this.items, i, 1);
+            setPotAt(i, false);
+        }
     }
 }

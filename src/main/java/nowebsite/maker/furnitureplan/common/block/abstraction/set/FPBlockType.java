@@ -1,11 +1,16 @@
 package nowebsite.maker.furnitureplan.common.block.abstraction.set;
 
 import it.unimi.dsi.fastutil.objects.ObjectArraySet;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredBlock;
-import nowebsite.maker.furnitureplan.common.block.decorating.columns.*;
+import nowebsite.maker.furnitureplan.common.block.decorating.columns.CarvedColumnBlock;
+import nowebsite.maker.furnitureplan.common.block.decorating.columns.ColumnBlock;
+import nowebsite.maker.furnitureplan.common.block.decorating.columns.LightedColumnBlock;
 import nowebsite.maker.furnitureplan.common.block.seating.BenchBlock;
 import nowebsite.maker.furnitureplan.common.block.seating.ChairBlock;
+import nowebsite.maker.furnitureplan.common.block.storaging.CupboardBlock;
+import nowebsite.maker.furnitureplan.common.block.surfacing.PotHolderBlock;
+import nowebsite.maker.furnitureplan.common.block.surfacing.TableBlock;
 import nowebsite.maker.furnitureplan.common.data.gen.FPChineseProvider;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -68,4 +73,8 @@ public class FPBlockType<T extends Block> {
     public static final FPBlockType<@NotNull ColumnBlock> COLUMN = create("column", map -> map.put(FPChineseProvider.LOCALE, "柱"));
     public static final FPBlockType<@NotNull CarvedColumnBlock> CARVED_COLUMN = create("carved_column", map -> map.put(FPChineseProvider.LOCALE, "雕纹柱"));
     public static final FPBlockType<@NotNull LightedColumnBlock> LIGHTED_COLUMN = create("lighted_column", map -> map.put(FPChineseProvider.LOCALE, "嵌灯柱"));
+    public static final FPBlockType<@NotNull PotHolderBlock> POT_HOLDER = create("pot_holder", map -> map.put(FPChineseProvider.LOCALE, "花架"));
+    public static final FPBlockType<@NotNull TableBlock> TABLE = create("table", map -> map.put(FPChineseProvider.LOCALE, "桌"));
+    public static final FPBlockType<@NotNull CupboardBlock> CUPBOARD = create("cupboard", map -> map.put(FPChineseProvider.LOCALE, "橱柜"));
+
 }

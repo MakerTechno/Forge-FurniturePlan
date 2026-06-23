@@ -47,8 +47,9 @@ public class LanternBlock extends Block {
     protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (level.isClientSide()) return InteractionResult.CONSUME;
         if (stack.is(Items.FLINT_AND_STEEL)){
+
             level.setBlock(pos, state.cycle(LIT), 2);
-            return InteractionResult.SUCCESS;
+            return InteractionResult.SUCCESS_SERVER;
         }
         return InteractionResult.PASS;
     }

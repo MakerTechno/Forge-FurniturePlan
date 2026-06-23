@@ -9,7 +9,6 @@ import nowebsite.maker.furnitureplan.common.block.abstraction.generators.SingleM
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockSetType;
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockType;
 import nowebsite.maker.furnitureplan.common.data.gen.empowered.BlockDataGenerator;
-import nowebsite.maker.furnitureplan.common.init.FPBlockSetTypes;
 import nowebsite.maker.furnitureplan.common.init.FPTags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

@@ -29,6 +29,7 @@ public class FurniturePlan {
         FPItemReg.ITEMS.register(bus);
         FPEntityTypeReg.ENTITIES.register(bus);
         FPCreativeModTabReg.TABS.register(bus);
+        FPMenuRegistration.MENUS.register(bus);
 
         bus.addListener(FPCreativeModTabReg::registerCreativeTabs);
         bus.addListener(ClientEvents::registerEntityRenderers);

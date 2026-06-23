@@ -7,7 +7,10 @@ import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
-import net.minecraft.client.data.models.model.*;
+import net.minecraft.client.data.models.model.ModelTemplate;
+import net.minecraft.client.data.models.model.TextureMapping;
+import net.minecraft.client.data.models.model.TextureSlot;
+import net.minecraft.client.data.models.model.TexturedModel;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
@@ -42,6 +45,7 @@ public class FPModelProvider extends ModelProvider {
         simpleBlockWithItem(FPBlockReg.LANTERN_BLOCK_P1.get(), blockModels);
         simpleBlockWithItem(FPBlockReg.LANTERN_BLOCK_P2.get(), blockModels);
         customModelBlockWithItem(FPBlockReg.TABLE_LAMP_BLOCK.get(), blockModels);
+        simpleBlockWithItem(FPBlockReg.GRASS_GRASS.get(), blockModels);
         FPDataGenerators.GENERATORS.forEach((block, blockDataGenerator) -> invokeGenerator(block, blockDataGenerator, blockModels, itemModels));
     }
 
@@ -145,7 +149,7 @@ public class FPModelProvider extends ModelProvider {
         throw new InputMismatchException("Can't access any property list that doesn't contains ICustomModelInfo Enum");
     }
     @SafeVarargs
-    private static <T extends Comparable<T>> void generateCombinations(@NotNull List<Property<@NotNull T>> source, List<List<T>> result, int floor, T ...values){
+    public static <T extends Comparable<T>> void generateCombinations(@NotNull List<Property<@NotNull T>> source, List<List<T>> result, int floor, T... values){
         Property<@NotNull T> property = source.get(floor);
         for (T value: property.getPossibleValues()) {
             T[] listNew = Arrays.copyOf(values, values.length + 1);
