@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/template/lighted_column_base",
+  "textures": {
+    "particle": "minecraft:block/netherite_block"
+  }
+}

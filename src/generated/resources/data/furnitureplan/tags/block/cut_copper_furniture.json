@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:cut_copper_bench",
+    "furnitureplan:cut_copper_column",
     "furnitureplan:cut_copper_cupboard",
-    "furnitureplan:cut_copper_chair",
     "furnitureplan:cut_copper_lighted_column",
+    "furnitureplan:cut_copper_bench",
+    "furnitureplan:cut_copper_chair",
     "furnitureplan:cut_copper_table",
-    "furnitureplan:cut_copper_carved_column",
-    "furnitureplan:cut_copper_column"
+    "furnitureplan:cut_copper_carved_column"
   ]
 }

@@ -46,6 +46,13 @@ public class FPModelProvider extends ModelProvider {
         simpleBlockWithItem(FPBlockReg.LANTERN_BLOCK_P2.get(), blockModels);
         customModelBlockWithItem(FPBlockReg.TABLE_LAMP_BLOCK.get(), blockModels);
         simpleBlockWithItem(FPBlockReg.GRASS_GRASS.get(), blockModels);
+        blockModels.createNonTemplateModelBlock(FPBlockReg.STOVE_BLOCK.get());
+        blockModels.createNonTemplateModelBlock(FPBlockReg.WATER_DISPENSER.get());
+        blockModels.createNonTemplateModelBlock(FPBlockReg.BOTTLE.get());
+        blockModels.createNonTemplateModelBlock(FPBlockReg.CUTLERY_BLOCK.get());
+        blockModels.createNonTemplateModelBlock(FPBlockReg.GLASS_B_BLOCK.get());
+        blockModels.createNonTemplateModelBlock(FPBlockReg.FOOD_PLATE_BLOCK.get());
+        blockModels.createNonTemplateModelBlock(FPBlockReg.CABINET.get());
         FPDataGenerators.GENERATORS.forEach((block, blockDataGenerator) -> invokeGenerator(block, blockDataGenerator, blockModels, itemModels));
     }
 

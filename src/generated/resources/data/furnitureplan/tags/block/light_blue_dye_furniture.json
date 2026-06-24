@@ -1,12 +1,12 @@
 {
   "values": [
+    "furnitureplan:light_blue_lighted_column",
     "furnitureplan:light_blue_table",
     "furnitureplan:light_blue_carved_column",
-    "furnitureplan:light_blue_pot_holder",
-    "furnitureplan:light_blue_bench",
-    "furnitureplan:light_blue_lighted_column",
-    "furnitureplan:light_blue_chair",
     "furnitureplan:light_blue_column",
-    "furnitureplan:light_blue_cupboard"
+    "furnitureplan:light_blue_chair",
+    "furnitureplan:light_blue_bench",
+    "furnitureplan:light_blue_cupboard",
+    "furnitureplan:light_blue_pot_holder"
   ]
 }

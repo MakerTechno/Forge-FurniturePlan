@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:cobbled_deepslate_cupboard",
-    "furnitureplan:cobbled_deepslate_column",
     "furnitureplan:cobbled_deepslate_bench",
-    "furnitureplan:cobbled_deepslate_lighted_column",
+    "furnitureplan:cobbled_deepslate_chair",
+    "furnitureplan:cobbled_deepslate_cupboard",
     "furnitureplan:cobbled_deepslate_carved_column",
     "furnitureplan:cobbled_deepslate_table",
-    "furnitureplan:cobbled_deepslate_chair"
+    "furnitureplan:cobbled_deepslate_column",
+    "furnitureplan:cobbled_deepslate_lighted_column"
   ]
 }

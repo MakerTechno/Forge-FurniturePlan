@@ -1,6 +1,8 @@
 package nowebsite.maker.furnitureplan.common.block.decorating.columns;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -36,6 +38,10 @@ public class LightedColumnBlock extends ColumnBlock {
         return new LightedColumnBlock(getType(), baseState, properties);
     }
 
+    @Override
+    public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
+        return state.getValue(LIT) ? 15 : 0;
+    }
 
     @Override
     public @Nullable BlockDataGenerator<? super @NotNull ColumnBlock> getGenerator() {

@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/template/carved_column_full",
+  "textures": {
+    "particle": "minecraft:block/netherrack"
+  }
+}

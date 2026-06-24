@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:dark_prismarine_column",
+    "furnitureplan:dark_prismarine_bench",
+    "furnitureplan:dark_prismarine_carved_column",
     "furnitureplan:dark_prismarine_table",
     "furnitureplan:dark_prismarine_lighted_column",
-    "furnitureplan:dark_prismarine_bench",
+    "furnitureplan:dark_prismarine_cupboard",
     "furnitureplan:dark_prismarine_chair",
-    "furnitureplan:dark_prismarine_carved_column",
-    "furnitureplan:dark_prismarine_cupboard"
+    "furnitureplan:dark_prismarine_column"
   ]
 }

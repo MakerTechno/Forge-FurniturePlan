@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:diorite_cupboard",
-    "furnitureplan:diorite_chair",
-    "furnitureplan:diorite_bench",
     "furnitureplan:diorite_table",
+    "furnitureplan:diorite_bench",
     "furnitureplan:diorite_carved_column",
     "furnitureplan:diorite_lighted_column",
-    "furnitureplan:diorite_column"
+    "furnitureplan:diorite_cupboard",
+    "furnitureplan:diorite_column",
+    "furnitureplan:diorite_chair"
   ]
 }

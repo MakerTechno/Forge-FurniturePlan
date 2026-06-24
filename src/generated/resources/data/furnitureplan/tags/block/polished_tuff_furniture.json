@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:polished_tuff_chair",
-    "furnitureplan:polished_tuff_lighted_column",
-    "furnitureplan:polished_tuff_bench",
     "furnitureplan:polished_tuff_carved_column",
+    "furnitureplan:polished_tuff_bench",
+    "furnitureplan:polished_tuff_column",
     "furnitureplan:polished_tuff_table",
     "furnitureplan:polished_tuff_cupboard",
-    "furnitureplan:polished_tuff_column"
+    "furnitureplan:polished_tuff_chair",
+    "furnitureplan:polished_tuff_lighted_column"
   ]
 }

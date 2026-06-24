@@ -1,12 +1,12 @@
 {
   "values": [
+    "furnitureplan:black_lighted_column",
     "furnitureplan:black_pot_holder",
     "furnitureplan:black_bench",
     "furnitureplan:black_carved_column",
-    "furnitureplan:black_column",
     "furnitureplan:black_chair",
-    "furnitureplan:black_lighted_column",
-    "furnitureplan:black_table",
-    "furnitureplan:black_cupboard"
+    "furnitureplan:black_column",
+    "furnitureplan:black_cupboard",
+    "furnitureplan:black_table"
   ]
 }

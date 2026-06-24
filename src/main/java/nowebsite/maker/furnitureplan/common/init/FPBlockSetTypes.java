@@ -819,6 +819,369 @@ public class FPBlockSetTypes {
             return true;
         }
     );
+
+
+
+    /* Belows are those I want to add */
+    public static final FPBlockSetType SMOOTH_BASALT_SET =  new FPBlockSetType(
+        "smooth_basalt",
+        Blocks.SMOOTH_BASALT,
+        true,
+        () -> List.of(FPTags.SMOOTH_BASALT_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "平滑玄武岩");
+            return true;
+        }
+    );
+    public static final FPBlockSetType GILDED_BLACKSTONE_SET =  new FPBlockSetType(
+        "gilded_blackstone",
+        Blocks.GILDED_BLACKSTONE,
+        true,
+        () -> List.of(FPTags.GILDED_BLACKSTONE_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "镶金黑石");
+            return true;
+        }
+    );
+    public static final FPBlockSetType CHISELED_POLISHED_BLACKSTONE_SET =  new FPBlockSetType(
+        "chiseled_polished_blackstone",
+        Blocks.CHISELED_POLISHED_BLACKSTONE,
+        true,
+        () -> List.of(FPTags.CHISELED_POLISHED_BLACKSTONE_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "雕纹磨制黑石");
+            return true;
+        }
+    );
+    public static final FPBlockSetType PURPUR_PILLAR_SET =  new FPBlockSetType(
+        "purpur_pillar",
+        Blocks.PURPUR_PILLAR,
+        true,
+        () -> List.of(FPTags.PURPUR_PILLAR_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "紫珀柱");
+            return true;
+        }
+    );
+    public static final FPBlockSetType BLOCK_OF_IRON_SET =  new FPBlockSetType(
+        "block_of_iron",
+        Blocks.IRON_BLOCK,
+        true,
+        () -> List.of(FPTags.BLOCK_OF_IRON_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "铁块");
+            return true;
+        },
+        "iron_block"
+    );
+    public static final FPBlockSetType BLOCK_OF_GOLD_SET =  new FPBlockSetType(
+        "block_of_gold",
+        Blocks.GOLD_BLOCK,
+        true,
+        () -> List.of(FPTags.BLOCK_OF_GOLD_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "金块");
+            return true;
+        },
+        "gold_block"
+    );
+    public static final FPBlockSetType BLOCK_OF_EMERALD_SET =  new FPBlockSetType(
+        "block_of_emerald",
+        Blocks.EMERALD_BLOCK,
+        true,
+        () -> List.of(FPTags.BLOCK_OF_EMERALD_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "绿宝石块");
+            return true;
+        },
+        "emerald_block"
+    );
+    public static final FPBlockSetType BLOCK_OF_LAPIS_LAZULI_SET =  new FPBlockSetType(
+        "block_of_lapis_lazuli",
+        Blocks.LAPIS_BLOCK,
+        true,
+        () -> List.of(FPTags.BLOCK_OF_LAPIS_LAZULI_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "青金石块");
+            return true;
+        },
+        "lapis_block"
+    );
+    public static final FPBlockSetType BLOCK_OF_DIAMOND_SET =  new FPBlockSetType(
+        "block_of_diamond",
+        Blocks.DIAMOND_BLOCK,
+        true,
+        () -> List.of(FPTags.BLOCK_OF_DIAMOND_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "钻石块");
+            return true;
+        },
+        "diamond_block"
+    );
+    public static final FPBlockSetType BLOCK_OF_NETHERITE_SET =  new FPBlockSetType(
+        "block_of_netherite",
+        Blocks.NETHERITE_BLOCK,
+        true,
+        () -> List.of(FPTags.BLOCK_OF_NETHERITE_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "下界合金块");
+            return true;
+        },
+        "netherite_block"
+    );
+    public static final FPBlockSetType CHISELED_QUARTZ_BLOCK_SET =  new FPBlockSetType(
+        "chiseled_quartz_block",
+        Blocks.CHISELED_QUARTZ_BLOCK,
+        true,
+        () -> List.of(FPTags.CHISELED_QUARTZ_BLOCK_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "雕纹石英块");
+            return true;
+        }
+    );
+    public static final FPBlockSetType QUARTZ_BRICKS_SET =  new FPBlockSetType(
+        "quartz_bricks",
+        Blocks.QUARTZ_BRICKS,
+        true,
+        () -> List.of(FPTags.QUARTZ_BRICKS_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "石英砖");
+            return true;
+        }
+    );
+    public static final FPBlockSetType BLOCK_OF_AMETHYST_SET =  new FPBlockSetType(
+        "block_of_amethyst",
+        Blocks.AMETHYST_BLOCK,
+        true,
+        () -> List.of(FPTags.BLOCK_OF_AMETHYST_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "紫水晶块");
+            return true;
+        },
+        "amethyst_block"
+    );
+    public static final FPBlockSetType BLOCK_OF_COAL_SET =  new FPBlockSetType(
+        "block_of_coal",
+        Blocks.COAL_BLOCK,
+        true,
+        () -> List.of(FPTags.BLOCK_OF_COAL_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "煤炭块");
+            return true;
+        },
+        "coal_block"
+    );
+    public static final FPBlockSetType BLUE_ICE_SET =  new FPBlockSetType(
+        "blue_ice",
+        Blocks.BLUE_ICE,
+        true,
+        () -> List.of(FPTags.BLUE_ICE_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "蓝冰");
+            return true;
+        }
+    );
+    public static final FPBlockSetType PACKED_ICE_SET =  new FPBlockSetType(
+        "packed_ice",
+        Blocks.PACKED_ICE,
+        true,
+        () -> List.of(FPTags.PACKED_ICE_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "浮冰");
+            return true;
+        }
+    );
+    public static final FPBlockSetType ICE_SET =  new FPBlockSetType(
+        "ice",
+        Blocks.ICE,
+        true,
+        () -> List.of(FPTags.ICE_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "冰");
+            return true;
+        }
+    );
+    public static final FPBlockSetType SNOW_BLOCK_SET =  new FPBlockSetType(
+        "snow_block",
+        Blocks.SNOW_BLOCK,
+        true,
+        () -> List.of(FPTags.SNOW_BLOCK_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "雪块");
+            return true;
+        },
+        "snow"
+    );
+    public static final FPBlockSetType CLAY_SET =  new FPBlockSetType(
+        "clay",
+        Blocks.CLAY,
+        true,
+        () -> List.of(FPTags.CLAY_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "黏土");
+            return true;
+        }
+    );
+    public static final FPBlockSetType CALCITE_SET =  new FPBlockSetType(
+        "calcite",
+        Blocks.CALCITE,
+        true,
+        () -> List.of(FPTags.CALCITE_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "方解石");
+            return true;
+        }
+    );
+    public static final FPBlockSetType OBSIDIAN_SET =  new FPBlockSetType(
+        "obsidian",
+        Blocks.OBSIDIAN,
+        true,
+        () -> List.of(FPTags.OBSIDIAN_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "黑曜石");
+            return true;
+        }
+    );
+    public static final FPBlockSetType CRYING_OBSIDIAN_SET =  new FPBlockSetType(
+        "crying_obsidian",
+        Blocks.CRYING_OBSIDIAN,
+        true,
+        () -> List.of(FPTags.CRYING_OBSIDIAN_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "哭泣的黑曜石");
+            return true;
+        }
+    );
+    public static final FPBlockSetType DRIPSTONE_BLOCK_SET =  new FPBlockSetType(
+        "dripstone_block",
+        Blocks.DRIPSTONE_BLOCK,
+        true,
+        () -> List.of(FPTags.DRIPSTONE_BLOCK_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "滴水石块");
+            return true;
+        }
+    );
+    public static final FPBlockSetType NETHERRACK_SET =  new FPBlockSetType(
+        "netherrack",
+        Blocks.NETHERRACK,
+        true,
+        () -> List.of(FPTags.NETHERRACK_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "下界岩");
+            return true;
+        }
+    );
+    public static final FPBlockSetType END_STONE_SET =  new FPBlockSetType(
+        "end_stone",
+        Blocks.END_STONE,
+        true,
+        () -> List.of(FPTags.END_STONE_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "末地石");
+            return true;
+        }
+    );
+    public static final FPBlockSetType OAK_WOOD_SET =  new FPBlockSetType(
+        "oak_wood",
+        Blocks.OAK_WOOD,
+        true,
+        () -> List.of(FPTags.OAK_WOOD_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "橡木原木");
+            return true;
+        },
+        "oak_log"
+    );
+    public static final FPBlockSetType SPRUCE_WOOD_SET =  new FPBlockSetType(
+        "spruce_wood",
+        Blocks.SPRUCE_WOOD,
+        true,
+        () -> List.of(FPTags.SPRUCE_WOOD_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "云杉木原木");
+            return true;
+        },
+        "spruce_log"
+    );
+    public static final FPBlockSetType JUNGLE_WOOD_SET =  new FPBlockSetType(
+        "jungle_wood",
+        Blocks.JUNGLE_WOOD,
+        true,
+        () -> List.of(FPTags.JUNGLE_WOOD_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "丛林木原木");
+            return true;
+        },
+        "jungle_log"
+    );
+    public static final FPBlockSetType DARK_OAK_WOOD_SET =  new FPBlockSetType(
+        "dark_oak_wood",
+        Blocks.DARK_OAK_WOOD,
+        true,
+        () -> List.of(FPTags.DARK_OAK_WOOD_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "深色橡木原木");
+            return true;
+        },
+        "dark_oak_log"
+    );
+    public static final FPBlockSetType MANGROVE_WOOD_SET =  new FPBlockSetType(
+        "mangrove_wood",
+        Blocks.MANGROVE_WOOD,
+        true,
+        () -> List.of(FPTags.MANGROVE_WOOD_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "红树木原木");
+            return true;
+        },
+        "mangrove_log"
+    );
+    public static final FPBlockSetType CHERRY_WOOD_SET =  new FPBlockSetType(
+        "cherry_wood",
+        Blocks.CHERRY_WOOD,
+        true,
+        () -> List.of(FPTags.CHERRY_WOOD_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "樱花木原木");
+            return true;
+        },
+        "cherry_log"
+    );
+    public static final FPBlockSetType PALE_OAK_WOOD_SET =  new FPBlockSetType(
+        "pale_oak_wood",
+        Blocks.PALE_OAK_WOOD,
+        true,
+        () -> List.of(FPTags.PALE_OAK_WOOD_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "苍白橡木原木");
+            return true;
+        },
+        "pale_oak_log"
+    );
+    public static final FPBlockSetType CRIMSON_HYPHAE_SET =  new FPBlockSetType(
+        "crimson_hyphae",
+        Blocks.CRIMSON_HYPHAE,
+        true,
+        () -> List.of(FPTags.CRIMSON_HYPHAE_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "绯红菌核");
+            return true;
+        },
+        "crimson_stem"
+    );
+    public static final FPBlockSetType WARPED_HYPHAE_SET =  new FPBlockSetType(
+        "warped_hyphae",
+        Blocks.WARPED_HYPHAE,
+        true,
+        () -> List.of(FPTags.WARPED_HYPHAE_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "诡异菌核");
+            return true;
+        },
+        "warped_stem"
+    );
+
     public static boolean isColorfulSet(FPBlockSetType type) {
         return type instanceof FPColorfulSetType;
     }

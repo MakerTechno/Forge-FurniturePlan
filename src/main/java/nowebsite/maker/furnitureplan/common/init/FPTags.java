@@ -91,6 +91,45 @@ public class FPTags {
     public static final TagKey<Block> WHITE_DYE_FURNITURE = registerForBlock("white_dye_furniture");
 
 
+    public static final TagKey<Block> SMOOTH_BASALT_FURNITURE = registerForBlock("smooth_basalt_furniture");
+    public static final TagKey<Block> GILDED_BLACKSTONE_FURNITURE = registerForBlock("gilded_blackstone_furniture");
+    public static final TagKey<Block> CHISELED_POLISHED_BLACKSTONE_FURNITURE = registerForBlock("chiseled_polished_blackstone_furniture");
+    public static final TagKey<Block> PURPUR_PILLAR_FURNITURE = registerForBlock("purpur_pillar_furniture");
+    public static final TagKey<Block> BLOCK_OF_IRON_FURNITURE = registerForBlock("block_of_iron_furniture");
+    public static final TagKey<Block> BLOCK_OF_GOLD_FURNITURE = registerForBlock("block_of_gold_furniture");
+    public static final TagKey<Block> BLOCK_OF_EMERALD_FURNITURE = registerForBlock("block_of_emerald_furniture");
+    public static final TagKey<Block> BLOCK_OF_LAPIS_LAZULI_FURNITURE = registerForBlock("block_of_lapis_lazuli_furniture");
+    public static final TagKey<Block> BLOCK_OF_DIAMOND_FURNITURE = registerForBlock("block_of_diamond_furniture");
+    public static final TagKey<Block> BLOCK_OF_NETHERITE_FURNITURE = registerForBlock("block_of_netherite_furniture");
+    public static final TagKey<Block> CHISELED_QUARTZ_BLOCK_FURNITURE = registerForBlock("chiseled_quartz_block_furniture");
+    public static final TagKey<Block> QUARTZ_BRICKS_FURNITURE = registerForBlock("quartz_bricks_furniture");
+    public static final TagKey<Block> BLOCK_OF_AMETHYST_FURNITURE = registerForBlock("block_of_amethyst_furniture");
+    public static final TagKey<Block> SEA_LANTERN_FURNITURE = registerForBlock("sea_lantern_furniture");
+    public static final TagKey<Block> GLOWSTONE_FURNITURE = registerForBlock("glowstone_furniture");
+    public static final TagKey<Block> BLOCK_OF_COAL_FURNITURE = registerForBlock("block_of_coal_furniture");
+    public static final TagKey<Block> BLUE_ICE_FURNITURE = registerForBlock("blue_ice_furniture");
+    public static final TagKey<Block> PACKED_ICE_FURNITURE = registerForBlock("packed_ice_furniture");
+    public static final TagKey<Block> ICE_FURNITURE = registerForBlock("ice_furniture");
+    public static final TagKey<Block> SNOW_BLOCK_FURNITURE = registerForBlock("snow_block_furniture");
+    public static final TagKey<Block> CLAY_FURNITURE = registerForBlock("clay_furniture");
+    public static final TagKey<Block> CALCITE_FURNITURE = registerForBlock("calcite_furniture");
+    public static final TagKey<Block> OBSIDIAN_FURNITURE = registerForBlock("obsidian_furniture");
+    public static final TagKey<Block> CRYING_OBSIDIAN_FURNITURE = registerForBlock("crying_obsidian_furniture");
+    public static final TagKey<Block> DRIPSTONE_BLOCK_FURNITURE = registerForBlock("dripstone_block_furniture");
+    public static final TagKey<Block> NETHERRACK_FURNITURE = registerForBlock("netherrack_furniture");
+    public static final TagKey<Block> END_STONE_FURNITURE = registerForBlock("end_stone_furniture");
+    public static final TagKey<Block> OAK_WOOD_FURNITURE = registerForBlock("oak_wood_furniture");
+    public static final TagKey<Block> SPRUCE_WOOD_FURNITURE = registerForBlock("spruce_wood_furniture");
+    public static final TagKey<Block> JUNGLE_WOOD_FURNITURE = registerForBlock("jungle_wood_furniture");
+    public static final TagKey<Block> DARK_OAK_WOOD_FURNITURE = registerForBlock("dark_oak_wood_furniture");
+    public static final TagKey<Block> MANGROVE_WOOD_FURNITURE = registerForBlock("mangrove_wood_furniture");
+    public static final TagKey<Block> CHERRY_WOOD_FURNITURE = registerForBlock("cherry_wood_furniture");
+    public static final TagKey<Block> PALE_OAK_WOOD_FURNITURE = registerForBlock("pale_oak_wood_furniture");
+    public static final TagKey<Block> CRIMSON_HYPHAE_FURNITURE = registerForBlock("crimson_hyphae_furniture");
+    public static final TagKey<Block> WARPED_HYPHAE_FURNITURE = registerForBlock("warped_hyphae_furniture");
+
+
+
 
     public static final TagKey<Block> CHAIR_BLOCK = registerForBlock("chair");
     public static final TagKey<Block> TABLE_BLOCK = registerForBlock("table");

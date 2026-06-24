@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "shape=base": {
+      "model": "furnitureplan:block/cherry_wood_column_base"
+    },
+    "shape=connect": {
+      "model": "furnitureplan:block/cherry_wood_column_connect"
+    },
+    "shape=full": {
+      "model": "furnitureplan:block/cherry_wood_column_full"
+    },
+    "shape=top": {
+      "model": "furnitureplan:block/cherry_wood_column_top"
+    }
+  }
+}

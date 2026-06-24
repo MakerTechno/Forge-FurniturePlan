@@ -76,6 +76,12 @@ public class FPCreativeModTabReg {
             event.accept(FPBlockReg.LANTERN_BLOCK_P2.get());
             event.accept(FPBlockReg.IRON_POT_ITEM.get());
             event.accept(FPBlockReg.GRASS_GRASS_ITEM.get());
+            event.accept(FPBlockReg.STOVE_BLOCK_ITEM.get());
+            event.accept(FPBlockReg.WATER_DISPENSER_ITEM.get());
+            event.accept(FPBlockReg.BOTTLE_ITEM.get());
+            event.accept(FPBlockReg.CUTLERY_ITEM.get());
+            event.accept(FPBlockReg.GLASS_B_BLOCK_ITEM.get());
+            event.accept(FPBlockReg.FOOD_PLATE_BLOCK_ITEM.get());
         }
         if (event.getTab().equals(SITTING.get())) {
             event.acceptAll(FPBlockReg.CHAIRS.get().stream().map(Block::asItem).map(Item::getDefaultInstance).toList());
@@ -92,6 +98,7 @@ public class FPCreativeModTabReg {
         }
         if (event.getTab().equals(STORAGING.get())) {
             event.acceptAll(FPBlockReg.CUPBOARDS.get().stream().map(Block::asItem).map(Item::getDefaultInstance).toList());
+            event.accept(FPBlockReg.CABINET.get());
         }
     }
 }

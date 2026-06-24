@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "furnitureplan:block/chiseled_quartz_block_cupboard",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "furnitureplan:block/chiseled_quartz_block_cupboard"
+    },
+    "facing=south": {
+      "model": "furnitureplan:block/chiseled_quartz_block_cupboard",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "furnitureplan:block/chiseled_quartz_block_cupboard",
+      "y": 270
+    }
+  }
+}
