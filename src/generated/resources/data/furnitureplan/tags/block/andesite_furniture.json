@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:andesite_cupboard",
-    "furnitureplan:andesite_chair",
-    "furnitureplan:andesite_table",
-    "furnitureplan:andesite_column",
     "furnitureplan:andesite_carved_column",
     "furnitureplan:andesite_lighted_column",
-    "furnitureplan:andesite_bench"
+    "furnitureplan:andesite_chair",
+    "furnitureplan:andesite_table",
+    "furnitureplan:andesite_cupboard",
+    "furnitureplan:andesite_bench",
+    "furnitureplan:andesite_column"
   ]
 }

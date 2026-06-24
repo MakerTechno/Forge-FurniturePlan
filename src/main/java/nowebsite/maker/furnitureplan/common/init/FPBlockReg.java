@@ -63,12 +63,10 @@ import oshi.util.tuples.Pair;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
-import java.util.stream.Collectors;
 
 public class FPBlockReg {
     public static void touch() {
@@ -117,7 +115,7 @@ public class FPBlockReg {
     public static final DeferredHolder<Item, Item> FOOD_PLATE_BLOCK_ITEM = FPItemReg.ITEMS.register("plate", name -> new BlockItem(FOOD_PLATE_BLOCK.get(), new Item.Properties().stacksTo(16).setId(getItemId(name))));
     public static final DeferredHolder<Block, Block> CABINET = registerWithItem("cabinet", name -> new Block(getSmallBlockBehaviors().sound(SoundType.GLASS).setId(getId(name))));
 
-    public static final Set<FPBlockSet> AUTO_FURNITURE_SET = new HashSet<>(FPBlockSetType.TYPES.stream().map(type -> new FPBlockSet.Builder(type, type.getBase(), type.shouldCopyAll()).build()).collect(Collectors.toSet()));
+    public static final List<FPBlockSet> AUTO_FURNITURE_SET = FPBlockSetType.TYPES.stream().map(type -> new FPBlockSet.Builder(type, type.getBase(), type.shouldCopyAll()).build()).toList();
     public static final Lazy<List<ChairBlock>> CHAIRS = Lazy.lazy(() -> AUTO_FURNITURE_SET.stream().map(set -> set.CHAIR.get()).toList());
     public static final Lazy<List<BenchBlock>> BENCHES = Lazy.lazy(() -> AUTO_FURNITURE_SET.stream().map(set -> set.BENCH.get()).toList());
     public static final Lazy<List<ColumnBlock>> COLUMNS = Lazy.lazy(() -> AUTO_FURNITURE_SET.stream().map(set -> set.COLUMN.get()).toList());

@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:blue_ice_cupboard",
-    "furnitureplan:blue_ice_lighted_column",
-    "furnitureplan:blue_ice_column",
     "furnitureplan:blue_ice_carved_column",
+    "furnitureplan:blue_ice_bench",
     "furnitureplan:blue_ice_chair",
+    "furnitureplan:blue_ice_cupboard",
     "furnitureplan:blue_ice_table",
-    "furnitureplan:blue_ice_bench"
+    "furnitureplan:blue_ice_column",
+    "furnitureplan:blue_ice_lighted_column"
   ]
 }

@@ -1,12 +1,12 @@
 {
   "values": [
     "furnitureplan:green_cupboard",
-    "furnitureplan:green_pot_holder",
-    "furnitureplan:green_bench",
-    "furnitureplan:green_lighted_column",
-    "furnitureplan:green_carved_column",
     "furnitureplan:green_chair",
+    "furnitureplan:green_carved_column",
+    "furnitureplan:green_table",
+    "furnitureplan:green_lighted_column",
     "furnitureplan:green_column",
-    "furnitureplan:green_table"
+    "furnitureplan:green_pot_holder",
+    "furnitureplan:green_bench"
   ]
 }

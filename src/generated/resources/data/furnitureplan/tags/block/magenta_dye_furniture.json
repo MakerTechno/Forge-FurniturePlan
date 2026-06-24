@@ -1,12 +1,12 @@
 {
   "values": [
-    "furnitureplan:magenta_bench",
-    "furnitureplan:magenta_pot_holder",
-    "furnitureplan:magenta_cupboard",
-    "furnitureplan:magenta_column",
     "furnitureplan:magenta_chair",
+    "furnitureplan:magenta_cupboard",
+    "furnitureplan:magenta_bench",
+    "furnitureplan:magenta_lighted_column",
+    "furnitureplan:magenta_pot_holder",
+    "furnitureplan:magenta_column",
     "furnitureplan:magenta_carved_column",
-    "furnitureplan:magenta_table",
-    "furnitureplan:magenta_lighted_column"
+    "furnitureplan:magenta_table"
   ]
 }

@@ -9,7 +9,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class FPBlockSetType {
-    public static final Set<FPBlockSetType> TYPES = new HashSet<>();
+    public static final List<FPBlockSetType> TYPES = new ArrayList<>();
     private final String name;
     private final Supplier<List<TagKey<Block>>> tagKeys;
     private final Map<String, String> translations = new HashMap<>();

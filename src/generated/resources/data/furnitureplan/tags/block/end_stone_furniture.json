@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:end_stone_column",
-    "furnitureplan:end_stone_chair",
-    "furnitureplan:end_stone_cupboard",
     "furnitureplan:end_stone_table",
-    "furnitureplan:end_stone_lighted_column",
     "furnitureplan:end_stone_bench",
-    "furnitureplan:end_stone_carved_column"
+    "furnitureplan:end_stone_chair",
+    "furnitureplan:end_stone_lighted_column",
+    "furnitureplan:end_stone_cupboard",
+    "furnitureplan:end_stone_carved_column",
+    "furnitureplan:end_stone_column"
   ]
 }

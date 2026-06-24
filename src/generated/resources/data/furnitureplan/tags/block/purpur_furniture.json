@@ -1,11 +1,11 @@
 {
   "values": [
+    "furnitureplan:purpur_chair",
+    "furnitureplan:purpur_carved_column",
+    "furnitureplan:purpur_table",
     "furnitureplan:purpur_cupboard",
     "furnitureplan:purpur_lighted_column",
     "furnitureplan:purpur_column",
-    "furnitureplan:purpur_bench",
-    "furnitureplan:purpur_carved_column",
-    "furnitureplan:purpur_chair",
-    "furnitureplan:purpur_table"
+    "furnitureplan:purpur_bench"
   ]
 }

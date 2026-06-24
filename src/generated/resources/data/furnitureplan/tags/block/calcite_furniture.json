@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:calcite_bench",
-    "furnitureplan:calcite_carved_column",
-    "furnitureplan:calcite_cupboard",
-    "furnitureplan:calcite_chair",
     "furnitureplan:calcite_lighted_column",
+    "furnitureplan:calcite_table",
+    "furnitureplan:calcite_carved_column",
+    "furnitureplan:calcite_bench",
+    "furnitureplan:calcite_chair",
     "furnitureplan:calcite_column",
-    "furnitureplan:calcite_table"
+    "furnitureplan:calcite_cupboard"
   ]
 }

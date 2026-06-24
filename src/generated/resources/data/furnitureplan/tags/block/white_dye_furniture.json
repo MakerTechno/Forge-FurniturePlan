@@ -1,12 +1,12 @@
 {
   "values": [
-    "furnitureplan:white_chair",
-    "furnitureplan:white_carved_column",
-    "furnitureplan:white_pot_holder",
-    "furnitureplan:white_table",
-    "furnitureplan:white_lighted_column",
-    "furnitureplan:white_cupboard",
     "furnitureplan:white_bench",
-    "furnitureplan:white_column"
+    "furnitureplan:white_lighted_column",
+    "furnitureplan:white_pot_holder",
+    "furnitureplan:white_chair",
+    "furnitureplan:white_column",
+    "furnitureplan:white_cupboard",
+    "furnitureplan:white_carved_column",
+    "furnitureplan:white_table"
   ]
 }

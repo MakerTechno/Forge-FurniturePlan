@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:block_of_amethyst_cupboard",
     "furnitureplan:block_of_amethyst_column",
-    "furnitureplan:block_of_amethyst_chair",
     "furnitureplan:block_of_amethyst_bench",
+    "furnitureplan:block_of_amethyst_carved_column",
+    "furnitureplan:block_of_amethyst_cupboard",
+    "furnitureplan:block_of_amethyst_chair",
     "furnitureplan:block_of_amethyst_table",
-    "furnitureplan:block_of_amethyst_lighted_column",
-    "furnitureplan:block_of_amethyst_carved_column"
+    "furnitureplan:block_of_amethyst_lighted_column"
   ]
 }

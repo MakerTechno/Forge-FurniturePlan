@@ -1,11 +1,11 @@
 {
   "values": [
     "furnitureplan:clay_lighted_column",
-    "furnitureplan:clay_column",
     "furnitureplan:clay_chair",
+    "furnitureplan:clay_table",
+    "furnitureplan:clay_column",
     "furnitureplan:clay_carved_column",
     "furnitureplan:clay_bench",
-    "furnitureplan:clay_cupboard",
-    "furnitureplan:clay_table"
+    "furnitureplan:clay_cupboard"
   ]
 }

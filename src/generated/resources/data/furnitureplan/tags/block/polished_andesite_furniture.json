@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:polished_andesite_column",
-    "furnitureplan:polished_andesite_cupboard",
     "furnitureplan:polished_andesite_bench",
+    "furnitureplan:polished_andesite_cupboard",
     "furnitureplan:polished_andesite_chair",
+    "furnitureplan:polished_andesite_carved_column",
+    "furnitureplan:polished_andesite_column",
     "furnitureplan:polished_andesite_table",
-    "furnitureplan:polished_andesite_lighted_column",
-    "furnitureplan:polished_andesite_carved_column"
+    "furnitureplan:polished_andesite_lighted_column"
   ]
 }
