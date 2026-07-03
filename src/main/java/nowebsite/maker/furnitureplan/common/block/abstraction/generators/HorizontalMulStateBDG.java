@@ -10,6 +10,7 @@ import net.minecraft.client.data.models.model.ModelTemplate;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.data.models.model.TextureSlot;
 import net.minecraft.client.data.models.model.TexturedModel;
+import net.minecraft.client.renderer.block.dispatch.VariantMutator;
 import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
@@ -43,19 +44,21 @@ public abstract class HorizontalMulStateBDG<M extends Enum<M> & ICustomModelInfo
                 )
             ).createWithSuffix(block, "_" + modelInfo.getSerializedName(), blockModelGenerators.modelOutput))))
             .forEach(pair -> BlockStateProperties.HORIZONTAL_FACING.getPossibleValues()
-                .forEach(facing ->dispatch.select(pair.getFirst(), facing, pair.getSecond().with(
-                    switch (facing) {
+                .forEach(facing -> {
+                    VariantMutator mutator = switch (facing) {
                         case SOUTH -> BlockModelGenerators.Y_ROT_180;
                         case WEST -> BlockModelGenerators.Y_ROT_270;
                         case EAST -> BlockModelGenerators.Y_ROT_90;
                         default -> BlockModelGenerators.NOP;
-                    }
-                )))
+                    };
+                    if (doLockUV()) mutator = mutator.then(BlockModelGenerators.UV_LOCK);
+                    MultiVariant processingModel = pair.getSecond().with(mutator);
+
+                    dispatch.select(pair.getFirst(), facing, processingModel);
+                })
             );
 
-
         MultiVariantGenerator variant = MultiVariantGenerator.dispatch(block).with(dispatch);
-        if (doLockUV()) variant.with(BlockModelGenerators.UV_LOCK);
         blockModelGenerators.blockStateOutput.accept(variant);
 
         if (getItemTemplate() != null) blockModelGenerators.registerSimpleItemModel(block, TexturedModel.createDefault(

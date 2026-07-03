@@ -1,11 +1,11 @@
 {
   "values": [
     "furnitureplan:ice_chair",
-    "furnitureplan:ice_cupboard",
-    "furnitureplan:ice_carved_column",
-    "furnitureplan:ice_table",
     "furnitureplan:ice_column",
+    "furnitureplan:ice_carved_column",
     "furnitureplan:ice_bench",
-    "furnitureplan:ice_lighted_column"
+    "furnitureplan:ice_lighted_column",
+    "furnitureplan:ice_table",
+    "furnitureplan:ice_cupboard"
   ]
 }

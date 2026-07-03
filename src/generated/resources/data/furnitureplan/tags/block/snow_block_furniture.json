@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:snow_block_carved_column",
-    "furnitureplan:snow_block_lighted_column",
-    "furnitureplan:snow_block_chair",
-    "furnitureplan:snow_block_column",
-    "furnitureplan:snow_block_table",
+    "furnitureplan:snow_block_cupboard",
     "furnitureplan:snow_block_bench",
-    "furnitureplan:snow_block_cupboard"
+    "furnitureplan:snow_block_column",
+    "furnitureplan:snow_block_chair",
+    "furnitureplan:snow_block_table",
+    "furnitureplan:snow_block_carved_column",
+    "furnitureplan:snow_block_lighted_column"
   ]
 }

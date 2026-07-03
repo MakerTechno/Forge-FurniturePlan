@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:spruce_table",
-    "furnitureplan:spruce_column",
-    "furnitureplan:spruce_cupboard",
     "furnitureplan:spruce_bench",
-    "furnitureplan:spruce_chair",
+    "furnitureplan:spruce_column",
     "furnitureplan:spruce_lighted_column",
+    "furnitureplan:spruce_table",
+    "furnitureplan:spruce_chair",
+    "furnitureplan:spruce_cupboard",
     "furnitureplan:spruce_carved_column"
   ]
 }

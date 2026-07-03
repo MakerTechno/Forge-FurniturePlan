@@ -59,7 +59,7 @@ public enum TableShape implements ICustomModelInfo {
             case EAST -> E_M;
             case SOUTH -> S_M;
             case WEST -> W_M;
-            default -> null;
+            default -> Shapes.empty();
         };
     }
     @Contract(pure = true)
@@ -69,7 +69,7 @@ public enum TableShape implements ICustomModelInfo {
             case EAST -> ES_M;
             case SOUTH -> SW_M;
             case WEST -> WN_M;
-            default -> null;
+            default -> Shapes.empty();
         };
     }
     @Override

@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:block_of_netherite_cupboard",
-    "furnitureplan:block_of_netherite_chair",
-    "furnitureplan:block_of_netherite_column",
     "furnitureplan:block_of_netherite_carved_column",
+    "furnitureplan:block_of_netherite_chair",
     "furnitureplan:block_of_netherite_table",
+    "furnitureplan:block_of_netherite_column",
     "furnitureplan:block_of_netherite_lighted_column",
-    "furnitureplan:block_of_netherite_bench"
+    "furnitureplan:block_of_netherite_bench",
+    "furnitureplan:block_of_netherite_cupboard"
   ]
 }

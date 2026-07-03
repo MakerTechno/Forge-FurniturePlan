@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:bamboo_column",
-    "furnitureplan:bamboo_table",
-    "furnitureplan:bamboo_carved_column",
+    "furnitureplan:bamboo_chair",
     "furnitureplan:bamboo_cupboard",
+    "furnitureplan:bamboo_carved_column",
     "furnitureplan:bamboo_bench",
-    "furnitureplan:bamboo_lighted_column",
-    "furnitureplan:bamboo_chair"
+    "furnitureplan:bamboo_table",
+    "furnitureplan:bamboo_column",
+    "furnitureplan:bamboo_lighted_column"
   ]
 }

@@ -81,12 +81,6 @@ public class WaterDispenserBE extends BlockEntity {
         markUpdated();
     }
 
-
-    @Override
-    public void onLoad() {
-        super.onLoad();
-    }
-
     @Override
     protected void saveAdditional(ValueOutput output) {
         super.saveAdditional(output);

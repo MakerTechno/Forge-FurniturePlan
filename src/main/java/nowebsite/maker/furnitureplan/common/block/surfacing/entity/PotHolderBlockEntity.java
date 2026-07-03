@@ -174,11 +174,6 @@ public class PotHolderBlockEntity extends BlockEntity implements Container {
     }
 
     @Override
-    public void onLoad() {
-        super.onLoad();
-    }
-
-    @Override
     protected void saveAdditional(ValueOutput output) {
         super.saveAdditional(output);
         ContainerHelper.saveAllItems(output, this.items, true);
@@ -249,7 +244,7 @@ public class PotHolderBlockEntity extends BlockEntity implements Container {
         if (itemStack.getItem() instanceof BlockItem blockItem) {
             if (slot > 2) setPlantAt(slot - 3, blockItem);
             else if (itemStack.is(Items.FLOWER_POT)) setPotAt(slot, true);
-        } else if (itemStack.equals(ItemStack.EMPTY)) {
+        } else if (itemStack.isEmpty()) {
             if (slot > 2) setPlant(slot - 3, null);
             else setPotAt(slot, false);
         }

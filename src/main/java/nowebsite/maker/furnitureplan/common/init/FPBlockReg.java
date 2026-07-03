@@ -39,7 +39,12 @@ import nowebsite.maker.furnitureplan.common.block.abstraction.definition.*;
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockSet;
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockSetType;
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPColorfulSetType;
+import nowebsite.maker.furnitureplan.common.block.cooking.utensils.Cutlery;
+import nowebsite.maker.furnitureplan.common.block.cooking.utensils.FoodPlateBlock;
+import nowebsite.maker.furnitureplan.common.block.cooking.utensils.GlassBBlock;
 import nowebsite.maker.furnitureplan.common.block.cooking.utensils.IronPotBlock;
+import nowebsite.maker.furnitureplan.common.block.cooking.utensils.entities.FoodPlateBlockEntity;
+import nowebsite.maker.furnitureplan.common.block.cooking.utensils.entities.GlassBBlockEntity;
 import nowebsite.maker.furnitureplan.common.block.cooking.utensils.entities.IronPotBlockEntity;
 import nowebsite.maker.furnitureplan.common.block.decorating.LanternBlock;
 import nowebsite.maker.furnitureplan.common.block.decorating.TableLampBlock;
@@ -55,6 +60,7 @@ import nowebsite.maker.furnitureplan.common.block.storaging.entity.CupboardBlock
 import nowebsite.maker.furnitureplan.common.block.surfacing.PotHolderBlock;
 import nowebsite.maker.furnitureplan.common.block.surfacing.TableBlock;
 import nowebsite.maker.furnitureplan.common.block.surfacing.entity.PotHolderBlockEntity;
+import nowebsite.maker.furnitureplan.common.item.GlassBBlockItem;
 import nowebsite.maker.furnitureplan.common.item.IronPotItem;
 import org.apache.logging.log4j.util.Lazy;
 import org.jetbrains.annotations.NotNull;
@@ -98,21 +104,21 @@ public class FPBlockReg {
     public static final DeferredHolder<Item, Item> BOTTLE_ITEM = FPItemReg.ITEMS.register("water_bottle", name -> new BlockItem(BOTTLE.get(), new Item.Properties().setId(getItemId(name))));
 
     /*For tableware*/
-    public static final DeferredHolder<Block, Block> CUTLERY_BLOCK = BLOCKS.register("cutlery_block", name -> new Block(getSmallBlockBehaviors().sound(SoundType.STONE).setId(getId(name))));
-    public static final DeferredHolder<Item, Item> CUTLERY_ITEM = FPItemReg.ITEMS.register("cutlery_block", name -> new BlockItem(CUTLERY_BLOCK.get(), new Item.Properties().stacksTo(16).setId(getItemId(name))));
-    public static final DeferredHolder<Block, Block> GLASS_B_BLOCK = BLOCKS.register("glass_b_block", name -> new Block(getSmallBlockBehaviors().sound(SoundType.GLASS).setId(getId(name))));
-    /*public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GlassBBlockEntity>> GLASS_B_BLOCK_ENTITY = BLOCK_ENTITIES.register(
-        "glass_b_block_entity",
-        () -> BlockEntityType.Builder.of(GlassBBlockEntity::new, GLASS_B_BLOCK.get()).build(null)
-    );*/
-    public static final DeferredHolder<Item, Item> GLASS_B_BLOCK_ITEM = FPItemReg.ITEMS.register("glass_b_block", name -> new BlockItem(GLASS_B_BLOCK.get(), new Item.Properties().stacksTo(2).setId(getItemId(name))));
+    public static final DeferredBlock<@NotNull Cutlery> CUTLERY_BLOCK = BLOCKS.register("cutlery", name -> new Cutlery(getSmallBlockBehaviors().sound(SoundType.STONE).setId(getId(name))));
+    public static final DeferredItem<@NotNull BlockItem> CUTLERY_ITEM = FPItemReg.ITEMS.register("cutlery", name -> new BlockItem(CUTLERY_BLOCK.get(), new Item.Properties().stacksTo(16).setId(getItemId(name))));
+    public static final DeferredBlock<@NotNull GlassBBlock> GLASS_B_BLOCK = BLOCKS.register("glass", name -> new GlassBBlock(getSmallBlockBehaviors().sound(SoundType.GLASS).setId(getId(name))));
+    public static final DeferredHolder<BlockEntityType<?>, @NotNull BlockEntityType<@NotNull GlassBBlockEntity>> GLASS_B_BLOCK_ENTITY = BLOCK_ENTITIES.register(
+        "glass_entity",
+        () -> new BlockEntityType<>(GlassBBlockEntity::new, GLASS_B_BLOCK.get())
+    );
+    public static final DeferredItem<@NotNull GlassBBlockItem> GLASS_B_BLOCK_ITEM = FPItemReg.ITEMS.register("glass", name -> new GlassBBlockItem(GLASS_B_BLOCK.get(), new Item.Properties().stacksTo(2).setId(getItemId(name))));
 
-    public static final DeferredHolder<Block, Block> FOOD_PLATE_BLOCK = BLOCKS.register("food_plate_block", name -> new Block(getSmallBlockBehaviors().sound(SoundType.GLASS).setId(getId(name))));
-    /*public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<FoodPlateBlockEntity>> FOOD_PLATE_BLOCK_ENTITY = BLOCK_ENTITIES.register(
+    public static final DeferredBlock<@NotNull FoodPlateBlock> FOOD_PLATE_BLOCK = BLOCKS.register("food_plate_block", name -> new FoodPlateBlock(getSmallBlockBehaviors().sound(SoundType.GLASS).setId(getId(name))));
+    public static final DeferredHolder<BlockEntityType<?>, @NotNull BlockEntityType<@NotNull FoodPlateBlockEntity>> FOOD_PLATE_BLOCK_ENTITY = BLOCK_ENTITIES.register(
         "food_plate_block_entity",
-        () -> BlockEntityType.Builder.of(FoodPlateBlockEntity::new, FOOD_PLATE_BLOCK.get()).build(null)
-    );*/
-    public static final DeferredHolder<Item, Item> FOOD_PLATE_BLOCK_ITEM = FPItemReg.ITEMS.register("plate", name -> new BlockItem(FOOD_PLATE_BLOCK.get(), new Item.Properties().stacksTo(16).setId(getItemId(name))));
+        () -> new BlockEntityType<>(FoodPlateBlockEntity::new, FOOD_PLATE_BLOCK.get())
+    );
+    public static final DeferredItem<@NotNull BlockItem> FOOD_PLATE_BLOCK_ITEM = FPItemReg.ITEMS.register("plate", name -> new BlockItem(FOOD_PLATE_BLOCK.get(), new Item.Properties().stacksTo(16).setId(getItemId(name))));
     public static final DeferredHolder<Block, Block> CABINET = registerWithItem("cabinet", name -> new Block(getSmallBlockBehaviors().sound(SoundType.GLASS).setId(getId(name))));
 
     public static final List<FPBlockSet> AUTO_FURNITURE_SET = FPBlockSetType.TYPES.stream().map(type -> new FPBlockSet.Builder(type, type.getBase(), type.shouldCopyAll()).build()).toList();
@@ -286,6 +292,7 @@ public class FPBlockReg {
         public static final EnumProperty<@NotNull PotHolderPart> POT_HOLDER_PART = EnumProperty.create("part", PotHolderPart.class);
         public static final EnumProperty<@NotNull BottleDefine> BOTTLE_DEFINE = EnumProperty.create("define", BottleDefine.class);
         public static final EnumProperty<@NotNull StoveShape> STOVE_SHAPE = EnumProperty.create("define", StoveShape.class);
+        public static final EnumProperty<@NotNull PlateShape> PLATE_SHAPE = EnumProperty.create("define", PlateShape.class);
     }
 
 }

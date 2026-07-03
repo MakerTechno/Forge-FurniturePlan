@@ -1,11 +1,11 @@
 {
   "values": [
+    "furnitureplan:tuff_brick_carved_column",
+    "furnitureplan:tuff_brick_column",
     "furnitureplan:tuff_brick_bench",
     "furnitureplan:tuff_brick_table",
-    "furnitureplan:tuff_brick_lighted_column",
-    "furnitureplan:tuff_brick_cupboard",
     "furnitureplan:tuff_brick_chair",
-    "furnitureplan:tuff_brick_carved_column",
-    "furnitureplan:tuff_brick_column"
+    "furnitureplan:tuff_brick_cupboard",
+    "furnitureplan:tuff_brick_lighted_column"
   ]
 }

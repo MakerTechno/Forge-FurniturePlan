@@ -1,11 +1,11 @@
 {
   "values": [
     "furnitureplan:block_of_coal_carved_column",
+    "furnitureplan:block_of_coal_table",
     "furnitureplan:block_of_coal_chair",
-    "furnitureplan:block_of_coal_lighted_column",
     "furnitureplan:block_of_coal_bench",
-    "furnitureplan:block_of_coal_cupboard",
+    "furnitureplan:block_of_coal_lighted_column",
     "furnitureplan:block_of_coal_column",
-    "furnitureplan:block_of_coal_table"
+    "furnitureplan:block_of_coal_cupboard"
   ]
 }

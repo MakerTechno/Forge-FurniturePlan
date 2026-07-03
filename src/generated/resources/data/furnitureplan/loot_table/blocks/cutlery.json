@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "furnitureplan:cutlery_block"
+          "name": "furnitureplan:cutlery"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "furnitureplan:blocks/cutlery_block"
+  "random_sequence": "furnitureplan:blocks/cutlery"
 }

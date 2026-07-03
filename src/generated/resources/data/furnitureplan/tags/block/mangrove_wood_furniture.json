@@ -1,11 +1,11 @@
 {
   "values": [
+    "furnitureplan:mangrove_wood_bench",
     "furnitureplan:mangrove_wood_carved_column",
     "furnitureplan:mangrove_wood_chair",
-    "furnitureplan:mangrove_wood_table",
+    "furnitureplan:mangrove_wood_lighted_column",
     "furnitureplan:mangrove_wood_column",
-    "furnitureplan:mangrove_wood_bench",
     "furnitureplan:mangrove_wood_cupboard",
-    "furnitureplan:mangrove_wood_lighted_column"
+    "furnitureplan:mangrove_wood_table"
   ]
 }

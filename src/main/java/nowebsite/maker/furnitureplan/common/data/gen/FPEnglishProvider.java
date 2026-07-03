@@ -24,6 +24,9 @@ public class FPEnglishProvider extends LanguageProvider {
 
         add(FPBlockReg.IRON_POT_ITEM.get(), "Iron Pot");
         add(FPBlockReg.GRASS_GRASS_ITEM.get(), "Grass!?");
+        add(FPBlockReg.FOOD_PLATE_BLOCK_ITEM.get(), "Food plate");
+        add(FPBlockReg.GLASS_B_BLOCK_ITEM.get(), "Glass bottle");
+        add(FPBlockReg.CUTLERY_ITEM.get(), "Cutlery");
         add("item.furnitureplan.grass_grass.desc", "Maybe you can try to eat it(?)");
         add("advancements.furniture.root.title", "Let's carve a furniture!");
         add("advancements.furniture.root.description", "Get a furniture graver");

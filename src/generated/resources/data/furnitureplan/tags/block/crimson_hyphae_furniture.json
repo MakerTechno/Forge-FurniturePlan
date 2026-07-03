@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:crimson_hyphae_chair",
-    "furnitureplan:crimson_hyphae_lighted_column",
-    "furnitureplan:crimson_hyphae_carved_column",
-    "furnitureplan:crimson_hyphae_table",
     "furnitureplan:crimson_hyphae_column",
+    "furnitureplan:crimson_hyphae_lighted_column",
+    "furnitureplan:crimson_hyphae_bench",
+    "furnitureplan:crimson_hyphae_chair",
+    "furnitureplan:crimson_hyphae_carved_column",
     "furnitureplan:crimson_hyphae_cupboard",
-    "furnitureplan:crimson_hyphae_bench"
+    "furnitureplan:crimson_hyphae_table"
   ]
 }

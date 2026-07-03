@@ -7,6 +7,8 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import nowebsite.maker.furnitureplan.FurniturePlan;
+import nowebsite.maker.furnitureplan.common.block.cooking.utensils.entities.renderer.FoodPlateBlockEntityRenderer;
+import nowebsite.maker.furnitureplan.common.block.cooking.utensils.entities.renderer.GlassBBlockEntityRenderer;
 import nowebsite.maker.furnitureplan.common.block.cooking.utensils.entities.renderer.IronPotBlockEntityRenderer;
 import nowebsite.maker.furnitureplan.common.block.storaging.entity.renderer.CupboardEntityRenderer;
 import nowebsite.maker.furnitureplan.common.block.storaging.gui.CupboardScreen;
@@ -29,6 +31,8 @@ public class ClientEvents {
         event.registerBlockEntityRenderer(FPBlockReg.IRON_POT_BE.get(), IronPotBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(FPBlockReg.POT_HOLDER_BLOCK_ENTITY.get(), PotHolderBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(FPBlockReg.CUPBOARD_BLOCK_ENTITY.get(), CupboardEntityRenderer::new);
+        event.registerBlockEntityRenderer(FPBlockReg.FOOD_PLATE_BLOCK_ENTITY.get(), FoodPlateBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(FPBlockReg.GLASS_B_BLOCK_ENTITY.get(), GlassBBlockEntityRenderer::new);
         event.registerEntityRenderer(FPEntityTypeReg.NULL_RIDE.get(), NoopRenderer::new);
     }
 

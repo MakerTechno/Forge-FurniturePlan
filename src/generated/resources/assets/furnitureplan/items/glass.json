@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "furnitureplan:block/glass_b_block"
+    "model": "furnitureplan:block/glass"
   }
 }

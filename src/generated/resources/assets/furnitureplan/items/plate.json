@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "furnitureplan:block/food_plate_block"
+    "model": "furnitureplan:block/template/plate"
   }
 }

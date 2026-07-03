@@ -49,9 +49,9 @@ public class FPModelProvider extends ModelProvider {
         blockModels.createNonTemplateModelBlock(FPBlockReg.STOVE_BLOCK.get());
         blockModels.createNonTemplateModelBlock(FPBlockReg.WATER_DISPENSER.get());
         blockModels.createNonTemplateModelBlock(FPBlockReg.BOTTLE.get());
-        blockModels.createNonTemplateModelBlock(FPBlockReg.CUTLERY_BLOCK.get());
-        blockModels.createNonTemplateModelBlock(FPBlockReg.GLASS_B_BLOCK.get());
-        blockModels.createNonTemplateModelBlock(FPBlockReg.FOOD_PLATE_BLOCK.get());
+        simpleHorizontalBlockWithItem(FPBlockReg.CUTLERY_BLOCK.get(), blockModels, "cutlery_handing", itemModels);
+        simpleBlockWithItem(FPBlockReg.GLASS_B_BLOCK.get(), blockModels);
+        horizontalCustomModelBlockWithItem(FPBlockReg.FOOD_PLATE_BLOCK.get(), blockModels, false);
         blockModels.createNonTemplateModelBlock(FPBlockReg.CABINET.get());
         FPDataGenerators.GENERATORS.forEach((block, blockDataGenerator) -> invokeGenerator(block, blockDataGenerator, blockModels, itemModels));
     }
@@ -77,7 +77,7 @@ public class FPModelProvider extends ModelProvider {
     }
 
     public static void simpleHorizontalBlockWithItem(Block block, BlockModelGenerators generators) {
-        generators.createHorizontallyRotatedBlock(FPBlockReg.IRON_POT_BLOCK.get(), TexturedModel.createDefault(
+        generators.createHorizontallyRotatedBlock(block, TexturedModel.createDefault(
             block1 -> new TextureMapping()
                 .put(TextureSlot.PARTICLE, TextureMapping.getBlockTexture(block1)),
             new ModelTemplate(
@@ -87,6 +87,23 @@ public class FPModelProvider extends ModelProvider {
             )
         ));
         generators.registerSimpleItemModel(block, getKey(block).withPrefix("block/"));
+    }
+    public static void simpleHorizontalBlockWithItem(Block block, BlockModelGenerators generators, String itemModelName, ItemModelGenerators itemModel) {
+        generators.createHorizontallyRotatedBlock(block, TexturedModel.createDefault(
+            block1 -> new TextureMapping()
+                .put(TextureSlot.PARTICLE, TextureMapping.getBlockTexture(block1)),
+            new ModelTemplate(
+                Optional.of(getFromTemplate(getName(block))),
+                Optional.empty(),
+                TextureSlot.PARTICLE
+            )
+        ));
+        generators.registerSimpleItemModel(block, TexturedModel.createDefault(
+            _ -> new TextureMapping(),
+            new ModelTemplate(
+                Optional.of(FurniturePlan.asResource("item/"+itemModelName)),
+                Optional.empty()
+            )).createWithSuffix(block, "_item", itemModel.modelOutput));
     }
 
     @SuppressWarnings("unchecked")
@@ -121,7 +138,15 @@ public class FPModelProvider extends ModelProvider {
 
         for (List<T> propertyList : propertyCombineResult) {
             ICustomModelInfo info = (ICustomModelInfo) propertyList.getFirst();
-            dispatch.select((M) info, (Direction) propertyList.get(1), BlockModelGenerators.plainVariant(info.getModel(block)));
+            Direction facing = (Direction) propertyList.get(1);
+            dispatch.select((M) info, facing, BlockModelGenerators.plainVariant(info.getModel(block)).with(
+                switch (facing) {
+                    case SOUTH -> BlockModelGenerators.Y_ROT_180;
+                    case WEST -> BlockModelGenerators.Y_ROT_270;
+                    case EAST -> BlockModelGenerators.Y_ROT_90;
+                    default -> BlockModelGenerators.NOP;
+                }
+            ));
         }
 
         MultiVariantGenerator variant = MultiVariantGenerator.dispatch(block).with(dispatch);

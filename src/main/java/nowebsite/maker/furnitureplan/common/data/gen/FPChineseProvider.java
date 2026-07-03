@@ -28,6 +28,9 @@ public class FPChineseProvider extends LanguageProvider {
         FPDataGenerators.GENERATORS.forEach(this::invokeGenerator);
         add(FPBlockReg.IRON_POT_ITEM.get(), "看起来很疼的铁锅");
         add(FPBlockReg.GRASS_GRASS_ITEM.get(), "草(物理意义上的)");
+        add(FPBlockReg.FOOD_PLATE_BLOCK_ITEM.get(), "盘子");
+        add(FPBlockReg.GLASS_B_BLOCK_ITEM.get(), "玻璃杯");
+        add(FPBlockReg.CUTLERY_ITEM.get(), "餐具");
         add("item.furnitureplan.grass_grass.desc", "这玩意能吃!?");
         add("advancements.furniture.root.title", "开始雕刻家具吧!");
         add("advancements.furniture.root.description", "获取一个家具计划雕刻刀");

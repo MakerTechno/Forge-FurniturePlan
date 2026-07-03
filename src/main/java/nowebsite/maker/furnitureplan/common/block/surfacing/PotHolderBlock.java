@@ -186,7 +186,6 @@ public class PotHolderBlock extends BaseEntityBlock implements SimpleWaterlogged
             BlockState newState = defaultBlockState().setValue(PART, PotHolderPart.HEAD).setValue(FACING, state.getValue(FACING));
             if (level.getBlockState(blockpos).is(Blocks.WATER)) newState = newState.setValue(WATERLOGGED, true);
             level.setBlock(blockpos, newState, Block.UPDATE_ALL);
-            //level.sendBlockUpdated(pos, Blocks.AIR.defaultBlockState(), newState, Block.UPDATE_ALL);
             state.updateNeighbourShapes(level, pos, Block.UPDATE_ALL);
         }
     }

@@ -1,11 +1,11 @@
 {
   "values": [
+    "furnitureplan:block_of_diamond_chair",
+    "furnitureplan:block_of_diamond_cupboard",
     "furnitureplan:block_of_diamond_carved_column",
     "furnitureplan:block_of_diamond_column",
-    "furnitureplan:block_of_diamond_cupboard",
-    "furnitureplan:block_of_diamond_bench",
-    "furnitureplan:block_of_diamond_chair",
     "furnitureplan:block_of_diamond_lighted_column",
+    "furnitureplan:block_of_diamond_bench",
     "furnitureplan:block_of_diamond_table"
   ]
 }

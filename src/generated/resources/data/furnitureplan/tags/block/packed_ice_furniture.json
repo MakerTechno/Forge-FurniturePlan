@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:packed_ice_chair",
     "furnitureplan:packed_ice_cupboard",
     "furnitureplan:packed_ice_bench",
     "furnitureplan:packed_ice_lighted_column",
+    "furnitureplan:packed_ice_column",
     "furnitureplan:packed_ice_table",
-    "furnitureplan:packed_ice_carved_column",
-    "furnitureplan:packed_ice_column"
+    "furnitureplan:packed_ice_chair",
+    "furnitureplan:packed_ice_carved_column"
   ]
 }

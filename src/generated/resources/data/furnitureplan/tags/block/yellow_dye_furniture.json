@@ -1,12 +1,12 @@
 {
   "values": [
     "furnitureplan:yellow_cupboard",
-    "furnitureplan:yellow_pot_holder",
-    "furnitureplan:yellow_bench",
-    "furnitureplan:yellow_table",
     "furnitureplan:yellow_chair",
-    "furnitureplan:yellow_lighted_column",
+    "furnitureplan:yellow_table",
+    "furnitureplan:yellow_pot_holder",
+    "furnitureplan:yellow_carved_column",
+    "furnitureplan:yellow_bench",
     "furnitureplan:yellow_column",
-    "furnitureplan:yellow_carved_column"
+    "furnitureplan:yellow_lighted_column"
   ]
 }

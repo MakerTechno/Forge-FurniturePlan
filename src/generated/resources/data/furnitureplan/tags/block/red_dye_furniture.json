@@ -1,12 +1,12 @@
 {
   "values": [
-    "furnitureplan:red_carved_column",
-    "furnitureplan:red_chair",
-    "furnitureplan:red_bench",
-    "furnitureplan:red_pot_holder",
-    "furnitureplan:red_cupboard",
+    "furnitureplan:red_column",
     "furnitureplan:red_table",
-    "furnitureplan:red_lighted_column",
-    "furnitureplan:red_column"
+    "furnitureplan:red_carved_column",
+    "furnitureplan:red_cupboard",
+    "furnitureplan:red_chair",
+    "furnitureplan:red_pot_holder",
+    "furnitureplan:red_bench",
+    "furnitureplan:red_lighted_column"
   ]
 }

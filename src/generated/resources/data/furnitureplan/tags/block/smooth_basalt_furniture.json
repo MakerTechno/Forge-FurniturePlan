@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:smooth_basalt_carved_column",
-    "furnitureplan:smooth_basalt_chair",
-    "furnitureplan:smooth_basalt_table",
     "furnitureplan:smooth_basalt_bench",
+    "furnitureplan:smooth_basalt_column",
     "furnitureplan:smooth_basalt_cupboard",
     "furnitureplan:smooth_basalt_lighted_column",
-    "furnitureplan:smooth_basalt_column"
+    "furnitureplan:smooth_basalt_carved_column",
+    "furnitureplan:smooth_basalt_chair",
+    "furnitureplan:smooth_basalt_table"
   ]
 }

@@ -87,6 +87,11 @@ public class TableBlock extends BasePropertyHorizontalDirectionBlock<TableBlock>
             }
 
             @Override
+            public boolean doLockUV() {
+                return true;
+            }
+
+            @Override
             public void addBlockTags(@NotNull TableBlock block, BlockTagsProvider provider, HashSet<TagKey<Block>> keys) {
                 super.addBlockTags(block, provider, keys);
                 keys.add(FPTags.TABLE_BLOCK);

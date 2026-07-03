@@ -3,7 +3,7 @@ package nowebsite.maker.furnitureplan.common.block.storaging.entity.renderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
@@ -11,16 +11,19 @@ import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.resources.model.sprite.SpriteGetter;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.Vec3;
 import nowebsite.maker.furnitureplan.FurniturePlan;
+import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockSetType;
 import nowebsite.maker.furnitureplan.common.block.storaging.CupboardBlock;
 import nowebsite.maker.furnitureplan.common.block.storaging.entity.CupboardBlockEntity;
 import nowebsite.maker.furnitureplan.common.block.storaging.entity.renderer.state.CupboardBlockRendererState;
-import nowebsite.maker.furnitureplan.utils.CubeModel;
-import nowebsite.maker.furnitureplan.utils.CubeRendererHelper;
-import nowebsite.maker.furnitureplan.utils.FPCubeDefinition;
+import nowebsite.maker.furnitureplan.utils.uvmodel.CubeModel;
+import nowebsite.maker.furnitureplan.utils.uvmodel.CubeRendererHelper;
+import nowebsite.maker.furnitureplan.utils.uvmodel.FPCubeDefinition;
 import org.jetbrains.annotations.NotNull;
 import org.jspecify.annotations.Nullable;
 
@@ -35,7 +38,7 @@ public class CupboardEntityRenderer implements BlockEntityRenderer<@NotNull Cupb
     private static final CubeModel DRAWER_2_HANDLER;
     private static final List<CubeModel> DRAWER_3 = new ArrayList<>();
     private static final CubeModel DRAWER_3_HANDLER;
-    
+
     static {
         DRAWER_1.add(new FPCubeDefinition()
             .model(1.5f, 11.5f, 2.25f, 1.0f, 3.5f, 12.0f)
@@ -178,13 +181,10 @@ public class CupboardEntityRenderer implements BlockEntityRenderer<@NotNull Cupb
             .north(0f, 0f, 5f, 1f,0)
             .build();
     }
-    public CupboardEntityRenderer(BlockEntityRendererProvider.@NotNull Context context){
-    }
 
-    private void render(PoseStack poseStack, VertexConsumer vertexConsumer, @NotNull ModelPart part, float openness, int brightness, int combinedOverlayIn) {
-        int mix = 8;
-        part.z = -openness*mix;
-        part.render(poseStack, vertexConsumer, brightness, combinedOverlayIn);
+    private final SpriteGetter textureSource;
+    public CupboardEntityRenderer(BlockEntityRendererProvider.Context context){
+        this.textureSource = context.sprites();
     }
 
     @Override
@@ -196,66 +196,65 @@ public class CupboardEntityRenderer implements BlockEntityRenderer<@NotNull Cupb
     public void extractRenderState(@NotNull CupboardBlockEntity blockEntity, @NotNull CupboardBlockRendererState state, float partialTicks, Vec3 cameraPosition, ModelFeatureRenderer.@Nullable CrumblingOverlay breakProgress) {
         BlockEntityRenderer.super.extractRenderState(blockEntity, state, partialTicks, cameraPosition, breakProgress);
         state.facing = blockEntity.getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING);
-        state.textureBase = ((CupboardBlock)blockEntity.getBlockState().getBlock()).getType().getTexture().withPrefix("textures/").withSuffix(".png");
+        FPBlockSetType type = ((CupboardBlock)blockEntity.getBlockState().getBlock()).getType();
         state.openess1 = (float) (1 - Math.pow(1 - blockEntity.getOpenness(0, partialTicks), 3)) * 0.7f;
         state.openess2 = (float) (1 - Math.pow(1 - blockEntity.getOpenness(1, partialTicks), 3)) * 0.7f;
         state.openess3 = (float) (1 - Math.pow(1 - blockEntity.getOpenness(2, partialTicks), 3)) * 0.7f;
+        state.sprite = textureSource.get(Sheets.BLOCKS_MAPPER.defaultNamespaceApply(type.getTexture().getPath().split("/")[1]));
     }
 
     @Override
     public void submit(CupboardBlockRendererState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState camera) {
-
-
+        poseStack.pushPose();
         float f = state.facing.toYRot()+180;
 
+        poseStack.translate(0.5D, 0.5D, 0.5D);
+        poseStack.mulPose(Axis.YP.rotationDegrees(-f));
+        poseStack.translate(-0.5D, -0.5D, -0.5D);
         renderDrawers(
             poseStack, submitNodeCollector,
-            f, state.openess1,
+            state.openess1,
             DRAWER_1, DRAWER_1_HANDLER,
-            state.textureBase,
+            state.sprite,
             state.lightCoords
         );
         renderDrawers(
             poseStack, submitNodeCollector,
-            f, state.openess2,
+            state.openess2,
             DRAWER_2, DRAWER_2_HANDLER,
-            state.textureBase,
+            state.sprite,
             state.lightCoords
         );
         renderDrawers(
             poseStack, submitNodeCollector,
-            f, state.openess3,
+            state.openess3,
             DRAWER_3, DRAWER_3_HANDLER,
-            state.textureBase,
+            state.sprite,
             state.lightCoords
         );
-
-
+        poseStack.popPose();
     }
 
     private static void renderDrawers(
         PoseStack poseStack, SubmitNodeCollector submitNodeCollector,
-        float yRotation, float openess,
+        float openess,
         List<CubeModel> models, CubeModel handler,
-        Identifier textureBase,
+        TextureAtlasSprite textureBase,
         int lightCoords
     ) {
         poseStack.pushPose();
-        poseStack.translate(0.5D, 0.5D, 0.5D);
-        poseStack.mulPose(Axis.YP.rotationDegrees(-yRotation));
-        poseStack.translate(-0.5D, -0.5D, -0.5D);
         poseStack.translate(0, 0, -openess);
         models.forEach(model ->
             submitNodeCollector.submitCustomGeometry(
                 poseStack,
-                RenderTypes.entityCutout(textureBase),
-                (pose, buffer) -> renderPart(model, pose, buffer, lightCoords, OverlayTexture.NO_OVERLAY)
+                RenderTypes.entityCutout(textureBase.atlasLocation()),
+                (pose, buffer) -> renderPart(model, pose, buffer, textureBase, lightCoords)
             )
         );
         submitNodeCollector.submitCustomGeometry(
             poseStack,
             RenderTypes.entityCutout(HANDLER_TEXTURE),
-            (pose, buffer) -> renderPart(handler, pose, buffer, lightCoords, OverlayTexture.NO_OVERLAY)
+            (pose, buffer) -> renderPart(handler, pose, buffer, lightCoords)
         );
         poseStack.popPose();
     }
@@ -264,9 +263,19 @@ public class CupboardEntityRenderer implements BlockEntityRenderer<@NotNull Cupb
         CubeModel model,
         PoseStack.Pose pose,
         VertexConsumer builder,
-        int light,
-        int overlay
+        int light
     ) {
-        CubeRendererHelper.render(model, builder, pose, light, overlay);
+        CubeRendererHelper.render(model, builder, pose, light, OverlayTexture.NO_OVERLAY);
     }
+
+    private static void renderPart(
+        CubeModel model,
+        PoseStack.Pose pose,
+        VertexConsumer builder,
+        TextureAtlasSprite sprite,
+        int light
+    ) {
+        CubeRendererHelper.render(model, sprite.wrap(builder), pose, light, OverlayTexture.NO_OVERLAY);
+    }
+
 }

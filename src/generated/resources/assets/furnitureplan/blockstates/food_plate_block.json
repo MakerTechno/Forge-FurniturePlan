@@ -1,7 +1,64 @@
 {
   "variants": {
-    "": {
-      "model": "furnitureplan:block/food_plate_block"
+    "define=pac,facing=east": {
+      "model": "furnitureplan:block/template/plate_and_cutlery",
+      "y": 90
+    },
+    "define=pac,facing=north": {
+      "model": "furnitureplan:block/template/plate_and_cutlery"
+    },
+    "define=pac,facing=south": {
+      "model": "furnitureplan:block/template/plate_and_cutlery",
+      "y": 180
+    },
+    "define=pac,facing=west": {
+      "model": "furnitureplan:block/template/plate_and_cutlery",
+      "y": 270
+    },
+    "define=pag,facing=east": {
+      "model": "furnitureplan:block/template/plate_and_glass",
+      "y": 90
+    },
+    "define=pag,facing=north": {
+      "model": "furnitureplan:block/template/plate_and_glass"
+    },
+    "define=pag,facing=south": {
+      "model": "furnitureplan:block/template/plate_and_glass",
+      "y": 180
+    },
+    "define=pag,facing=west": {
+      "model": "furnitureplan:block/template/plate_and_glass",
+      "y": 270
+    },
+    "define=pagac,facing=east": {
+      "model": "furnitureplan:block/template/plate_and_glass_and_cutlery",
+      "y": 90
+    },
+    "define=pagac,facing=north": {
+      "model": "furnitureplan:block/template/plate_and_glass_and_cutlery"
+    },
+    "define=pagac,facing=south": {
+      "model": "furnitureplan:block/template/plate_and_glass_and_cutlery",
+      "y": 180
+    },
+    "define=pagac,facing=west": {
+      "model": "furnitureplan:block/template/plate_and_glass_and_cutlery",
+      "y": 270
+    },
+    "define=plt,facing=east": {
+      "model": "furnitureplan:block/template/plate",
+      "y": 90
+    },
+    "define=plt,facing=north": {
+      "model": "furnitureplan:block/template/plate"
+    },
+    "define=plt,facing=south": {
+      "model": "furnitureplan:block/template/plate",
+      "y": 180
+    },
+    "define=plt,facing=west": {
+      "model": "furnitureplan:block/template/plate",
+      "y": 270
     }
   }
 }

@@ -6,5 +6,5 @@ import net.minecraft.core.Direction;
 
 public class IronPotBlockRenderState extends BlockEntityRenderState {
     public ItemStackRenderState itemInPotState;
-    public Direction facing = Direction.NORTH;
+    public Direction facing;
 }

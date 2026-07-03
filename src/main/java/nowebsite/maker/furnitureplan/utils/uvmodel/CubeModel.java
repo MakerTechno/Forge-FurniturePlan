@@ -1,11 +1,11 @@
-package nowebsite.maker.furnitureplan.utils;
+package nowebsite.maker.furnitureplan.utils.uvmodel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CubeModel {
     private final float x, y, z, w, h, d;
-    private final List<FPCubeDefinition.Face> faces = new ArrayList<>();
+    private final List<Face> faces = new ArrayList<>();
 
     public CubeModel(float x, float y, float z, float w, float h, float d) {
         this.x = x; this.y = y; this.z = z;
@@ -36,11 +36,11 @@ public class CubeModel {
         return d;
     }
 
-    void addFace(FPCubeDefinition.Face face) {
+    void addFace(Face face) {
         faces.add(face);
     }
 
-    public List<FPCubeDefinition.Face> getFaces() {
+    public List<Face> getFaces() {
         return faces;
     }
 

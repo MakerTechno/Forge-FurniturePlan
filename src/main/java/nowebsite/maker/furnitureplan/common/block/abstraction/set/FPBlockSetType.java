@@ -17,6 +17,7 @@ public class FPBlockSetType {
     private final Identifier texture;
     private final Block base;
     private final boolean copyAll;
+    private final int animPart;
 
     public FPBlockSetType(String name, Supplier<List<TagKey<Block>>> key, Block base, boolean copyAll) {
         this.name = name;
@@ -26,6 +27,7 @@ public class FPBlockSetType {
         TYPES.add(this);
         this.base = base;
         this.copyAll = copyAll;
+        this.animPart = 0;
     }
 
     public FPBlockSetType(String name, Supplier<List<TagKey<Block>>> key, Block base, boolean copyAll, String texture) {
@@ -36,6 +38,7 @@ public class FPBlockSetType {
         TYPES.add(this);
         this.base = base;
         this.copyAll = copyAll;
+        this.animPart = 0;
     }
 
     public FPBlockSetType(String name, Block base, boolean copyAll, Supplier<List<TagKey<Block>>> key, Function<Map<String, String>, Boolean> transInit) {
@@ -46,6 +49,7 @@ public class FPBlockSetType {
         TYPES.add(this);
         this.base = base;
         this.copyAll = copyAll;
+        this.animPart = 0;
     }
 
     public FPBlockSetType(String name, Block base, boolean copyAll, Supplier<List<TagKey<Block>>> key, Function<Map<String, String>, Boolean> transInit, String texture) {
@@ -56,6 +60,52 @@ public class FPBlockSetType {
         TYPES.add(this);
         this.base = base;
         this.copyAll = copyAll;
+        this.animPart = 0;
+    }
+
+
+    public FPBlockSetType(String name, Supplier<List<TagKey<Block>>> key, Block base, boolean copyAll, int animPart) {
+        this.name = name;
+        this.tagKeys = key;
+        this.enableTransGen = false;
+        this.texture = Identifier.withDefaultNamespace("block/" + name);
+        TYPES.add(this);
+        this.base = base;
+        this.copyAll = copyAll;
+        this.animPart = animPart;
+    }
+
+    public FPBlockSetType(String name, Supplier<List<TagKey<Block>>> key, Block base, boolean copyAll, String texture, int animPart) {
+        this.name = name;
+        this.tagKeys = key;
+        this.enableTransGen = false;
+        this.texture = Identifier.withDefaultNamespace("block/" + texture);
+        TYPES.add(this);
+        this.base = base;
+        this.copyAll = copyAll;
+        this.animPart = animPart;
+    }
+
+    public FPBlockSetType(String name, Block base, boolean copyAll, Supplier<List<TagKey<Block>>> key, Function<Map<String, String>, Boolean> transInit, int animPart) {
+        this.name = name;
+        this.tagKeys = key;
+        this.enableTransGen = transInit.apply(this.translations);
+        this.texture = Identifier.withDefaultNamespace("block/" + name);
+        TYPES.add(this);
+        this.base = base;
+        this.copyAll = copyAll;
+        this.animPart = animPart;
+    }
+
+    public FPBlockSetType(String name, Block base, boolean copyAll, Supplier<List<TagKey<Block>>> key, Function<Map<String, String>, Boolean> transInit, String texture, int animPart) {
+        this.name = name;
+        this.tagKeys = key;
+        this.enableTransGen = transInit.apply(this.translations);
+        this.texture = Identifier.withDefaultNamespace("block/" + texture);
+        TYPES.add(this);
+        this.base = base;
+        this.copyAll = copyAll;
+        this.animPart = animPart;
     }
 
     public Supplier<List<TagKey<Block>>> getTagKeys() {
@@ -84,5 +134,9 @@ public class FPBlockSetType {
 
     public Map<String, String> getTranslations() {
         return translations;
+    }
+
+    public int getAnimPart() {
+        return animPart;
     }
 }

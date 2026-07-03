@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:cherry_wood_carved_column",
+    "furnitureplan:cherry_wood_bench",
     "furnitureplan:cherry_wood_table",
     "furnitureplan:cherry_wood_cupboard",
-    "furnitureplan:cherry_wood_bench",
-    "furnitureplan:cherry_wood_lighted_column",
+    "furnitureplan:cherry_wood_carved_column",
     "furnitureplan:cherry_wood_chair",
-    "furnitureplan:cherry_wood_column"
+    "furnitureplan:cherry_wood_column",
+    "furnitureplan:cherry_wood_lighted_column"
   ]
 }

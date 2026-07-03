@@ -2,62 +2,78 @@
   "variants": {
     "facing=east,shape=full": {
       "model": "furnitureplan:block/andesite_table_full",
+      "uvlock": true,
       "y": 90
     },
     "facing=east,shape=pane": {
       "model": "furnitureplan:block/andesite_table_pane",
+      "uvlock": true,
       "y": 90
     },
     "facing=east,shape=side": {
       "model": "furnitureplan:block/andesite_table_side",
+      "uvlock": true,
       "y": 90
     },
     "facing=east,shape=single": {
       "model": "furnitureplan:block/andesite_table_single",
+      "uvlock": true,
       "y": 90
     },
     "facing=north,shape=full": {
-      "model": "furnitureplan:block/andesite_table_full"
+      "model": "furnitureplan:block/andesite_table_full",
+      "uvlock": true
     },
     "facing=north,shape=pane": {
-      "model": "furnitureplan:block/andesite_table_pane"
+      "model": "furnitureplan:block/andesite_table_pane",
+      "uvlock": true
     },
     "facing=north,shape=side": {
-      "model": "furnitureplan:block/andesite_table_side"
+      "model": "furnitureplan:block/andesite_table_side",
+      "uvlock": true
     },
     "facing=north,shape=single": {
-      "model": "furnitureplan:block/andesite_table_single"
+      "model": "furnitureplan:block/andesite_table_single",
+      "uvlock": true
     },
     "facing=south,shape=full": {
       "model": "furnitureplan:block/andesite_table_full",
+      "uvlock": true,
       "y": 180
     },
     "facing=south,shape=pane": {
       "model": "furnitureplan:block/andesite_table_pane",
+      "uvlock": true,
       "y": 180
     },
     "facing=south,shape=side": {
       "model": "furnitureplan:block/andesite_table_side",
+      "uvlock": true,
       "y": 180
     },
     "facing=south,shape=single": {
       "model": "furnitureplan:block/andesite_table_single",
+      "uvlock": true,
       "y": 180
     },
     "facing=west,shape=full": {
       "model": "furnitureplan:block/andesite_table_full",
+      "uvlock": true,
       "y": 270
     },
     "facing=west,shape=pane": {
       "model": "furnitureplan:block/andesite_table_pane",
+      "uvlock": true,
       "y": 270
     },
     "facing=west,shape=side": {
       "model": "furnitureplan:block/andesite_table_side",
+      "uvlock": true,
       "y": 270
     },
     "facing=west,shape=single": {
       "model": "furnitureplan:block/andesite_table_single",
+      "uvlock": true,
       "y": 270
     }
   }

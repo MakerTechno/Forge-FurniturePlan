@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:chiseled_polished_blackstone_column",
+    "furnitureplan:chiseled_polished_blackstone_bench",
+    "furnitureplan:chiseled_polished_blackstone_carved_column",
     "furnitureplan:chiseled_polished_blackstone_chair",
-    "furnitureplan:chiseled_polished_blackstone_cupboard",
+    "furnitureplan:chiseled_polished_blackstone_column",
     "furnitureplan:chiseled_polished_blackstone_table",
     "furnitureplan:chiseled_polished_blackstone_lighted_column",
-    "furnitureplan:chiseled_polished_blackstone_carved_column",
-    "furnitureplan:chiseled_polished_blackstone_bench"
+    "furnitureplan:chiseled_polished_blackstone_cupboard"
   ]
 }

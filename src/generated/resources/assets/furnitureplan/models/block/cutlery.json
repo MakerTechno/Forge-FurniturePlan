@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/template/cutlery",
+  "textures": {
+    "particle": "furnitureplan:block/cutlery"
+  }
+}

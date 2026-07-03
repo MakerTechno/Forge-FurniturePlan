@@ -1,12 +1,12 @@
 {
   "values": [
-    "furnitureplan:cyan_bench",
-    "furnitureplan:cyan_chair",
-    "furnitureplan:cyan_column",
+    "furnitureplan:cyan_lighted_column",
     "furnitureplan:cyan_table",
-    "furnitureplan:cyan_carved_column",
-    "furnitureplan:cyan_pot_holder",
+    "furnitureplan:cyan_column",
+    "furnitureplan:cyan_bench",
     "furnitureplan:cyan_cupboard",
-    "furnitureplan:cyan_lighted_column"
+    "furnitureplan:cyan_pot_holder",
+    "furnitureplan:cyan_carved_column",
+    "furnitureplan:cyan_chair"
   ]
 }

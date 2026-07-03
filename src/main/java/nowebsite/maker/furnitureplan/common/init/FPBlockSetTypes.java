@@ -1168,7 +1168,8 @@ public class FPBlockSetTypes {
             map.put(FPChineseProvider.LOCALE, "绯红菌核");
             return true;
         },
-        "crimson_stem"
+        "crimson_stem",
+        5
     );
     public static final FPBlockSetType WARPED_HYPHAE_SET =  new FPBlockSetType(
         "warped_hyphae",
@@ -1179,7 +1180,8 @@ public class FPBlockSetTypes {
             map.put(FPChineseProvider.LOCALE, "诡异菌核");
             return true;
         },
-        "warped_stem"
+        "warped_stem",
+        5
     );
 
     public static boolean isColorfulSet(FPBlockSetType type) {

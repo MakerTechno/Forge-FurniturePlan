@@ -20,41 +20,14 @@ import org.jetbrains.annotations.NotNull;
 public class CommonEvents {
     @SubscribeEvent
     public static void registerCapabilities(@NotNull RegisterCapabilitiesEvent event) {
-        /*event.registerBlockEntity(
-            Capabilities.Item.BLOCK,
-            BlockRegistration.FOOD_PLATE_BLOCK_ENTITY.get(),
-            (blockEntity, direction) -> blockEntity.getLazyItemHandler().get()
-        );
-        event.registerBlockEntity(
-            Capabilities.ItemHandler.BLOCK,
-            BlockRegistration.GLASS_B_BLOCK_ENTITY.get(),
-            (blockEntity, direction) -> blockEntity.getLazyItemHandler().get()
-        );
-        event.registerBlockEntity(
-            Capabilities.ItemHandler.BLOCK,
-            BlockRegistration.CUPBOARD_BLOCK_ENTITY.get(),
-            (blockEntity, direction) -> blockEntity.createHandler().get()
-        );
-        event.registerBlockEntity(
-            Capabilities.ItemHandler.BLOCK,
-            BlockRegistration.VASE_B_BLOCK_ENTITY.get(),
-            (blockEntity, direction) -> blockEntity.getLazyItemHandler().get()
-        );
-        event.registerBlockEntity(
-            Capabilities.Item.BLOCK,
-            PotHolderBlockRegistration.POT_HOLDER_BLOCK_ENTITY.get(),
-            (blockEntity, direction) -> blockEntity.getLazyItemHandler().get()
-        );
-        event.registerBlockEntity(
-            Capabilities.ItemHandler.BLOCK,
-            CabinetBlockRegistration.CABINET_BLOCK_ENTITY.get(),
-            (blockEntity, direction) -> blockEntity.createHandler().get()
-        );*/
-
-
         event.registerBlockEntity(
             Capabilities.Item.BLOCK,
             FPBlockReg.IRON_POT_BE.get(),
+            (be, _) -> VanillaContainerWrapper.of(be)
+        );
+        event.registerBlockEntity(
+            Capabilities.Item.BLOCK,
+            FPBlockReg.FOOD_PLATE_BLOCK_ENTITY.get(),
             (be, _) -> VanillaContainerWrapper.of(be)
         );
         event.registerBlockEntity(
@@ -66,18 +39,12 @@ public class CommonEvents {
         event.registerBlockEntity(
             Capabilities.Item.BLOCK,
             FPBlockReg.CUPBOARD_BLOCK_ENTITY.get(),
-            ((be, context) -> new CombinedResourceHandler<>(
+            ((be, _) -> new CombinedResourceHandler<>(
                 VanillaContainerWrapper.of(be.drawer1),
                 VanillaContainerWrapper.of(be.drawer2),
                 VanillaContainerWrapper.of(be.drawer3)
             ))
         );
-
-        /*event.registerBlockEntity(
-            Capabilities.ItemHandler.BLOCK,
-            BlackCabinetRegistration.BLACK_CABINET_BLOCK_ENTITY.get(),
-            (blockEntity, direction) -> blockEntity.createHandler().get()
-        );*/
     }
     @SubscribeEvent
     public static void registerPayloads(final @NotNull RegisterPayloadHandlersEvent event) {

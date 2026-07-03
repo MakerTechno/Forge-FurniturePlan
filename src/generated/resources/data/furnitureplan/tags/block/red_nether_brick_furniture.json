@@ -1,11 +1,11 @@
 {
   "values": [
+    "furnitureplan:red_nether_brick_table",
     "furnitureplan:red_nether_brick_bench",
-    "furnitureplan:red_nether_brick_column",
-    "furnitureplan:red_nether_brick_cupboard",
     "furnitureplan:red_nether_brick_chair",
     "furnitureplan:red_nether_brick_lighted_column",
     "furnitureplan:red_nether_brick_carved_column",
-    "furnitureplan:red_nether_brick_table"
+    "furnitureplan:red_nether_brick_cupboard",
+    "furnitureplan:red_nether_brick_column"
   ]
 }
