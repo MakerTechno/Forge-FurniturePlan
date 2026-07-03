@@ -1,11 +1,11 @@
 {
   "values": [
     "furnitureplan:block_of_emerald_bench",
-    "furnitureplan:block_of_emerald_table",
     "furnitureplan:block_of_emerald_carved_column",
-    "furnitureplan:block_of_emerald_cupboard",
-    "furnitureplan:block_of_emerald_column",
     "furnitureplan:block_of_emerald_chair",
-    "furnitureplan:block_of_emerald_lighted_column"
+    "furnitureplan:block_of_emerald_column",
+    "furnitureplan:block_of_emerald_cupboard",
+    "furnitureplan:block_of_emerald_lighted_column",
+    "furnitureplan:block_of_emerald_table"
   ]
 }

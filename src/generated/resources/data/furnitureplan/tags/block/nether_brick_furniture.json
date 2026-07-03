@@ -1,10 +1,10 @@
 {
   "values": [
     "furnitureplan:nether_brick_bench",
-    "furnitureplan:nether_brick_chair",
-    "furnitureplan:nether_brick_cupboard",
-    "furnitureplan:nether_brick_column",
     "furnitureplan:nether_brick_carved_column",
+    "furnitureplan:nether_brick_chair",
+    "furnitureplan:nether_brick_column",
+    "furnitureplan:nether_brick_cupboard",
     "furnitureplan:nether_brick_lighted_column",
     "furnitureplan:nether_brick_table"
   ]

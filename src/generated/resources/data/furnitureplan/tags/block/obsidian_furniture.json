@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:obsidian_carved_column",
     "furnitureplan:obsidian_bench",
-    "furnitureplan:obsidian_lighted_column",
-    "furnitureplan:obsidian_cupboard",
-    "furnitureplan:obsidian_column",
+    "furnitureplan:obsidian_carved_column",
     "furnitureplan:obsidian_chair",
+    "furnitureplan:obsidian_column",
+    "furnitureplan:obsidian_cupboard",
+    "furnitureplan:obsidian_lighted_column",
     "furnitureplan:obsidian_table"
   ]
 }

@@ -13,7 +13,7 @@ import nowebsite.maker.furnitureplan.common.init.FPTags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashSet;
+import java.util.List;
 
 public class CarvedColumnBlock extends ColumnBlock {
 
@@ -36,7 +36,7 @@ public class CarvedColumnBlock extends ColumnBlock {
             }
 
             @Override
-            public void addBlockTags(ColumnBlock block, BlockTagsProvider provider, HashSet<TagKey<Block>> keys) {
+            public void addBlockTags(ColumnBlock block, BlockTagsProvider provider, List<TagKey<Block>> keys) {
                 super.addBlockTags(block, provider, keys);
                 keys.add(FPTags.COLUMN_BLOCK);
                 keys.add(FPTags.CARVED_COLUMN_BLOCK);

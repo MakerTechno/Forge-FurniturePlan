@@ -1,11 +1,11 @@
 {
   "values": [
     "furnitureplan:acacia_bench",
-    "furnitureplan:acacia_lighted_column",
-    "furnitureplan:acacia_table",
-    "furnitureplan:acacia_column",
     "furnitureplan:acacia_carved_column",
+    "furnitureplan:acacia_chair",
+    "furnitureplan:acacia_column",
     "furnitureplan:acacia_cupboard",
-    "furnitureplan:acacia_chair"
+    "furnitureplan:acacia_lighted_column",
+    "furnitureplan:acacia_table"
   ]
 }

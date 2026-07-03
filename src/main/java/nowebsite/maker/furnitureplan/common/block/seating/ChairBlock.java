@@ -30,7 +30,7 @@ import nowebsite.maker.furnitureplan.utils.voxel.VoxelShapeBuilder;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashSet;
+import java.util.List;
 import java.util.function.Consumer;
 
 
@@ -117,7 +117,7 @@ public class ChairBlock extends BasePropertyHorizontalDirectionBlock<ChairBlock>
             }
 
             @Override
-            public void addBlockTags(ChairBlock block, BlockTagsProvider provider, HashSet<TagKey<Block>> keys) {
+            public void addBlockTags(ChairBlock block, BlockTagsProvider provider, List<TagKey<Block>> keys) {
                 super.addBlockTags(block, provider, keys);
                 keys.add(FPTags.CHAIR_BLOCK);
             }

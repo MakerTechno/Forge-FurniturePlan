@@ -19,7 +19,7 @@ import nowebsite.maker.furnitureplan.common.block.abstraction.BlockSetGetter;
 import nowebsite.maker.furnitureplan.common.data.gen.empowered.BlockDataGenerator;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -43,12 +43,12 @@ public abstract class DefaultBlockDataGenerator<T extends Block & BlockSetGetter
     }
 
     @Override
-    public void addBlockTags(T block, BlockTagsProvider provider, HashSet<TagKey<Block>> keys) {
+    public void addBlockTags(T block, BlockTagsProvider provider, List<TagKey<Block>> keys) {
         keys.addAll(block.getType().getTagKeys().get());
     }
 
     @Override
-    public void addItemTags(@NotNull T block, ItemTagsProvider provider, HashSet<TagKey<Item>> keys) {
+    public void addItemTags(@NotNull T block, ItemTagsProvider provider, List<TagKey<Item>> keys) {
 
     }
 }

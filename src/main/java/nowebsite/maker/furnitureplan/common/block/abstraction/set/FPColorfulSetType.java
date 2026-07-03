@@ -6,15 +6,12 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class FPColorfulSetType extends FPBlockSetType{
-    public static final Set<FPColorfulSetType> TYPES = new HashSet<>();
+    public static final List<FPColorfulSetType> TYPES = new ArrayList<>();
     private final DyeColor color;
     private final Item dye;
     private final Item dyeConcrete;

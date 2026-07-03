@@ -29,7 +29,7 @@ import nowebsite.maker.furnitureplan.common.init.FPTags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashSet;
+import java.util.List;
 
 public class BenchBlock extends BasePropertyExtendedBlock<BenchBlock> implements EntityBlock {
     public static final VoxelShape SHAPE = Shapes.or(
@@ -98,7 +98,7 @@ public class BenchBlock extends BasePropertyExtendedBlock<BenchBlock> implements
             }
 
             @Override
-            public void addBlockTags(@NotNull BenchBlock block, BlockTagsProvider provider, HashSet<TagKey<Block>> keys) {
+            public void addBlockTags(@NotNull BenchBlock block, BlockTagsProvider provider, List<TagKey<Block>> keys) {
                 super.addBlockTags(block, provider, keys);
                 keys.add(FPTags.BENCH_BLOCK);
             }

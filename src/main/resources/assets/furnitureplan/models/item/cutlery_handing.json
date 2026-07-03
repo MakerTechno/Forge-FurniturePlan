@@ -1,5 +1,8 @@
 {
 	"credit": "Made by maker with Block Bench",
+	"textures": {
+		"particle": "furnitureplan:block/plate"
+	},
 	"elements": [
 		{
 			"from": [9, 0.2, 1],

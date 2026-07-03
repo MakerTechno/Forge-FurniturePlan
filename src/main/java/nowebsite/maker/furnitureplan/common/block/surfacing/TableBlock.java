@@ -26,7 +26,7 @@ import nowebsite.maker.furnitureplan.common.init.FPTags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashSet;
+import java.util.List;
 
 public class TableBlock extends BasePropertyHorizontalDirectionBlock<TableBlock> implements MulStateGetter<TableShape> {
     private static final EnumProperty<@NotNull TableShape> SHAPE = FPBlockReg.BlockStateReg.TABLE_SHAPE;
@@ -92,7 +92,7 @@ public class TableBlock extends BasePropertyHorizontalDirectionBlock<TableBlock>
             }
 
             @Override
-            public void addBlockTags(@NotNull TableBlock block, BlockTagsProvider provider, HashSet<TagKey<Block>> keys) {
+            public void addBlockTags(@NotNull TableBlock block, BlockTagsProvider provider, List<TagKey<Block>> keys) {
                 super.addBlockTags(block, provider, keys);
                 keys.add(FPTags.TABLE_BLOCK);
             }

@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:quartz_bricks_carved_column",
-    "furnitureplan:quartz_bricks_cupboard",
-    "furnitureplan:quartz_bricks_column",
-    "furnitureplan:quartz_bricks_chair",
     "furnitureplan:quartz_bricks_bench",
-    "furnitureplan:quartz_bricks_table",
-    "furnitureplan:quartz_bricks_lighted_column"
+    "furnitureplan:quartz_bricks_carved_column",
+    "furnitureplan:quartz_bricks_chair",
+    "furnitureplan:quartz_bricks_column",
+    "furnitureplan:quartz_bricks_cupboard",
+    "furnitureplan:quartz_bricks_lighted_column",
+    "furnitureplan:quartz_bricks_table"
   ]
 }

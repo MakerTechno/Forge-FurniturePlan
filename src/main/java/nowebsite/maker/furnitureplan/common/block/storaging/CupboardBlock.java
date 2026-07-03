@@ -42,7 +42,7 @@ import nowebsite.maker.furnitureplan.utils.Vec3Utils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashSet;
+import java.util.List;
 
 public class CupboardBlock extends BasePropertyHorizontalDirectionBlock<CupboardBlock> implements EntityBlock, AutoGenBlockData<@NotNull CupboardBlock>, BlockSetGetter {
     public static final VoxelShape SHAPE = Shapes.or(
@@ -195,7 +195,7 @@ public class CupboardBlock extends BasePropertyHorizontalDirectionBlock<Cupboard
             }
 
             @Override
-            public void addBlockTags(CupboardBlock block, BlockTagsProvider provider, HashSet<TagKey<Block>> keys) {
+            public void addBlockTags(CupboardBlock block, BlockTagsProvider provider, List<TagKey<Block>> keys) {
                 super.addBlockTags(block, provider, keys);
                 keys.add(FPTags.CUPBOARD_BLOCK);
             }

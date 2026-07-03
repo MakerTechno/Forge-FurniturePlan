@@ -1,11 +1,11 @@
 {
   "values": [
     "furnitureplan:quartz_bench",
-    "furnitureplan:quartz_column",
-    "furnitureplan:quartz_table",
-    "furnitureplan:quartz_cupboard",
+    "furnitureplan:quartz_carved_column",
     "furnitureplan:quartz_chair",
+    "furnitureplan:quartz_column",
+    "furnitureplan:quartz_cupboard",
     "furnitureplan:quartz_lighted_column",
-    "furnitureplan:quartz_carved_column"
+    "furnitureplan:quartz_table"
   ]
 }

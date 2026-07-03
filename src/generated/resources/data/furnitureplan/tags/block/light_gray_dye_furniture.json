@@ -1,12 +1,12 @@
 {
   "values": [
-    "furnitureplan:light_gray_carved_column",
-    "furnitureplan:light_gray_cupboard",
-    "furnitureplan:light_gray_table",
-    "furnitureplan:light_gray_column",
-    "furnitureplan:light_gray_lighted_column",
     "furnitureplan:light_gray_bench",
+    "furnitureplan:light_gray_carved_column",
     "furnitureplan:light_gray_chair",
-    "furnitureplan:light_gray_pot_holder"
+    "furnitureplan:light_gray_column",
+    "furnitureplan:light_gray_cupboard",
+    "furnitureplan:light_gray_lighted_column",
+    "furnitureplan:light_gray_pot_holder",
+    "furnitureplan:light_gray_table"
   ]
 }

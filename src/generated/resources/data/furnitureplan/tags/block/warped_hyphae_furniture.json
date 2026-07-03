@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:warped_hyphae_column",
     "furnitureplan:warped_hyphae_bench",
-    "furnitureplan:warped_hyphae_chair",
     "furnitureplan:warped_hyphae_carved_column",
-    "furnitureplan:warped_hyphae_table",
+    "furnitureplan:warped_hyphae_chair",
+    "furnitureplan:warped_hyphae_column",
+    "furnitureplan:warped_hyphae_cupboard",
     "furnitureplan:warped_hyphae_lighted_column",
-    "furnitureplan:warped_hyphae_cupboard"
+    "furnitureplan:warped_hyphae_table"
   ]
 }

@@ -14,7 +14,8 @@ import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockType;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public interface BlockDataGenerator<T extends Block> {
     String TEMPLATE_FOLDER = "template";
@@ -34,10 +35,10 @@ public interface BlockDataGenerator<T extends Block> {
     }
 
     /**
-     * 生成方块标签，在现有基础上添加标签请用{@link #addBlockTags(Block, BlockTagsProvider, HashSet)}
+     * 生成方块标签，在现有基础上添加标签请用{@link #addBlockTags(Block, BlockTagsProvider, List)}
      */
-    default HashSet<TagKey<Block>> getRegBlockTags(T block, BlockTagsProvider provider) {
-        HashSet<TagKey<Block>> keys = new HashSet<>();
+    default List<TagKey<Block>> getRegBlockTags(T block, BlockTagsProvider provider) {
+        List<TagKey<Block>> keys = new ArrayList<>();
         addBlockTags(block, provider, keys);
         return keys;
     }
@@ -45,13 +46,13 @@ public interface BlockDataGenerator<T extends Block> {
     /**
      * 添加方块标签
      */
-    void addBlockTags(T block, BlockTagsProvider provider, HashSet<TagKey<Block>> keys);
+    void addBlockTags(T block, BlockTagsProvider provider, List<TagKey<Block>> keys);
 
     /**
-     * 生成物品标签，在现有基础上添加标签请用{@link #addItemTags(Block, ItemTagsProvider, HashSet)}
+     * 生成物品标签，在现有基础上添加标签请用{@link #addItemTags(Block, ItemTagsProvider, List)}
      */
-    default HashSet<TagKey<Item>> getRegItemTags(T block, ItemTagsProvider provider) {
-        HashSet<TagKey<Item>> keys = new HashSet<>();
+    default List<TagKey<Item>> getRegItemTags(T block, ItemTagsProvider provider) {
+        List<TagKey<Item>> keys = new ArrayList<>();
         addItemTags(block, provider, keys);
         return keys;
     }
@@ -59,7 +60,7 @@ public interface BlockDataGenerator<T extends Block> {
     /**
      * 添加物品标签
      */
-    void addItemTags(T block, ItemTagsProvider provider, HashSet<TagKey<Item>> keys);
+    void addItemTags(T block, ItemTagsProvider provider, List<TagKey<Item>> keys);
 
     /**
      * 获取模板文件位置

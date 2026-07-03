@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:oak_wood_chair",
     "furnitureplan:oak_wood_bench",
-    "furnitureplan:oak_wood_table",
-    "furnitureplan:oak_wood_lighted_column",
-    "furnitureplan:oak_wood_cupboard",
     "furnitureplan:oak_wood_carved_column",
-    "furnitureplan:oak_wood_column"
+    "furnitureplan:oak_wood_chair",
+    "furnitureplan:oak_wood_column",
+    "furnitureplan:oak_wood_cupboard",
+    "furnitureplan:oak_wood_lighted_column",
+    "furnitureplan:oak_wood_table"
   ]
 }

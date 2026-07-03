@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:prismarine_brick_table",
     "furnitureplan:prismarine_brick_bench",
-    "furnitureplan:prismarine_brick_chair",
     "furnitureplan:prismarine_brick_carved_column",
+    "furnitureplan:prismarine_brick_chair",
     "furnitureplan:prismarine_brick_column",
     "furnitureplan:prismarine_brick_cupboard",
-    "furnitureplan:prismarine_brick_lighted_column"
+    "furnitureplan:prismarine_brick_lighted_column",
+    "furnitureplan:prismarine_brick_table"
   ]
 }

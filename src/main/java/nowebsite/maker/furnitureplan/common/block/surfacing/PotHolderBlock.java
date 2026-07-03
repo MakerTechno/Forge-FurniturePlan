@@ -53,7 +53,6 @@ import nowebsite.maker.furnitureplan.utils.Vec3Utils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashSet;
 import java.util.List;
 
 public class PotHolderBlock extends BaseEntityBlock implements SimpleWaterloggedBlock, AutoGenBlockData<@NotNull PotHolderBlock>, BlockSetGetter, MulStateGetter<PotHolderPart> {
@@ -293,7 +292,7 @@ public class PotHolderBlock extends BaseEntityBlock implements SimpleWaterlogged
             }
 
             @Override
-            public void addBlockTags(PotHolderBlock block, BlockTagsProvider provider, HashSet<TagKey<Block>> keys) {
+            public void addBlockTags(PotHolderBlock block, BlockTagsProvider provider, List<TagKey<Block>> keys) {
                 super.addBlockTags(block, provider, keys);
                 keys.add(FPTags.POT_HOLDER_BLOCK);
             }

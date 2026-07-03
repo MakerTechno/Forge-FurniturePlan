@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:crimson_chair",
-    "furnitureplan:crimson_lighted_column",
+    "furnitureplan:crimson_bench",
     "furnitureplan:crimson_carved_column",
-    "furnitureplan:crimson_cupboard",
-    "furnitureplan:crimson_table",
+    "furnitureplan:crimson_chair",
     "furnitureplan:crimson_column",
-    "furnitureplan:crimson_bench"
+    "furnitureplan:crimson_cupboard",
+    "furnitureplan:crimson_lighted_column",
+    "furnitureplan:crimson_table"
   ]
 }

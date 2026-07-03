@@ -1,11 +1,11 @@
 {
   "values": [
-    "furnitureplan:polished_blackstone_brick_lighted_column",
-    "furnitureplan:polished_blackstone_brick_column",
-    "furnitureplan:polished_blackstone_brick_cupboard",
-    "furnitureplan:polished_blackstone_brick_chair",
     "furnitureplan:polished_blackstone_brick_bench",
     "furnitureplan:polished_blackstone_brick_carved_column",
+    "furnitureplan:polished_blackstone_brick_chair",
+    "furnitureplan:polished_blackstone_brick_column",
+    "furnitureplan:polished_blackstone_brick_cupboard",
+    "furnitureplan:polished_blackstone_brick_lighted_column",
     "furnitureplan:polished_blackstone_brick_table"
   ]
 }
