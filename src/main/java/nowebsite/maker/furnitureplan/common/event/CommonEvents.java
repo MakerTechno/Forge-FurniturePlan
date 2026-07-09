@@ -36,11 +36,17 @@ public class CommonEvents {
         event.registerBlockEntity(
             Capabilities.Item.BLOCK,
             FPBlockReg.CUPBOARD_BLOCK_ENTITY.get(),
-            ((be, _) -> new CombinedResourceHandler<>(
+            (be, _) -> new CombinedResourceHandler<>(
                 VanillaContainerWrapper.of(be.drawer1),
                 VanillaContainerWrapper.of(be.drawer2),
                 VanillaContainerWrapper.of(be.drawer3)
-            ))
+            )
+        );
+
+        event.registerBlockEntity(
+            Capabilities.Item.BLOCK,
+            FPBlockReg.CABINET_BLOCK_ENTITY.get(),
+            (be, _) -> VanillaContainerWrapper.of(be.container)
         );
     }
     @SubscribeEvent
