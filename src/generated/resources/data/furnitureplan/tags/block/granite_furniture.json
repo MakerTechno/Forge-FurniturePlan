@@ -5,7 +5,24 @@
     "furnitureplan:granite_chair",
     "furnitureplan:granite_column",
     "furnitureplan:granite_cupboard",
+    "furnitureplan:granite_disguised_cabinet",
     "furnitureplan:granite_lighted_column",
-    "furnitureplan:granite_table"
+    "furnitureplan:granite_table",
+    "furnitureplan:granite_with_black_frame_cabinet",
+    "furnitureplan:granite_with_blue_frame_cabinet",
+    "furnitureplan:granite_with_brown_frame_cabinet",
+    "furnitureplan:granite_with_cyan_frame_cabinet",
+    "furnitureplan:granite_with_gray_frame_cabinet",
+    "furnitureplan:granite_with_green_frame_cabinet",
+    "furnitureplan:granite_with_light_blue_frame_cabinet",
+    "furnitureplan:granite_with_light_gray_frame_cabinet",
+    "furnitureplan:granite_with_lime_frame_cabinet",
+    "furnitureplan:granite_with_magenta_frame_cabinet",
+    "furnitureplan:granite_with_orange_frame_cabinet",
+    "furnitureplan:granite_with_pink_frame_cabinet",
+    "furnitureplan:granite_with_purple_frame_cabinet",
+    "furnitureplan:granite_with_red_frame_cabinet",
+    "furnitureplan:granite_with_white_frame_cabinet",
+    "furnitureplan:granite_with_yellow_frame_cabinet"
   ]
 }

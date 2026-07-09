@@ -5,8 +5,25 @@
     "furnitureplan:green_chair",
     "furnitureplan:green_column",
     "furnitureplan:green_cupboard",
+    "furnitureplan:green_disguised_cabinet",
     "furnitureplan:green_lighted_column",
     "furnitureplan:green_pot_holder",
-    "furnitureplan:green_table"
+    "furnitureplan:green_table",
+    "furnitureplan:green_with_black_frame_cabinet",
+    "furnitureplan:green_with_blue_frame_cabinet",
+    "furnitureplan:green_with_brown_frame_cabinet",
+    "furnitureplan:green_with_cyan_frame_cabinet",
+    "furnitureplan:green_with_gray_frame_cabinet",
+    "furnitureplan:green_with_green_frame_cabinet",
+    "furnitureplan:green_with_light_blue_frame_cabinet",
+    "furnitureplan:green_with_light_gray_frame_cabinet",
+    "furnitureplan:green_with_lime_frame_cabinet",
+    "furnitureplan:green_with_magenta_frame_cabinet",
+    "furnitureplan:green_with_orange_frame_cabinet",
+    "furnitureplan:green_with_pink_frame_cabinet",
+    "furnitureplan:green_with_purple_frame_cabinet",
+    "furnitureplan:green_with_red_frame_cabinet",
+    "furnitureplan:green_with_white_frame_cabinet",
+    "furnitureplan:green_with_yellow_frame_cabinet"
   ]
 }

@@ -22,6 +22,7 @@ import nowebsite.maker.furnitureplan.common.init.FPBlockReg;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
@@ -38,6 +39,7 @@ public class FPBlockSet {
     public final DeferredBlock<@NotNull TableBlock> TABLE;
     public final DeferredBlock<@NotNull CupboardBlock> CUPBOARD;
 
+    private final Map<FPBlockType<?>, DeferredBlock<?>> RAW = new HashMap<>(8);
 
     protected FPBlockSet(Builder builder) {
         this.materialType = builder.materialType;
@@ -51,14 +53,20 @@ public class FPBlockSet {
         CUPBOARD = init(builder, FPBlockType.CUPBOARD);
     }
 
+    @Nullable
+    public DeferredBlock<?> getByType(FPBlockType<?> type) {
+        return RAW.get(type);
+    }
+
     @SuppressWarnings("all")
-    public static <T extends Block> DeferredBlock<T> init(Builder builder, FPBlockType<T> type) {
+    public <T extends Block> DeferredBlock<T> init(Builder builder, FPBlockType<T> type) {
         Builder.TFBlockBuildEntry<T> entry = builder.getEntry(type);
         if (!entry.available) {
             return null;
         }
         DeferredBlock<T> block = FPBlockReg.registerWithItem(entry.specialId != null ? entry.specialId : builder.materialType.name() + "_" + type.name(), entry.getEntryResult());
         type.register(block);
+        RAW.put(type, block);
         return block;
     }
 
@@ -68,7 +76,7 @@ public class FPBlockSet {
             public @Nullable String specialId;
             public BiFunction<BlockBehaviour.Properties, Consumer<BlockBehaviour.Properties>, T> blockSupplier;
             public BlockBehaviour.Properties properties;
-            public Consumer<BlockBehaviour.Properties> applier = properties1 -> {};
+            public Consumer<BlockBehaviour.Properties> applier = _ -> {};
             public final FPBlockType<T> blockType;
             public TFBlockBuildEntry(FPBlockType<T> blockType, BlockBehaviour.Properties defaultProp, BiFunction<BlockBehaviour.Properties, Consumer<BlockBehaviour.Properties>, T> blockSupplier) {
                 this.blockType = blockType;
@@ -130,7 +138,7 @@ public class FPBlockSet {
         }
 
         @SuppressWarnings("deprecation")
-        protected <T extends Block> void putEntry(FPBlockType<T> type, BiFunction<BlockBehaviour.Properties, Consumer<BlockBehaviour.Properties>, T> blockSupplier) {
+        protected <T extends Block> void putEntry(FPBlockType<T> type, BiFunction<BlockBehaviour.Properties, Consumer<BlockBehaviour.Properties>, @Nullable T> blockSupplier) {
             entries.put(type, new TFBlockBuildEntry<>(type, fullCopyProp ? BlockBehaviour.Properties.ofFullCopy(propSourceBlock) : BlockBehaviour.Properties.ofLegacyCopy(propSourceBlock), blockSupplier));
         }
 

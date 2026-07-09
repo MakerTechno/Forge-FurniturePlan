@@ -21,6 +21,7 @@ import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockSetType
 import nowebsite.maker.furnitureplan.common.block.storaging.CupboardBlock;
 import nowebsite.maker.furnitureplan.common.block.storaging.entity.CupboardBlockEntity;
 import nowebsite.maker.furnitureplan.common.block.storaging.entity.renderer.state.CupboardBlockRendererState;
+import nowebsite.maker.furnitureplan.common.init.FPBlockSetTypes;
 import nowebsite.maker.furnitureplan.utils.uvmodel.CubeModel;
 import nowebsite.maker.furnitureplan.utils.uvmodel.CubeRendererHelper;
 import nowebsite.maker.furnitureplan.utils.uvmodel.FPCubeDefinition;
@@ -197,10 +198,11 @@ public class CupboardEntityRenderer implements BlockEntityRenderer<@NotNull Cupb
         BlockEntityRenderer.super.extractRenderState(blockEntity, state, partialTicks, cameraPosition, breakProgress);
         state.facing = blockEntity.getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING);
         FPBlockSetType type = ((CupboardBlock)blockEntity.getBlockState().getBlock()).getType();
-        state.openess1 = (float) (1 - Math.pow(1 - blockEntity.getOpenness(0, partialTicks), 3)) * 0.7f;
-        state.openess2 = (float) (1 - Math.pow(1 - blockEntity.getOpenness(1, partialTicks), 3)) * 0.7f;
-        state.openess3 = (float) (1 - Math.pow(1 - blockEntity.getOpenness(2, partialTicks), 3)) * 0.7f;
+        state.openness1 = (float) (1 - Math.pow(1 - blockEntity.getOpenness(0, partialTicks), 3)) * 0.7f;
+        state.openness2 = (float) (1 - Math.pow(1 - blockEntity.getOpenness(1, partialTicks), 3)) * 0.7f;
+        state.openness3 = (float) (1 - Math.pow(1 - blockEntity.getOpenness(2, partialTicks), 3)) * 0.7f;
         state.sprite = textureSource.get(Sheets.BLOCKS_MAPPER.defaultNamespaceApply(type.getTexture().getPath().split("/")[1]));
+        state.needTransparent = FPBlockSetTypes.isTranslucent(type);
     }
 
     @Override
@@ -213,24 +215,24 @@ public class CupboardEntityRenderer implements BlockEntityRenderer<@NotNull Cupb
         poseStack.translate(-0.5D, -0.5D, -0.5D);
         renderDrawers(
             poseStack, submitNodeCollector,
-            state.openess1,
+            state.openness1,
             DRAWER_1, DRAWER_1_HANDLER,
             state.sprite,
-            state.lightCoords
+            state.lightCoords, state.needTransparent
         );
         renderDrawers(
             poseStack, submitNodeCollector,
-            state.openess2,
+            state.openness2,
             DRAWER_2, DRAWER_2_HANDLER,
             state.sprite,
-            state.lightCoords
+            state.lightCoords, state.needTransparent
         );
         renderDrawers(
             poseStack, submitNodeCollector,
-            state.openess3,
+            state.openness3,
             DRAWER_3, DRAWER_3_HANDLER,
             state.sprite,
-            state.lightCoords
+            state.lightCoords, state.needTransparent
         );
         poseStack.popPose();
     }
@@ -240,14 +242,16 @@ public class CupboardEntityRenderer implements BlockEntityRenderer<@NotNull Cupb
         float openess,
         List<CubeModel> models, CubeModel handler,
         TextureAtlasSprite textureBase,
-        int lightCoords
+        int lightCoords, boolean needTranslucent
     ) {
         poseStack.pushPose();
         poseStack.translate(0, 0, -openess);
         models.forEach(model ->
             submitNodeCollector.submitCustomGeometry(
                 poseStack,
-                RenderTypes.entityCutout(textureBase.atlasLocation()),
+                needTranslucent
+                    ? RenderTypes.entityTranslucent(textureBase.atlasLocation())
+                    : RenderTypes.entityCutout(textureBase.atlasLocation()),
                 (pose, buffer) -> renderPart(model, pose, buffer, textureBase, lightCoords)
             )
         );

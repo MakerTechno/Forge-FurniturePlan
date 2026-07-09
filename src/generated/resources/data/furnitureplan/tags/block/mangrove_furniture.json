@@ -5,7 +5,24 @@
     "furnitureplan:mangrove_chair",
     "furnitureplan:mangrove_column",
     "furnitureplan:mangrove_cupboard",
+    "furnitureplan:mangrove_disguised_cabinet",
     "furnitureplan:mangrove_lighted_column",
-    "furnitureplan:mangrove_table"
+    "furnitureplan:mangrove_table",
+    "furnitureplan:mangrove_with_black_frame_cabinet",
+    "furnitureplan:mangrove_with_blue_frame_cabinet",
+    "furnitureplan:mangrove_with_brown_frame_cabinet",
+    "furnitureplan:mangrove_with_cyan_frame_cabinet",
+    "furnitureplan:mangrove_with_gray_frame_cabinet",
+    "furnitureplan:mangrove_with_green_frame_cabinet",
+    "furnitureplan:mangrove_with_light_blue_frame_cabinet",
+    "furnitureplan:mangrove_with_light_gray_frame_cabinet",
+    "furnitureplan:mangrove_with_lime_frame_cabinet",
+    "furnitureplan:mangrove_with_magenta_frame_cabinet",
+    "furnitureplan:mangrove_with_orange_frame_cabinet",
+    "furnitureplan:mangrove_with_pink_frame_cabinet",
+    "furnitureplan:mangrove_with_purple_frame_cabinet",
+    "furnitureplan:mangrove_with_red_frame_cabinet",
+    "furnitureplan:mangrove_with_white_frame_cabinet",
+    "furnitureplan:mangrove_with_yellow_frame_cabinet"
   ]
 }

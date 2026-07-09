@@ -1,0 +1,7 @@
+{
+  "parent": "furnitureplan:block/template/cube",
+  "textures": {
+    "particle": "minecraft:block/gilded_blackstone",
+    "trim": "minecraft:block/gilded_blackstone"
+  }
+}

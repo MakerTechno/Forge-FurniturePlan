@@ -3,6 +3,7 @@ package nowebsite.maker.furnitureplan.common.block.storaging;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockState;
 import nowebsite.maker.furnitureplan.common.block.abstraction.BasePropertyExtendedBlock;
 import nowebsite.maker.furnitureplan.common.block.abstraction.IWeatheringCopper;
@@ -22,7 +23,7 @@ public class WeatheredCopperCupboardBlock extends CupboardBlock implements IWeat
     }
     @Override
     public boolean isRandomlyTicking(@NotNull BlockState state) {
-        return IWeatheringCopper.getNext(state.getBlock()).isPresent();
+        return WeatheringCopper.getNext(state.getBlock()).isPresent();
     }
     @Override
     public @NotNull WeatherState getAge() {

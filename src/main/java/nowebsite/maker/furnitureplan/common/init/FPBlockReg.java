@@ -9,6 +9,8 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -18,8 +20,6 @@ import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.component.SuspiciousStewEffects;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
-import net.minecraft.world.item.equipment.ArmorMaterials;
-import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -35,6 +35,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import nowebsite.maker.furnitureplan.FurniturePlan;
+import nowebsite.maker.furnitureplan.common.block.abstraction.IWeatheringCopper;
 import nowebsite.maker.furnitureplan.common.block.abstraction.definition.*;
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockSet;
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockSetType;
@@ -55,7 +56,10 @@ import nowebsite.maker.furnitureplan.common.block.seating.BenchBlock;
 import nowebsite.maker.furnitureplan.common.block.seating.ChairBlock;
 import nowebsite.maker.furnitureplan.common.block.seating.entity.BenchBlockEntity;
 import nowebsite.maker.furnitureplan.common.block.seating.entity.ChairBlockEntity;
+import nowebsite.maker.furnitureplan.common.block.storaging.CabinetBlock;
 import nowebsite.maker.furnitureplan.common.block.storaging.CupboardBlock;
+import nowebsite.maker.furnitureplan.common.block.storaging.WeatheredCopperCabinet;
+import nowebsite.maker.furnitureplan.common.block.storaging.entity.CabinetBlockEntity;
 import nowebsite.maker.furnitureplan.common.block.storaging.entity.CupboardBlockEntity;
 import nowebsite.maker.furnitureplan.common.block.surfacing.PotHolderBlock;
 import nowebsite.maker.furnitureplan.common.block.surfacing.TableBlock;
@@ -66,13 +70,12 @@ import org.apache.logging.log4j.util.Lazy;
 import org.jetbrains.annotations.NotNull;
 import oshi.util.tuples.Pair;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
+import java.util.stream.Collectors;
 
 public class FPBlockReg {
     public static void touch() {
@@ -119,7 +122,6 @@ public class FPBlockReg {
         () -> new BlockEntityType<>(FoodPlateBlockEntity::new, FOOD_PLATE_BLOCK.get())
     );
     public static final DeferredItem<@NotNull BlockItem> FOOD_PLATE_BLOCK_ITEM = FPItemReg.ITEMS.register("plate", name -> new BlockItem(FOOD_PLATE_BLOCK.get(), new Item.Properties().stacksTo(16).setId(getItemId(name))));
-    public static final DeferredHolder<Block, Block> CABINET = registerWithItem("cabinet", name -> new Block(getSmallBlockBehaviors().sound(SoundType.GLASS).setId(getId(name))));
 
     public static final List<FPBlockSet> AUTO_FURNITURE_SET = FPBlockSetType.TYPES.stream().map(type -> new FPBlockSet.Builder(type, type.getBase(), type.shouldCopyAll()).build()).toList();
     public static final Lazy<List<ChairBlock>> CHAIRS = Lazy.lazy(() -> AUTO_FURNITURE_SET.stream().map(set -> set.CHAIR.get()).toList());
@@ -129,12 +131,31 @@ public class FPBlockReg {
     public static final Lazy<List<LightedColumnBlock>> LIGHTED_COLUMNS = Lazy.lazy(() -> AUTO_FURNITURE_SET.stream().map(set -> set.LIGHTED_COLUMN.get()).toList());
     public static final Lazy<List<TableBlock>> TABLES = Lazy.lazy(() -> AUTO_FURNITURE_SET.stream().map(set -> set.TABLE.get()).toList());
 
+    public static final Map<FPBlockSetType, List<DeferredBlock<@NotNull CabinetBlock>>> CABINET_HOLDERS = FPBlockSetType.TYPES.stream()
+        .map(type -> {
+            List<FPColorfulSetType> colorful = new ArrayList<>(FPColorfulSetType.TYPES);
+            colorful.add(null);
+            return Map.entry(type, colorful.stream()
+                .map(frameType -> registerWithItem(
+                    frameType == null ? type.name() + "_disguised_cabinet" : type.name() + "_with_" + frameType.name() + "_frame_cabinet",
+                    identifier -> IWeatheringCopper.isWeatheringType(type)
+                        ? new WeatheredCopperCabinet(type, frameType, BlockBehaviour.Properties.of().setId(getId(identifier)), type.getBase().defaultBlockState())
+                        : new CabinetBlock(type, frameType, BlockBehaviour.Properties.of().setId(getId(identifier)), type.getBase().defaultBlockState())
+                )).toList());
+        }).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (v1, _) -> v1, LinkedHashMap::new));
+
     public static final Lazy<List<PotHolderBlock>> POT_HOLDERS = Lazy.lazy(() -> FPBlockReg.AUTO_FURNITURE_SET.stream()
         .filter(set -> set.materialType instanceof FPColorfulSetType)
         .map(set -> set.POT_HOLDER.get())
         .toList()
     );
+
     public static final Lazy<List<CupboardBlock>> CUPBOARDS = Lazy.lazy(() -> AUTO_FURNITURE_SET.stream().map(set -> set.CUPBOARD.get()).toList());
+    public static final Lazy<List<CabinetBlock>> CABINETS = Lazy.lazy(() -> {
+        List<CabinetBlock> cabinetBlocks = new ArrayList<>();
+        CABINET_HOLDERS.values().forEach(deferredBlocks -> cabinetBlocks.addAll(deferredBlocks.stream().map(DeferredBlock::get).toList()));
+        return cabinetBlocks;
+    });
 
     public static final Lazy<FPBlockSet> OXIDIZED_COPPERS = Lazy.lazy(() -> FPBlockReg.AUTO_FURNITURE_SET.stream()
         .filter(set -> set.materialType.equals(FPBlockSetTypes.OXIDIZED_CUT_COPPER_SET))
@@ -179,18 +200,18 @@ public class FPBlockReg {
                 .saturationModifier(0.1F)
                 .build(),
             GRASS_EFFECT
-        )
-            .setId(getItemId(name))
-            .humanoidArmor(ArmorMaterials.LEATHER, ArmorType.HELMET)
-            .humanoidArmor(ArmorMaterials.LEATHER, ArmorType.BODY)
-            .humanoidArmor(ArmorMaterials.LEATHER, ArmorType.CHESTPLATE)
-            .humanoidArmor(ArmorMaterials.LEATHER, ArmorType.BOOTS)
+        ).setId(getItemId(name))
     ) {
         @SuppressWarnings("deprecation")
         @Override
         public void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display, Consumer<Component> builder, TooltipFlag tooltipFlag) {
             super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
             builder.accept(Component.translatable("item.furnitureplan.grass_grass.desc"));
+        }
+
+        @Override
+        public boolean canEquip(ItemStack stack, EquipmentSlot armorType, LivingEntity entity) {
+            return true;
         }
     });
     public static final DeferredHolder<BlockEntityType<?>, @NotNull BlockEntityType<@NotNull ChairBlockEntity>> CHAIR_BLOCK_ENTITY = BLOCK_ENTITIES.register(
@@ -220,6 +241,13 @@ public class FPBlockReg {
         () -> new BlockEntityType<>(
             CupboardBlockEntity::new,
             new HashSet<>(CUPBOARDS.get())
+        )
+    );
+    public static final DeferredHolder<BlockEntityType<?>, @NotNull BlockEntityType<@NotNull CabinetBlockEntity>> CABINET_BLOCK_ENTITY = BLOCK_ENTITIES.register(
+        "cabinet_block_entity",
+        () -> new BlockEntityType<>(
+            CabinetBlockEntity::new,
+            new HashSet<>(CABINETS.get())
         )
     );
 

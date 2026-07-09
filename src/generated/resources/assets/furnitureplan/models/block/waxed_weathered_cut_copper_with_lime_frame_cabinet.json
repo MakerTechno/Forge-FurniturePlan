@@ -1,0 +1,7 @@
+{
+  "parent": "furnitureplan:block/template/cabinet",
+  "textures": {
+    "particle": "minecraft:block/weathered_cut_copper",
+    "trim": "minecraft:block/lime_concrete"
+  }
+}

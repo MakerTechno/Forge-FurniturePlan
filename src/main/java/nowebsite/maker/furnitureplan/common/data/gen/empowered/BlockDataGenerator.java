@@ -57,6 +57,10 @@ public interface BlockDataGenerator<T extends Block> {
         return keys;
     }
 
+    default String getChineseTranslation(T block) {
+        return "";
+    }
+
     /**
      * 添加物品标签
      */

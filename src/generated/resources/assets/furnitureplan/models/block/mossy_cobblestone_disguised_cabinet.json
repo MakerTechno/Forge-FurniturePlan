@@ -1,0 +1,7 @@
+{
+  "parent": "furnitureplan:block/template/cube",
+  "textures": {
+    "particle": "minecraft:block/mossy_cobblestone",
+    "trim": "minecraft:block/mossy_cobblestone"
+  }
+}

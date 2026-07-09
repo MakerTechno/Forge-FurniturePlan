@@ -4,7 +4,6 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import nowebsite.maker.furnitureplan.FurniturePlan;
-import nowebsite.maker.furnitureplan.common.block.abstraction.BlockSetGetter;
 import nowebsite.maker.furnitureplan.common.data.gen.empowered.BlockDataGenerator;
 import nowebsite.maker.furnitureplan.common.init.FPBlockReg;
 
@@ -44,6 +43,6 @@ public class FPChineseProvider extends LanguageProvider {
     @SuppressWarnings("unchecked")
     private <T extends Block> void  invokeGenerator(Block block, BlockDataGenerator<?> generator) {
         BlockDataGenerator<T> typeGenerator = (BlockDataGenerator<T>) generator;
-        add(block, ((BlockSetGetter) block).getType().getTranslations().get(LOCALE) + typeGenerator.getTemplateType((T)block).getTranslations().get(LOCALE));
+        add(block, typeGenerator.getChineseTranslation((T)block));
     }
 }

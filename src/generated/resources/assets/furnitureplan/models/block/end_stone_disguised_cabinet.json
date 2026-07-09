@@ -1,0 +1,7 @@
+{
+  "parent": "furnitureplan:block/template/cube",
+  "textures": {
+    "particle": "minecraft:block/end_stone",
+    "trim": "minecraft:block/end_stone"
+  }
+}

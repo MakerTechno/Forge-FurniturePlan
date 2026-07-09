@@ -1,0 +1,7 @@
+{
+  "parent": "furnitureplan:block/template/cube",
+  "textures": {
+    "particle": "minecraft:block/purpur_block",
+    "trim": "minecraft:block/purpur_block"
+  }
+}

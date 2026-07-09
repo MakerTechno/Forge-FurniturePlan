@@ -1,0 +1,7 @@
+{
+  "parent": "furnitureplan:block/template/cube",
+  "textures": {
+    "particle": "minecraft:block/nether_bricks",
+    "trim": "minecraft:block/nether_bricks"
+  }
+}

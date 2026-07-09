@@ -1,0 +1,7 @@
+{
+  "parent": "furnitureplan:block/template/cube",
+  "textures": {
+    "particle": "minecraft:block/deepslate_tiles",
+    "trim": "minecraft:block/deepslate_tiles"
+  }
+}

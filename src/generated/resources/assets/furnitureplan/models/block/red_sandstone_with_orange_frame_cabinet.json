@@ -1,0 +1,7 @@
+{
+  "parent": "furnitureplan:block/template/cabinet",
+  "textures": {
+    "particle": "minecraft:block/red_sandstone_bottom",
+    "trim": "minecraft:block/orange_concrete"
+  }
+}

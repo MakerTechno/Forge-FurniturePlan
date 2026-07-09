@@ -8,6 +8,7 @@ import nowebsite.maker.furnitureplan.common.block.decorating.columns.ColumnBlock
 import nowebsite.maker.furnitureplan.common.block.decorating.columns.LightedColumnBlock;
 import nowebsite.maker.furnitureplan.common.block.seating.BenchBlock;
 import nowebsite.maker.furnitureplan.common.block.seating.ChairBlock;
+import nowebsite.maker.furnitureplan.common.block.storaging.CabinetBlock;
 import nowebsite.maker.furnitureplan.common.block.storaging.CupboardBlock;
 import nowebsite.maker.furnitureplan.common.block.surfacing.PotHolderBlock;
 import nowebsite.maker.furnitureplan.common.block.surfacing.TableBlock;
@@ -16,11 +17,7 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.UnmodifiableView;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.*;
 import java.util.function.Consumer;
 
 public class FPBlockType<T extends Block> {
@@ -29,7 +26,7 @@ public class FPBlockType<T extends Block> {
     private final Set<DeferredBlock<T>> registered = new ObjectArraySet<>();
     private final Map<String, String> translations = new HashMap<>();
 
-    private static final Map<String, FPBlockType<?>> REGISTRY = new ConcurrentHashMap<>();
+    private static final Map<String, FPBlockType<?>> REGISTRY = new LinkedHashMap<>();
 
     private FPBlockType(String name, Consumer<Map<String, String>> transInit) {
         this.name = name;
@@ -76,5 +73,6 @@ public class FPBlockType<T extends Block> {
     public static final FPBlockType<@NotNull PotHolderBlock> POT_HOLDER = create("pot_holder", map -> map.put(FPChineseProvider.LOCALE, "花架"));
     public static final FPBlockType<@NotNull TableBlock> TABLE = create("table", map -> map.put(FPChineseProvider.LOCALE, "桌"));
     public static final FPBlockType<@NotNull CupboardBlock> CUPBOARD = create("cupboard", map -> map.put(FPChineseProvider.LOCALE, "橱柜"));
+    public static final FPBlockType<@NotNull CabinetBlock> CABINET = create("cabinet", map -> map.put(FPChineseProvider.LOCALE, "柜子"));
 
 }

@@ -1,0 +1,7 @@
+{
+  "parent": "furnitureplan:block/template/cube",
+  "textures": {
+    "particle": "minecraft:block/dark_oak_log",
+    "trim": "minecraft:block/dark_oak_log"
+  }
+}

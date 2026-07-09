@@ -36,7 +36,7 @@ public abstract class BasePropertyExtendedBlock<T extends BasePropertyExtendedBl
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     public final Block base;
-    private final BlockState baseState;
+    protected final BlockState baseState;
     private final FPBlockSetType type;
 
     @SuppressWarnings("deprecation")

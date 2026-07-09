@@ -1,0 +1,7 @@
+{
+  "parent": "furnitureplan:block/template/cube",
+  "textures": {
+    "particle": "minecraft:block/smooth_basalt",
+    "trim": "minecraft:block/smooth_basalt"
+  }
+}

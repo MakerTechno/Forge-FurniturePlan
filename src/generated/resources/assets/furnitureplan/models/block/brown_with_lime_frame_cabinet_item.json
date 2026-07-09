@@ -1,0 +1,7 @@
+{
+  "parent": "furnitureplan:item/cabinet",
+  "textures": {
+    "particle": "minecraft:block/brown_concrete",
+    "trim": "minecraft:block/lime_concrete"
+  }
+}

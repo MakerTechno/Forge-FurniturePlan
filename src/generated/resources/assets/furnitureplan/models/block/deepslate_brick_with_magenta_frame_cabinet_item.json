@@ -1,0 +1,7 @@
+{
+  "parent": "furnitureplan:item/cabinet",
+  "textures": {
+    "particle": "minecraft:block/deepslate_bricks",
+    "trim": "minecraft:block/magenta_concrete"
+  }
+}

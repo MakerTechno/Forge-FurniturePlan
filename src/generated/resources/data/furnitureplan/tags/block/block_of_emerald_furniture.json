@@ -5,7 +5,24 @@
     "furnitureplan:block_of_emerald_chair",
     "furnitureplan:block_of_emerald_column",
     "furnitureplan:block_of_emerald_cupboard",
+    "furnitureplan:block_of_emerald_disguised_cabinet",
     "furnitureplan:block_of_emerald_lighted_column",
-    "furnitureplan:block_of_emerald_table"
+    "furnitureplan:block_of_emerald_table",
+    "furnitureplan:block_of_emerald_with_black_frame_cabinet",
+    "furnitureplan:block_of_emerald_with_blue_frame_cabinet",
+    "furnitureplan:block_of_emerald_with_brown_frame_cabinet",
+    "furnitureplan:block_of_emerald_with_cyan_frame_cabinet",
+    "furnitureplan:block_of_emerald_with_gray_frame_cabinet",
+    "furnitureplan:block_of_emerald_with_green_frame_cabinet",
+    "furnitureplan:block_of_emerald_with_light_blue_frame_cabinet",
+    "furnitureplan:block_of_emerald_with_light_gray_frame_cabinet",
+    "furnitureplan:block_of_emerald_with_lime_frame_cabinet",
+    "furnitureplan:block_of_emerald_with_magenta_frame_cabinet",
+    "furnitureplan:block_of_emerald_with_orange_frame_cabinet",
+    "furnitureplan:block_of_emerald_with_pink_frame_cabinet",
+    "furnitureplan:block_of_emerald_with_purple_frame_cabinet",
+    "furnitureplan:block_of_emerald_with_red_frame_cabinet",
+    "furnitureplan:block_of_emerald_with_white_frame_cabinet",
+    "furnitureplan:block_of_emerald_with_yellow_frame_cabinet"
   ]
 }

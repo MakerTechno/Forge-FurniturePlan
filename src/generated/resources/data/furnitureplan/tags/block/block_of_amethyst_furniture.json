@@ -5,7 +5,24 @@
     "furnitureplan:block_of_amethyst_chair",
     "furnitureplan:block_of_amethyst_column",
     "furnitureplan:block_of_amethyst_cupboard",
+    "furnitureplan:block_of_amethyst_disguised_cabinet",
     "furnitureplan:block_of_amethyst_lighted_column",
-    "furnitureplan:block_of_amethyst_table"
+    "furnitureplan:block_of_amethyst_table",
+    "furnitureplan:block_of_amethyst_with_black_frame_cabinet",
+    "furnitureplan:block_of_amethyst_with_blue_frame_cabinet",
+    "furnitureplan:block_of_amethyst_with_brown_frame_cabinet",
+    "furnitureplan:block_of_amethyst_with_cyan_frame_cabinet",
+    "furnitureplan:block_of_amethyst_with_gray_frame_cabinet",
+    "furnitureplan:block_of_amethyst_with_green_frame_cabinet",
+    "furnitureplan:block_of_amethyst_with_light_blue_frame_cabinet",
+    "furnitureplan:block_of_amethyst_with_light_gray_frame_cabinet",
+    "furnitureplan:block_of_amethyst_with_lime_frame_cabinet",
+    "furnitureplan:block_of_amethyst_with_magenta_frame_cabinet",
+    "furnitureplan:block_of_amethyst_with_orange_frame_cabinet",
+    "furnitureplan:block_of_amethyst_with_pink_frame_cabinet",
+    "furnitureplan:block_of_amethyst_with_purple_frame_cabinet",
+    "furnitureplan:block_of_amethyst_with_red_frame_cabinet",
+    "furnitureplan:block_of_amethyst_with_white_frame_cabinet",
+    "furnitureplan:block_of_amethyst_with_yellow_frame_cabinet"
   ]
 }

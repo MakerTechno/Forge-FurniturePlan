@@ -34,6 +34,7 @@ public class FPDataGenerators {
         event.createProvider(FPChineseProvider::new);
         event.createProvider(FPEnglishProvider::new);
         event.createProvider(FPRecipeProvider.Runner::new);
+        event.createProvider(FPDataMapProvider::new);
     }
     /*@SubscribeEvent
     public void gatherServerData(GatherDataEvent.Server event) {

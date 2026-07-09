@@ -5,8 +5,25 @@
     "furnitureplan:orange_chair",
     "furnitureplan:orange_column",
     "furnitureplan:orange_cupboard",
+    "furnitureplan:orange_disguised_cabinet",
     "furnitureplan:orange_lighted_column",
     "furnitureplan:orange_pot_holder",
-    "furnitureplan:orange_table"
+    "furnitureplan:orange_table",
+    "furnitureplan:orange_with_black_frame_cabinet",
+    "furnitureplan:orange_with_blue_frame_cabinet",
+    "furnitureplan:orange_with_brown_frame_cabinet",
+    "furnitureplan:orange_with_cyan_frame_cabinet",
+    "furnitureplan:orange_with_gray_frame_cabinet",
+    "furnitureplan:orange_with_green_frame_cabinet",
+    "furnitureplan:orange_with_light_blue_frame_cabinet",
+    "furnitureplan:orange_with_light_gray_frame_cabinet",
+    "furnitureplan:orange_with_lime_frame_cabinet",
+    "furnitureplan:orange_with_magenta_frame_cabinet",
+    "furnitureplan:orange_with_orange_frame_cabinet",
+    "furnitureplan:orange_with_pink_frame_cabinet",
+    "furnitureplan:orange_with_purple_frame_cabinet",
+    "furnitureplan:orange_with_red_frame_cabinet",
+    "furnitureplan:orange_with_white_frame_cabinet",
+    "furnitureplan:orange_with_yellow_frame_cabinet"
   ]
 }

@@ -52,7 +52,6 @@ public class FPModelProvider extends ModelProvider {
         simpleHorizontalBlockWithItem(FPBlockReg.CUTLERY_BLOCK.get(), blockModels, "cutlery_handing", itemModels);
         simpleBlockWithItem(FPBlockReg.GLASS_B_BLOCK.get(), blockModels);
         horizontalCustomModelBlockWithItem(FPBlockReg.FOOD_PLATE_BLOCK.get(), blockModels, false);
-        blockModels.createNonTemplateModelBlock(FPBlockReg.CABINET.get());
         FPDataGenerators.GENERATORS.forEach((block, blockDataGenerator) -> invokeGenerator(block, blockDataGenerator, blockModels, itemModels));
     }
 

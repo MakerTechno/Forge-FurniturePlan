@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ItemTagsProvider;
 import nowebsite.maker.furnitureplan.common.block.abstraction.BlockSetGetter;
+import nowebsite.maker.furnitureplan.common.data.gen.FPChineseProvider;
 import nowebsite.maker.furnitureplan.common.data.gen.empowered.BlockDataGenerator;
 import org.jetbrains.annotations.NotNull;
 
@@ -45,6 +46,11 @@ public abstract class DefaultBlockDataGenerator<T extends Block & BlockSetGetter
     @Override
     public void addBlockTags(T block, BlockTagsProvider provider, List<TagKey<Block>> keys) {
         keys.addAll(block.getType().getTagKeys().get());
+    }
+
+    @Override
+    public String getChineseTranslation(@NotNull T block) {
+        return block.getType().getTranslations().get(FPChineseProvider.LOCALE) + getTemplateType(block).getTranslations().get(FPChineseProvider.LOCALE);
     }
 
     @Override

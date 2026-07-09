@@ -1,0 +1,7 @@
+{
+  "parent": "furnitureplan:item/cabinet",
+  "textures": {
+    "particle": "minecraft:block/acacia_planks",
+    "trim": "minecraft:block/red_concrete"
+  }
+}

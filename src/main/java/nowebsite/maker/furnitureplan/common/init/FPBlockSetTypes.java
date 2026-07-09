@@ -16,6 +16,9 @@ import java.util.List;
 @SuppressWarnings("unused")
 public class FPBlockSetTypes {
     public static void touch() {}
+    public static boolean isTranslucent(FPBlockSetType type) {
+        return type.equals(ICE_SET);
+    }
     public static final FPBlockSetType OAK_SET = new FPBlockSetType(
         "oak",
         Blocks.OAK_PLANKS,

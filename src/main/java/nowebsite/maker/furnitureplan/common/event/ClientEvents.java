@@ -10,6 +10,7 @@ import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.common.block.cooking.utensils.entities.renderer.FoodPlateBlockEntityRenderer;
 import nowebsite.maker.furnitureplan.common.block.cooking.utensils.entities.renderer.GlassBBlockEntityRenderer;
 import nowebsite.maker.furnitureplan.common.block.cooking.utensils.entities.renderer.IronPotBlockEntityRenderer;
+import nowebsite.maker.furnitureplan.common.block.storaging.entity.renderer.CabinetEntityRenderer;
 import nowebsite.maker.furnitureplan.common.block.storaging.entity.renderer.CupboardEntityRenderer;
 import nowebsite.maker.furnitureplan.common.block.storaging.gui.CupboardScreen;
 import nowebsite.maker.furnitureplan.common.block.surfacing.entity.renderer.PotHolderBlockEntityRenderer;
@@ -33,6 +34,7 @@ public class ClientEvents {
         event.registerBlockEntityRenderer(FPBlockReg.CUPBOARD_BLOCK_ENTITY.get(), CupboardEntityRenderer::new);
         event.registerBlockEntityRenderer(FPBlockReg.FOOD_PLATE_BLOCK_ENTITY.get(), FoodPlateBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(FPBlockReg.GLASS_B_BLOCK_ENTITY.get(), GlassBBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(FPBlockReg.CABINET_BLOCK_ENTITY.get(), CabinetEntityRenderer::new);
         event.registerEntityRenderer(FPEntityTypeReg.NULL_RIDE.get(), NoopRenderer::new);
     }
 

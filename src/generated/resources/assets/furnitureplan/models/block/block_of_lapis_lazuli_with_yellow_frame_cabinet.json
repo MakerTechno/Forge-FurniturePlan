@@ -1,0 +1,7 @@
+{
+  "parent": "furnitureplan:block/template/cabinet",
+  "textures": {
+    "particle": "minecraft:block/lapis_block",
+    "trim": "minecraft:block/yellow_concrete"
+  }
+}

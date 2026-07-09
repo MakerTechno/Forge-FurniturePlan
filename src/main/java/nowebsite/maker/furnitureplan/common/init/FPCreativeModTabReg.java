@@ -98,7 +98,7 @@ public class FPCreativeModTabReg {
         }
         if (event.getTab().equals(STORAGING.get())) {
             event.acceptAll(FPBlockReg.CUPBOARDS.get().stream().map(Block::asItem).map(Item::getDefaultInstance).toList());
-            event.accept(FPBlockReg.CABINET.get());
+            event.acceptAll(FPBlockReg.CABINETS.get().stream().map(Block::asItem).map(Item::getDefaultInstance).toList());
         }
     }
 }

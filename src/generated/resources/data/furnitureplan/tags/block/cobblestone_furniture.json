@@ -5,7 +5,24 @@
     "furnitureplan:cobblestone_chair",
     "furnitureplan:cobblestone_column",
     "furnitureplan:cobblestone_cupboard",
+    "furnitureplan:cobblestone_disguised_cabinet",
     "furnitureplan:cobblestone_lighted_column",
-    "furnitureplan:cobblestone_table"
+    "furnitureplan:cobblestone_table",
+    "furnitureplan:cobblestone_with_black_frame_cabinet",
+    "furnitureplan:cobblestone_with_blue_frame_cabinet",
+    "furnitureplan:cobblestone_with_brown_frame_cabinet",
+    "furnitureplan:cobblestone_with_cyan_frame_cabinet",
+    "furnitureplan:cobblestone_with_gray_frame_cabinet",
+    "furnitureplan:cobblestone_with_green_frame_cabinet",
+    "furnitureplan:cobblestone_with_light_blue_frame_cabinet",
+    "furnitureplan:cobblestone_with_light_gray_frame_cabinet",
+    "furnitureplan:cobblestone_with_lime_frame_cabinet",
+    "furnitureplan:cobblestone_with_magenta_frame_cabinet",
+    "furnitureplan:cobblestone_with_orange_frame_cabinet",
+    "furnitureplan:cobblestone_with_pink_frame_cabinet",
+    "furnitureplan:cobblestone_with_purple_frame_cabinet",
+    "furnitureplan:cobblestone_with_red_frame_cabinet",
+    "furnitureplan:cobblestone_with_white_frame_cabinet",
+    "furnitureplan:cobblestone_with_yellow_frame_cabinet"
   ]
 }

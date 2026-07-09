@@ -1,0 +1,7 @@
+{
+  "parent": "furnitureplan:block/template/cube",
+  "textures": {
+    "particle": "minecraft:block/cherry_log",
+    "trim": "minecraft:block/cherry_log"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "furnitureplan:block/jungle_wood_with_orange_frame_cabinet",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "furnitureplan:block/jungle_wood_with_orange_frame_cabinet",
+      "uvlock": true
+    },
+    "facing=south": {
+      "model": "furnitureplan:block/jungle_wood_with_orange_frame_cabinet",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=west": {
+      "model": "furnitureplan:block/jungle_wood_with_orange_frame_cabinet",
+      "uvlock": true,
+      "y": 270
+    }
+  }
+}

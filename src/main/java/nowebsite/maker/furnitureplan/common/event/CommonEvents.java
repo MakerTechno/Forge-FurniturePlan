@@ -10,10 +10,7 @@ import net.neoforged.neoforge.transfer.CombinedResourceHandler;
 import net.neoforged.neoforge.transfer.item.VanillaContainerWrapper;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.common.init.FPBlockReg;
-import nowebsite.maker.furnitureplan.networks.CupboardPayloadHandler;
-import nowebsite.maker.furnitureplan.networks.CupboardSyncData;
-import nowebsite.maker.furnitureplan.networks.PotHolderPayloadHandler;
-import nowebsite.maker.furnitureplan.networks.PotHolderSyncData;
+import nowebsite.maker.furnitureplan.networks.*;
 import org.jetbrains.annotations.NotNull;
 
 @EventBusSubscriber(modid = FurniturePlan.MOD_ID)
@@ -65,10 +62,10 @@ public class CommonEvents {
             PotHolderSyncData.STREAM_CODEC,
             new PotHolderPayloadHandler()
         );
-        /*registrar.playToClient(
+        registrar.playToClient(
             CabinetSyncData.TYPE,
             CabinetSyncData.STREAM_CODEC,
             new CabinetPayloadHandler()
-        );*/
+        );
     }
 }

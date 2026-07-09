@@ -5,8 +5,25 @@
     "furnitureplan:purple_chair",
     "furnitureplan:purple_column",
     "furnitureplan:purple_cupboard",
+    "furnitureplan:purple_disguised_cabinet",
     "furnitureplan:purple_lighted_column",
     "furnitureplan:purple_pot_holder",
-    "furnitureplan:purple_table"
+    "furnitureplan:purple_table",
+    "furnitureplan:purple_with_black_frame_cabinet",
+    "furnitureplan:purple_with_blue_frame_cabinet",
+    "furnitureplan:purple_with_brown_frame_cabinet",
+    "furnitureplan:purple_with_cyan_frame_cabinet",
+    "furnitureplan:purple_with_gray_frame_cabinet",
+    "furnitureplan:purple_with_green_frame_cabinet",
+    "furnitureplan:purple_with_light_blue_frame_cabinet",
+    "furnitureplan:purple_with_light_gray_frame_cabinet",
+    "furnitureplan:purple_with_lime_frame_cabinet",
+    "furnitureplan:purple_with_magenta_frame_cabinet",
+    "furnitureplan:purple_with_orange_frame_cabinet",
+    "furnitureplan:purple_with_pink_frame_cabinet",
+    "furnitureplan:purple_with_purple_frame_cabinet",
+    "furnitureplan:purple_with_red_frame_cabinet",
+    "furnitureplan:purple_with_white_frame_cabinet",
+    "furnitureplan:purple_with_yellow_frame_cabinet"
   ]
 }
