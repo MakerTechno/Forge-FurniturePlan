@@ -19,7 +19,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
@@ -37,11 +36,9 @@ public class PotHolderBlockEntity extends BlockEntity implements Container {
     public boolean havePotAt0, havePotAt1, havePotAt2;
     private final NonNullList<ItemStack> items = NonNullList.withSize(3, ItemStack.EMPTY);
     private BlockState state0 = Blocks.AIR.defaultBlockState(), state1 = Blocks.AIR.defaultBlockState(), state2 = Blocks.AIR.defaultBlockState();
-    public PotHolderBlockEntity(BlockEntityType<@NotNull PotHolderBlockEntity> type, BlockPos pos, BlockState blockState) {
-        super(type, pos, blockState);
-    }
+
     public PotHolderBlockEntity(BlockPos pos, BlockState blockState) {
-        this(FPBlockReg.POT_HOLDER_BLOCK_ENTITY.get(), pos, blockState);
+        super(FPBlockReg.POT_HOLDER_BLOCK_ENTITY.get(), pos, blockState);
     }
     private void markUpdated() {
         flushState();
@@ -162,6 +159,7 @@ public class PotHolderBlockEntity extends BlockEntity implements Container {
         }
         Containers.dropContents(Objects.requireNonNull(this.getLevel()), this.worldPosition, inventory);
     }
+
     private void syncS2C(){
         PacketDistributor.sendToAllPlayers(
             new PotHolderSyncData(

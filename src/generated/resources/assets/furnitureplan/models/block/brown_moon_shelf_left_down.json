@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/template/moon_shelf_left_down",
+  "textures": {
+    "particle": "minecraft:block/brown_concrete"
+  }
+}

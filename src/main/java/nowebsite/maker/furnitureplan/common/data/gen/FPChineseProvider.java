@@ -31,6 +31,10 @@ public class FPChineseProvider extends LanguageProvider {
         add(FPBlockReg.GLASS_B_BLOCK_ITEM.get(), "玻璃杯");
         add(FPBlockReg.CUTLERY_ITEM.get(), "餐具");
         add("item.furnitureplan.grass_grass.desc", "这玩意能吃!?");
+        add("item.furnitureplan.food_plate.desc", "你其实可以把杯子和餐叉也放上去, 再放点食物");
+        add("item.furnitureplan.cutlery.desc", "你其实也可以把它放在盘子上");
+        add("item.furnitureplan.glass.desc", "你其实也可以把它放在盘子上或者右键水源，或者手持药水右键杯子方块");
+
         add("advancements.furniture.root.title", "开始雕刻家具吧!");
         add("advancements.furniture.root.description", "获取一个家具计划雕刻刀");
         add("advancements.furniture.grassit.title", "令人眼前一黑的好活");

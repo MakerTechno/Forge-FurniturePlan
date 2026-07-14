@@ -61,8 +61,10 @@ import nowebsite.maker.furnitureplan.common.block.storaging.CupboardBlock;
 import nowebsite.maker.furnitureplan.common.block.storaging.WeatheredCopperCabinet;
 import nowebsite.maker.furnitureplan.common.block.storaging.entity.CabinetBlockEntity;
 import nowebsite.maker.furnitureplan.common.block.storaging.entity.CupboardBlockEntity;
+import nowebsite.maker.furnitureplan.common.block.surfacing.MoonShelfBlock;
 import nowebsite.maker.furnitureplan.common.block.surfacing.PotHolderBlock;
 import nowebsite.maker.furnitureplan.common.block.surfacing.TableBlock;
+import nowebsite.maker.furnitureplan.common.block.surfacing.entity.MoonShelfBlockEntity;
 import nowebsite.maker.furnitureplan.common.block.surfacing.entity.PotHolderBlockEntity;
 import nowebsite.maker.furnitureplan.common.item.GlassBBlockItem;
 import nowebsite.maker.furnitureplan.common.item.IronPotItem;
@@ -73,7 +75,6 @@ import oshi.util.tuples.Pair;
 import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
-import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
 
@@ -108,7 +109,14 @@ public class FPBlockReg {
 
     /*For tableware*/
     public static final DeferredBlock<@NotNull Cutlery> CUTLERY_BLOCK = BLOCKS.register("cutlery", name -> new Cutlery(getSmallBlockBehaviors().sound(SoundType.STONE).setId(getId(name))));
-    public static final DeferredItem<@NotNull BlockItem> CUTLERY_ITEM = FPItemReg.ITEMS.register("cutlery", name -> new BlockItem(CUTLERY_BLOCK.get(), new Item.Properties().stacksTo(16).setId(getItemId(name))));
+    public static final DeferredItem<@NotNull BlockItem> CUTLERY_ITEM = FPItemReg.ITEMS.register("cutlery", name -> new BlockItem(CUTLERY_BLOCK.get(), new Item.Properties().stacksTo(16).setId(getItemId(name))){
+        @Override
+        @SuppressWarnings("deprecation")
+        public void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display, Consumer<Component> builder, TooltipFlag tooltipFlag) {
+            super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
+            builder.accept(Component.translatable("item.furnitureplan.cutlery.desc"));
+        }
+    });
     public static final DeferredBlock<@NotNull GlassBBlock> GLASS_B_BLOCK = BLOCKS.register("glass", name -> new GlassBBlock(getSmallBlockBehaviors().sound(SoundType.GLASS).setId(getId(name))));
     public static final DeferredHolder<BlockEntityType<?>, @NotNull BlockEntityType<@NotNull GlassBBlockEntity>> GLASS_B_BLOCK_ENTITY = BLOCK_ENTITIES.register(
         "glass_entity",
@@ -121,7 +129,14 @@ public class FPBlockReg {
         "food_plate_block_entity",
         () -> new BlockEntityType<>(FoodPlateBlockEntity::new, FOOD_PLATE_BLOCK.get())
     );
-    public static final DeferredItem<@NotNull BlockItem> FOOD_PLATE_BLOCK_ITEM = FPItemReg.ITEMS.register("plate", name -> new BlockItem(FOOD_PLATE_BLOCK.get(), new Item.Properties().stacksTo(16).setId(getItemId(name))));
+    public static final DeferredItem<@NotNull BlockItem> FOOD_PLATE_BLOCK_ITEM = FPItemReg.ITEMS.register("plate", name -> new BlockItem(FOOD_PLATE_BLOCK.get(), new Item.Properties().stacksTo(16).setId(getItemId(name))){
+        @Override
+        @SuppressWarnings("deprecation")
+        public void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display, Consumer<Component> builder, TooltipFlag tooltipFlag) {
+            super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
+            builder.accept(Component.translatable("item.furnitureplan.food_plate.desc"));
+        }
+    });
 
     public static final List<FPBlockSet> AUTO_FURNITURE_SET = FPBlockSetType.TYPES.stream().map(type -> new FPBlockSet.Builder(type, type.getBase(), type.shouldCopyAll()).build()).toList();
     public static final Lazy<List<ChairBlock>> CHAIRS = Lazy.lazy(() -> AUTO_FURNITURE_SET.stream().map(set -> set.CHAIR.get()).toList());
@@ -151,6 +166,7 @@ public class FPBlockReg {
     );
 
     public static final Lazy<List<CupboardBlock>> CUPBOARDS = Lazy.lazy(() -> AUTO_FURNITURE_SET.stream().map(set -> set.CUPBOARD.get()).toList());
+    public static final Lazy<List<MoonShelfBlock>> MOON_SHELVES = Lazy.lazy(() -> AUTO_FURNITURE_SET.stream().map(set -> set.MOON_SHELF.get()).toList());
     public static final Lazy<List<CabinetBlock>> CABINETS = Lazy.lazy(() -> {
         List<CabinetBlock> cabinetBlocks = new ArrayList<>();
         CABINET_HOLDERS.values().forEach(deferredBlocks -> cabinetBlocks.addAll(deferredBlocks.stream().map(DeferredBlock::get).toList()));
@@ -251,6 +267,13 @@ public class FPBlockReg {
         )
     );
 
+    public static final DeferredHolder<BlockEntityType<?>, @NotNull BlockEntityType<@NotNull MoonShelfBlockEntity>> MOON_SHELF_BLOCK_ENTITY = BLOCK_ENTITIES.register(
+        "moon_shelf_block_entity",
+        () -> new BlockEntityType<>(
+            MoonShelfBlockEntity::new,
+            new HashSet<>(MOON_SHELVES.get())
+        )
+    );
 
 
     public static <B extends Block> DeferredBlock<B> registerWithItem(String id, Function<Identifier, B> block) {
@@ -269,7 +292,7 @@ public class FPBlockReg {
         return object;
     }
 
-    public static <B extends Block> DeferredBlock<B> registerWithoutItem(String id, Supplier<B> block) {
+    public static <B extends Block> DeferredBlock<B> registerWithoutItem(String id, Function<Identifier, B> block) {
         return BLOCKS.register(id, block);
     }
     public static ToIntFunction<BlockState> litBlockEmission(int lightValue) {
@@ -321,6 +344,7 @@ public class FPBlockReg {
         public static final EnumProperty<@NotNull BottleDefine> BOTTLE_DEFINE = EnumProperty.create("define", BottleDefine.class);
         public static final EnumProperty<@NotNull StoveShape> STOVE_SHAPE = EnumProperty.create("define", StoveShape.class);
         public static final EnumProperty<@NotNull PlateShape> PLATE_SHAPE = EnumProperty.create("define", PlateShape.class);
+        public static final EnumProperty<@NotNull MoonShelfPart> MOON_SHELF_PART = EnumProperty.create("define", MoonShelfPart.class);
     }
 
 }

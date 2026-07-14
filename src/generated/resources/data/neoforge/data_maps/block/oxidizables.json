@@ -21,6 +21,9 @@
     "furnitureplan:cut_copper_lighted_column": {
       "next_oxidation_stage": "furnitureplan:exposed_cut_copper_lighted_column"
     },
+    "furnitureplan:cut_copper_moon_shelf": {
+      "next_oxidation_stage": "furnitureplan:exposed_cut_copper_moon_shelf"
+    },
     "furnitureplan:cut_copper_table": {
       "next_oxidation_stage": "furnitureplan:exposed_cut_copper_table"
     },
@@ -93,6 +96,9 @@
     "furnitureplan:exposed_cut_copper_lighted_column": {
       "next_oxidation_stage": "furnitureplan:weathered_cut_copper_lighted_column"
     },
+    "furnitureplan:exposed_cut_copper_moon_shelf": {
+      "next_oxidation_stage": "furnitureplan:weathered_cut_copper_moon_shelf"
+    },
     "furnitureplan:exposed_cut_copper_table": {
       "next_oxidation_stage": "furnitureplan:weathered_cut_copper_table"
     },
@@ -164,6 +170,9 @@
     },
     "furnitureplan:weathered_cut_copper_lighted_column": {
       "next_oxidation_stage": "furnitureplan:oxidized_cut_copper_lighted_column"
+    },
+    "furnitureplan:weathered_cut_copper_moon_shelf": {
+      "next_oxidation_stage": "furnitureplan:oxidized_cut_copper_moon_shelf"
     },
     "furnitureplan:weathered_cut_copper_table": {
       "next_oxidation_stage": "furnitureplan:oxidized_cut_copper_table"

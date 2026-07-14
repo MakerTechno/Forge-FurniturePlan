@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:item/moon_shelf",
+  "textures": {
+    "particle": "minecraft:block/cobbled_deepslate"
+  }
+}

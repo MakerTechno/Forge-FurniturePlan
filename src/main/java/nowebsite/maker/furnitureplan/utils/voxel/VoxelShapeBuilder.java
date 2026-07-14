@@ -69,6 +69,7 @@ import java.util.List;
  *     .build();
  * </pre>
  */
+@SuppressWarnings("all")
 public final class VoxelShapeBuilder {
 
     private final VoxelType type;
@@ -614,16 +615,9 @@ public final class VoxelShapeBuilder {
     }
 
     /**
-     * 旋转形状
-     */
-    private VoxelShape rotateShape(VoxelShape shape, RotateCollision.Axis axis, boolean clockwise) {
-        return rotateVoxelShape(shape, axis, clockwise);
-    }
-
-    /**
      * 旋转VoxelShape
      */
-    private VoxelShape rotateVoxelShape(VoxelShape shape, RotateCollision.Axis axis, boolean clockwise) {
+    private VoxelShape rotateShape(VoxelShape shape, RotateCollision.Axis axis, boolean clockwise) {
         if (shape.isEmpty()) {
             return Shapes.empty();
         }

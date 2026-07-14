@@ -28,17 +28,17 @@ public class FPEnglishProvider extends LanguageProvider {
         add(FPBlockReg.GLASS_B_BLOCK_ITEM.get(), "Glass bottle");
         add(FPBlockReg.CUTLERY_ITEM.get(), "Cutlery");
         add("item.furnitureplan.grass_grass.desc", "Maybe you can try to eat it(?)");
+        add("item.furnitureplan.food_plate.desc", "You can put bottle and cutlery on it, and put a food on it");
+        add("item.furnitureplan.cutlery.desc", "You can also put it on a plate");
+        add("item.furnitureplan.glass.desc", "You can also put it on a plate or click on water source,\nor right click glass block with an potion item in hand.");
+
+
         add("advancements.furniture.root.title", "Let's carve a furniture!");
         add("advancements.furniture.root.description", "Get a furniture graver");
         add("advancements.furniture.grassit.title", "It's worth it a grass");
         add("advancements.furniture.grassit.description", "Try to eat a grass(furnitureplan)");
         add("furnitureplan.networking.failed", "Failed to sync data.");
         add("block.furnitureplan.cupboard_block", "Cupboard");
-    }
-
-    public static String capitalize(String str) {
-        if (str.isEmpty()) return str;
-        return Character.toUpperCase(str.charAt(0)) + str.substring(1);
     }
 
     public static String toTitleCase(String raw) {

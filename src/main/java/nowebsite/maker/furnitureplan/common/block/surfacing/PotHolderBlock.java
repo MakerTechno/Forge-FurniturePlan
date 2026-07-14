@@ -56,28 +56,13 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class PotHolderBlock extends BaseEntityBlock implements SimpleWaterloggedBlock, AutoGenBlockData<@NotNull PotHolderBlock>, BlockSetGetter, MulStateGetter<PotHolderPart> {
-    private static final InteractionSpace N1, E1, S1, W1, N2_1, E2_1, S2_1, W2_1, N2_2_1, E2_2_1, S2_2_1, W2_2_1, N2_2_2, E2_2_2, S2_2_2, W2_2_2, N3, E3, S3, W3;
+    private static final InteractionSpace IR1, IR2_1, IR2_2_1, IR2_2_2, IR3;
     static {
-        N1 = InteractionSpace.create(0.25, 0.4375, 0.0000625, 0.75, 1, 0.4999375);
-        E1 = InteractionSpace.create(0.5000625, 0.4375, 0.25, 0.9999375, 1, 0.75);
-        S1 = InteractionSpace.create(0.25, 0.4375, 0.5000625, 0.75, 1, 0.9999375);
-        W1 = InteractionSpace.create(0.0000625, 0.4375, 0.25, 0.4999375, 1, 0.75);
-        N2_1 = InteractionSpace.create(0.25, 0.8125, 0.6250625, 0.75, 1, 0.9999375);
-        E2_1 = InteractionSpace.create(0.0000625, 0.8125, 0.25, 0.3749375, 1, 0.75);
-        S2_1 = InteractionSpace.create(0.25, 0.8125, 0.0000625, 0.75, 1, 0.3749375);
-        W2_1 = InteractionSpace.create(0.6250625, 0.8125, 0.25, 0.9999375, 1, 0.75);
-        N2_2_1 = InteractionSpace.create(0.25, 0, 0.6250625, 0.75, 0.125, 0.9999375);
-        E2_2_1 = InteractionSpace.create(0.0000625, 0, 0.25, 0.3749375, 0.125, 0.75);
-        S2_2_1 = InteractionSpace.create(0.25, 0, 0.0000625, 0.75, 0.125, 0.3749375);
-        W2_2_1 = InteractionSpace.create(0.6250625, 0, 0.25, 0.9999375, 0.125, 0.75);
-        N2_2_2 = InteractionSpace.create(0.25, 0.125, 0.7500625, 0.75, 0.4375, 0.9999375);
-        E2_2_2 = InteractionSpace.create(0.0000625, 0.125, 0.25, 0.2499375, 0.4375, 0.75);
-        S2_2_2 = InteractionSpace.create(0.25, 0.125, 0.0000625, 0.75, 0.4375, 0.2499375);
-        W2_2_2 = InteractionSpace.create(0.7500625, 0.125, 0.25, 0.9999375, 0.4375, 0.75);
-        N3 = InteractionSpace.create(0.25, 0.5, 0.265625, 0.75, 0.9999375, 0.828125);
-        E3 = InteractionSpace.create(0.171875, 0.5, 0.25, 0.734375, 0.9999375, 0.75);
-        S3 = InteractionSpace.create(0.25, 0.5, 0.171875, 0.75, 0.9999375, 0.734375);
-        W3 = InteractionSpace.create(0.265625, 0.5, 0.25, 0.828125, 0.9999375, 0.75);
+        IR1 = InteractionSpace.create(0.25, 0.4375, 0.0000625, 0.75, 1, 0.4999375);
+        IR2_1 = InteractionSpace.create(0.25, 0.8125, 0.6250625, 0.75, 1, 0.9999375);
+        IR2_2_1 = InteractionSpace.create(0.25, 0, 0.6250625, 0.75, 0.125, 0.9999375);
+        IR2_2_2 = InteractionSpace.create(0.25, 0.125, 0.7500625, 0.75, 0.4375, 0.9999375);
+        IR3 = InteractionSpace.create(0.25, 0.5, 0.265625, 0.75, 0.9999375, 0.828125);
     }
     private final MapCodec<PotHolderBlock> codec;
     public static final EnumProperty<@NotNull Direction> FACING = HorizontalDirectionalBlock.FACING;
@@ -116,7 +101,7 @@ public class PotHolderBlock extends BaseEntityBlock implements SimpleWaterlogged
             Vec3 hit = hitResult.getLocation().subtract(pos.getX(), pos.getY(), pos.getZ());
 
             for (int i = 0; i < 3; i++){
-                if (Vec3Utils.isInBox(hit, switchBox(facing, i, isFoot))) {
+                if (Vec3Utils.isInBox(hit, switchBox(i, isFoot), facing)) {
                     if (i == 1 && !isFoot) {
                         if (level.getBlockEntity(pos.below()) instanceof PotHolderBlockEntity blockEntity1) blockEntity = blockEntity1;
                         else return InteractionResult.FAIL;
@@ -138,7 +123,7 @@ public class PotHolderBlock extends BaseEntityBlock implements SimpleWaterlogged
             Vec3 hit = hitResult.getLocation().subtract(pos.getX(), pos.getY(), pos.getZ());
 
             for (int i = 0; i < 3; i++){
-                if (Vec3Utils.isInBox(hit, switchBox(facing, i, isFoot))) {
+                if (Vec3Utils.isInBox(hit, switchBox(i, isFoot), facing)) {
                     if (i == 1 && !isFoot) {
                         if (level.getBlockEntity(pos.below()) instanceof PotHolderBlockEntity blockEntity1) blockEntity = blockEntity1;
                         else return InteractionResult.FAIL;
@@ -189,42 +174,17 @@ public class PotHolderBlock extends BaseEntityBlock implements SimpleWaterlogged
         }
     }
 
-    private List<InteractionSpace> switchBox(Direction direction, int index, boolean isFoot) {
-        if (index == 0 && isFoot) {
-            return switch (direction) {
-                case NORTH -> List.of(N1);
-                case EAST -> List.of(E1);
-                case SOUTH -> List.of(S1);
-                case WEST -> List.of(W1);
-                default -> List.of();
-            };
-        } else if (index == 1) {
-            if (isFoot) {
-                return switch (direction) {
-                    case NORTH -> List.of(N2_1);
-                    case EAST -> List.of(E2_1);
-                    case SOUTH -> List.of(S2_1);
-                    case WEST -> List.of(W2_1);
-                    default -> List.of();
-                };
-            }else {
-                return switch (direction) {
-                    case NORTH -> List.of(N2_2_1, N2_2_2);
-                    case EAST -> List.of(E2_2_1, E2_2_2);
-                    case SOUTH -> List.of(S2_2_1, S2_2_2);
-                    case WEST -> List.of(W2_2_1, W2_2_2);
-                    default -> List.of();
-                };
-            }
-        } else if (index == 2 && !isFoot){
-            return switch (direction) {
-                case NORTH -> List.of(N3);
-                case EAST -> List.of(E3);
-                case SOUTH -> List.of(S3);
-                case WEST -> List.of(W3);
-                default -> List.of();
-            };
-        } else return List.of();
+    private List<InteractionSpace> switchBox(int index, boolean isFoot) {
+        if (index == 0 && isFoot) return List.of(IR1);
+
+        else if (index == 1) {
+            if (isFoot) return List.of(IR2_1);
+            else return List.of(IR2_2_1, IR2_2_2);
+        }
+
+        else if (index == 2 && !isFoot) return List.of(IR3);
+
+        else return List.of();
     }
 
     @Override

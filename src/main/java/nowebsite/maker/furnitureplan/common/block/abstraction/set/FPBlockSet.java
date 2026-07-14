@@ -2,8 +2,14 @@ package nowebsite.maker.furnitureplan.common.block.abstraction.set;
 
 import it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -15,10 +21,9 @@ import nowebsite.maker.furnitureplan.common.block.seating.WeatheredCopperBenchBl
 import nowebsite.maker.furnitureplan.common.block.seating.WeatheredCopperChairBlock;
 import nowebsite.maker.furnitureplan.common.block.storaging.CupboardBlock;
 import nowebsite.maker.furnitureplan.common.block.storaging.WeatheredCopperCupboardBlock;
-import nowebsite.maker.furnitureplan.common.block.surfacing.PotHolderBlock;
-import nowebsite.maker.furnitureplan.common.block.surfacing.TableBlock;
-import nowebsite.maker.furnitureplan.common.block.surfacing.WeatheredCopperTableBlock;
+import nowebsite.maker.furnitureplan.common.block.surfacing.*;
 import nowebsite.maker.furnitureplan.common.init.FPBlockReg;
+import nowebsite.maker.furnitureplan.common.init.FPItemReg;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -28,6 +33,7 @@ import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+@SuppressWarnings("all")
 public class FPBlockSet {
     public final FPBlockSetType materialType;
     public final DeferredBlock<@NotNull ChairBlock> CHAIR;
@@ -38,6 +44,7 @@ public class FPBlockSet {
     public final DeferredBlock<@NotNull PotHolderBlock> POT_HOLDER;
     public final DeferredBlock<@NotNull TableBlock> TABLE;
     public final DeferredBlock<@NotNull CupboardBlock> CUPBOARD;
+    public final DeferredBlock<@NotNull MoonShelfBlock> MOON_SHELF;
 
     private final Map<FPBlockType<?>, DeferredBlock<?>> RAW = new HashMap<>(8);
 
@@ -51,6 +58,7 @@ public class FPBlockSet {
         POT_HOLDER = init(builder, FPBlockType.POT_HOLDER);
         TABLE = init(builder, FPBlockType.TABLE);
         CUPBOARD = init(builder, FPBlockType.CUPBOARD);
+        MOON_SHELF = init(builder, FPBlockType.MOON_SHELF);
     }
 
     @Nullable
@@ -64,7 +72,17 @@ public class FPBlockSet {
         if (!entry.available) {
             return null;
         }
-        DeferredBlock<T> block = FPBlockReg.registerWithItem(entry.specialId != null ? entry.specialId : builder.materialType.name() + "_" + type.name(), entry.getEntryResult());
+        String name = entry.specialId != null ? entry.specialId : builder.materialType.name() + "_" + type.name();
+        DeferredBlock<T> block = FPBlockReg.registerWithoutItem(name, entry.getEntryResult());
+        if (type.isWithHover()) {
+            FPItemReg.ITEMS.register(name, identifier -> new BlockItem(block.get(), new Item.Properties()) {
+                @Override
+                public void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display, Consumer<Component> builder, TooltipFlag tooltipFlag) {
+                    super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
+                    builder.accept(Component.translatable(type.getHoverKey()));
+                }
+            });
+        } else FPItemReg.ITEMS.registerSimpleBlockItem(block);
         type.register(block);
         RAW.put(type, block);
         return block;
@@ -127,6 +145,10 @@ public class FPBlockSet {
             putEntry(FPBlockType.CUPBOARD, (p, _) -> IWeatheringCopper.isWeatheringType(materialType)
                 ? new WeatheredCopperCupboardBlock(materialType, propSourceBlock.defaultBlockState(), p)
                 : new CupboardBlock(materialType, propSourceBlock.defaultBlockState(), p)
+            );
+            putEntry(FPBlockType.MOON_SHELF, (p, _) -> IWeatheringCopper.isWeatheringType(materialType)
+                ? new WeatheredCopperMoonShelfBlock(materialType, propSourceBlock.defaultBlockState(), p)
+                : new MoonShelfBlock(materialType, propSourceBlock.defaultBlockState(), p)
             );
 
             if (materialType instanceof FPColorfulSetType colorfulType) {

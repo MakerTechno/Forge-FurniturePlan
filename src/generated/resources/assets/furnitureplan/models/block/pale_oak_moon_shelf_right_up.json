@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/template/moon_shelf_right_up",
+  "textures": {
+    "particle": "minecraft:block/pale_oak_planks"
+  }
+}

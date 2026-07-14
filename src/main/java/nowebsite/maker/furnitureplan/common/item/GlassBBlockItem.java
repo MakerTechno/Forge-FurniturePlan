@@ -99,6 +99,7 @@ public class GlassBBlockItem extends BlockItem {
     @Override
     public void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display, Consumer<Component> builder, TooltipFlag tooltipFlag) {
         super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
+        builder.accept(Component.translatable("item.furnitureplan.glass.desc"));
         Level level = context.level();
         if (level == null) return;
         GlassBBlockEntity blockEntity = new GlassBBlockEntity(BlockPos.ZERO, FPBlockReg.GLASS_B_BLOCK.get().defaultBlockState());

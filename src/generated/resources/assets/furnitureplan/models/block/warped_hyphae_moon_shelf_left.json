@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/template/moon_shelf_left",
+  "textures": {
+    "particle": "minecraft:block/warped_stem"
+  }
+}

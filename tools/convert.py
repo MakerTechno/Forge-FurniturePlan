@@ -13,12 +13,12 @@ def convert_model(json_file):
         w, h, d = to[0] - x, to[1] - y, to[2] - z
 
         print(f'// Element: {name}')
-        print(f'CubeDefinition {name} = new CubeDefinition()')
+        print(f'CubeModel {name} = new FPCubeDefinition()')
         print(f'    .model({x}f, {y}f, {z}f, {w}f, {h}f, {d}f)')
 
         for dir, face in elem.get("faces", {}).items():
             u0, v0, u1, v1 = face["uv"]
-            print(f'    .{dir}({u0}f, {v0}f, {u1}f, {v1}f)')
+            print(f'    .{dir}({u0}f, {v0}f, {u1}f, {v1}f, 0)')
 
         print(f'    .build();\n')
 

@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/template/moon_shelf_down",
+  "textures": {
+    "particle": "minecraft:block/deepslate_bricks"
+  }
+}

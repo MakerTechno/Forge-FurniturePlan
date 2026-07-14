@@ -48,6 +48,12 @@ public class CommonEvents {
             FPBlockReg.CABINET_BLOCK_ENTITY.get(),
             (be, _) -> VanillaContainerWrapper.of(be.container)
         );
+
+        event.registerBlockEntity(
+            Capabilities.Item.BLOCK,
+            FPBlockReg.MOON_SHELF_BLOCK_ENTITY.get(),
+            (be, _) -> VanillaContainerWrapper.of(be)
+        );
     }
     @SubscribeEvent
     public static void registerPayloads(final @NotNull RegisterPayloadHandlersEvent event) {

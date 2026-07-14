@@ -90,6 +90,7 @@ public class FPCreativeModTabReg {
         if (event.getTab().equals(SURFACING.get())) {
             event.acceptAll(FPBlockReg.TABLES.get().stream().map(Block::asItem).map(Item::getDefaultInstance).toList());
             event.acceptAll(FPBlockReg.POT_HOLDERS.get().stream().map(Block::asItem).map(Item::getDefaultInstance).toList());
+            event.acceptAll(FPBlockReg.MOON_SHELVES.get().stream().map(Block::asItem).map(Item::getDefaultInstance).toList());
         }
         if (event.getTab().equals(DECORATING.get())) {
             event.acceptAll(FPBlockReg.COLUMNS.get().stream().map(Block::asItem).map(Item::getDefaultInstance).toList());

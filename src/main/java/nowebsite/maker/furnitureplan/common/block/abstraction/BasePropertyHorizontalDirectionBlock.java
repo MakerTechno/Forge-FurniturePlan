@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockSetType;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 
@@ -32,8 +33,8 @@ public abstract class BasePropertyHorizontalDirectionBlock<T extends BasePropert
     }
 
     @Override
-    @NotNull
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
+    @SuppressWarnings("all")
+    public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
         return super.getStateForPlacement(context).setValue(FACING, context.getHorizontalDirection().getOpposite());
     }
 

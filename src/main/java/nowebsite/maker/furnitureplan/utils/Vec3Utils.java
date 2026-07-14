@@ -35,18 +35,12 @@ public class Vec3Utils {
         };
     }
 
-    @Contract(pure = true)
-    public static boolean isInBox(@NotNull Vec3 point, @NotNull Vec3 from, @NotNull Vec3 to) {
-        return (point.x >= Math.min(from.x, to.x) && point.x <= Math.max(from.x, to.x)) &&
-            (point.y >= Math.min(from.y, to.y) && point.y <= Math.max(from.y, to.y)) &&
-            (point.z >= Math.min(from.z, to.z) && point.z <= Math.max(from.z, to.z));
+    public static boolean isInBox(Vec3 point, @NotNull InteractionSpace cube, Direction blockFacing){
+        return cube.getShape(blockFacing).contains(point);
     }
-    public static boolean isInBox(Vec3 point, @NotNull InteractionSpace cube){
-        return isInBox(point, cube.from(), cube.end());
-    }
-    public static boolean isInBox(Vec3 point, @NotNull List<InteractionSpace> list) {
+    public static boolean isInBox(Vec3 point, @NotNull List<InteractionSpace> list, Direction blockFacing) {
         for (InteractionSpace cube : list) {
-            if (isInBox(point, cube)) return true;
+            if (isInBox(point, cube, blockFacing)) return true;
         }
         return false;
     }

@@ -20,6 +20,7 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockSetType;
 import nowebsite.maker.furnitureplan.common.data.gen.empowered.AutoGenBlockData;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 
@@ -84,7 +85,7 @@ public abstract class BasePropertyExtendedBlock<T extends BasePropertyExtendedBl
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
+    public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
         BlockState blockState = super.getStateForPlacement(context);
         return
             blockState == null ?
