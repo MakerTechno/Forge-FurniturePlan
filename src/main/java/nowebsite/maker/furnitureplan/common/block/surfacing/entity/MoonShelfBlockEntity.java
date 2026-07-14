@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -13,11 +14,14 @@ import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.TypedEntityData;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.RotationSegment;
 import net.minecraft.world.level.storage.TagValueOutput;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
@@ -188,10 +192,22 @@ public class MoonShelfBlockEntity extends BlockEntity implements Container {
                 state = state.setValue(BlockStateProperties.FACING,  adjusted == null ? defaultFacing : adjusted);
             } else if (state.getProperties().contains(BlockStateProperties.HORIZONTAL_FACING)) {
                 state = state.setValue(BlockStateProperties.HORIZONTAL_FACING, adjusted == null ? defaultFacing : adjusted);
+            } else if (state.getProperties().contains(BlockStateProperties.ROTATION_16)) {
+                state = state.setValue(BlockStateProperties.ROTATION_16, RotationSegment.convertToSegment(adjusted == null ? defaultFacing : adjusted));
             }
 
             if (state.getBlock() instanceof EntityBlock entityBlock) {
                 BlockEntity toRend = entityBlock.newBlockEntity(getBlockPos(), state);
+                if (toRend != null) {
+                    ItemStack itemStack = items.get(i);
+                    if (!toRend.getType().onlyOpCanSetNbt()) {
+                        TypedEntityData<BlockEntityType<?>> customData = itemStack.get(DataComponents.BLOCK_ENTITY_DATA);
+                        if (customData != null && customData.type().equals(toRend.getType())) {
+                            customData.loadInto(toRend, level.registryAccess());
+                        }
+                    }
+                    toRend.applyComponentsFromItemStack(itemStack);
+                }
                 blockEntityCaches.set(i, toRend); // also nullable
             }
 

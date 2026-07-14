@@ -20,6 +20,7 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import nowebsite.maker.furnitureplan.common.block.surfacing.MoonShelfBlock;
 import nowebsite.maker.furnitureplan.common.block.surfacing.entity.MoonShelfBlockEntity;
@@ -116,6 +117,7 @@ public class MoonShelfBlockEntityRenderer implements BlockEntityRenderer<@NotNul
                     if (renderer == null) continue;
                     BlockEntityRenderState innerState = renderer.createRenderState();
                     renderer.extractRenderState(toRend, innerState, partialTicks, cameraPosition, breakProgress);
+                    innerState.lightCoords = state.lightCoords; // as inner BE's level is null, it returns full light. So we set it twice here
                     state.renderers.set(i, renderer);
                     state.renderStates.set(i, innerState);
                 } catch (Exception ignore) {
@@ -158,5 +160,10 @@ public class MoonShelfBlockEntityRenderer implements BlockEntityRenderer<@NotNul
             poseStack.popPose();
         }
         poseStack.popPose();
+    }
+
+    @Override
+    public AABB getRenderBoundingBox(@NotNull MoonShelfBlockEntity blockEntity) {
+        return new AABB(blockEntity.getBlockPos()).inflate(1);
     }
 }
