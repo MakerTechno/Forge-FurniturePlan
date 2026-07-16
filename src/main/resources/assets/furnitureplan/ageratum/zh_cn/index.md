@@ -18,8 +18,7 @@ navigation:
 6. [餐具、灯光与趣味物品](current/06-tableware-lighting-and-novelty.md)
 7. [兼容、调试与已知限制](current/07-compatibility-debugging-and-limitations.md)
 
-## 版本边界
+## 注意事项
 
 - 目标环境为 Minecraft 26.1.2、NeoForge 26.1.2.30-beta 和 Java 25。
-- 当前没有完整的生存合成路线，家具主要通过创造模式或命令取得。
 - 指南书需要客户端安装 Ageratum 才会显示在创造模式分页中并打开本文档。
