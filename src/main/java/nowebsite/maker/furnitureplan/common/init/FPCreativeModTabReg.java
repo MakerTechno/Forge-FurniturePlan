@@ -8,6 +8,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import nowebsite.maker.furnitureplan.FurniturePlan;
@@ -82,6 +83,9 @@ public class FPCreativeModTabReg {
             event.accept(FPBlockReg.CUTLERY_ITEM.get());
             event.accept(FPBlockReg.GLASS_B_BLOCK_ITEM.get());
             event.accept(FPBlockReg.FOOD_PLATE_BLOCK_ITEM.get());
+            if (ModList.get().isLoaded("ageratum")) {
+                event.accept(FPItemReg.AGERATUM_GUIDEBOOK.get());
+            }
         }
         if (event.getTab().equals(SITTING.get())) {
             event.acceptAll(FPBlockReg.CHAIRS.get().stream().map(Block::asItem).map(Item::getDefaultInstance).toList());
