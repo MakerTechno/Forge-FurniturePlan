@@ -16,10 +16,9 @@ This documentation describes features implemented in the current workspace. The 
 4. [Display Shelves and Pot Holders](current/04-display-shelves-and-pot-holders.md)
 5. [Storage Furniture](current/05-storage-furniture.md)
 6. [Tableware, Lighting, and Novelty Items](current/06-tableware-lighting-and-novelty.md)
-7. [Compatibility, Debugging, and Limitations](current/07-compatibility-debugging-and-limitations.md)
+7. [Compatibility](current/07-compatibility.md)
 
-## Version Scope
+## Announcements
 
 - The target environment is Minecraft 26.1.2, NeoForge 26.1.2.30-beta, and Java 25.
-- There is no complete survival crafting path; furniture is mainly obtained through Creative Mode or commands.
 - The guidebook appears in the Creative tab and opens this documentation only when Ageratum is installed on the client.
