@@ -16,7 +16,7 @@ navigation:
 4. [展示架与花架](current/04-display-shelves-and-pot-holders.md)
 5. [储物家具](current/05-storage-furniture.md)
 6. [餐具、灯光与趣味物品](current/06-tableware-lighting-and-novelty.md)
-7. [兼容、调试与已知限制](current/07-compatibility-debugging-and-limitations.md)
+7. [兼容问题](current/07-compatibility.md)
 
 ## 注意事项
 
