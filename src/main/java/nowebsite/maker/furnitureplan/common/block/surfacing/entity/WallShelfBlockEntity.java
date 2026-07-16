@@ -121,10 +121,11 @@ public class WallShelfBlockEntity extends BlockEntity implements Container {
 
     @Override
     public void preRemoveSideEffects(BlockPos pos, BlockState state) {
-        SimpleContainer inventory = new SimpleContainer(6);
+        SimpleContainer inventory = new SimpleContainer(7);
         for (int i = 0; i < 6; i++) {
             inventory.setItem(i, getItem(i));
         }
+        if (isBi) inventory.setItem(6, state.getBlock().asItem().getDefaultInstance());
         Containers.dropContents(Objects.requireNonNull(this.getLevel()), this.worldPosition, inventory);
     }
 
