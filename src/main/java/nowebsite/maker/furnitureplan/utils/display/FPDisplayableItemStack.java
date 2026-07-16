@@ -66,7 +66,10 @@ public class FPDisplayableItemStack {
     }
 
     private void tryGenerateBlockEntity(ItemStack stack, Level clientLevel, BlockEntity holder, BlockState state) {
-        if (!(state.getBlock() instanceof EntityBlock entityBlock)) return;
+        if (!(state.getBlock() instanceof EntityBlock entityBlock)) {
+            blockEntityCache = null;
+            return;
+        }
         BlockEntity toRend = entityBlock.newBlockEntity(holder.getBlockPos(), state);
         if (toRend != null) {
             if (!toRend.getType().onlyOpCanSetNbt()) {

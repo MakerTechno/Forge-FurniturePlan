@@ -100,6 +100,7 @@ public class WallShelfBlock extends BasePropertyHorizontalDirectionBlock<WallShe
             blockEntity.setBi(true);
             if (!player.getAbilities().instabuild) itemStack.shrink(1);
             level.setBlockAndUpdate(pos, state.setValue(SHAPE, WallShelfShape.BI));
+            return InteractionResult.SUCCESS_SERVER;
         }
         if (blockEntity.putItem(player.getAbilities().instabuild ? itemStack.copy() : itemStack, index)) return InteractionResult.SUCCESS_SERVER;
         return InteractionResult.TRY_WITH_EMPTY_HAND;
