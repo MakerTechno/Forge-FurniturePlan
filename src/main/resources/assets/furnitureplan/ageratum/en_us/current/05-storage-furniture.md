@@ -16,4 +16,4 @@ A cabinet is one 36-slot container using a four-row vanilla container screen. Ea
 
 ## Shared Rules
 
-Both furniture types save inventories and drop their contents when broken. They must be operated from the front and cannot open when a redstone-conducting block fully obstructs that side. Automation can currently access the complete container without directional input or output rules.
+Both furniture types save inventories and drop their contents when broken. They must be operated from the front and cannot open when being obstructed that side. Automation can currently access the complete container without directional input or output rules.
