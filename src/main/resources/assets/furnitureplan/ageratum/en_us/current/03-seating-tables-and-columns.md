@@ -16,4 +16,4 @@ Horizontally adjacent tables automatically switch edge, leg, and panel shapes. C
 
 ## Columns
 
-Columns, carved columns, and lighted columns switch between base, middle, and top shapes according to vertical neighbors. Different materials and column styles may participate in the same connection. Lighted columns always emit light level 15 and currently cannot be switched off.
+Columns, carved columns, and lighted columns switch between base, middle, and top shapes according to vertical neighbors. Different materials and column styles may participate in the same connection. Lighted columns always emit light level 15.
