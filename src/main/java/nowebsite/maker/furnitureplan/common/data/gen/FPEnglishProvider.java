@@ -4,6 +4,7 @@ import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.common.init.FPBlockReg;
+import nowebsite.maker.furnitureplan.common.init.FPItemReg;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -27,6 +28,7 @@ public class FPEnglishProvider extends LanguageProvider {
         add(FPBlockReg.FOOD_PLATE_BLOCK_ITEM.get(), "Food plate");
         add(FPBlockReg.GLASS_B_BLOCK_ITEM.get(), "Glass bottle");
         add(FPBlockReg.CUTLERY_ITEM.get(), "Cutlery");
+        add(FPItemReg.AGERATUM_GUIDEBOOK.get(), "Furniture Plan Guidebook");
         add("item.furnitureplan.grass_grass.desc", "Maybe you can try to eat it(?)");
         add("item.furnitureplan.food_plate.desc", "You can put bottle and cutlery on it, and put a food on it");
         add("item.furnitureplan.cutlery.desc", "You can also put it on a plate");

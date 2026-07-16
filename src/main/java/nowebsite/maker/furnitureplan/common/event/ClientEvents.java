@@ -1,11 +1,14 @@
 package nowebsite.maker.furnitureplan.common.event;
 
 import net.minecraft.client.renderer.entity.NoopRenderer;
+import net.minecraft.world.InteractionResult;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.client.ClientCommandHandler;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.common.block.cooking.utensils.entities.renderer.FoodPlateBlockEntityRenderer;
 import nowebsite.maker.furnitureplan.common.block.cooking.utensils.entities.renderer.GlassBBlockEntityRenderer;
@@ -18,6 +21,7 @@ import nowebsite.maker.furnitureplan.common.block.surfacing.entity.renderer.PotH
 import nowebsite.maker.furnitureplan.common.block.surfacing.entity.renderer.WallShelfBlockEntityRenderer;
 import nowebsite.maker.furnitureplan.common.init.FPBlockReg;
 import nowebsite.maker.furnitureplan.common.init.FPEntityTypeReg;
+import nowebsite.maker.furnitureplan.common.init.FPItemReg;
 import nowebsite.maker.furnitureplan.common.init.FPMenuRegistration;
 import org.jetbrains.annotations.NotNull;
 
@@ -42,4 +46,13 @@ public class ClientEvents {
         event.registerEntityRenderer(FPEntityTypeReg.NULL_RIDE.get(), NoopRenderer::new);
     }
 
+    @SubscribeEvent
+    public static void onAgeratumGuidebookUse(PlayerInteractEvent.RightClickItem event) {
+        if (!event.getLevel().isClientSide()) return;
+        if (!event.getItemStack().is(FPItemReg.AGERATUM_GUIDEBOOK.get())) return;
+        if (!ClientCommandHandler.runCommand("ageratum \"furnitureplan\" \"index\"")) return;
+        event.setCanceled(true);
+        event.setCancellationResult(InteractionResult.SUCCESS);
+    }
 }
+
