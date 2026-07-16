@@ -1,137 +1,137 @@
 {
   "variants": {
-    "define=center,facing=east": {
+    "facing=east,part=center": {
       "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_center",
       "y": 90
     },
-    "define=center,facing=north": {
+    "facing=east,part=down": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_down",
+      "y": 90
+    },
+    "facing=east,part=left": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_left",
+      "y": 90
+    },
+    "facing=east,part=left_down": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_left_down",
+      "y": 90
+    },
+    "facing=east,part=left_up": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_left_up",
+      "y": 90
+    },
+    "facing=east,part=right": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_right",
+      "y": 90
+    },
+    "facing=east,part=right_down": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_right_down",
+      "y": 90
+    },
+    "facing=east,part=right_up": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_right_up",
+      "y": 90
+    },
+    "facing=east,part=up": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_up",
+      "y": 90
+    },
+    "facing=north,part=center": {
       "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_center"
     },
-    "define=center,facing=south": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_center",
-      "y": 180
-    },
-    "define=center,facing=west": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_center",
-      "y": 270
-    },
-    "define=down,facing=east": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_down",
-      "y": 90
-    },
-    "define=down,facing=north": {
+    "facing=north,part=down": {
       "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_down"
     },
-    "define=down,facing=south": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_down",
-      "y": 180
-    },
-    "define=down,facing=west": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_down",
-      "y": 270
-    },
-    "define=left,facing=east": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_left",
-      "y": 90
-    },
-    "define=left,facing=north": {
+    "facing=north,part=left": {
       "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_left"
     },
-    "define=left,facing=south": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_left",
-      "y": 180
-    },
-    "define=left,facing=west": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_left",
-      "y": 270
-    },
-    "define=left_down,facing=east": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_left_down",
-      "y": 90
-    },
-    "define=left_down,facing=north": {
+    "facing=north,part=left_down": {
       "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_left_down"
     },
-    "define=left_down,facing=south": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_left_down",
-      "y": 180
-    },
-    "define=left_down,facing=west": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_left_down",
-      "y": 270
-    },
-    "define=left_up,facing=east": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_left_up",
-      "y": 90
-    },
-    "define=left_up,facing=north": {
+    "facing=north,part=left_up": {
       "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_left_up"
     },
-    "define=left_up,facing=south": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_left_up",
-      "y": 180
-    },
-    "define=left_up,facing=west": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_left_up",
-      "y": 270
-    },
-    "define=right,facing=east": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_right",
-      "y": 90
-    },
-    "define=right,facing=north": {
+    "facing=north,part=right": {
       "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_right"
     },
-    "define=right,facing=south": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_right",
-      "y": 180
-    },
-    "define=right,facing=west": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_right",
-      "y": 270
-    },
-    "define=right_down,facing=east": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_right_down",
-      "y": 90
-    },
-    "define=right_down,facing=north": {
+    "facing=north,part=right_down": {
       "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_right_down"
     },
-    "define=right_down,facing=south": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_right_down",
-      "y": 180
-    },
-    "define=right_down,facing=west": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_right_down",
-      "y": 270
-    },
-    "define=right_up,facing=east": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_right_up",
-      "y": 90
-    },
-    "define=right_up,facing=north": {
+    "facing=north,part=right_up": {
       "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_right_up"
     },
-    "define=right_up,facing=south": {
+    "facing=north,part=up": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_up"
+    },
+    "facing=south,part=center": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_center",
+      "y": 180
+    },
+    "facing=south,part=down": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_down",
+      "y": 180
+    },
+    "facing=south,part=left": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_left",
+      "y": 180
+    },
+    "facing=south,part=left_down": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_left_down",
+      "y": 180
+    },
+    "facing=south,part=left_up": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_left_up",
+      "y": 180
+    },
+    "facing=south,part=right": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_right",
+      "y": 180
+    },
+    "facing=south,part=right_down": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_right_down",
+      "y": 180
+    },
+    "facing=south,part=right_up": {
       "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_right_up",
       "y": 180
     },
-    "define=right_up,facing=west": {
+    "facing=south,part=up": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_up",
+      "y": 180
+    },
+    "facing=west,part=center": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_center",
+      "y": 270
+    },
+    "facing=west,part=down": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_down",
+      "y": 270
+    },
+    "facing=west,part=left": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_left",
+      "y": 270
+    },
+    "facing=west,part=left_down": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_left_down",
+      "y": 270
+    },
+    "facing=west,part=left_up": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_left_up",
+      "y": 270
+    },
+    "facing=west,part=right": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_right",
+      "y": 270
+    },
+    "facing=west,part=right_down": {
+      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_right_down",
+      "y": 270
+    },
+    "facing=west,part=right_up": {
       "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_right_up",
       "y": 270
     },
-    "define=up,facing=east": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_up",
-      "y": 90
-    },
-    "define=up,facing=north": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_up"
-    },
-    "define=up,facing=south": {
-      "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_up",
-      "y": 180
-    },
-    "define=up,facing=west": {
+    "facing=west,part=up": {
       "model": "furnitureplan:block/waxed_cut_copper_moon_shelf_up",
       "y": 270
     }

@@ -64,8 +64,10 @@ import nowebsite.maker.furnitureplan.common.block.storaging.entity.CupboardBlock
 import nowebsite.maker.furnitureplan.common.block.surfacing.MoonShelfBlock;
 import nowebsite.maker.furnitureplan.common.block.surfacing.PotHolderBlock;
 import nowebsite.maker.furnitureplan.common.block.surfacing.TableBlock;
+import nowebsite.maker.furnitureplan.common.block.surfacing.WallShelfBlock;
 import nowebsite.maker.furnitureplan.common.block.surfacing.entity.MoonShelfBlockEntity;
 import nowebsite.maker.furnitureplan.common.block.surfacing.entity.PotHolderBlockEntity;
+import nowebsite.maker.furnitureplan.common.block.surfacing.entity.WallShelfBlockEntity;
 import nowebsite.maker.furnitureplan.common.item.GlassBBlockItem;
 import nowebsite.maker.furnitureplan.common.item.IronPotItem;
 import org.apache.logging.log4j.util.Lazy;
@@ -167,6 +169,7 @@ public class FPBlockReg {
 
     public static final Lazy<List<CupboardBlock>> CUPBOARDS = Lazy.lazy(() -> AUTO_FURNITURE_SET.stream().map(set -> set.CUPBOARD.get()).toList());
     public static final Lazy<List<MoonShelfBlock>> MOON_SHELVES = Lazy.lazy(() -> AUTO_FURNITURE_SET.stream().map(set -> set.MOON_SHELF.get()).toList());
+    public static final Lazy<List<WallShelfBlock>> WALL_SHELVES = Lazy.lazy(() -> AUTO_FURNITURE_SET.stream().map(set -> set.WALL_SHELF.get()).toList());
     public static final Lazy<List<CabinetBlock>> CABINETS = Lazy.lazy(() -> {
         List<CabinetBlock> cabinetBlocks = new ArrayList<>();
         CABINET_HOLDERS.values().forEach(deferredBlocks -> cabinetBlocks.addAll(deferredBlocks.stream().map(DeferredBlock::get).toList()));
@@ -275,6 +278,14 @@ public class FPBlockReg {
         )
     );
 
+    public static final DeferredHolder<BlockEntityType<?>, @NotNull BlockEntityType<@NotNull WallShelfBlockEntity>> WALL_SHELF_BLOCK_ENTITY = BLOCK_ENTITIES.register(
+        "wall_shelf_block_entity",
+        () -> new BlockEntityType<>(
+            WallShelfBlockEntity::new,
+            new HashSet<>(WALL_SHELVES.get())
+        )
+    );
+
 
     public static <B extends Block> DeferredBlock<B> registerWithItem(String id, Function<Identifier, B> block) {
         return registerWithItem(id, block, new Item.Properties());
@@ -342,9 +353,10 @@ public class FPBlockReg {
         public static final EnumProperty<@NotNull TableLampShape> TABLE_LAMP_SHAPE = EnumProperty.create("shape", TableLampShape.class);
         public static final EnumProperty<@NotNull PotHolderPart> POT_HOLDER_PART = EnumProperty.create("part", PotHolderPart.class);
         public static final EnumProperty<@NotNull BottleDefine> BOTTLE_DEFINE = EnumProperty.create("define", BottleDefine.class);
-        public static final EnumProperty<@NotNull StoveShape> STOVE_SHAPE = EnumProperty.create("define", StoveShape.class);
+        public static final EnumProperty<@NotNull StoveShape> STOVE_SHAPE = EnumProperty.create("shape", StoveShape.class);
         public static final EnumProperty<@NotNull PlateShape> PLATE_SHAPE = EnumProperty.create("define", PlateShape.class);
-        public static final EnumProperty<@NotNull MoonShelfPart> MOON_SHELF_PART = EnumProperty.create("define", MoonShelfPart.class);
+        public static final EnumProperty<@NotNull MoonShelfPart> MOON_SHELF_PART = EnumProperty.create("part", MoonShelfPart.class);
+        public static final EnumProperty<@NotNull WallShelfShape> WALL_SHELF_SHAPE = EnumProperty.create("shape", WallShelfShape.class);
     }
 
 }

@@ -27,6 +27,9 @@
     "furnitureplan:cut_copper_table": {
       "next_oxidation_stage": "furnitureplan:exposed_cut_copper_table"
     },
+    "furnitureplan:cut_copper_wall_shelf": {
+      "next_oxidation_stage": "furnitureplan:exposed_cut_copper_wall_shelf"
+    },
     "furnitureplan:cut_copper_with_black_frame_cabinet": {
       "next_oxidation_stage": "furnitureplan:exposed_cut_copper_with_black_frame_cabinet"
     },
@@ -102,6 +105,9 @@
     "furnitureplan:exposed_cut_copper_table": {
       "next_oxidation_stage": "furnitureplan:weathered_cut_copper_table"
     },
+    "furnitureplan:exposed_cut_copper_wall_shelf": {
+      "next_oxidation_stage": "furnitureplan:weathered_cut_copper_wall_shelf"
+    },
     "furnitureplan:exposed_cut_copper_with_black_frame_cabinet": {
       "next_oxidation_stage": "furnitureplan:weathered_cut_copper_with_black_frame_cabinet"
     },
@@ -176,6 +182,9 @@
     },
     "furnitureplan:weathered_cut_copper_table": {
       "next_oxidation_stage": "furnitureplan:oxidized_cut_copper_table"
+    },
+    "furnitureplan:weathered_cut_copper_wall_shelf": {
+      "next_oxidation_stage": "furnitureplan:oxidized_cut_copper_wall_shelf"
     },
     "furnitureplan:weathered_cut_copper_with_black_frame_cabinet": {
       "next_oxidation_stage": "furnitureplan:oxidized_cut_copper_with_black_frame_cabinet"

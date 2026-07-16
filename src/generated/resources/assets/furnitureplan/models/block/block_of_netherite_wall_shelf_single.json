@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/template/wall_shelf_single",
+  "textures": {
+    "particle": "minecraft:block/netherite_block"
+  }
+}

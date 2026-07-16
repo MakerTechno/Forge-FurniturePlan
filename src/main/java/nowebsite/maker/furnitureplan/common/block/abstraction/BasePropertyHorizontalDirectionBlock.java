@@ -5,7 +5,6 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -16,7 +15,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 
-public abstract class BasePropertyHorizontalDirectionBlock<T extends BasePropertyHorizontalDirectionBlock<T>> extends BasePropertyExtendedBlock<T> implements SimpleWaterloggedBlock {
+public abstract class BasePropertyHorizontalDirectionBlock<T extends BasePropertyHorizontalDirectionBlock<T>> extends BasePropertyExtendedBlock<T> {
     public static final EnumProperty<@NotNull Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
 
     public BasePropertyHorizontalDirectionBlock(FPBlockSetType type, BlockState state, Consumer<Properties> extraProperties) {

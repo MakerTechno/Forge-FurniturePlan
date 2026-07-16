@@ -45,6 +45,7 @@ public class FPBlockSet {
     public final DeferredBlock<@NotNull TableBlock> TABLE;
     public final DeferredBlock<@NotNull CupboardBlock> CUPBOARD;
     public final DeferredBlock<@NotNull MoonShelfBlock> MOON_SHELF;
+    public final DeferredBlock<@NotNull WallShelfBlock> WALL_SHELF;
 
     private final Map<FPBlockType<?>, DeferredBlock<?>> RAW = new HashMap<>(8);
 
@@ -59,6 +60,7 @@ public class FPBlockSet {
         TABLE = init(builder, FPBlockType.TABLE);
         CUPBOARD = init(builder, FPBlockType.CUPBOARD);
         MOON_SHELF = init(builder, FPBlockType.MOON_SHELF);
+        WALL_SHELF = init(builder, FPBlockType.WALL_SHELF);
     }
 
     @Nullable
@@ -149,6 +151,10 @@ public class FPBlockSet {
             putEntry(FPBlockType.MOON_SHELF, (p, _) -> IWeatheringCopper.isWeatheringType(materialType)
                 ? new WeatheredCopperMoonShelfBlock(materialType, propSourceBlock.defaultBlockState(), p)
                 : new MoonShelfBlock(materialType, propSourceBlock.defaultBlockState(), p)
+            );
+            putEntry(FPBlockType.WALL_SHELF, (p, _) -> IWeatheringCopper.isWeatheringType(materialType)
+                ? new WeatheredCopperWallShelfBlock(materialType, propSourceBlock.defaultBlockState(), p)
+                : new WallShelfBlock(materialType, propSourceBlock.defaultBlockState(), p)
             );
 
             if (materialType instanceof FPColorfulSetType colorfulType) {

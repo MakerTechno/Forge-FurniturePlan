@@ -13,6 +13,7 @@ import nowebsite.maker.furnitureplan.common.block.storaging.CupboardBlock;
 import nowebsite.maker.furnitureplan.common.block.surfacing.MoonShelfBlock;
 import nowebsite.maker.furnitureplan.common.block.surfacing.PotHolderBlock;
 import nowebsite.maker.furnitureplan.common.block.surfacing.TableBlock;
+import nowebsite.maker.furnitureplan.common.block.surfacing.WallShelfBlock;
 import nowebsite.maker.furnitureplan.common.data.gen.FPChineseProvider;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -93,4 +94,5 @@ public class FPBlockType<T extends Block> {
     public static final FPBlockType<@NotNull CupboardBlock> CUPBOARD = create("cupboard", map -> map.put(FPChineseProvider.LOCALE, "橱柜"));
     public static final FPBlockType<@NotNull CabinetBlock> CABINET = create("cabinet", map -> map.put(FPChineseProvider.LOCALE, "柜子"));
     public static final FPBlockType<@NotNull MoonShelfBlock> MOON_SHELF = create("moon_shelf", map -> map.put(FPChineseProvider.LOCALE, "圆月架"));
+    public static final FPBlockType<@NotNull WallShelfBlock> WALL_SHELF = create("wall_shelf", map -> map.put(FPChineseProvider.LOCALE, "墙架"));
 }

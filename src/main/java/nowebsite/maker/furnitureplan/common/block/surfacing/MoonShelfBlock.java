@@ -13,7 +13,6 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -25,14 +24,12 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.common.block.abstraction.BasePropertyExtendedBlock;
 import nowebsite.maker.furnitureplan.common.block.abstraction.BasePropertyHorizontalDirectionBlock;
-import nowebsite.maker.furnitureplan.common.block.abstraction.BlockSetGetter;
 import nowebsite.maker.furnitureplan.common.block.abstraction.MulStateGetter;
 import nowebsite.maker.furnitureplan.common.block.abstraction.definition.MoonShelfPart;
 import nowebsite.maker.furnitureplan.common.block.abstraction.generators.HorizontalMulStateBDG;
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockSetType;
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockType;
 import nowebsite.maker.furnitureplan.common.block.surfacing.entity.MoonShelfBlockEntity;
-import nowebsite.maker.furnitureplan.common.data.gen.empowered.AutoGenBlockData;
 import nowebsite.maker.furnitureplan.common.data.gen.empowered.BlockDataGenerator;
 import nowebsite.maker.furnitureplan.common.init.FPBlockReg;
 import nowebsite.maker.furnitureplan.utils.Interaction.InteractionSpace;
@@ -42,7 +39,7 @@ import org.jspecify.annotations.Nullable;
 
 import java.util.List;
 
-public class MoonShelfBlock extends BasePropertyHorizontalDirectionBlock<MoonShelfBlock> implements EntityBlock, SimpleWaterloggedBlock, AutoGenBlockData<@NotNull MoonShelfBlock>, BlockSetGetter, MulStateGetter<MoonShelfPart> {
+public class MoonShelfBlock extends BasePropertyHorizontalDirectionBlock<MoonShelfBlock> implements EntityBlock, MulStateGetter<MoonShelfPart> {
     private static final List<InteractionSpace> SPACES = List.of(
         // 左上 - UP
         InteractionSpace.create(0, 0.4375, 0.25, 0.3125, 0.625, 1),

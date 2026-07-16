@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,shape=bi": {
+      "model": "furnitureplan:block/warped_wall_shelf_bi",
+      "y": 90
+    },
+    "facing=east,shape=single": {
+      "model": "furnitureplan:block/warped_wall_shelf_single",
+      "y": 90
+    },
+    "facing=north,shape=bi": {
+      "model": "furnitureplan:block/warped_wall_shelf_bi"
+    },
+    "facing=north,shape=single": {
+      "model": "furnitureplan:block/warped_wall_shelf_single"
+    },
+    "facing=south,shape=bi": {
+      "model": "furnitureplan:block/warped_wall_shelf_bi",
+      "y": 180
+    },
+    "facing=south,shape=single": {
+      "model": "furnitureplan:block/warped_wall_shelf_single",
+      "y": 180
+    },
+    "facing=west,shape=bi": {
+      "model": "furnitureplan:block/warped_wall_shelf_bi",
+      "y": 270
+    },
+    "facing=west,shape=single": {
+      "model": "furnitureplan:block/warped_wall_shelf_single",
+      "y": 270
+    }
+  }
+}
