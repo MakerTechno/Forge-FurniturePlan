@@ -33,7 +33,7 @@ import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPColorfulSetT
 import nowebsite.maker.furnitureplan.common.block.storaging.entity.CabinetBlockEntity;
 import nowebsite.maker.furnitureplan.common.data.gen.empowered.BlockDataGenerator;
 import nowebsite.maker.furnitureplan.common.init.FPBlockReg;
-import nowebsite.maker.furnitureplan.utils.Vec3Utils;
+import nowebsite.maker.furnitureplan.utils.Interaction.Vec3Utils;
 import nowebsite.maker.furnitureplan.utils.voxel.IVoxelHolder;
 import nowebsite.maker.furnitureplan.utils.voxel.VoxelShapeBuilder;
 import org.jetbrains.annotations.Contract;

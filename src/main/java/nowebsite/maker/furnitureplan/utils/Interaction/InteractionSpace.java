@@ -1,4 +1,4 @@
-package nowebsite.maker.furnitureplan.utils;
+package nowebsite.maker.furnitureplan.utils.Interaction;
 
 import net.minecraft.core.Direction;
 import net.minecraft.world.phys.AABB;

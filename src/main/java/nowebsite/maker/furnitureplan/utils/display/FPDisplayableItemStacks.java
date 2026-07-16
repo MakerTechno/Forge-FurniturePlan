@@ -11,7 +11,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.TagValueOutput;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import nowebsite.maker.furnitureplan.utils.DirectionWithSlot;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;

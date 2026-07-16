@@ -48,8 +48,8 @@ import nowebsite.maker.furnitureplan.common.data.gen.empowered.AutoGenBlockData;
 import nowebsite.maker.furnitureplan.common.data.gen.empowered.BlockDataGenerator;
 import nowebsite.maker.furnitureplan.common.init.FPBlockReg;
 import nowebsite.maker.furnitureplan.common.init.FPTags;
-import nowebsite.maker.furnitureplan.utils.InteractionSpace;
-import nowebsite.maker.furnitureplan.utils.Vec3Utils;
+import nowebsite.maker.furnitureplan.utils.Interaction.InteractionSpace;
+import nowebsite.maker.furnitureplan.utils.Interaction.Vec3Utils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

@@ -1,4 +1,4 @@
-package nowebsite.maker.furnitureplan.utils;
+package nowebsite.maker.furnitureplan.utils.display;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
