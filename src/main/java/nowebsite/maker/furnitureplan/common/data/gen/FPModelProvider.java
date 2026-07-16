@@ -7,10 +7,7 @@ import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
-import net.minecraft.client.data.models.model.ModelTemplate;
-import net.minecraft.client.data.models.model.TextureMapping;
-import net.minecraft.client.data.models.model.TextureSlot;
-import net.minecraft.client.data.models.model.TexturedModel;
+import net.minecraft.client.data.models.model.*;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
@@ -22,6 +19,7 @@ import net.minecraft.world.level.block.state.properties.Property;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.common.data.gen.empowered.BlockDataGenerator;
 import nowebsite.maker.furnitureplan.common.init.FPBlockReg;
+import nowebsite.maker.furnitureplan.common.init.FPItemReg;
 import nowebsite.maker.furnitureplan.utils.ICustomModelInfo;
 import org.jetbrains.annotations.NotNull;
 
@@ -52,6 +50,7 @@ public class FPModelProvider extends ModelProvider {
         simpleHorizontalBlockWithItem(FPBlockReg.CUTLERY_BLOCK.get(), blockModels, "cutlery_handing", itemModels);
         simpleBlockWithItem(FPBlockReg.GLASS_B_BLOCK.get(), blockModels);
         horizontalCustomModelBlockWithItem(FPBlockReg.FOOD_PLATE_BLOCK.get(), blockModels, false);
+        itemModels.generateFlatItem(FPItemReg.AGERATUM_GUIDEBOOK.get(), ModelTemplates.FLAT_ITEM);
         FPDataGenerators.GENERATORS.forEach((block, blockDataGenerator) -> invokeGenerator(block, blockDataGenerator, blockModels, itemModels));
     }
 

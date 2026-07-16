@@ -1,7 +1,9 @@
 package nowebsite.maker.furnitureplan.utils.voxel;
 
 import net.minecraft.core.Direction;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * 旋转碰撞箱持有器
@@ -57,7 +59,8 @@ public class RotateCollision implements IVoxelHolder {
     }
 
     @Override
-    public VoxelShape getShape(Direction facing) {
+    public VoxelShape getShape(@Nullable Direction facing) {
+        if (facing == null) return Shapes.empty();
         return switch (this.axis) {
             case X -> switch (facing) {
                 case NORTH -> this.shapeA;

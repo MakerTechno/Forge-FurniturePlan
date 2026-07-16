@@ -38,7 +38,7 @@ import nowebsite.maker.furnitureplan.common.block.storaging.entity.CupboardBlock
 import nowebsite.maker.furnitureplan.common.data.gen.empowered.AutoGenBlockData;
 import nowebsite.maker.furnitureplan.common.data.gen.empowered.BlockDataGenerator;
 import nowebsite.maker.furnitureplan.common.init.FPTags;
-import nowebsite.maker.furnitureplan.utils.Interaction.Vec3Utils;
+import nowebsite.maker.furnitureplan.utils.interaction.Vec3Utils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -76,16 +76,9 @@ public class CupboardBlock extends BasePropertyHorizontalDirectionBlock<Cupboard
     }
 
     @Override
-    protected @org.jspecify.annotations.Nullable MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) {
+    protected @Nullable MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) {
         BlockEntity blockEntity = level.getBlockEntity(pos);
         return blockEntity instanceof MenuProvider ? (MenuProvider)blockEntity : null;
-    }
-
-    @SuppressWarnings("unchecked")
-    protected static <E extends BlockEntity, A extends BlockEntity> @org.jspecify.annotations.Nullable BlockEntityTicker<A> createTickerHelper(
-        BlockEntityType<A> actual, BlockEntityType<E> expected, BlockEntityTicker<? super E> ticker
-    ) {
-        return expected == actual ? (BlockEntityTicker<A>)ticker : null;
     }
 
     @Override

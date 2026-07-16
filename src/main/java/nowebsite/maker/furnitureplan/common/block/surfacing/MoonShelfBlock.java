@@ -32,8 +32,8 @@ import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockType;
 import nowebsite.maker.furnitureplan.common.block.surfacing.entity.MoonShelfBlockEntity;
 import nowebsite.maker.furnitureplan.common.data.gen.empowered.BlockDataGenerator;
 import nowebsite.maker.furnitureplan.common.init.FPBlockReg;
-import nowebsite.maker.furnitureplan.utils.Interaction.InteractionSpace;
-import nowebsite.maker.furnitureplan.utils.Interaction.Vec3Utils;
+import nowebsite.maker.furnitureplan.utils.interaction.InteractionSpace;
+import nowebsite.maker.furnitureplan.utils.interaction.Vec3Utils;
 import org.jetbrains.annotations.NotNull;
 import org.jspecify.annotations.Nullable;
 

@@ -1,6 +1,6 @@
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-package nowebsite.maker.furnitureplan.utils.Interaction;
+package nowebsite.maker.furnitureplan.utils.interaction;
 
 import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 

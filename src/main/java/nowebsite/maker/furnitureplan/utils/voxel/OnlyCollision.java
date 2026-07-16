@@ -2,6 +2,7 @@ package nowebsite.maker.furnitureplan.utils.voxel;
 
 import net.minecraft.core.Direction;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * 简单碰撞箱持有器
@@ -20,7 +21,7 @@ public class OnlyCollision implements IVoxelHolder {
     }
     
     @Override
-    public VoxelShape getShape(Direction facing) {
+    public VoxelShape getShape(@Nullable Direction facing) {
         return this.shape;
     }
 
