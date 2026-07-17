@@ -148,10 +148,12 @@ public class FoodPlateBlockEntity extends BlockEntity implements HasPlateEntity,
     }
 
     public void dropBottle(){
+        if (level == null) return;
         SimpleContainer inventory = new SimpleContainer(1);
         ItemStack stack = new ItemStack(FPBlockReg.GLASS_B_BLOCK_ITEM.get(),1);
-        if (level == null) return;
-        GlassBBlockItem.saveDataToItem(stack, level.registryAccess(), this);
+        GlassBBlockEntity entity = new GlassBBlockEntity(BlockPos.ZERO, FPBlockReg.GLASS_B_BLOCK.get().defaultBlockState());
+        entity.changePotion(getPotionStack());
+        GlassBBlockItem.saveDataToItem(stack, level.registryAccess(), entity);
         inventory.setItem(0, stack);
         Containers.dropContents(Objects.requireNonNull(this.getLevel()), this.worldPosition, inventory);
         changePotion(ItemStack.EMPTY);

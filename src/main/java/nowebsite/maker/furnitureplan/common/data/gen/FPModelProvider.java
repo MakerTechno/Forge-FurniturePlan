@@ -53,8 +53,9 @@ public class FPModelProvider extends ModelProvider {
         itemModels.generateFlatItem(FPItemReg.AGERATUM_GUIDEBOOK.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(FPItemReg.SAWDUST.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(FPItemReg.DETRITUS.get(), ModelTemplates.FLAT_ITEM);
-        simpleBlockWithItem(FPBlockReg.SAWDUST_PLANKS.get(), blockModels);
-        simpleBlockWithItem(FPBlockReg.DETRITUS_BLOCK.get(), blockModels);
+        itemModels.generateFlatItem(FPItemReg.GRAVER.get(), ModelTemplates.FLAT_ITEM);
+        cubeWithItem(FPBlockReg.SAWDUST_PLANKS.get(), blockModels);
+        cubeWithItem(FPBlockReg.DETRITUS_BLOCK.get(), blockModels);
         FPDataGenerators.GENERATORS.forEach((block, blockDataGenerator) -> invokeGenerator(block, blockDataGenerator, blockModels, itemModels));
     }
 
@@ -62,6 +63,12 @@ public class FPModelProvider extends ModelProvider {
     private <T extends Block> void  invokeGenerator(Block block, BlockDataGenerator<?> generator, BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
         BlockDataGenerator<T> typeGenerator = (BlockDataGenerator<T>) generator;
         typeGenerator.buildModelWithTemplate((T) block, blockModels, itemModels, output);
+    }
+
+    public static void cubeWithItem(Block block, BlockModelGenerators generators) {
+        MultiVariant model = BlockModelGenerators.plainVariant(TexturedModel.CUBE.create(block, generators.modelOutput));
+        MultiVariantGenerator variant = MultiVariantGenerator.dispatch(block, model);
+        generators.blockStateOutput.accept(variant);
     }
 
     public static void simpleBlockWithItem(Block block, BlockModelGenerators generators) {

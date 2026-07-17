@@ -3,7 +3,6 @@ package nowebsite.maker.furnitureplan.common.block.abstraction.set;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
-import nowebsite.maker.furnitureplan.FurniturePlan;
 
 import java.util.*;
 import java.util.function.Function;

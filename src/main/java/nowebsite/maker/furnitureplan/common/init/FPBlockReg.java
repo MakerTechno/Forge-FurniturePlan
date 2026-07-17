@@ -40,6 +40,7 @@ import nowebsite.maker.furnitureplan.common.block.abstraction.IWeatheringCopper;
 import nowebsite.maker.furnitureplan.common.block.abstraction.definition.*;
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockSet;
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockSetType;
+import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockType;
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPColorfulSetType;
 import nowebsite.maker.furnitureplan.common.block.cooking.utensils.Cutlery;
 import nowebsite.maker.furnitureplan.common.block.cooking.utensils.FoodPlateBlock;
@@ -154,12 +155,16 @@ public class FPBlockReg {
             List<FPColorfulSetType> colorful = new ArrayList<>(FPColorfulSetType.TYPES);
             colorful.add(null);
             return Map.entry(type, colorful.stream()
-                .map(frameType -> registerWithItem(
-                    frameType == null ? type.name() + "_disguised_cabinet" : type.name() + "_with_" + frameType.name() + "_frame_cabinet",
-                    identifier -> IWeatheringCopper.isWeatheringType(type)
+                .map(frameType -> {
+                    DeferredBlock<@NotNull CabinetBlock> cabinet = registerWithItem(
+                        frameType == null ? type.name() + "_disguised_cabinet" : type.name() + "_with_" + frameType.name() + "_frame_cabinet",
+                        identifier -> IWeatheringCopper.isWeatheringType(type)
                         ? new WeatheredCopperCabinet(type, frameType, BlockBehaviour.Properties.of().setId(getId(identifier)), type.getBase().defaultBlockState())
                         : new CabinetBlock(type, frameType, BlockBehaviour.Properties.of().setId(getId(identifier)), type.getBase().defaultBlockState())
-                )).toList());
+                    );
+                    FPBlockType.CABINET.register(cabinet);
+                    return cabinet;
+                }).toList());
         }).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (v1, _) -> v1, LinkedHashMap::new));
 
     public static final Lazy<List<PotHolderBlock>> POT_HOLDERS = Lazy.lazy(() -> FPBlockReg.AUTO_FURNITURE_SET.stream()

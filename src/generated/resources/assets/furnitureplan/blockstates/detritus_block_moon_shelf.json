@@ -1,0 +1,139 @@
+{
+  "variants": {
+    "facing=east,part=center": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_center",
+      "y": 90
+    },
+    "facing=east,part=down": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_down",
+      "y": 90
+    },
+    "facing=east,part=left": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_left",
+      "y": 90
+    },
+    "facing=east,part=left_down": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_left_down",
+      "y": 90
+    },
+    "facing=east,part=left_up": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_left_up",
+      "y": 90
+    },
+    "facing=east,part=right": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_right",
+      "y": 90
+    },
+    "facing=east,part=right_down": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_right_down",
+      "y": 90
+    },
+    "facing=east,part=right_up": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_right_up",
+      "y": 90
+    },
+    "facing=east,part=up": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_up",
+      "y": 90
+    },
+    "facing=north,part=center": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_center"
+    },
+    "facing=north,part=down": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_down"
+    },
+    "facing=north,part=left": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_left"
+    },
+    "facing=north,part=left_down": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_left_down"
+    },
+    "facing=north,part=left_up": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_left_up"
+    },
+    "facing=north,part=right": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_right"
+    },
+    "facing=north,part=right_down": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_right_down"
+    },
+    "facing=north,part=right_up": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_right_up"
+    },
+    "facing=north,part=up": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_up"
+    },
+    "facing=south,part=center": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_center",
+      "y": 180
+    },
+    "facing=south,part=down": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_down",
+      "y": 180
+    },
+    "facing=south,part=left": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_left",
+      "y": 180
+    },
+    "facing=south,part=left_down": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_left_down",
+      "y": 180
+    },
+    "facing=south,part=left_up": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_left_up",
+      "y": 180
+    },
+    "facing=south,part=right": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_right",
+      "y": 180
+    },
+    "facing=south,part=right_down": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_right_down",
+      "y": 180
+    },
+    "facing=south,part=right_up": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_right_up",
+      "y": 180
+    },
+    "facing=south,part=up": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_up",
+      "y": 180
+    },
+    "facing=west,part=center": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_center",
+      "y": 270
+    },
+    "facing=west,part=down": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_down",
+      "y": 270
+    },
+    "facing=west,part=left": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_left",
+      "y": 270
+    },
+    "facing=west,part=left_down": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_left_down",
+      "y": 270
+    },
+    "facing=west,part=left_up": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_left_up",
+      "y": 270
+    },
+    "facing=west,part=right": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_right",
+      "y": 270
+    },
+    "facing=west,part=right_down": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_right_down",
+      "y": 270
+    },
+    "facing=west,part=right_up": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_right_up",
+      "y": 270
+    },
+    "facing=west,part=up": {
+      "model": "furnitureplan:block/detritus_block_moon_shelf_up",
+      "y": 270
+    }
+  }
+}

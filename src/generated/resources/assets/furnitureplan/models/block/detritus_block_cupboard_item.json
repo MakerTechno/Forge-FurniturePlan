@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:item/cupboard",
+  "textures": {
+    "particle": "furnitureplan:block/detritus_block"
+  }
+}

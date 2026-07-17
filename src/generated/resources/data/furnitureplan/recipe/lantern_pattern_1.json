@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": "minecraft:paper",
+    "R": "minecraft:red_dye",
+    "S": "minecraft:string",
+    "T": "minecraft:torch",
+    "Y": "minecraft:yellow_dye"
+  },
+  "pattern": [
+    "PSP",
+    "PTP",
+    "RPY"
+  ],
+  "result": {
+    "id": "furnitureplan:lantern_pattern_1"
+  }
+}

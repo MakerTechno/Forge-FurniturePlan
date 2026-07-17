@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": "minecraft:short_grass"
+  },
+  "pattern": [
+    "G G",
+    "GGG",
+    "G G"
+  ],
+  "result": {
+    "count": 64,
+    "id": "furnitureplan:grass_grass"
+  }
+}

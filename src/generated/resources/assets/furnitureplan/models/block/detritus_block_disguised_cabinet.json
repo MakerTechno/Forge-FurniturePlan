@@ -1,0 +1,7 @@
+{
+  "parent": "furnitureplan:block/template/cube",
+  "textures": {
+    "particle": "furnitureplan:block/detritus_block",
+    "trim": "furnitureplan:block/detritus_block"
+  }
+}

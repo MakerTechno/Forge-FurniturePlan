@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": "minecraft:birch_planks"
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "count": 12,
+    "id": "furnitureplan:birch_wall_shelf"
+  }
+}

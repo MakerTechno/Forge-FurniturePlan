@@ -1,0 +1,30 @@
+{
+  "values": [
+    "furnitureplan:detritus_block_bench",
+    "furnitureplan:detritus_block_carved_column",
+    "furnitureplan:detritus_block_chair",
+    "furnitureplan:detritus_block_column",
+    "furnitureplan:detritus_block_cupboard",
+    "furnitureplan:detritus_block_disguised_cabinet",
+    "furnitureplan:detritus_block_lighted_column",
+    "furnitureplan:detritus_block_moon_shelf",
+    "furnitureplan:detritus_block_table",
+    "furnitureplan:detritus_block_wall_shelf",
+    "furnitureplan:detritus_block_with_black_frame_cabinet",
+    "furnitureplan:detritus_block_with_blue_frame_cabinet",
+    "furnitureplan:detritus_block_with_brown_frame_cabinet",
+    "furnitureplan:detritus_block_with_cyan_frame_cabinet",
+    "furnitureplan:detritus_block_with_gray_frame_cabinet",
+    "furnitureplan:detritus_block_with_green_frame_cabinet",
+    "furnitureplan:detritus_block_with_light_blue_frame_cabinet",
+    "furnitureplan:detritus_block_with_light_gray_frame_cabinet",
+    "furnitureplan:detritus_block_with_lime_frame_cabinet",
+    "furnitureplan:detritus_block_with_magenta_frame_cabinet",
+    "furnitureplan:detritus_block_with_orange_frame_cabinet",
+    "furnitureplan:detritus_block_with_pink_frame_cabinet",
+    "furnitureplan:detritus_block_with_purple_frame_cabinet",
+    "furnitureplan:detritus_block_with_red_frame_cabinet",
+    "furnitureplan:detritus_block_with_white_frame_cabinet",
+    "furnitureplan:detritus_block_with_yellow_frame_cabinet"
+  ]
+}

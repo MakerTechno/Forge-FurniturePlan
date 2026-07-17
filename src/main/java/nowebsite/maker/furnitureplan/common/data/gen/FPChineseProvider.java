@@ -36,6 +36,23 @@ public class FPChineseProvider extends LanguageProvider {
         add(FPItemReg.DETRITUS.get(), "石粉");
         add(FPBlockReg.SAWDUST_PLANKS.get(), "木屑板");
         add(FPBlockReg.DETRITUS_BLOCK.get(), "石粉板");
+
+        add(FPItemReg.GRAVER.get(), "雕刻刀");
+        add("tip.furnitureplan.graver", "这个雕刻刀可以将一些方块雕刻成模组方块");
+        add("tip.furnitureplan.shiftdown", "按下SHIFT查看详细信息");
+        add("tip.furnitureplan.click", "右键空气以切换雕刻种类");
+        add("tip.furnitureplan.graver.kind", "种类: ");
+        add("tip.furnitureplan.graver.kind_change", "当前雕刻目标: ");
+        add("tip.furnitureplan.graver.kind.chair", "椅子");
+        add("tip.furnitureplan.graver.kind.bench", "凳子");
+        add("tip.furnitureplan.graver.kind.table", "桌子");
+        add("tip.furnitureplan.graver.kind.column", "柱子");
+        add("tip.furnitureplan.graver.kind.carved_column", "雕刻柱子");
+        add("tip.furnitureplan.graver.kind.lighted_column", "嵌灯柱子");
+        add("tip.furnitureplan.graver.kind.cupboard", "抽屉柜");
+        add("tip.furnitureplan.graver.kind.cabinet", "伪装柜");
+
+
         add("item.furnitureplan.grass_grass.desc", "这玩意能吃!?");
         add("item.furnitureplan.food_plate.desc", "你其实可以把杯子和餐叉也放上去, 再放点食物");
         add("item.furnitureplan.cutlery.desc", "你其实也可以把它放在盘子上");

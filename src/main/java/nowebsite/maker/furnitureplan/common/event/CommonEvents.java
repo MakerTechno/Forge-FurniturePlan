@@ -63,12 +63,12 @@ public class CommonEvents {
     @SubscribeEvent
     public static void registerPayloads(final @NotNull RegisterPayloadHandlersEvent event) {
         final PayloadRegistrar registrar = event.registrar("1");
-        /*
+
         registrar.playToClient(
             GraverSyncData.TYPE,
             GraverSyncData.STREAM_CODEC,
             new GraverPayloadHandler()
-        );*/
+        );
         registrar.playToClient(
             CupboardSyncData.TYPE,
             CupboardSyncData.STREAM_CODEC,

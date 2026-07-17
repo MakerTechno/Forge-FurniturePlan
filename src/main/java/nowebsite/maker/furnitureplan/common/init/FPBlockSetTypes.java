@@ -24,7 +24,7 @@ public class FPBlockSetTypes {
         "oak",
         Blocks.OAK_PLANKS,
         true,
-        () -> List.of(FPTags.OAK_FURNITURE, BlockTags.MINEABLE_WITH_AXE),
+        () -> List.of(FPTags.OAK_FURNITURE, BlockTags.MINEABLE_WITH_AXE, FPTags.DROP_SAWDUST),
         map -> {
             map.put(FPChineseProvider.LOCALE, "橡木");
             return true;
@@ -35,7 +35,7 @@ public class FPBlockSetTypes {
         "cobblestone",
         Blocks.COBBLESTONE,
         true,
-        () -> List.of(FPTags.COBBLESTONE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.COBBLESTONE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "圆石");
             return true;
@@ -44,7 +44,7 @@ public class FPBlockSetTypes {
         "brick",
         Blocks.BRICKS,
         true,
-        () -> List.of(FPTags.BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "红砖");
             return true;
@@ -55,7 +55,7 @@ public class FPBlockSetTypes {
         "stone_brick",
         Blocks.STONE_BRICKS,
         true,
-        () -> List.of(FPTags.STONE_BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.STONE_BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "石砖");
             return true;
@@ -66,7 +66,7 @@ public class FPBlockSetTypes {
         "mud_brick",
         Blocks.MUD_BRICKS,
         true,
-        () -> List.of(FPTags.MUD_BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.MUD_BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "泥砖");
             return true;
@@ -77,7 +77,7 @@ public class FPBlockSetTypes {
         "resin_brick",
         Blocks.RESIN_BRICKS,
         true,
-        () -> List.of(FPTags.RESIN_BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.RESIN_BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "树脂砖");
             return true;
@@ -87,7 +87,7 @@ public class FPBlockSetTypes {
         "nether_brick",
         Blocks.NETHER_BRICKS,
         true,
-        () -> List.of(FPTags.NETHER_BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.NETHER_BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "下界砖");
             return true;
@@ -98,7 +98,7 @@ public class FPBlockSetTypes {
         "sandstone",
         Blocks.SANDSTONE,
         true,
-        () -> List.of(FPTags.SANDSTONE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.SANDSTONE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "砂岩");
             return true;
@@ -109,7 +109,7 @@ public class FPBlockSetTypes {
         "spruce",
         Blocks.SPRUCE_PLANKS,
         true,
-        () -> List.of(FPTags.SPRUCE_FURNITURE, BlockTags.MINEABLE_WITH_AXE),
+        () -> List.of(FPTags.SPRUCE_FURNITURE, BlockTags.MINEABLE_WITH_AXE, FPTags.DROP_SAWDUST),
         map -> {
             map.put(FPChineseProvider.LOCALE, "云杉木");
             return true;
@@ -120,7 +120,7 @@ public class FPBlockSetTypes {
         "birch",
         Blocks.BIRCH_PLANKS,
         true,
-        () -> List.of(FPTags.BIRCH_FURNITURE, BlockTags.MINEABLE_WITH_AXE),
+        () -> List.of(FPTags.BIRCH_FURNITURE, BlockTags.MINEABLE_WITH_AXE, FPTags.DROP_SAWDUST),
         map -> {
             map.put(FPChineseProvider.LOCALE, "白桦木");
             return true;
@@ -131,7 +131,7 @@ public class FPBlockSetTypes {
         "jungle",
         Blocks.JUNGLE_PLANKS,
         true,
-        () -> List.of(FPTags.JUNGLE_FURNITURE, BlockTags.MINEABLE_WITH_AXE),
+        () -> List.of(FPTags.JUNGLE_FURNITURE, BlockTags.MINEABLE_WITH_AXE, FPTags.DROP_SAWDUST),
         map -> {
             map.put(FPChineseProvider.LOCALE, "丛林木");
             return true;
@@ -142,7 +142,7 @@ public class FPBlockSetTypes {
         "quartz",
         Blocks.QUARTZ_BLOCK,
         true,
-        () -> List.of(FPTags.QUARTZ_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.QUARTZ_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "石英");
             return true;
@@ -153,7 +153,7 @@ public class FPBlockSetTypes {
         "acacia",
         Blocks.ACACIA_PLANKS,
         true,
-        () -> List.of(FPTags.ACACIA_FURNITURE, BlockTags.MINEABLE_WITH_AXE),
+        () -> List.of(FPTags.ACACIA_FURNITURE, BlockTags.MINEABLE_WITH_AXE, FPTags.DROP_SAWDUST),
         map -> {
             map.put(FPChineseProvider.LOCALE, "金合欢木");
             return true;
@@ -164,7 +164,7 @@ public class FPBlockSetTypes {
         "cherry",
         Blocks.CHERRY_PLANKS,
         true,
-        () -> List.of(FPTags.CHERRY_FURNITURE, BlockTags.MINEABLE_WITH_AXE),
+        () -> List.of(FPTags.CHERRY_FURNITURE, BlockTags.MINEABLE_WITH_AXE, FPTags.DROP_SAWDUST),
         map -> {
             map.put(FPChineseProvider.LOCALE, "樱花木");
             return true;
@@ -175,7 +175,7 @@ public class FPBlockSetTypes {
         "dark_oak",
         Blocks.DARK_OAK_PLANKS,
         true,
-        () -> List.of(FPTags.DARK_OAK_FURNITURE, BlockTags.MINEABLE_WITH_AXE),
+        () -> List.of(FPTags.DARK_OAK_FURNITURE, BlockTags.MINEABLE_WITH_AXE, FPTags.DROP_SAWDUST),
         map -> {
             map.put(FPChineseProvider.LOCALE, "深色橡木");
             return true;
@@ -186,7 +186,7 @@ public class FPBlockSetTypes {
         "pale_oak",
         Blocks.PALE_OAK_PLANKS,
         true,
-        () -> List.of(FPTags.PALE_OAK_FURNITURE, BlockTags.MINEABLE_WITH_AXE),
+        () -> List.of(FPTags.PALE_OAK_FURNITURE, BlockTags.MINEABLE_WITH_AXE, FPTags.DROP_SAWDUST),
         map -> {
             map.put(FPChineseProvider.LOCALE, "苍白橡木");
             return true;
@@ -197,7 +197,7 @@ public class FPBlockSetTypes {
         "mangrove",
         Blocks.MANGROVE_PLANKS,
         true,
-        () -> List.of(FPTags.MANGROVE_FURNITURE, BlockTags.MINEABLE_WITH_AXE),
+        () -> List.of(FPTags.MANGROVE_FURNITURE, BlockTags.MINEABLE_WITH_AXE, FPTags.DROP_SAWDUST),
         map -> {
             map.put(FPChineseProvider.LOCALE, "红树木");
             return true;
@@ -208,7 +208,7 @@ public class FPBlockSetTypes {
         "bamboo",
         Blocks.BAMBOO_PLANKS,
         true,
-        () -> List.of(FPTags.BAMBOO_FURNITURE, BlockTags.MINEABLE_WITH_AXE),
+        () -> List.of(FPTags.BAMBOO_FURNITURE, BlockTags.MINEABLE_WITH_AXE, FPTags.DROP_SAWDUST),
         map -> {
             map.put(FPChineseProvider.LOCALE, "竹");
             return true;
@@ -219,7 +219,7 @@ public class FPBlockSetTypes {
         "bamboo_mosaic",
         Blocks.BAMBOO_MOSAIC,
         true,
-        () -> List.of(FPTags.BAMBOO_MOSAIC_FURNITURE, BlockTags.MINEABLE_WITH_AXE),
+        () -> List.of(FPTags.BAMBOO_MOSAIC_FURNITURE, BlockTags.MINEABLE_WITH_AXE, FPTags.DROP_SAWDUST),
         map -> {
             map.put(FPChineseProvider.LOCALE, "竹马赛克");
             return true;
@@ -228,7 +228,7 @@ public class FPBlockSetTypes {
         "prismarine",
         Blocks.PRISMARINE,
         true,
-        () -> List.of(FPTags.PRISMARINE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.PRISMARINE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "海晶石");
             return true;
@@ -237,7 +237,7 @@ public class FPBlockSetTypes {
         "prismarine_brick",
         Blocks.PRISMARINE_BRICKS,
         true,
-        () -> List.of(FPTags.PRISMARINE_BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.PRISMARINE_BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "海晶石砖");
             return true;
@@ -248,7 +248,7 @@ public class FPBlockSetTypes {
         "dark_prismarine",
         Blocks.DARK_PRISMARINE,
         true,
-        () -> List.of(FPTags.DARK_PRISMARINE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.DARK_PRISMARINE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "暗海晶石");
             return true;
@@ -257,7 +257,7 @@ public class FPBlockSetTypes {
         "red_sandstone",
         Blocks.RED_SANDSTONE,
         true,
-        () -> List.of(FPTags.RED_SANDSTONE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.RED_SANDSTONE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "红砂岩");
             return true;
@@ -268,7 +268,7 @@ public class FPBlockSetTypes {
         "purpur",
         Blocks.PURPUR_BLOCK,
         true,
-        () -> List.of(FPTags.PURPUR_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.PURPUR_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "紫珀");
             return true;
@@ -279,7 +279,7 @@ public class FPBlockSetTypes {
         "polished_granite",
         Blocks.POLISHED_GRANITE,
         true,
-        () -> List.of(FPTags.POLISHED_GRANITE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.POLISHED_GRANITE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "磨制花岗岩");
             return true;
@@ -288,7 +288,7 @@ public class FPBlockSetTypes {
         "smooth_red_sandstone",
         Blocks.SMOOTH_RED_SANDSTONE,
         true,
-        () -> List.of(FPTags.SMOOTH_RED_SANDSTONE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.SMOOTH_RED_SANDSTONE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "平滑红砂岩");
             return true;
@@ -299,7 +299,7 @@ public class FPBlockSetTypes {
         "mossy_stone_brick",
         Blocks.MOSSY_STONE_BRICKS,
         true,
-        () -> List.of(FPTags.MOSSY_STONE_BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.MOSSY_STONE_BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "苔石砖");
             return true;
@@ -310,7 +310,7 @@ public class FPBlockSetTypes {
         "polished_diorite",
         Blocks.POLISHED_DIORITE,
         true,
-        () -> List.of(FPTags.POLISHED_DIORITE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.POLISHED_DIORITE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "磨制闪长岩");
             return true;
@@ -319,7 +319,7 @@ public class FPBlockSetTypes {
         "mossy_cobblestone",
         Blocks.MOSSY_COBBLESTONE,
         true,
-        () -> List.of(FPTags.MOSSY_COBBLESTONE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.MOSSY_COBBLESTONE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "苔石");
             return true;
@@ -328,7 +328,7 @@ public class FPBlockSetTypes {
         "end_stone_brick",
         Blocks.END_STONE_BRICKS,
         true,
-        () -> List.of(FPTags.END_STONE_BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.END_STONE_BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "末地石砖");
             return true;
@@ -339,7 +339,7 @@ public class FPBlockSetTypes {
         "stone",
         Blocks.STONE,
         true,
-        () -> List.of(FPTags.STONE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.STONE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "石");
             return true;
@@ -348,7 +348,7 @@ public class FPBlockSetTypes {
         "smooth_sandstone",
         Blocks.SMOOTH_SANDSTONE,
         true,
-        () -> List.of(FPTags.SMOOTH_SANDSTONE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.SMOOTH_SANDSTONE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "平滑砂岩");
             return true;
@@ -359,7 +359,7 @@ public class FPBlockSetTypes {
         "smooth_quartz",
         Blocks.SMOOTH_QUARTZ,
         true,
-        () -> List.of(FPTags.SMOOTH_QUARTZ_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.SMOOTH_QUARTZ_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "平滑石英");
             return true;
@@ -370,7 +370,7 @@ public class FPBlockSetTypes {
         "granite",
         Blocks.GRANITE,
         true,
-        () -> List.of(FPTags.GRANITE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.GRANITE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "花岗岩");
             return true;
@@ -379,7 +379,7 @@ public class FPBlockSetTypes {
         "andesite",
         Blocks.ANDESITE,
         true,
-        () -> List.of(FPTags.ANDESITE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.ANDESITE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "安山岩");
             return true;
@@ -388,7 +388,7 @@ public class FPBlockSetTypes {
         "red_nether_brick",
         Blocks.RED_NETHER_BRICKS,
         true,
-        () -> List.of(FPTags.RED_NETHER_BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.RED_NETHER_BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "红色下界砖");
             return true;
@@ -399,7 +399,7 @@ public class FPBlockSetTypes {
         "polished_andesite",
         Blocks.POLISHED_ANDESITE,
         true,
-        () -> List.of(FPTags.POLISHED_ANDESITE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.POLISHED_ANDESITE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "磨制安山岩");
             return true;
@@ -408,7 +408,7 @@ public class FPBlockSetTypes {
         "diorite",
         Blocks.DIORITE,
         true,
-        () -> List.of(FPTags.DIORITE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.DIORITE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "闪长岩");
             return true;
@@ -417,7 +417,7 @@ public class FPBlockSetTypes {
         "crimson",
         Blocks.CRIMSON_PLANKS,
         true,
-        () -> List.of(FPTags.CRIMSON_FURNITURE, BlockTags.MINEABLE_WITH_AXE),
+        () -> List.of(FPTags.CRIMSON_FURNITURE, BlockTags.MINEABLE_WITH_AXE, FPTags.DROP_SAWDUST),
         map -> {
             map.put(FPChineseProvider.LOCALE, "绯红木");
             return true;
@@ -428,7 +428,7 @@ public class FPBlockSetTypes {
         "warped",
         Blocks.WARPED_PLANKS,
         true,
-        () -> List.of(FPTags.WARPED_FURNITURE, BlockTags.MINEABLE_WITH_AXE),
+        () -> List.of(FPTags.WARPED_FURNITURE, BlockTags.MINEABLE_WITH_AXE, FPTags.DROP_SAWDUST),
         map -> {
             map.put(FPChineseProvider.LOCALE, "诡异木");
             return true;
@@ -439,7 +439,7 @@ public class FPBlockSetTypes {
         "blackstone",
         Blocks.BLACKSTONE,
         true,
-        () -> List.of(FPTags.BLACKSTONE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.BLACKSTONE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "黑石");
             return true;
@@ -448,7 +448,7 @@ public class FPBlockSetTypes {
         "polished_blackstone_brick",
         Blocks.POLISHED_BLACKSTONE_BRICKS,
         true,
-        () -> List.of(FPTags.POLISHED_BLACKSTONE_BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.POLISHED_BLACKSTONE_BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "磨制黑石砖");
             return true;
@@ -459,7 +459,7 @@ public class FPBlockSetTypes {
         "polished_blackstone",
         Blocks.POLISHED_BLACKSTONE,
         true,
-        () -> List.of(FPTags.POLISHED_BLACKSTONE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.POLISHED_BLACKSTONE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "磨制黑石");
             return true;
@@ -468,7 +468,7 @@ public class FPBlockSetTypes {
         "tuff",
         Blocks.TUFF,
         true,
-        () -> List.of(FPTags.TUFF_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.TUFF_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "凝灰岩");
             return true;
@@ -477,7 +477,7 @@ public class FPBlockSetTypes {
         "polished_tuff",
         Blocks.POLISHED_TUFF,
         true,
-        () -> List.of(FPTags.POLISHED_TUFF_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.POLISHED_TUFF_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "磨制凝灰岩");
             return true;
@@ -486,7 +486,7 @@ public class FPBlockSetTypes {
         "tuff_brick",
         Blocks.TUFF_BRICKS,
         true,
-        () -> List.of(FPTags.TUFF_BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.TUFF_BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "凝灰岩砖");
             return true;
@@ -497,7 +497,7 @@ public class FPBlockSetTypes {
         "oxidized_cut_copper",
         Blocks.OXIDIZED_CUT_COPPER,
         true,
-        () -> List.of(FPTags.OXIDIZED_CUT_COPPER_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.OXIDIZED_CUT_COPPER_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "氧化的切制铜");
             return true;
@@ -506,7 +506,7 @@ public class FPBlockSetTypes {
         "weathered_cut_copper",
         Blocks.WEATHERED_CUT_COPPER,
         true,
-        () -> List.of(FPTags.WEATHERED_CUT_COPPER_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.WEATHERED_CUT_COPPER_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "锈蚀的切制铜");
             return true;
@@ -515,7 +515,7 @@ public class FPBlockSetTypes {
         "exposed_cut_copper",
         Blocks.EXPOSED_CUT_COPPER,
         true,
-        () -> List.of(FPTags.EXPOSED_CUT_COPPER_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.EXPOSED_CUT_COPPER_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "斑驳的切制铜");
             return true;
@@ -524,7 +524,7 @@ public class FPBlockSetTypes {
         "cut_copper",
         Blocks.CUT_COPPER,
         true,
-        () -> List.of(FPTags.CUT_COPPER_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.CUT_COPPER_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "切制铜");
             return true;
@@ -533,7 +533,7 @@ public class FPBlockSetTypes {
         "waxed_oxidized_cut_copper",
         Blocks.WAXED_OXIDIZED_CUT_COPPER,
         true,
-        () -> List.of(FPTags.WAXED_OXIDIZED_CUT_COPPER_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.WAXED_OXIDIZED_CUT_COPPER_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "涂蜡的氧化切制铜");
             return true;
@@ -544,7 +544,7 @@ public class FPBlockSetTypes {
         "waxed_weathered_cut_copper",
         Blocks.WAXED_WEATHERED_CUT_COPPER,
         true,
-        () -> List.of(FPTags.WAXED_WEATHERED_CUT_COPPER_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.WAXED_WEATHERED_CUT_COPPER_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "涂蜡的锈蚀切制铜");
             return true;
@@ -555,7 +555,7 @@ public class FPBlockSetTypes {
         "waxed_exposed_cut_copper",
         Blocks.WAXED_EXPOSED_CUT_COPPER,
         true,
-        () -> List.of(FPTags.WAXED_EXPOSED_CUT_COPPER_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.WAXED_EXPOSED_CUT_COPPER_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "涂蜡的斑驳切制铜");
             return true;
@@ -566,7 +566,7 @@ public class FPBlockSetTypes {
         "waxed_cut_copper",
         Blocks.WAXED_CUT_COPPER,
         true,
-        () -> List.of(FPTags.WAXED_CUT_COPPER_FURNITURE),
+        () -> List.of(FPTags.WAXED_CUT_COPPER_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "涂蜡的切制铜");
             return true;
@@ -577,7 +577,7 @@ public class FPBlockSetTypes {
         "cobbled_deepslate",
         Blocks.COBBLED_DEEPSLATE,
         true,
-        () -> List.of(FPTags.COBBLED_DEEPSLATE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.COBBLED_DEEPSLATE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "深板岩圆石");
             return true;
@@ -586,7 +586,7 @@ public class FPBlockSetTypes {
         "polished_deepslate",
         Blocks.POLISHED_DEEPSLATE,
         true,
-        () -> List.of(FPTags.POLISHED_DEEPSLATE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.POLISHED_DEEPSLATE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "磨制深板岩");
             return true;
@@ -595,7 +595,7 @@ public class FPBlockSetTypes {
         "deepslate_tile",
         Blocks.DEEPSLATE_TILES,
         true,
-        () -> List.of(FPTags.DEEPSLATE_TILE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.DEEPSLATE_TILE_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "深板岩瓦");
             return true;
@@ -606,7 +606,7 @@ public class FPBlockSetTypes {
         "deepslate_brick",
         Blocks.DEEPSLATE_BRICKS,
         true,
-        () -> List.of(FPTags.DEEPSLATE_BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE),
+        () -> List.of(FPTags.DEEPSLATE_BRICK_FURNITURE, BlockTags.MINEABLE_WITH_PICKAXE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "深板岩砖");
             return true;
@@ -622,7 +622,7 @@ public class FPBlockSetTypes {
         Items.BLACK_CONCRETE,
         Blocks.BLACK_CONCRETE,
         true,
-        () -> List.of(FPTags.BLACK_DYE_FURNITURE),
+        () -> List.of(FPTags.BLACK_DYE_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "黑色混凝土");
             return true;
@@ -635,7 +635,7 @@ public class FPBlockSetTypes {
         Items.BLUE_CONCRETE,
         Blocks.BLUE_CONCRETE,
         true,
-        () -> List.of(FPTags.BLUE_DYE_FURNITURE),
+        () -> List.of(FPTags.BLUE_DYE_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "蓝色混凝土");
             return true;
@@ -648,7 +648,7 @@ public class FPBlockSetTypes {
         Items.BROWN_CONCRETE,
         Blocks.BROWN_CONCRETE,
         true,
-        () -> List.of(FPTags.BROWN_DYE_FURNITURE),
+        () -> List.of(FPTags.BROWN_DYE_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "棕色混凝土");
             return true;
@@ -661,7 +661,7 @@ public class FPBlockSetTypes {
         Items.CYAN_CONCRETE,
         Blocks.CYAN_CONCRETE,
         true,
-        () -> List.of(FPTags.CYAN_DYE_FURNITURE),
+        () -> List.of(FPTags.CYAN_DYE_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "青色混凝土");
             return true;
@@ -674,7 +674,7 @@ public class FPBlockSetTypes {
         Items.GRAY_CONCRETE,
         Blocks.GRAY_CONCRETE,
         true,
-        () -> List.of(FPTags.GRAY_DYE_FURNITURE),
+        () -> List.of(FPTags.GRAY_DYE_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "灰色混凝土");
             return true;
@@ -687,7 +687,7 @@ public class FPBlockSetTypes {
         Items.GREEN_CONCRETE,
         Blocks.GREEN_CONCRETE,
         true,
-        () -> List.of(FPTags.GREEN_DYE_FURNITURE),
+        () -> List.of(FPTags.GREEN_DYE_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "绿色混凝土");
             return true;
@@ -700,7 +700,7 @@ public class FPBlockSetTypes {
         Items.LIGHT_BLUE_CONCRETE,
         Blocks.LIGHT_BLUE_CONCRETE,
         true,
-        () -> List.of(FPTags.LIGHT_BLUE_DYE_FURNITURE),
+        () -> List.of(FPTags.LIGHT_BLUE_DYE_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "淡蓝色混凝土");
             return true;
@@ -713,7 +713,7 @@ public class FPBlockSetTypes {
         Items.LIGHT_GRAY_CONCRETE,
         Blocks.LIGHT_GRAY_CONCRETE,
         true,
-        () -> List.of(FPTags.LIGHT_GRAY_DYE_FURNITURE),
+        () -> List.of(FPTags.LIGHT_GRAY_DYE_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "淡灰色混凝土");
             return true;
@@ -726,7 +726,7 @@ public class FPBlockSetTypes {
         Items.LIME_CONCRETE,
         Blocks.LIME_CONCRETE,
         true,
-        () -> List.of(FPTags.LIME_DYE_FURNITURE),
+        () -> List.of(FPTags.LIME_DYE_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "黄绿色混凝土");
             return true;
@@ -739,7 +739,7 @@ public class FPBlockSetTypes {
         Items.MAGENTA_CONCRETE,
         Blocks.MAGENTA_CONCRETE,
         true,
-        () -> List.of(FPTags.MAGENTA_DYE_FURNITURE),
+        () -> List.of(FPTags.MAGENTA_DYE_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "品红色混凝土");
             return true;
@@ -752,7 +752,7 @@ public class FPBlockSetTypes {
         Items.ORANGE_CONCRETE,
         Blocks.ORANGE_CONCRETE,
         true,
-        () -> List.of(FPTags.ORANGE_DYE_FURNITURE),
+        () -> List.of(FPTags.ORANGE_DYE_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "橙色混凝土");
             return true;
@@ -765,7 +765,7 @@ public class FPBlockSetTypes {
         Items.PINK_CONCRETE,
         Blocks.PINK_CONCRETE,
         true,
-        () -> List.of(FPTags.PINK_DYE_FURNITURE),
+        () -> List.of(FPTags.PINK_DYE_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "粉红色混凝土");
             return true;
@@ -778,7 +778,7 @@ public class FPBlockSetTypes {
         Items.PURPLE_CONCRETE,
         Blocks.PURPLE_CONCRETE,
         true,
-        () -> List.of(FPTags.PURPLE_DYE_FURNITURE),
+        () -> List.of(FPTags.PURPLE_DYE_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "紫色混凝土");
             return true;
@@ -791,7 +791,7 @@ public class FPBlockSetTypes {
         Items.RED_CONCRETE,
         Blocks.RED_CONCRETE,
         true,
-        () -> List.of(FPTags.RED_DYE_FURNITURE),
+        () -> List.of(FPTags.RED_DYE_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "红色混凝土");
             return true;
@@ -804,7 +804,7 @@ public class FPBlockSetTypes {
         Items.YELLOW_CONCRETE,
         Blocks.YELLOW_CONCRETE,
         true,
-        () -> List.of(FPTags.YELLOW_DYE_FURNITURE),
+        () -> List.of(FPTags.YELLOW_DYE_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "黄色混凝土");
             return true;
@@ -817,7 +817,7 @@ public class FPBlockSetTypes {
         Items.WHITE_CONCRETE,
         Blocks.WHITE_CONCRETE,
         true,
-        () -> List.of(FPTags.WHITE_DYE_FURNITURE),
+        () -> List.of(FPTags.WHITE_DYE_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "白色混凝土");
             return true;
@@ -831,7 +831,7 @@ public class FPBlockSetTypes {
         "smooth_basalt",
         Blocks.SMOOTH_BASALT,
         true,
-        () -> List.of(FPTags.SMOOTH_BASALT_FURNITURE),
+        () -> List.of(FPTags.SMOOTH_BASALT_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "平滑玄武岩");
             return true;
@@ -841,7 +841,7 @@ public class FPBlockSetTypes {
         "gilded_blackstone",
         Blocks.GILDED_BLACKSTONE,
         true,
-        () -> List.of(FPTags.GILDED_BLACKSTONE_FURNITURE),
+        () -> List.of(FPTags.GILDED_BLACKSTONE_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "镶金黑石");
             return true;
@@ -851,7 +851,7 @@ public class FPBlockSetTypes {
         "chiseled_polished_blackstone",
         Blocks.CHISELED_POLISHED_BLACKSTONE,
         true,
-        () -> List.of(FPTags.CHISELED_POLISHED_BLACKSTONE_FURNITURE),
+        () -> List.of(FPTags.CHISELED_POLISHED_BLACKSTONE_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "雕纹磨制黑石");
             return true;
@@ -861,7 +861,7 @@ public class FPBlockSetTypes {
         "purpur_pillar",
         Blocks.PURPUR_PILLAR,
         true,
-        () -> List.of(FPTags.PURPUR_PILLAR_FURNITURE),
+        () -> List.of(FPTags.PURPUR_PILLAR_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "紫珀柱");
             return true;
@@ -871,7 +871,7 @@ public class FPBlockSetTypes {
         "block_of_iron",
         Blocks.IRON_BLOCK,
         true,
-        () -> List.of(FPTags.BLOCK_OF_IRON_FURNITURE),
+        () -> List.of(FPTags.BLOCK_OF_IRON_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "铁块");
             return true;
@@ -882,7 +882,7 @@ public class FPBlockSetTypes {
         "block_of_gold",
         Blocks.GOLD_BLOCK,
         true,
-        () -> List.of(FPTags.BLOCK_OF_GOLD_FURNITURE),
+        () -> List.of(FPTags.BLOCK_OF_GOLD_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "金块");
             return true;
@@ -893,7 +893,7 @@ public class FPBlockSetTypes {
         "block_of_emerald",
         Blocks.EMERALD_BLOCK,
         true,
-        () -> List.of(FPTags.BLOCK_OF_EMERALD_FURNITURE),
+        () -> List.of(FPTags.BLOCK_OF_EMERALD_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "绿宝石块");
             return true;
@@ -904,7 +904,7 @@ public class FPBlockSetTypes {
         "block_of_lapis_lazuli",
         Blocks.LAPIS_BLOCK,
         true,
-        () -> List.of(FPTags.BLOCK_OF_LAPIS_LAZULI_FURNITURE),
+        () -> List.of(FPTags.BLOCK_OF_LAPIS_LAZULI_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "青金石块");
             return true;
@@ -915,7 +915,7 @@ public class FPBlockSetTypes {
         "block_of_diamond",
         Blocks.DIAMOND_BLOCK,
         true,
-        () -> List.of(FPTags.BLOCK_OF_DIAMOND_FURNITURE),
+        () -> List.of(FPTags.BLOCK_OF_DIAMOND_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "钻石块");
             return true;
@@ -926,7 +926,7 @@ public class FPBlockSetTypes {
         "block_of_netherite",
         Blocks.NETHERITE_BLOCK,
         true,
-        () -> List.of(FPTags.BLOCK_OF_NETHERITE_FURNITURE),
+        () -> List.of(FPTags.BLOCK_OF_NETHERITE_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "下界合金块");
             return true;
@@ -937,7 +937,7 @@ public class FPBlockSetTypes {
         "chiseled_quartz_block",
         Blocks.CHISELED_QUARTZ_BLOCK,
         true,
-        () -> List.of(FPTags.CHISELED_QUARTZ_BLOCK_FURNITURE),
+        () -> List.of(FPTags.CHISELED_QUARTZ_BLOCK_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "雕纹石英块");
             return true;
@@ -947,7 +947,7 @@ public class FPBlockSetTypes {
         "quartz_bricks",
         Blocks.QUARTZ_BRICKS,
         true,
-        () -> List.of(FPTags.QUARTZ_BRICKS_FURNITURE),
+        () -> List.of(FPTags.QUARTZ_BRICKS_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "石英砖");
             return true;
@@ -957,7 +957,7 @@ public class FPBlockSetTypes {
         "block_of_amethyst",
         Blocks.AMETHYST_BLOCK,
         true,
-        () -> List.of(FPTags.BLOCK_OF_AMETHYST_FURNITURE),
+        () -> List.of(FPTags.BLOCK_OF_AMETHYST_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "紫水晶块");
             return true;
@@ -968,7 +968,7 @@ public class FPBlockSetTypes {
         "block_of_coal",
         Blocks.COAL_BLOCK,
         true,
-        () -> List.of(FPTags.BLOCK_OF_COAL_FURNITURE),
+        () -> List.of(FPTags.BLOCK_OF_COAL_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "煤炭块");
             return true;
@@ -1030,7 +1030,7 @@ public class FPBlockSetTypes {
         "calcite",
         Blocks.CALCITE,
         true,
-        () -> List.of(FPTags.CALCITE_FURNITURE),
+        () -> List.of(FPTags.CALCITE_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "方解石");
             return true;
@@ -1040,7 +1040,7 @@ public class FPBlockSetTypes {
         "obsidian",
         Blocks.OBSIDIAN,
         true,
-        () -> List.of(FPTags.OBSIDIAN_FURNITURE),
+        () -> List.of(FPTags.OBSIDIAN_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "黑曜石");
             return true;
@@ -1050,7 +1050,7 @@ public class FPBlockSetTypes {
         "crying_obsidian",
         Blocks.CRYING_OBSIDIAN,
         true,
-        () -> List.of(FPTags.CRYING_OBSIDIAN_FURNITURE),
+        () -> List.of(FPTags.CRYING_OBSIDIAN_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "哭泣的黑曜石");
             return true;
@@ -1060,7 +1060,7 @@ public class FPBlockSetTypes {
         "dripstone_block",
         Blocks.DRIPSTONE_BLOCK,
         true,
-        () -> List.of(FPTags.DRIPSTONE_BLOCK_FURNITURE),
+        () -> List.of(FPTags.DRIPSTONE_BLOCK_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "滴水石块");
             return true;
@@ -1070,7 +1070,7 @@ public class FPBlockSetTypes {
         "netherrack",
         Blocks.NETHERRACK,
         true,
-        () -> List.of(FPTags.NETHERRACK_FURNITURE),
+        () -> List.of(FPTags.NETHERRACK_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "下界岩");
             return true;
@@ -1080,7 +1080,7 @@ public class FPBlockSetTypes {
         "end_stone",
         Blocks.END_STONE,
         true,
-        () -> List.of(FPTags.END_STONE_FURNITURE),
+        () -> List.of(FPTags.END_STONE_FURNITURE, FPTags.DROP_DETRITUS),
         map -> {
             map.put(FPChineseProvider.LOCALE, "末地石");
             return true;
@@ -1090,7 +1090,7 @@ public class FPBlockSetTypes {
         "oak_wood",
         Blocks.OAK_WOOD,
         true,
-        () -> List.of(FPTags.OAK_WOOD_FURNITURE),
+        () -> List.of(FPTags.OAK_WOOD_FURNITURE, FPTags.DROP_SAWDUST),
         map -> {
             map.put(FPChineseProvider.LOCALE, "橡木原木");
             return true;
@@ -1101,7 +1101,7 @@ public class FPBlockSetTypes {
         "spruce_wood",
         Blocks.SPRUCE_WOOD,
         true,
-        () -> List.of(FPTags.SPRUCE_WOOD_FURNITURE),
+        () -> List.of(FPTags.SPRUCE_WOOD_FURNITURE, FPTags.DROP_SAWDUST),
         map -> {
             map.put(FPChineseProvider.LOCALE, "云杉木原木");
             return true;
@@ -1112,7 +1112,7 @@ public class FPBlockSetTypes {
         "jungle_wood",
         Blocks.JUNGLE_WOOD,
         true,
-        () -> List.of(FPTags.JUNGLE_WOOD_FURNITURE),
+        () -> List.of(FPTags.JUNGLE_WOOD_FURNITURE, FPTags.DROP_SAWDUST),
         map -> {
             map.put(FPChineseProvider.LOCALE, "丛林木原木");
             return true;
@@ -1123,7 +1123,7 @@ public class FPBlockSetTypes {
         "dark_oak_wood",
         Blocks.DARK_OAK_WOOD,
         true,
-        () -> List.of(FPTags.DARK_OAK_WOOD_FURNITURE),
+        () -> List.of(FPTags.DARK_OAK_WOOD_FURNITURE, FPTags.DROP_SAWDUST),
         map -> {
             map.put(FPChineseProvider.LOCALE, "深色橡木原木");
             return true;
@@ -1134,7 +1134,7 @@ public class FPBlockSetTypes {
         "mangrove_wood",
         Blocks.MANGROVE_WOOD,
         true,
-        () -> List.of(FPTags.MANGROVE_WOOD_FURNITURE),
+        () -> List.of(FPTags.MANGROVE_WOOD_FURNITURE, FPTags.DROP_SAWDUST),
         map -> {
             map.put(FPChineseProvider.LOCALE, "红树木原木");
             return true;
@@ -1145,7 +1145,7 @@ public class FPBlockSetTypes {
         "cherry_wood",
         Blocks.CHERRY_WOOD,
         true,
-        () -> List.of(FPTags.CHERRY_WOOD_FURNITURE),
+        () -> List.of(FPTags.CHERRY_WOOD_FURNITURE, FPTags.DROP_SAWDUST),
         map -> {
             map.put(FPChineseProvider.LOCALE, "樱花木原木");
             return true;
@@ -1156,7 +1156,7 @@ public class FPBlockSetTypes {
         "pale_oak_wood",
         Blocks.PALE_OAK_WOOD,
         true,
-        () -> List.of(FPTags.PALE_OAK_WOOD_FURNITURE),
+        () -> List.of(FPTags.PALE_OAK_WOOD_FURNITURE, FPTags.DROP_SAWDUST),
         map -> {
             map.put(FPChineseProvider.LOCALE, "苍白橡木原木");
             return true;
@@ -1167,7 +1167,7 @@ public class FPBlockSetTypes {
         "crimson_hyphae",
         Blocks.CRIMSON_HYPHAE,
         true,
-        () -> List.of(FPTags.CRIMSON_HYPHAE_FURNITURE),
+        () -> List.of(FPTags.CRIMSON_HYPHAE_FURNITURE, FPTags.DROP_SAWDUST),
         map -> {
             map.put(FPChineseProvider.LOCALE, "绯红菌核");
             return true;
@@ -1179,7 +1179,7 @@ public class FPBlockSetTypes {
         "warped_hyphae",
         Blocks.WARPED_HYPHAE,
         true,
-        () -> List.of(FPTags.WARPED_HYPHAE_FURNITURE),
+        () -> List.of(FPTags.WARPED_HYPHAE_FURNITURE, FPTags.DROP_SAWDUST),
         map -> {
             map.put(FPChineseProvider.LOCALE, "诡异菌核");
             return true;

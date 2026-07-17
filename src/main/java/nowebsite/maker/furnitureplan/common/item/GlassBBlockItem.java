@@ -87,7 +87,7 @@ public class GlassBBlockItem extends BlockItem {
         return ItemStack.EMPTY;
     }
 
-    public static void saveDataToItem(ItemStack stack, RegistryAccess access, BlockEntity blockEntity){
+    public static <T extends BlockEntity & HasGlassEntity> void saveDataToItem(ItemStack stack, RegistryAccess access, T blockEntity){
         try (ProblemReporter.ScopedCollector reporter = new ProblemReporter.ScopedCollector(blockEntity.problemPath(), FurniturePlan.LOGGER)) {
             TagValueOutput valueOutput = TagValueOutput.createWithContext(reporter, access);
             blockEntity.saveWithoutMetadata(valueOutput);

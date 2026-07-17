@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_needed_ingredient": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:purpur_pillar"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "furnitureplan:purpur_pillar_wall_shelf"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_needed_ingredient"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "furnitureplan:purpur_pillar_wall_shelf"
+    ]
+  }
+}

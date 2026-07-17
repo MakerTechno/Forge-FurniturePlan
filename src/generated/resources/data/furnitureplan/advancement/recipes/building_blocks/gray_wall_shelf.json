@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_needed_ingredient": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:gray_concrete"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "furnitureplan:gray_wall_shelf"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_needed_ingredient"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "furnitureplan:gray_wall_shelf"
+    ]
+  }
+}

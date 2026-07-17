@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "cabinets",
+  "ingredients": [
+    "minecraft:pink_dye",
+    [
+      "furnitureplan:yellow_with_black_frame_cabinet",
+      "furnitureplan:yellow_with_blue_frame_cabinet",
+      "furnitureplan:yellow_with_brown_frame_cabinet",
+      "furnitureplan:yellow_with_cyan_frame_cabinet",
+      "furnitureplan:yellow_with_gray_frame_cabinet",
+      "furnitureplan:yellow_with_green_frame_cabinet",
+      "furnitureplan:yellow_with_light_blue_frame_cabinet",
+      "furnitureplan:yellow_with_light_gray_frame_cabinet",
+      "furnitureplan:yellow_with_lime_frame_cabinet",
+      "furnitureplan:yellow_with_magenta_frame_cabinet",
+      "furnitureplan:yellow_with_orange_frame_cabinet",
+      "furnitureplan:yellow_with_purple_frame_cabinet",
+      "furnitureplan:yellow_with_red_frame_cabinet",
+      "furnitureplan:yellow_with_yellow_frame_cabinet",
+      "furnitureplan:yellow_with_white_frame_cabinet",
+      "furnitureplan:yellow_disguised_cabinet"
+    ]
+  ],
+  "result": {
+    "id": "furnitureplan:yellow_with_pink_frame_cabinet"
+  }
+}

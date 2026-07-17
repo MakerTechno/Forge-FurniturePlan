@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "shape=base": {
+      "model": "furnitureplan:block/detritus_block_column_base"
+    },
+    "shape=connect": {
+      "model": "furnitureplan:block/detritus_block_column_connect"
+    },
+    "shape=full": {
+      "model": "furnitureplan:block/detritus_block_column_full"
+    },
+    "shape=top": {
+      "model": "furnitureplan:block/detritus_block_column_top"
+    }
+  }
+}

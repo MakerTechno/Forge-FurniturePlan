@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_needed_dye": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:brown_dye"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:dye_waxed_weathered_cut_copper_with_brown_frame_cabinet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_needed_dye"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:dye_waxed_weathered_cut_copper_with_brown_frame_cabinet"
+    ]
+  }
+}

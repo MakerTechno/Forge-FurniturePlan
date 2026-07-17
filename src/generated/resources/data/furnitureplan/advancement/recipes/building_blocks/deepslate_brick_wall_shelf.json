@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_needed_ingredient": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:deepslate_bricks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "furnitureplan:deepslate_brick_wall_shelf"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_needed_ingredient"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "furnitureplan:deepslate_brick_wall_shelf"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_detritus": {
+      "conditions": {
+        "items": [
+          {
+            "items": "furnitureplan:detritus"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "furnitureplan:detritus_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_detritus"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "furnitureplan:detritus_block"
+    ]
+  }
+}

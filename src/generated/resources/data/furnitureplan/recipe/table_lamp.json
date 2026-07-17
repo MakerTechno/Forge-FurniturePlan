@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": "minecraft:dark_oak_fence",
+    "P": "minecraft:paper",
+    "R": "minecraft:redstone"
+  },
+  "pattern": [
+    "PRP",
+    "PDP",
+    " D "
+  ],
+  "result": {
+    "id": "furnitureplan:table_lamp"
+  }
+}

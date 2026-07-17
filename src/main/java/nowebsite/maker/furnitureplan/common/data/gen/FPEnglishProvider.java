@@ -34,6 +34,23 @@ public class FPEnglishProvider extends LanguageProvider {
         add("item.furnitureplan.cutlery.desc", "You can also put it on a plate");
         add("item.furnitureplan.glass.desc", "You can also put it on a plate or click on water source,\nor right click glass block with an potion item in hand.");
 
+        add(FPItemReg.SAWDUST.get(), "Sawdust");
+        add(FPItemReg.DETRITUS.get(), "Detritus");
+
+        add(FPItemReg.GRAVER.get(), "Graver");
+        add("tip.furnitureplan.graver", "This graver can carve some blocks into furniture blocks");
+        add("tip.furnitureplan.shiftdown", "Press SHIFT for more info.");
+        add("tip.furnitureplan.click", "Right click air to switch carve kinds.");
+        add("tip.furnitureplan.graver.kind", "Kind: ");
+        add("tip.furnitureplan.graver.kind_change", "Now carving: ");
+        add("tip.furnitureplan.graver.kind.chair", "Chairs");
+        add("tip.furnitureplan.graver.kind.bench", "Benches");
+        add("tip.furnitureplan.graver.kind.table", "Tables");
+        add("tip.furnitureplan.graver.kind.column", "Columns");
+        add("tip.furnitureplan.graver.kind.carved_column", "Carved columns");
+        add("tip.furnitureplan.graver.kind.lighted_column", "Lighted columns");
+        add("tip.furnitureplan.graver.kind.cupboard", "Cupboards");
+        add("tip.furnitureplan.graver.kind.cabinet", "Disguised cabinet");
 
         add("advancements.furniture.root.title", "Let's carve a furniture!");
         add("advancements.furniture.root.description", "Get a furniture graver");

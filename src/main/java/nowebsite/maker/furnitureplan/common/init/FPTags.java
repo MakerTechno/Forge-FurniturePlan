@@ -104,8 +104,6 @@ public class FPTags {
     public static final TagKey<Block> CHISELED_QUARTZ_BLOCK_FURNITURE = registerForBlock("chiseled_quartz_block_furniture");
     public static final TagKey<Block> QUARTZ_BRICKS_FURNITURE = registerForBlock("quartz_bricks_furniture");
     public static final TagKey<Block> BLOCK_OF_AMETHYST_FURNITURE = registerForBlock("block_of_amethyst_furniture");
-    public static final TagKey<Block> SEA_LANTERN_FURNITURE = registerForBlock("sea_lantern_furniture");
-    public static final TagKey<Block> GLOWSTONE_FURNITURE = registerForBlock("glowstone_furniture");
     public static final TagKey<Block> BLOCK_OF_COAL_FURNITURE = registerForBlock("block_of_coal_furniture");
     public static final TagKey<Block> BLUE_ICE_FURNITURE = registerForBlock("blue_ice_furniture");
     public static final TagKey<Block> PACKED_ICE_FURNITURE = registerForBlock("packed_ice_furniture");
@@ -131,6 +129,8 @@ public class FPTags {
     public static final TagKey<Block> DETRITUS_BLOCK_FURNITURE = registerForBlock("detritus_block_furniture");
 
 
+    public static final TagKey<Block> DROP_SAWDUST = registerForBlock("drop_sawdust");
+    public static final TagKey<Block> DROP_DETRITUS = registerForBlock("drop_detritus");
 
 
     public static final TagKey<Block> CHAIR_BLOCK = registerForBlock("chair");

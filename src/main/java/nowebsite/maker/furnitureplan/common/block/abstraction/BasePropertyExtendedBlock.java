@@ -19,6 +19,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockSetType;
 import nowebsite.maker.furnitureplan.common.data.gen.empowered.AutoGenBlockData;
+import nowebsite.maker.furnitureplan.common.init.FPBlockSetTypes;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -41,14 +42,15 @@ public abstract class BasePropertyExtendedBlock<T extends BasePropertyExtendedBl
     private final FPBlockSetType type;
 
     @SuppressWarnings("deprecation")
-    public static Properties calcProperties(Block block, Consumer<Properties> extraPropApplier) {
+    public static Properties calcProperties(FPBlockSetType type, Block block, Consumer<Properties> extraPropApplier) {
         Properties newProp = Properties.ofLegacyCopy(block);
+        newProp = FPBlockSetTypes.isTranslucent(type) ? newProp.noOcclusion() : newProp;
         extraPropApplier.accept(newProp);
         return newProp;
     }
 
     public BasePropertyExtendedBlock(FPBlockSetType type, BlockState state, Consumer<Properties> extraProperties) {
-        super(calcProperties(state.getBlock(), extraProperties));
+        super(calcProperties(type, state.getBlock(), extraProperties));
         this.type = type;
         this.base = state.getBlock();
         this.baseState = state;
@@ -59,7 +61,7 @@ public abstract class BasePropertyExtendedBlock<T extends BasePropertyExtendedBl
      * 仅供给CODEC使用
      */
     public BasePropertyExtendedBlock(FPBlockSetType type, BlockState state, Properties properties) {
-        super(properties);
+        super(FPBlockSetTypes.isTranslucent(type) ? properties.noOcclusion() : properties);
         this.type = type;
         this.base = state.getBlock();
         this.baseState = state;

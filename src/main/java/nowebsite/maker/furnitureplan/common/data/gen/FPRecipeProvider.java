@@ -4,16 +4,14 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredHolder;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.common.block.storaging.CabinetBlock;
 import nowebsite.maker.furnitureplan.common.block.surfacing.MoonShelfBlock;
 import nowebsite.maker.furnitureplan.common.block.surfacing.PotHolderBlock;
+import nowebsite.maker.furnitureplan.common.block.surfacing.WallShelfBlock;
 import nowebsite.maker.furnitureplan.common.init.FPBlockReg;
 import nowebsite.maker.furnitureplan.common.init.FPItemReg;
 import org.jetbrains.annotations.NotNull;
@@ -47,6 +45,13 @@ public class FPRecipeProvider extends RecipeProvider {
                 .pattern(" # ")
                 .pattern("###")
                 .pattern(" # ")
+                .unlockedBy("has_needed_ingredient", has(block.getType().getBase()))
+                .save(output);
+        }
+        for (WallShelfBlock block : FPBlockReg.WALL_SHELVES.get()) {
+            shaped(RecipeCategory.BUILDING_BLOCKS, block, 12)
+                .define('#', block.getType().getBase())
+                .pattern("###")
                 .unlockedBy("has_needed_ingredient", has(block.getType().getBase()))
                 .save(output);
         }
@@ -106,12 +111,12 @@ public class FPRecipeProvider extends RecipeProvider {
         shapeless(RecipeCategory.MISC, FPBlockReg.LANTERN_BLOCK_P1.get())
             .requires(FPBlockReg.LANTERN_BLOCK_P2)
             .unlockedBy("has_paper", has(Items.PAPER))
-            .save(output);
+            .save(output, "lantern_transform_1");
 
         shapeless(RecipeCategory.MISC, FPBlockReg.LANTERN_BLOCK_P2.get())
             .requires(FPBlockReg.LANTERN_BLOCK_P1)
             .unlockedBy("has_paper", has(Items.PAPER))
-            .save(output);
+            .save(output, "lantern_transform_2");
 
         shaped(RecipeCategory.MISC, FPBlockReg.TABLE_LAMP_BLOCK.get())
             .define('P', Items.PAPER)
