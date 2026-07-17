@@ -4,6 +4,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
+import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockSetType;
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPColorfulSetType;
 import nowebsite.maker.furnitureplan.common.data.gen.FPChineseProvider;
@@ -1187,6 +1188,31 @@ public class FPBlockSetTypes {
         5
     );
 
+    public static final FPBlockSetType SAWDUST_PLANKS_SET =  new FPBlockSetType(
+        "sawdust_planks",
+        Blocks.OAK_PLANKS,
+        true,
+        () -> List.of(FPTags.SAWDUST_PLANKS_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "木屑板");
+            return true;
+        },
+        "sawdust_planks",
+        FurniturePlan.MOD_ID
+    );
+
+    public static final FPBlockSetType DETRITUS_BLOCK_SET =  new FPBlockSetType(
+        "detritus_block",
+        Blocks.STONE,
+        true,
+        () -> List.of(FPTags.DETRITUS_BLOCK_FURNITURE),
+        map -> {
+            map.put(FPChineseProvider.LOCALE, "石屑块");
+            return true;
+        },
+        "detritus_block",
+        FurniturePlan.MOD_ID
+    );
     public static boolean isColorfulSet(FPBlockSetType type) {
         return type instanceof FPColorfulSetType;
     }

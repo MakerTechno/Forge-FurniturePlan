@@ -228,7 +228,7 @@ public class CabinetBlock extends BasePropertyHorizontalDirectionBlock<CabinetBl
     }
 
     @Override
-    public @org.jetbrains.annotations.Nullable BlockDataGenerator<? super @NotNull CabinetBlock> getGenerator() {
+    public @Nullable BlockDataGenerator<? super @NotNull CabinetBlock> getGenerator() {
         return new CabinetBDG();
     }
 }

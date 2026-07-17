@@ -32,6 +32,10 @@ public class FPChineseProvider extends LanguageProvider {
         add(FPBlockReg.GLASS_B_BLOCK_ITEM.get(), "玻璃杯");
         add(FPBlockReg.CUTLERY_ITEM.get(), "餐具");
         add(FPItemReg.AGERATUM_GUIDEBOOK.get(), "家具计划指南书");
+        add(FPItemReg.SAWDUST.get(), "木屑");
+        add(FPItemReg.DETRITUS.get(), "石粉");
+        add(FPBlockReg.SAWDUST_PLANKS.get(), "木屑板");
+        add(FPBlockReg.DETRITUS_BLOCK.get(), "石粉板");
         add("item.furnitureplan.grass_grass.desc", "这玩意能吃!?");
         add("item.furnitureplan.food_plate.desc", "你其实可以把杯子和餐叉也放上去, 再放点食物");
         add("item.furnitureplan.cutlery.desc", "你其实也可以把它放在盘子上");

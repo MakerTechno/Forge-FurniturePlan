@@ -17,4 +17,7 @@ public class FPItemReg {
             AGERATUM_GUIDEBOOK = ITEMS.registerSimpleItem("ageratum_guidebook");
         }
     }
+
+    public static final DeferredItem<@NotNull Item> SAWDUST = ITEMS.registerSimpleItem("sawdust");
+    public static final DeferredItem<@NotNull Item> DETRITUS = ITEMS.registerSimpleItem("detritus");
 }

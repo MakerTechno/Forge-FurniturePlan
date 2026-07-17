@@ -3,6 +3,7 @@ package nowebsite.maker.furnitureplan.common.block.surfacing;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.Identifier;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
@@ -21,6 +22,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.common.block.abstraction.BasePropertyExtendedBlock;
 import nowebsite.maker.furnitureplan.common.block.abstraction.BasePropertyHorizontalDirectionBlock;
@@ -32,6 +34,7 @@ import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockType;
 import nowebsite.maker.furnitureplan.common.block.surfacing.entity.MoonShelfBlockEntity;
 import nowebsite.maker.furnitureplan.common.data.gen.empowered.BlockDataGenerator;
 import nowebsite.maker.furnitureplan.common.init.FPBlockReg;
+import nowebsite.maker.furnitureplan.common.init.FPTags;
 import nowebsite.maker.furnitureplan.utils.interaction.InteractionSpace;
 import nowebsite.maker.furnitureplan.utils.interaction.Vec3Utils;
 import org.jetbrains.annotations.NotNull;
@@ -271,6 +274,12 @@ public class MoonShelfBlock extends BasePropertyHorizontalDirectionBlock<MoonShe
             @Override
             public FPBlockType<? extends @NotNull MoonShelfBlock> getTemplateType(@NotNull MoonShelfBlock block) {
                 return FPBlockType.MOON_SHELF;
+            }
+
+            @Override
+            public void addBlockTags(@NotNull MoonShelfBlock block, BlockTagsProvider provider, List<TagKey<Block>> keys) {
+                super.addBlockTags(block, provider, keys);
+                keys.add(FPTags.MOON_SHELF_BLOCK);
             }
 
             @Override

@@ -72,6 +72,9 @@ public class FPCreativeModTabReg {
 
     public static void registerCreativeTabs(BuildCreativeModeTabContentsEvent event) {
         if (event.getTab().equals(MISCELLANEOUS.get())) {
+            if (ModList.get().isLoaded("ageratum")) {
+                event.accept(FPItemReg.AGERATUM_GUIDEBOOK.get());
+            }
             event.accept(FPBlockReg.TABLE_LAMP_BLOCK.get());
             event.accept(FPBlockReg.LANTERN_BLOCK_P1.get());
             event.accept(FPBlockReg.LANTERN_BLOCK_P2.get());
@@ -83,9 +86,10 @@ public class FPCreativeModTabReg {
             event.accept(FPBlockReg.CUTLERY_ITEM.get());
             event.accept(FPBlockReg.GLASS_B_BLOCK_ITEM.get());
             event.accept(FPBlockReg.FOOD_PLATE_BLOCK_ITEM.get());
-            if (ModList.get().isLoaded("ageratum")) {
-                event.accept(FPItemReg.AGERATUM_GUIDEBOOK.get());
-            }
+            event.accept(FPItemReg.SAWDUST.get());
+            event.accept(FPItemReg.DETRITUS.get());
+            event.accept(FPBlockReg.SAWDUST_PLANKS.get());
+            event.accept(FPBlockReg.DETRITUS_BLOCK.get());
         }
         if (event.getTab().equals(SITTING.get())) {
             event.acceptAll(FPBlockReg.CHAIRS.get().stream().map(Block::asItem).map(Item::getDefaultInstance).toList());

@@ -127,6 +127,8 @@ public class FPTags {
     public static final TagKey<Block> PALE_OAK_WOOD_FURNITURE = registerForBlock("pale_oak_wood_furniture");
     public static final TagKey<Block> CRIMSON_HYPHAE_FURNITURE = registerForBlock("crimson_hyphae_furniture");
     public static final TagKey<Block> WARPED_HYPHAE_FURNITURE = registerForBlock("warped_hyphae_furniture");
+    public static final TagKey<Block> SAWDUST_PLANKS_FURNITURE = registerForBlock("sawdust_planks_furniture");
+    public static final TagKey<Block> DETRITUS_BLOCK_FURNITURE = registerForBlock("detritus_block_furniture");
 
 
 
@@ -140,6 +142,8 @@ public class FPTags {
     public static final TagKey<Block> BENCH_BLOCK = registerForBlock("bench");
     public static final TagKey<Block> CUPBOARD_BLOCK = registerForBlock("cupboard");
     public static final TagKey<Block> CABINET_BLOCK = registerForBlock("cabinet");
+    public static final TagKey<Block> MOON_SHELF_BLOCK = registerForBlock("cabinet");
+    public static final TagKey<Block> WALL_SHELF_BLOCK = registerForBlock("cabinet");
 
 
     private static TagKey<Block> registerForBlock(String id) {

@@ -3,6 +3,7 @@ package nowebsite.maker.furnitureplan.common.block.abstraction.set;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
+import nowebsite.maker.furnitureplan.FurniturePlan;
 
 import java.util.*;
 import java.util.function.Function;
@@ -57,6 +58,17 @@ public class FPBlockSetType {
         this.tagKeys = key;
         this.enableTransGen = transInit.apply(this.translations);
         this.texture = Identifier.withDefaultNamespace("block/" + texture);
+        TYPES.add(this);
+        this.base = base;
+        this.copyAll = copyAll;
+        this.animPart = 0;
+    }
+
+    public FPBlockSetType(String name, Block base, boolean copyAll, Supplier<List<TagKey<Block>>> key, Function<Map<String, String>, Boolean> transInit, String texture, String mod_id) {
+        this.name = name;
+        this.tagKeys = key;
+        this.enableTransGen = transInit.apply(this.translations);
+        this.texture = Identifier.fromNamespaceAndPath(mod_id, "block/" + texture);
         TYPES.add(this);
         this.base = base;
         this.copyAll = copyAll;

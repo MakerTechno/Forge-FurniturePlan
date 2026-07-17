@@ -51,6 +51,10 @@ public class FPModelProvider extends ModelProvider {
         simpleBlockWithItem(FPBlockReg.GLASS_B_BLOCK.get(), blockModels);
         horizontalCustomModelBlockWithItem(FPBlockReg.FOOD_PLATE_BLOCK.get(), blockModels, false);
         itemModels.generateFlatItem(FPItemReg.AGERATUM_GUIDEBOOK.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(FPItemReg.SAWDUST.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(FPItemReg.DETRITUS.get(), ModelTemplates.FLAT_ITEM);
+        simpleBlockWithItem(FPBlockReg.SAWDUST_PLANKS.get(), blockModels);
+        simpleBlockWithItem(FPBlockReg.DETRITUS_BLOCK.get(), blockModels);
         FPDataGenerators.GENERATORS.forEach((block, blockDataGenerator) -> invokeGenerator(block, blockDataGenerator, blockModels, itemModels));
     }
 

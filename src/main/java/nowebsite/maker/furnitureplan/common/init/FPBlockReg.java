@@ -21,6 +21,7 @@ import net.minecraft.world.item.component.SuspiciousStewEffects;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -286,6 +287,8 @@ public class FPBlockReg {
         )
     );
 
+    public static final DeferredBlock<@NotNull Block> SAWDUST_PLANKS = registerWithItem("sawdust_planks", identifier -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).setId(getId(identifier))));
+    public static final DeferredBlock<@NotNull Block> DETRITUS_BLOCK = registerWithItem("detritus_block", identifier -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).setId(getId(identifier))));
 
     public static <B extends Block> DeferredBlock<B> registerWithItem(String id, Function<Identifier, B> block) {
         return registerWithItem(id, block, new Item.Properties());

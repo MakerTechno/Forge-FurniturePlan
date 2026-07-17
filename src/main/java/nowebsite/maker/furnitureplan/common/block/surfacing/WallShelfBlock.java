@@ -2,6 +2,7 @@ package nowebsite.maker.furnitureplan.common.block.surfacing;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -19,6 +20,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import nowebsite.maker.furnitureplan.common.block.abstraction.BasePropertyExtendedBlock;
 import nowebsite.maker.furnitureplan.common.block.abstraction.BasePropertyHorizontalDirectionBlock;
 import nowebsite.maker.furnitureplan.common.block.abstraction.MulStateGetter;
@@ -29,6 +31,7 @@ import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockType;
 import nowebsite.maker.furnitureplan.common.block.surfacing.entity.WallShelfBlockEntity;
 import nowebsite.maker.furnitureplan.common.data.gen.empowered.BlockDataGenerator;
 import nowebsite.maker.furnitureplan.common.init.FPBlockReg;
+import nowebsite.maker.furnitureplan.common.init.FPTags;
 import nowebsite.maker.furnitureplan.utils.interaction.InteractionSpace;
 import nowebsite.maker.furnitureplan.utils.interaction.Vec3Utils;
 import org.jetbrains.annotations.NotNull;
@@ -163,6 +166,12 @@ public class WallShelfBlock extends BasePropertyHorizontalDirectionBlock<WallShe
             @Override
             public FPBlockType<? extends @NotNull WallShelfBlock> getTemplateType(@NotNull WallShelfBlock block) {
                 return FPBlockType.WALL_SHELF;
+            }
+
+            @Override
+            public void addBlockTags(@NotNull WallShelfBlock block, BlockTagsProvider provider, List<TagKey<Block>> keys) {
+                super.addBlockTags(block, provider, keys);
+                keys.add(FPTags.WALL_SHELF_BLOCK);
             }
         };
     }

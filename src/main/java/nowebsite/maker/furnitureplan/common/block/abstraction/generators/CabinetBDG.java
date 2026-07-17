@@ -10,13 +10,17 @@ import net.minecraft.client.data.models.model.TextureSlot;
 import net.minecraft.client.data.models.model.TexturedModel;
 import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.data.PackOutput;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import nowebsite.maker.furnitureplan.FurniturePlan;
 import nowebsite.maker.furnitureplan.common.block.abstraction.set.FPBlockType;
 import nowebsite.maker.furnitureplan.common.block.storaging.CabinetBlock;
 import nowebsite.maker.furnitureplan.common.data.gen.FPChineseProvider;
+import nowebsite.maker.furnitureplan.common.init.FPTags;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 import java.util.Optional;
 
 public class CabinetBDG extends HorizontalBDG<CabinetBlock> {
@@ -66,5 +70,11 @@ public class CabinetBDG extends HorizontalBDG<CabinetBlock> {
         } else  {
             return block.getType().getTranslations().get(FPChineseProvider.LOCALE) + "伪装" + getTemplateType(block).getTranslations().get(FPChineseProvider.LOCALE);
         }
+    }
+
+    @Override
+    public void addBlockTags(CabinetBlock block, BlockTagsProvider provider, List<TagKey<Block>> keys) {
+        super.addBlockTags(block, provider, keys);
+        keys.add(FPTags.CABINET_BLOCK);
     }
 }
