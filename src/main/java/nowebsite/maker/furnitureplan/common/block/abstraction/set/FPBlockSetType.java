@@ -3,6 +3,8 @@ package nowebsite.maker.furnitureplan.common.block.abstraction.set;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.registries.DeferredBlock;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 import java.util.function.Function;
@@ -18,6 +20,7 @@ public class FPBlockSetType {
     private final Block base;
     private final boolean copyAll;
     private final int animPart;
+    private final Supplier<DeferredBlock<@NotNull Block>> delayedSource;
 
     public FPBlockSetType(String name, Supplier<List<TagKey<Block>>> key, Block base, boolean copyAll) {
         this.name = name;
@@ -28,6 +31,7 @@ public class FPBlockSetType {
         this.base = base;
         this.copyAll = copyAll;
         this.animPart = 0;
+        this.delayedSource = null;
     }
 
     public FPBlockSetType(String name, Supplier<List<TagKey<Block>>> key, Block base, boolean copyAll, String texture) {
@@ -39,6 +43,7 @@ public class FPBlockSetType {
         this.base = base;
         this.copyAll = copyAll;
         this.animPart = 0;
+        this.delayedSource = null;
     }
 
     public FPBlockSetType(String name, Block base, boolean copyAll, Supplier<List<TagKey<Block>>> key, Function<Map<String, String>, Boolean> transInit) {
@@ -50,6 +55,7 @@ public class FPBlockSetType {
         this.base = base;
         this.copyAll = copyAll;
         this.animPart = 0;
+        this.delayedSource = null;
     }
 
     public FPBlockSetType(String name, Block base, boolean copyAll, Supplier<List<TagKey<Block>>> key, Function<Map<String, String>, Boolean> transInit, String texture) {
@@ -61,9 +67,10 @@ public class FPBlockSetType {
         this.base = base;
         this.copyAll = copyAll;
         this.animPart = 0;
+        this.delayedSource = null;
     }
 
-    public FPBlockSetType(String name, Block base, boolean copyAll, Supplier<List<TagKey<Block>>> key, Function<Map<String, String>, Boolean> transInit, String texture, String mod_id) {
+    public FPBlockSetType(String name, Block base, Supplier<DeferredBlock<@NotNull Block>> delayedSource, boolean copyAll, Supplier<List<TagKey<Block>>> key, Function<Map<String, String>, Boolean> transInit, String texture, String mod_id) {
         this.name = name;
         this.tagKeys = key;
         this.enableTransGen = transInit.apply(this.translations);
@@ -72,6 +79,7 @@ public class FPBlockSetType {
         this.base = base;
         this.copyAll = copyAll;
         this.animPart = 0;
+        this.delayedSource = delayedSource;
     }
 
 
@@ -84,6 +92,7 @@ public class FPBlockSetType {
         this.base = base;
         this.copyAll = copyAll;
         this.animPart = animPart;
+        this.delayedSource = null;
     }
 
     public FPBlockSetType(String name, Supplier<List<TagKey<Block>>> key, Block base, boolean copyAll, String texture, int animPart) {
@@ -95,6 +104,7 @@ public class FPBlockSetType {
         this.base = base;
         this.copyAll = copyAll;
         this.animPart = animPart;
+        this.delayedSource = null;
     }
 
     public FPBlockSetType(String name, Block base, boolean copyAll, Supplier<List<TagKey<Block>>> key, Function<Map<String, String>, Boolean> transInit, int animPart) {
@@ -106,6 +116,7 @@ public class FPBlockSetType {
         this.base = base;
         this.copyAll = copyAll;
         this.animPart = animPart;
+        this.delayedSource = null;
     }
 
     public FPBlockSetType(String name, Block base, boolean copyAll, Supplier<List<TagKey<Block>>> key, Function<Map<String, String>, Boolean> transInit, String texture, int animPart) {
@@ -117,6 +128,7 @@ public class FPBlockSetType {
         this.base = base;
         this.copyAll = copyAll;
         this.animPart = animPart;
+        this.delayedSource = null;
     }
 
     public Supplier<List<TagKey<Block>>> getTagKeys() {
@@ -137,6 +149,11 @@ public class FPBlockSetType {
 
     public Block getBase() {
         return base;
+    }
+
+    // Use additional path to solve ref problems
+    public Block getCarvingBase() {
+        return delayedSource == null ? getBase() : delayedSource.get().get();
     }
 
     public boolean shouldCopyAll() {

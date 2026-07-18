@@ -140,7 +140,7 @@ public class GraverItem extends Item {
     private void findAndReplace(Player player, Level level, InteractionHand hand, BlockHitResult result, FPBlockType<?> kind) {
         Block carving = level.getBlockState(result.getBlockPos()).getBlock();
         Block target = kind.getAll().stream().map(DeferredHolder::get)
-            .filter(block -> ((BlockSetGetter)block).getType().getBase().defaultBlockState().is(carving))
+            .filter(block -> ((BlockSetGetter)block).getType().getCarvingBase().defaultBlockState().is(carving))
             .filter(block -> !(block instanceof CabinetBlock cabinetBlock) || cabinetBlock.getFrameType() == null)
             .findFirst()
             .orElse(null);

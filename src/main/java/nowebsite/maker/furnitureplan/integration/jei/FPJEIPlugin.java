@@ -29,35 +29,35 @@ public class FPJEIPlugin  implements IModPlugin {
         List<GraverConversionRecipe> recipes = new ArrayList<>();
 
         recipes.add(new GraverConversionRecipe(
-            FPBlockReg.CHAIRS.get().stream().map(block -> block.getType().getBase().asItem().getDefaultInstance()).toList(),
+            FPBlockReg.CHAIRS.get().stream().map(block -> block.getType().getCarvingBase().asItem().getDefaultInstance()).toList(),
             FPBlockReg.CHAIRS.get().stream().map(block -> block.asItem().getDefaultInstance()).toList()
         ));
         recipes.add(new GraverConversionRecipe(
-            FPBlockReg.BENCHES.get().stream().map(block -> block.getType().getBase().asItem().getDefaultInstance()).toList(),
+            FPBlockReg.BENCHES.get().stream().map(block -> block.getType().getCarvingBase().asItem().getDefaultInstance()).toList(),
             FPBlockReg.BENCHES.get().stream().map(block -> block.asItem().getDefaultInstance()).toList()
         ));
         recipes.add(new GraverConversionRecipe(
-            FPBlockReg.COLUMNS.get().stream().map(block -> block.getType().getBase().asItem().getDefaultInstance()).toList(),
+            FPBlockReg.COLUMNS.get().stream().map(block -> block.getType().getCarvingBase().asItem().getDefaultInstance()).toList(),
             FPBlockReg.COLUMNS.get().stream().map(block -> block.asItem().getDefaultInstance()).toList()
         ));
         recipes.add(new GraverConversionRecipe(
-            FPBlockReg.CARVED_COLUMNS.get().stream().map(block -> block.getType().getBase().asItem().getDefaultInstance()).toList(),
+            FPBlockReg.CARVED_COLUMNS.get().stream().map(block -> block.getType().getCarvingBase().asItem().getDefaultInstance()).toList(),
             FPBlockReg.CARVED_COLUMNS.get().stream().map(block -> block.asItem().getDefaultInstance()).toList()
         ));
         recipes.add(new GraverConversionRecipe(
-            FPBlockReg.LIGHTED_COLUMNS.get().stream().map(block -> block.getType().getBase().asItem().getDefaultInstance()).toList(),
+            FPBlockReg.LIGHTED_COLUMNS.get().stream().map(block -> block.getType().getCarvingBase().asItem().getDefaultInstance()).toList(),
             FPBlockReg.LIGHTED_COLUMNS.get().stream().map(block -> block.asItem().getDefaultInstance()).toList()
         ));
         recipes.add(new GraverConversionRecipe(
-            FPBlockReg.TABLES.get().stream().map(block -> block.getType().getBase().asItem().getDefaultInstance()).toList(),
+            FPBlockReg.TABLES.get().stream().map(block -> block.getType().getCarvingBase().asItem().getDefaultInstance()).toList(),
             FPBlockReg.TABLES.get().stream().map(block -> block.asItem().getDefaultInstance()).toList()
         ));
         recipes.add(new GraverConversionRecipe(
-            FPBlockReg.CUPBOARDS.get().stream().map(block -> block.getType().getBase().asItem().getDefaultInstance()).toList(),
+            FPBlockReg.CUPBOARDS.get().stream().map(block -> block.getType().getCarvingBase().asItem().getDefaultInstance()).toList(),
             FPBlockReg.CUPBOARDS.get().stream().map(block -> block.asItem().getDefaultInstance()).toList()
         ));
         recipes.add(new GraverConversionRecipe(
-            FPBlockReg.CABINETS.get().stream().filter(block -> block.getFrameType() == null).map(block -> block.getType().getBase().asItem().getDefaultInstance()).toList(),
+            FPBlockReg.CABINETS.get().stream().filter(block -> block.getFrameType() == null).map(block -> block.getType().getCarvingBase().asItem().getDefaultInstance()).toList(),
             FPBlockReg.CABINETS.get().stream().filter(block -> block.getFrameType() == null).map(block -> block.asItem().getDefaultInstance()).toList()
         ));
 

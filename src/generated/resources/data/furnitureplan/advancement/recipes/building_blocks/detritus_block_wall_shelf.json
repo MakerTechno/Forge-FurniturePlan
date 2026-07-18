@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "minecraft:stone"
+            "items": "furnitureplan:detritus_block"
           }
         ]
       },

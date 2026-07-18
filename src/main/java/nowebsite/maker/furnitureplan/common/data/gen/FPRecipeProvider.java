@@ -40,28 +40,28 @@ public class FPRecipeProvider extends RecipeProvider {
 
         for (PotHolderBlock block : FPBlockReg.POT_HOLDERS.get()) {
             shaped(RecipeCategory.BUILDING_BLOCKS, block, 2)
-                .define('#', block.getType().getBase())
+                .define('#', block.getType().getCarvingBase())
                 .pattern(" # ")
                 .pattern(" # ")
                 .pattern("# #")
-                .unlockedBy("has_needed_concrete", has(block.getType().getBase()))
+                .unlockedBy("has_needed_concrete", has(block.getType().getCarvingBase()))
                 .save(output);
         }
 
         for (MoonShelfBlock block : FPBlockReg.MOON_SHELVES.get()) {
             shaped(RecipeCategory.BUILDING_BLOCKS, block)
-                .define('#', block.getType().getBase())
+                .define('#', block.getType().getCarvingBase())
                 .pattern(" # ")
                 .pattern("###")
                 .pattern(" # ")
-                .unlockedBy("has_needed_ingredient", has(block.getType().getBase()))
+                .unlockedBy("has_needed_ingredient", has(block.getType().getCarvingBase()))
                 .save(output);
         }
         for (WallShelfBlock block : FPBlockReg.WALL_SHELVES.get()) {
             shaped(RecipeCategory.BUILDING_BLOCKS, block, 12)
-                .define('#', block.getType().getBase())
+                .define('#', block.getType().getCarvingBase())
                 .pattern("###")
-                .unlockedBy("has_needed_ingredient", has(block.getType().getBase()))
+                .unlockedBy("has_needed_ingredient", has(block.getType().getCarvingBase()))
                 .save(output);
         }
 

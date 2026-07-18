@@ -1191,6 +1191,7 @@ public class FPBlockSetTypes {
     public static final FPBlockSetType SAWDUST_PLANKS_SET =  new FPBlockSetType(
         "sawdust_planks",
         Blocks.OAK_PLANKS,
+        () -> FPBlockReg.SAWDUST_PLANKS,
         true,
         () -> List.of(FPTags.SAWDUST_PLANKS_FURNITURE),
         map -> {
@@ -1204,6 +1205,7 @@ public class FPBlockSetTypes {
     public static final FPBlockSetType DETRITUS_BLOCK_SET =  new FPBlockSetType(
         "detritus_block",
         Blocks.STONE,
+        () -> FPBlockReg.DETRITUS_BLOCK,
         true,
         () -> List.of(FPTags.DETRITUS_BLOCK_FURNITURE),
         map -> {
