@@ -75,6 +75,7 @@ public class FPCreativeModTabReg {
             if (ModList.get().isLoaded("ageratum")) {
                 event.accept(FPItemReg.AGERATUM_GUIDEBOOK.get());
             }
+            event.accept(FPItemReg.GRAVER.get());
             event.accept(FPBlockReg.TABLE_LAMP_BLOCK.get());
             event.accept(FPBlockReg.LANTERN_BLOCK_P1.get());
             event.accept(FPBlockReg.LANTERN_BLOCK_P2.get());

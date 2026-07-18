@@ -2917,5 +2917,7 @@
   "tip.furnitureplan.graver.kind.lighted_column": "嵌灯柱子",
   "tip.furnitureplan.graver.kind.table": "桌子",
   "tip.furnitureplan.graver.kind_change": "当前雕刻目标: ",
+  "tip.furnitureplan.jei.carve": "雕刻成型",
+  "tip.furnitureplan.jei.text": "手持雕刻刀右键长按方块以雕刻",
   "tip.furnitureplan.shiftdown": "按下SHIFT查看详细信息"
 }

@@ -4,7 +4,7 @@
       "conditions": {
         "items": [
           {
-            "items": "furnitureplan/graver"
+            "items": "furnitureplan:graver"
           }
         ]
       },
@@ -12,12 +12,11 @@
     }
   },
   "display": {
-    "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+    "background": "minecraft:gui/advancements/backgrounds/adventure",
     "description": {
       "translate": "advancements.furniture.root.description"
     },
     "icon": {
-      "count": 1,
       "id": "furnitureplan:graver"
     },
     "title": {

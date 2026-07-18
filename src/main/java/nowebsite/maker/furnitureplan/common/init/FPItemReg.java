@@ -24,7 +24,7 @@ public class FPItemReg {
 
     public static final DeferredItem<@NotNull Item> SAWDUST = ITEMS.registerSimpleItem("sawdust");
     public static final DeferredItem<@NotNull Item> DETRITUS = ITEMS.registerSimpleItem("detritus");
-    public static final DeferredItem<@NotNull Item> GRAVER = ITEMS.register("graver", identifier -> new GraverItem(new Item.Properties().stacksTo(1).setId(getItemId(identifier))));
+    public static final DeferredItem<@NotNull GraverItem> GRAVER = ITEMS.register("graver", identifier -> new GraverItem(new Item.Properties().stacksTo(1).setId(getItemId(identifier))));
 
     private static @NotNull ResourceKey<Item> getItemId(Identifier name) {
         return ResourceKey.create(Registries.ITEM, name);

@@ -2924,5 +2924,7 @@
   "tip.furnitureplan.graver.kind.lighted_column": "Lighted columns",
   "tip.furnitureplan.graver.kind.table": "Tables",
   "tip.furnitureplan.graver.kind_change": "Now carving: ",
+  "tip.furnitureplan.jei.carve": "Carve to block",
+  "tip.furnitureplan.jei.text": "Hold right‑click on a block with the graver to carve.",
   "tip.furnitureplan.shiftdown": "Press SHIFT for more info."
 }

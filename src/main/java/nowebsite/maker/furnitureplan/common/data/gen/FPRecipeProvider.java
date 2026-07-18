@@ -29,6 +29,15 @@ public class FPRecipeProvider extends RecipeProvider {
         miscellaneous();
         utensils();
 
+        shaped(RecipeCategory.MISC, FPItemReg.GRAVER.get())
+            .define('I', Items.IRON_NUGGET)
+            .define('S', Items.STICK)
+            .pattern("I I")
+            .pattern("ISI")
+            .pattern(" S ")
+            .unlockedBy("has_iron_nugget", has(Items.IRON_NUGGET))
+            .save(output);
+
         for (PotHolderBlock block : FPBlockReg.POT_HOLDERS.get()) {
             shaped(RecipeCategory.BUILDING_BLOCKS, block, 2)
                 .define('#', block.getType().getBase())

@@ -58,6 +58,10 @@ public class FPEnglishProvider extends LanguageProvider {
         add("advancements.furniture.grassit.description", "Try to eat a grass(furnitureplan)");
         add("furnitureplan.networking.failed", "Failed to sync data.");
         add("block.furnitureplan.cupboard_block", "Cupboard");
+
+        /* JEI */
+        add("tip.furnitureplan.jei.carve", "Carve to block");
+        add("tip.furnitureplan.jei.text", "Hold right‑click on a block with the graver to carve.");
     }
 
     public static String toTitleCase(String raw) {

@@ -64,6 +64,10 @@ public class FPChineseProvider extends LanguageProvider {
         add("advancements.furniture.grassit.description", "吃下一颗来自家具计划的草");
         add("furnitureplan.networking.failed", "在同步数据时发生错误。");
         add("block.furnitureplan.cupboard_block", "橱柜");
+
+        /* JEI */
+        add("tip.furnitureplan.jei.carve", "雕刻成型");
+        add("tip.furnitureplan.jei.text", "手持雕刻刀右键长按方块以雕刻");
     }
 
 
