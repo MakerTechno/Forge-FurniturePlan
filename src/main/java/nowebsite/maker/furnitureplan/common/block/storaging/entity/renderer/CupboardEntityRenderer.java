@@ -84,8 +84,12 @@ public class CupboardEntityRenderer implements BlockEntityRenderer<@NotNull Cupb
             .build()
         );
         DRAWER_1_HANDLER = new FPCubeDefinition()
-            .model(5.5f, 12.67f, 0.249f, 5.0f, 1.1500000000000004f, 0.0f)
-            .north(0f, 0f, 5f, 1f,0)
+            .model(5.5f, 12.67f, -0.051f, 5.0f, 1.1500000000000004f, 0.3f)
+            .north(0f, 0f, 5f, 1f, 0)
+            .east(0f, 0f, 1f, 1f, 0)
+            .west(0f, 0f, 1f, 1f, 0)
+            .up(5f, 0f, 0f, 1f, 0)
+            .down(5f, 0f, 0f, 1f, 0)
             .build();
 
         DRAWER_2.add(new FPCubeDefinition()
@@ -131,8 +135,12 @@ public class CupboardEntityRenderer implements BlockEntityRenderer<@NotNull Cupb
             .build()
         );
         DRAWER_2_HANDLER = new FPCubeDefinition()
-            .model(5.5f, 8.68f, 0.249f, 5.0f, 1.1600000000000001f, 0.0f)
-            .north(0f, 0f, 5f, 1f,0)
+            .model(5.5f, 8.68f, -0.051f, 5.0f, 1.1600000000000001f, 0.3f)
+            .north(0f, 0f, 5f, 1f, 0)
+            .east(0f, 0f, 1f, 1f, 0)
+            .west(0f, 0f, 1f, 1f, 0)
+            .up(5f, 0f, 0f, 1f, 0)
+            .down(5f, 0f, 0f, 1f, 0)
             .build();
 
         DRAWER_3.add(new FPCubeDefinition()
@@ -178,8 +186,12 @@ public class CupboardEntityRenderer implements BlockEntityRenderer<@NotNull Cupb
             .build()
         );
         DRAWER_3_HANDLER = new FPCubeDefinition()
-            .model(5.5f, 5f, 0.249f, 5.0f, 1f, 0.0f)
-            .north(0f, 0f, 5f, 1f,0)
+            .model(5.5f, 5f, -0.051f, 5.0f, 1f, 0.3f)
+            .north(0f, 0f, 5f, 1f, 0)
+            .east(0f, 0f, 1f, 1f, 0)
+            .west(0f, 0f, 1f, 1f, 0)
+            .up(5f, 0f, 0f, 1f, 0)
+            .down(5f, 0f, 0f, 1f, 0)
             .build();
     }
 
