@@ -38,6 +38,24 @@ public class FPRecipeProvider extends RecipeProvider {
             .unlockedBy("has_iron_nugget", has(Items.IRON_NUGGET))
             .save(output);
 
+        shaped(RecipeCategory.MISC, FPBlockReg.WATER_DISPENSER_ITEM.get())
+            .define('Q', Items.QUARTZ)
+            .define('R', Items.REDSTONE)
+            .pattern("QRQ")
+            .pattern("QQQ")
+            .unlockedBy("has_quartz", has(Items.QUARTZ))
+            .save(output);
+
+        shapeless(RecipeCategory.MISC, FPBlockReg.BOTTLE_ITEM.get())
+            .requires(Items.WATER_BUCKET)
+            .unlockedBy("has_water_bucket", has(Items.WATER_BUCKET))
+            .save(output);
+
+        shapeless(RecipeCategory.MISC, Items.WATER_BUCKET)
+            .requires(FPBlockReg.BOTTLE_ITEM)
+            .unlockedBy("has_water_bucket", has(Items.WATER_BUCKET))
+            .save(output);
+
         for (PotHolderBlock block : FPBlockReg.POT_HOLDERS.get()) {
             shaped(RecipeCategory.BUILDING_BLOCKS, block, 2)
                 .define('#', block.getType().getCarvingBase())

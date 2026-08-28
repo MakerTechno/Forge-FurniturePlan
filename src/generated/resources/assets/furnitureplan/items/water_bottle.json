@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "furnitureplan:block/water_bottle"
+    "model": "furnitureplan:block/template/bottle_normal"
   }
 }

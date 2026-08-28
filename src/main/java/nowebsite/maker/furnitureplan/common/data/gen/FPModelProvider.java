@@ -45,8 +45,8 @@ public class FPModelProvider extends ModelProvider {
         customModelBlockWithItem(FPBlockReg.TABLE_LAMP_BLOCK.get(), blockModels);
         simpleBlockWithItem(FPBlockReg.GRASS_GRASS.get(), blockModels);
         blockModels.createNonTemplateModelBlock(FPBlockReg.STOVE_BLOCK.get());
-        blockModels.createNonTemplateModelBlock(FPBlockReg.WATER_DISPENSER.get());
-        blockModels.createNonTemplateModelBlock(FPBlockReg.BOTTLE.get());
+        simpleHorizontalBlockWithItem(FPBlockReg.WATER_DISPENSER.get(), blockModels);
+        customModelBlockWithItem(FPBlockReg.BOTTLE.get(), blockModels);
         simpleHorizontalBlockWithItem(FPBlockReg.CUTLERY_BLOCK.get(), blockModels, "cutlery_handing", itemModels);
         simpleBlockWithItem(FPBlockReg.GLASS_B_BLOCK.get(), blockModels);
         horizontalCustomModelBlockWithItem(FPBlockReg.FOOD_PLATE_BLOCK.get(), blockModels, false);

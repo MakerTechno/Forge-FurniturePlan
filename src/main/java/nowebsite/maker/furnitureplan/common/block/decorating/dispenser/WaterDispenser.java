@@ -2,6 +2,7 @@ package nowebsite.maker.furnitureplan.common.block.decorating.dispenser;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
@@ -16,6 +17,7 @@ public class WaterDispenser extends HorizontalDirectionalBlock implements Entity
     public static final MapCodec<WaterDispenser> CODEC = simpleCodec(WaterDispenser::new);
     public WaterDispenser(Properties properties) {
         super(properties);
+        registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
     @Override
     protected MapCodec<? extends HorizontalDirectionalBlock> codec() {

@@ -20,10 +20,7 @@ import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.component.SuspiciousStewEffects;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.FlowerBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -54,6 +51,8 @@ import nowebsite.maker.furnitureplan.common.block.decorating.TableLampBlock;
 import nowebsite.maker.furnitureplan.common.block.decorating.columns.CarvedColumnBlock;
 import nowebsite.maker.furnitureplan.common.block.decorating.columns.ColumnBlock;
 import nowebsite.maker.furnitureplan.common.block.decorating.columns.LightedColumnBlock;
+import nowebsite.maker.furnitureplan.common.block.decorating.dispenser.BottleOfWater;
+import nowebsite.maker.furnitureplan.common.block.decorating.dispenser.WaterDispenser;
 import nowebsite.maker.furnitureplan.common.block.seating.BenchBlock;
 import nowebsite.maker.furnitureplan.common.block.seating.ChairBlock;
 import nowebsite.maker.furnitureplan.common.block.seating.entity.BenchBlockEntity;
@@ -105,11 +104,11 @@ public class FPBlockReg {
     public static final DeferredHolder<Block, Block> STOVE_BLOCK = BLOCKS.register("stove_block", name -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(3.0F).requiresCorrectToolForDrops().sound(SoundType.STONE).setId(getId(name))));
     public static final DeferredHolder<Item, Item> STOVE_BLOCK_ITEM = FPItemReg.ITEMS.register("stove_block", name -> new BlockItem(STOVE_BLOCK.get(), new Item.Properties().setId(getItemId(name))));
 
-    public static final DeferredHolder<Block, Block> WATER_DISPENSER = BLOCKS.register("water_dispenser", name -> new Block(BlockBehaviour.Properties.of().setId(getId(name))));
-    public static final DeferredHolder<Item, Item> WATER_DISPENSER_ITEM = FPItemReg.ITEMS.register("water_dispenser", name -> new BlockItem(WATER_DISPENSER.get(), new Item.Properties().setId(getItemId(name))));
+    public static final DeferredBlock<@NotNull WaterDispenser> WATER_DISPENSER = BLOCKS.register("water_dispenser", name -> new WaterDispenser(BlockBehaviour.Properties.of().setId(getId(name))));
+    public static final DeferredItem<@NotNull BlockItem> WATER_DISPENSER_ITEM = FPItemReg.ITEMS.register("water_dispenser", name -> new BlockItem(WATER_DISPENSER.get(), new Item.Properties().setId(getItemId(name))));
 
-    public static final DeferredHolder<Block, Block> BOTTLE = BLOCKS.register("water_bottle", name -> new Block(BlockBehaviour.Properties.of().noOcclusion().setId(getId(name))));
-    public static final DeferredHolder<Item, Item> BOTTLE_ITEM = FPItemReg.ITEMS.register("water_bottle", name -> new BlockItem(BOTTLE.get(), new Item.Properties().setId(getItemId(name))));
+    public static final DeferredBlock<@NotNull BottleOfWater> BOTTLE = BLOCKS.register("water_bottle", name -> new BottleOfWater(BlockBehaviour.Properties.of().noOcclusion().setId(getId(name))));
+    public static final DeferredItem<@NotNull BlockItem> BOTTLE_ITEM = FPItemReg.ITEMS.register("water_bottle", name -> new BlockItem(BOTTLE.get(), new Item.Properties().setId(getItemId(name))));
 
     /*For tableware*/
     public static final DeferredBlock<@NotNull Cutlery> CUTLERY_BLOCK = BLOCKS.register("cutlery", name -> new Cutlery(getSmallBlockBehaviors().sound(SoundType.STONE).setId(getId(name))));

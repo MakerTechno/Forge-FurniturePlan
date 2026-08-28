@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
-      "model": "furnitureplan:block/water_bottle"
+    "define=insert": {
+      "model": "furnitureplan:block/template/bottle_verd"
+    },
+    "define=normal": {
+      "model": "furnitureplan:block/template/bottle_normal"
     }
   }
 }

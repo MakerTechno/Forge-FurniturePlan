@@ -49,8 +49,8 @@ public class IronPotBlockEntityRenderer implements BlockEntityRenderer<@NotNull 
             poseStack.pushPose();
             poseStack.translate(0.5f, 0.075f, 0.5f);
             poseStack.scale(0.5f, 0.5f, 0.5f);
-            poseStack.mulPose(Axis.ZP.rotationDegrees(90.0F));
-            poseStack.mulPose(Axis.YP.rotationDegrees(facing.toYRot()));
+            poseStack.mulPose(Axis.YP.rotationDegrees(-facing.toYRot() +180));
+            poseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
             itemState.submit(poseStack, submitNodeCollector, state.lightCoords, OverlayTexture.NO_OVERLAY, 0);
             poseStack.popPose();
         }

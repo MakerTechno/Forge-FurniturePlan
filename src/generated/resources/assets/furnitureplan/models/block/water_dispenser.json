@@ -1,0 +1,6 @@
+{
+  "parent": "furnitureplan:block/template/water_dispenser",
+  "textures": {
+    "particle": "furnitureplan:block/water_dispenser"
+  }
+}

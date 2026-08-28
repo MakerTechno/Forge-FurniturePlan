@@ -28,6 +28,9 @@ public class FPChineseProvider extends LanguageProvider {
         FPDataGenerators.GENERATORS.forEach(this::invokeGenerator);
         add(FPBlockReg.IRON_POT_ITEM.get(), "看起来很疼的铁锅");
         add(FPBlockReg.GRASS_GRASS_ITEM.get(), "草(物理意义上的)");
+        add(FPBlockReg.FOOD_PLATE_BLOCK.get(), "盘子");
+        add(FPBlockReg.GLASS_B_BLOCK.get(), "玻璃杯");
+        add(FPBlockReg.CUTLERY_BLOCK.get(), "餐具");
         add(FPBlockReg.FOOD_PLATE_BLOCK_ITEM.get(), "盘子");
         add(FPBlockReg.GLASS_B_BLOCK_ITEM.get(), "玻璃杯");
         add(FPBlockReg.CUTLERY_ITEM.get(), "餐具");
@@ -36,6 +39,10 @@ public class FPChineseProvider extends LanguageProvider {
         add(FPItemReg.DETRITUS.get(), "石粉");
         add(FPBlockReg.SAWDUST_PLANKS.get(), "木屑板");
         add(FPBlockReg.DETRITUS_BLOCK.get(), "石粉板");
+        add(FPBlockReg.WATER_DISPENSER.get(), "饮水机基座");
+        add(FPBlockReg.BOTTLE.get(), "水桶");
+        add(FPBlockReg.WATER_DISPENSER_ITEM.get(), "饮水机基座");
+        add(FPBlockReg.BOTTLE_ITEM.get(), "水桶");
 
         add(FPItemReg.GRAVER.get(), "雕刻刀");
         add("tip.furnitureplan.graver", "这个雕刻刀可以将一些方块雕刻成模组方块");

@@ -36,6 +36,8 @@ public class FPEnglishProvider extends LanguageProvider {
 
         add(FPItemReg.SAWDUST.get(), "Sawdust");
         add(FPItemReg.DETRITUS.get(), "Detritus");
+        add(FPBlockReg.WATER_DISPENSER_ITEM.get(), "Water dispenser");
+        add(FPBlockReg.BOTTLE_ITEM.get(), "Bottle");
 
         add(FPItemReg.GRAVER.get(), "Graver");
         add("tip.furnitureplan.graver", "This graver can carve some blocks into furniture blocks");

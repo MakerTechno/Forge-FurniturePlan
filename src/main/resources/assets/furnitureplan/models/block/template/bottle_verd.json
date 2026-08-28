@@ -1,6 +1,9 @@
 {
 	"credit": "Made by Maker with BlockBench",
 	"texture_size": [64, 64],
+	"textures": {
+		"particle": "furnitureplan:block/bottle"
+	},
 	"elements": [
 		{
 			"name": "1",
